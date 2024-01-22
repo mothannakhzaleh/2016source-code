@@ -27,7 +27,7 @@
 *.lib
 
 # Executables
-*.exe
+#*.exe
 *.out
 *.app
 *.tlog
@@ -176,7 +176,7 @@ tmp/
 *.userosscache
 *.sln.docstates
 *.dat
-*.exe
+
 *.pdo
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
