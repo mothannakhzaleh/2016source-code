@@ -1,0 +1,72 @@
+//ID	File	Item ID	1?	2?	Script
+1	Fiery Gem	878	1,0,0	1	ItemHint_LieYanS
+2	Furious Gem	879	2,3,7	1	ItemHint_ZhiYanS
+3	Explosive Gem	880	4,0,0	1	ItemHint_HuoYaoS
+4	Lustrious Gem	881	1,2,3	1	ItemHint_MaNaoS
+5	Glowing Gem	882	11,22,27	2	ItemHint_HanYu
+6	Shining Gem	883	11,22,27	2	ItemHint_YueZhiX
+7	Shadow Gem	884	1,2,3	2	ItemHint_ShuiLingS
+8	Spirit Gem	887	1,2,3	4	ItemHint_ShengGuangS
+9	Gem of the Wind	860	24,0,0	4	ItemHint_FengLingS
+10	Gem of Striking	861	23,0,0	4	ItemHint_YingYanS
+11	Gem of Colossus	862	11,22,27	4	ItemHint_YanVitS
+12	Gem of Rage	863	1,2,3	4	ItemHint_YanStrS
+13	Eye of Black Dragon	864	1,2,3	1	ItemHint_LongZhiTong
+14	Soul of Black Dragon	865	11,22,27	2	ItemHint_LongZhiHun
+15	Heart of Black Dragon	866	23,24,0	2	ItemHint_LongZhiXin
+16	Gem of Soul	1012	1,2,3	4	ItemHint_GaNaZhiShen
+17	Yellow Jade	5750	20,0,0	2	ItemHint_HuangYu
+18	Red Jade	5751	20,0,0	2	ItemHint_ChiYu
+19	Green Jade	5752	20,0,0	2	ItemHint_QingYu
+20	Chiatan's Aura	5771	20,0,0	1	ItemHint_XTLingGuang
+21	Locke's Hitting	5772	23,0,0	1	ItemHint_LKBiZhong
+22	Bing's Dodging	5773	24,0,0	2	ItemHint_BBDuoShan
+23	Feng's Defense	5774	22,0,0	2	ItemHint_FFDiYu
+24	Shark's Strengthening	5775	22,11,0	4	ItemHint_XKQiangHua
+25	Azrael's Glare	5845	1,2,3	1	ItemHint_SShuiyao
+26	Undead Azrael	5846	22,27,0	2	ItemHint_SSbusi
+27	Azrael's Light	5847	1,2,3	1	ItemHint_SSguangmang
+28	Azrael's Aggregation	5848	1,2,3	1	ItemHint_SSningju
+29	Azrael's Dance	5849	24,0,0	4	ItemHint_SSxuanwu
+30	Apollo's spirit	5878	1,2,3	1	ItemHint_ABOLUO
+31	Cupid's spirit	5879	11,22,27	2	ItemHint_QIUBITE
+32	Athene's spirit	5880	23,24,0	2	ItemHint_YADIANNA
+33	Colossus Gem of Trial	6718	22,27,0	2	ItemHint_SLTZBS
+34	Broken Gem of the Wind	6817	24,0,0	4	ItemHint_HLS
+35	Cracked Gem of the Wind	6818	24,0,0	4	ItemHint_HYS
+36	Chipped Gem of the Wind	6819	24,0,0	4	ItemHint_HJS
+37	Broken Gem of Striking	6820	23,0,0	4	ItemHint_BLS
+38	Cracked Gem of Striking	6821	23,0,0	4	ItemHint_BYS
+39	Chipped Gem of Striking	6822	23,0,0	4	ItemHint_BJS
+40	Broken Gem of Colossus	6823	11,22,27	4	ItemHint_CLS
+41	Cracked Gem of Colossus	6824	11,22,27	4	ItemHint_CYS
+42	Chipped Gem of Colossus	6825	11,22,27	4	ItemHint_CJS
+43	Broken Gem of Rage	6826	1,2,3	4	ItemHint_ZLS
+44	Cracked Gem of Rage	6827	1,2,3	4	ItemHint_ZYS
+45	Chipped Gem of Rage	6828	1,2,3	4	ItemHint_ZJS
+46	Broken Gem of Soul	6829	1,2,3	4	ItemHint_QLS
+47	Cracked Gem of Soul	6830	1,2,3	4	ItemHint_QYS
+48	Chipped Gem of Soul	6831	1,2,3	4	ItemHint_QJS
+49	Great Gem of Rage	7108	1,2,3	4	ItemHint_GGR
+50	Great Gem of Soul	7109	1,2,3	4	ItemHint_GGS
+51	Great Gem of Striking	7110	23,0,0	4	ItemHint_GGOS
+52	Great Gem of Colossus	7111	11,22,27	4	ItemHint_GGC
+53	Great Gem of Wind	7112	24,0,0	4	ItemHint_GGW
+54	Golden Rock	7288	23,0,0	4	ItemHint_JinYanS
+55	Lumber Rock	7289	23,0,0	4	ItemHint_MuYanS
+56	Water Rock	7290	23,0,0	4	ItemHint_ShuiYanS
+57	Fire Rock	7291	23,0,0	4	ItemHint_HuoYanS
+58	Earth Rock	7292	23,0,0	4	ItemHint_TuYanS
+59	Anchor of Satan	7558	83,0,0	2	ItemHint_SaDanWG
+60	Might of Satan	7559	82,0,0	2	ItemHint_SaDanQH
+61	Summoning of Satan	7560	81,0,0	4	ItemHint_SaDanZH
+62	Vengeance of Satan	7561	81,0,0	4	ItemHint_SaDanNX
+63	Stormsurge of Satan	7562	81,0,0	4	ItemHint_SaDanJF
+64	Locke's Power	9175	3,4,0	4	ItemHint_LuoKeZL
+65	Fang of Demonic Dragon	9017	1,2,3	1	ItemHint_MLZY
+66	Riven Soul Rune	9208	88,0,0	1	ItemHint_DuanHunFW
+67	Piercing Rune	9209	88,0,0	1	ItemHint_PoFangFW
+68	Illusory Rune	9210	88,0,0	1	ItemHint_HuanMoFW
+69	Prayer Rune	9206	88,0,0	4	ItemHint_QiFuFW
+70	Favor Rune	9207	88,0,0	4	ItemHint_EnCiFW
+71	Curse Rune	9211	88,0,0	1	ItemHint_WuZhouFW

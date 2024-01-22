@@ -1,0 +1,289 @@
+-----------------------------------------------------------------------
+-- 定义交易
+-----------------------------------------------------------------------
+--创建交易面板
+frmSeaTrade = UI_CreateForm( "frmSeaTrade", FALSE, 388, 397, 200, 200, TRUE, FALSE )
+-- UI_FormSetHotKey(frmSeaTrade, ALT_KEY, HOTKEY_T )
+UI_ShowForm( frmSeaTrade, FALSE )
+UI_AddFormToTemplete( frmSeaTrade, 1 )
+UI_SetIsDrag(frmSeaTrade, TRUE )
+
+
+-- 加载背景图片
+imgTradeTop1 = UI_CreateCompent( frmSeaTrade, IMAGE_TYPE, "imgTradeTop", 256, 256, 0, 0 )
+UI_LoadImage( imgTradeTop1, "texture/ui2009/seatr1.tga", NORMAL, 256, 256, 0, 0 )
+
+imgTradeDown1 = UI_CreateCompent( frmSeaTrade, IMAGE_TYPE, "imgTradeDown", 132, 256, 256, 0 )
+UI_LoadImage( imgTradeDown1, "texture/ui2009/seatr2.tga", NORMAL, 132, 256, 0, 0 )
+
+--imgTradePL = UI_CreateCompent( frmSeaTrade, IMAGE_TYPE, "imgTradePL", 256, 141, -3, 256 )
+--UI_LoadImage( imgTradePL, "texture/ui2009/heishi3.tga", NORMAL, 256, 141, 0, 0 )
+
+--imgTradePR = UI_CreateCompent( frmSeaTrade, IMAGE_TYPE, "imgTradePR", 136, 141, 253, 256)
+--UI_LoadImage( imgTradePR, "texture/ui2009/heishi4.tga", NORMAL, 136, 141, 0, 0 )
+
+--创建向右按钮
+btnRight = UI_CreateCompent( frmSeaTrade, BUTTON_TYPE, "btnRight", 15, 39, 350, 59 )
+--UI_LoadButtonImage( btnRight, "texture/ui/SysBotton4.tga", 15, 39, 165, 0, TRUE )
+
+--创建向左按钮
+btnLeft = UI_CreateCompent( frmSeaTrade, BUTTON_TYPE, "btnLeft", 15, 39, 15, 59 )
+--UI_LoadButtonImage( btnLeft, "texture/ui/SysBotton4.tga", 15, 39, 165, 39, TRUE )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmSeaTrade, BUTTON_TYPE, "btnClose", 15, 15, 352, 11 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+
+-- 物品
+--cmdItem1 = UI_CreateCompent( frmSeaTrade, COMMAND_ONE_TYPE, "cmdItem1", 32, 32, 67, 47 )
+--cmdItem2 = UI_CreateCompent( frmSeaTrade, COMMAND_ONE_TYPE, "cmdItem2", 32, 32, 174, 47 )
+--cmdItem3 = UI_CreateCompent( frmSeaTrade, COMMAND_ONE_TYPE, "cmdItem3", 32, 32, 281, 47 )
+
+
+--创建物品名称
+labItem1 = UI_CreateCompent( frmSeaTrade, LABELEX_TYPE, "labItem1", 96, 11, 35, 86 )
+--UI_SetCaption( labItem1, "就就就就就就就就" )
+UI_SetTextColor( labItem1, COLOR_BLACK )
+UI_SetLabelExFont( labItem1, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+labItem2 = UI_CreateCompent( frmSeaTrade, LABELEX_TYPE, "labItem2", 96, 11, 142, 86 )
+--UI_SetCaption( labItem2, "就就就就就就就就" )
+UI_SetTextColor( labItem2, COLOR_BLACK )
+UI_SetLabelExFont( labItem2, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+labItem3 = UI_CreateCompent( frmSeaTrade, LABELEX_TYPE, "labItem3", 96, 11, 249, 86 )
+--UI_SetCaption( labItem3, "就就就就就就就就" )
+UI_SetTextColor( labItem3, COLOR_BLACK )
+UI_SetLabelExFont( labItem3, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建物品价格
+labMen1 = UI_CreateCompent( frmSeaTrade, LABELEX_TYPE, "labMen1", 46, 8, 59, 103 )
+--UI_SetCaption( labMen1, "11111111" )
+UI_SetTextColor( labMen1, COLOR_BLACK )
+UI_SetLabelExFont( labMen1, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+labMen2 = UI_CreateCompent( frmSeaTrade, LABELEX_TYPE, "labMen2", 46, 8, 166, 103 )
+--UI_SetCaption( labMen2, "11111111" )
+UI_SetTextColor( labMen2, COLOR_BLACK )
+UI_SetLabelExFont( labMen2, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+labMen3 = UI_CreateCompent( frmSeaTrade, LABELEX_TYPE, "labMen3", 46, 8, 273, 103 )
+--UI_SetCaption( labMen3, "11111111" )
+UI_SetTextColor( labMen3, COLOR_BLACK )
+UI_SetLabelExFont( labMen3, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+
+--创建出售物品表
+grdItemSale = UI_CreateCompent( frmSeaTrade, GOODS_GRID_TYPE, "grdItemSale", 364, 148, 6, 10 ) 
+UI_SetGridSpace( grdItemSale, 20, 5 )
+UI_SetGridContent( grdItemSale, 6, 4 )
+UI_SetGridUnitSize( grdItemSale, 68, 68 )
+UI_SetMargin( grdItemSale, 10, 0, 0, 0 )
+
+--获得滚动条
+scrollid = UI_GetScroll( grdItemSale )
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/ui2009/item1.tga", COMPENT_BACK, 11, 1, 232, 190 )
+
+--加载向上按钮
+id = UI_GetScrollObj( scrollid, SCROLL_UP )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--加载滚动条
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/ui2009/item1.tga", COMPENT_BACK, 8, 33, 203, 0 )
+UI_SetSize( id, 8, 33 )
+
+--加载向下按钮
+id = UI_GetScrollObj( scrollid, SCROLL_DOWN )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--创建收购物品表
+grdItemBuy = UI_CreateCompent( frmSeaTrade, GOODS_GRID_TYPE, "grdItemBuy", 364, 148, 6, 10 ) 
+UI_SetGridSpace( grdItemBuy, 20, 5 )
+UI_SetGridContent( grdItemBuy, 6, 4 )
+UI_SetGridUnitSize( grdItemBuy, 68, 68 )
+UI_SetMargin( grdItemBuy, 10, 0, 0, 0 )
+
+--获得滚动条
+scrollid = UI_GetScroll( grdItemBuy )
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/ui2009/item1.tga", COMPENT_BACK, 11, 1, 232, 190 )
+
+--加载向上按钮
+id = UI_GetScrollObj( scrollid, SCROLL_UP )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--加载滚动条
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/ui2009/item1.tga", COMPENT_BACK, 8, 33, 203, 0 )
+UI_SetSize( id, 8, 33 )
+
+--加载向下按钮
+id = UI_GetScrollObj( scrollid, SCROLL_DOWN )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+
+--创建页面
+pgeTrade = UI_CreateCompent( frmSeaTrade, PAGE_TYPE, "pgeTrade", 359, 152, 11, 57 )
+UI_SetPageButton( pgeTrade, PAGE_BUTTON_CUSTOM, 69, 41 )
+
+--出售物品
+Itemsale = UI_CreatePageItem( pgeTrade )
+ttlSale = UI_GetPageItemObj( Itemsale, PAGE_ITEM_TITLE )
+UI_LoadImage( ttlSale, "texture/ui2009/seatr2.tga", PAGE_ITEM_TITLE_NORMAL, 62, 34, 194, 34 )
+UI_LoadImage( ttlSale, "texture/ui2009/seatr2.tga", PAGE_ITEM_TITLE_ACTIVE, 62, 34, 194, 0 )
+UI_SetPos( ttlSale, 16, -19 )
+UI_SetSize( ttlSale, 69, 35 )
+UI_AddCompent( Itemsale, grdItemSale )
+
+--收购物品
+Itembuy = UI_CreatePageItem( pgeTrade )
+ttlBuy = UI_GetPageItemObj( Itembuy, PAGE_ITEM_TITLE )
+UI_LoadImage( ttlBuy, "texture/ui2009/seatr2.tga", PAGE_ITEM_TITLE_NORMAL, 62, 34, 194, 102  )
+UI_LoadImage( ttlBuy, "texture/ui2009/seatr2.tga", PAGE_ITEM_TITLE_ACTIVE, 62, 34, 194, 68 )
+UI_SetPos( ttlBuy, 85, -19 )
+UI_SetSize( ttlBuy, 69, 35 )
+UI_AddCompent( Itembuy, grdItemBuy )
+
+
+
+
+
+--加载确定按钮
+btnYes = UI_CreateCompent( frmSeaTrade, BUTTON_TYPE, "btnYes", 47, 22, 239, 350 )
+--UI_LoadButtonImage( btnYes, "texture/ui/PublicC.tga", 41, 19, 0, 0, TRUE )
+
+--加载取消按钮
+btnNo = UI_CreateCompent( frmSeaTrade, BUTTON_TYPE, "btnNo", 47, 22, 287, 350 )
+--UI_LoadButtonImage( btnNo, "texture/ui/PublicC.tga", 41, 19, 0, 20, TRUE )
+--UI_SetButtonModalResult( btnNo, BUTTON_NO )
+
+------------------------------------------------------------------------
+--
+--  黑市商人
+--
+------------------------------------------------------------------------
+--创建交易面板
+frmBlackTrade = UI_CreateForm( "frmBlackTrade", FALSE, 388, 397, 200, 200, TRUE, FALSE )
+-- UI_FormSetHotKey(frmBlackTrade, ALT_KEY, HOTKEY_T )
+UI_ShowForm( frmBlackTrade, FALSE )
+UI_AddFormToTemplete( frmBlackTrade, 1 )
+UI_SetIsDrag(frmBlackTrade, TRUE )
+
+
+-- 加载背景图片
+imgTradeTop = UI_CreateCompent( frmBlackTrade, IMAGE_TYPE, "imgTradeTop", 256, 256, 0, 0 )
+UI_LoadImage( imgTradeTop, "texture/ui2009/heishi1.tga", NORMAL, 256, 256, 0, 0 )
+
+imgTradeDown = UI_CreateCompent( frmBlackTrade, IMAGE_TYPE, "imgTradeDown", 132, 256, 256, 0 )
+UI_LoadImage( imgTradeDown, "texture/ui2009/heishi2.tga", NORMAL, 132, 256, 0, 0 )
+
+imgTradePL = UI_CreateCompent( frmBlackTrade, IMAGE_TYPE, "imgTradePL", 256, 141,  -3, 256 )
+UI_LoadImage( imgTradePL, "texture/ui2009/heishi3.tga", NORMAL, 256, 141, 0, 0 )
+
+imgTradePR = UI_CreateCompent( frmBlackTrade, IMAGE_TYPE, "imgTradePR", 136, 141, 253, 256 )
+UI_LoadImage( imgTradePR, "texture/ui2009/heishi4.tga", NORMAL, 136, 141, 0, 0 )
+
+--创建向右按钮
+btnRight = UI_CreateCompent( frmBlackTrade, BUTTON_TYPE, "btnRight", 15, 39, 350, 59 )
+--UI_LoadButtonImage( btnRight, "texture/ui/SysBotton4.tga", 15, 39, 165, 0, TRUE )
+
+--创建向左按钮
+btnLeft = UI_CreateCompent( frmBlackTrade, BUTTON_TYPE, "btnLeft", 15, 39, 15, 59 )
+--UI_LoadButtonImage( btnLeft, "texture/ui/SysBotton4.tga", 15, 39, 165, 39, TRUE )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmBlackTrade, BUTTON_TYPE, "btnClose", 15, 15, 352, 11 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+
+-- 物品
+--cmdItem1 = UI_CreateCompent( frmBlackTrade, COMMAND_ONE_TYPE, "cmdItem1", 32, 32, 67, 47 )
+--cmdItem2 = UI_CreateCompent( frmBlackTrade, COMMAND_ONE_TYPE, "cmdItem2", 32, 32, 174, 47 )
+--cmdItem3 = UI_CreateCompent( frmBlackTrade, COMMAND_ONE_TYPE, "cmdItem3", 32, 32, 281, 47 )
+
+
+--创建物品名称
+labItem1 = UI_CreateCompent( frmBlackTrade, LABELEX_TYPE, "labItem1", 96, 11, 35, 86 )
+--UI_SetCaption( labItem1, "就就就就就就就就" )
+UI_SetTextColor( labItem1, COLOR_BLACK )
+UI_SetLabelExFont( labItem1, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+labItem2 = UI_CreateCompent( frmBlackTrade, LABELEX_TYPE, "labItem2", 96, 11, 142, 86 )
+--UI_SetCaption( labItem2, "就就就就就就就就" )
+UI_SetTextColor( labItem2, COLOR_BLACK )
+UI_SetLabelExFont( labItem2, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+labItem3 = UI_CreateCompent( frmBlackTrade, LABELEX_TYPE, "labItem3", 96, 11, 249, 86 )
+--UI_SetCaption( labItem3, "就就就就就就就就" )
+UI_SetTextColor( labItem3, COLOR_BLACK )
+UI_SetLabelExFont( labItem3, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建物品价格
+labMen1 = UI_CreateCompent( frmBlackTrade, LABELEX_TYPE, "labMen1", 46, 8, 59, 103 )
+--UI_SetCaption( labMen1, "11111111" )
+UI_SetTextColor( labMen1, COLOR_BLACK )
+UI_SetLabelExFont( labMen1, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+labMen2 = UI_CreateCompent( frmBlackTrade, LABELEX_TYPE, "labMen2", 46, 8, 166, 103 )
+--UI_SetCaption( labMen2, "11111111" )
+UI_SetTextColor( labMen2, COLOR_BLACK )
+UI_SetLabelExFont( labMen2, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+labMen3 = UI_CreateCompent( frmBlackTrade, LABELEX_TYPE, "labMen3", 46, 8, 273, 103 )
+--UI_SetCaption( labMen3, "11111111" )
+UI_SetTextColor( labMen3, COLOR_BLACK )
+UI_SetLabelExFont( labMen3, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+
+--创建出售物品表
+grdItemSale = UI_CreateCompent( frmBlackTrade, GOODS_GRID_TYPE, "grdItemSale", 364, 148, 20, 69 ) 
+UI_SetGridSpace( grdItemSale, 23, 5 )
+UI_SetGridContent( grdItemSale, 14, 3 )
+UI_SetGridUnitSize( grdItemSale, 92,68 )
+UI_SetMargin( grdItemSale, 10, 0, 0, 0 )
+
+--获得滚动条
+scrollid = UI_GetScroll( grdItemSale )
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/ui2009/item1.tga", COMPENT_BACK, 11, 1, 232, 190 )
+
+--加载向上按钮
+id = UI_GetScrollObj( scrollid, SCROLL_UP )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--加载滚动条
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/ui2009/item1.tga", COMPENT_BACK, 8, 33, 203, 0 )
+UI_SetSize( id, 8, 33 )
+
+--加载向下按钮
+id = UI_GetScrollObj( scrollid, SCROLL_DOWN )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--背包栏位
+grdItemBuy = UI_CreateCompent( frmBlackTrade, GOODS_GRID_TYPE, "grdItemBuy", 364, 148, 36, 245 ) 
+UI_SetGridSpace( grdItemBuy, 4, 3 )
+UI_SetGridContent( grdItemBuy, 3, 8 )
+UI_SetGridUnitSize( grdItemBuy, 32, 32 )
+UI_SetMargin( grdItemBuy, 10, 0, 0, 0 )
+
+--加载确定按钮
+btnYes = UI_CreateCompent( frmBlackTrade, BUTTON_TYPE, "btnYes", 47, 22, 239, 350 )
+--UI_LoadButtonImage( btnYes, "texture/ui/PublicC.tga", 41, 19, 0, 0, TRUE )
+
+--加载取消按钮
+btnNo = UI_CreateCompent( frmBlackTrade, BUTTON_TYPE, "btnNo", 47, 22, 287, 350 )
+--UI_LoadButtonImage( btnNo, "texture/ui/PublicC.tga", 41, 19, 0, 20, TRUE )
+--UI_SetButtonModalResult( btnNo, BUTTON_NO )
+

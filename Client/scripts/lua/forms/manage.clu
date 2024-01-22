@@ -1,0 +1,287 @@
+-----------------------------------------------------------------------
+-- 定义公会
+-----------------------------------------------------------------------
+--创建公会面板
+frmManage = UI_CreateForm( "frmManage", FALSE, 436, 377, 200, 200, TRUE, FALSE )
+UI_FormSetHotKey( frmManage, ALT_KEY, HOTKEY_C )
+UI_ShowForm( frmManage, FALSE )
+UI_AddFormToTemplete( frmManage, 1 )
+UI_SetIsDrag( frmManage, TRUE )
+UI_SetFormStyleEx( frmManage, FORM_BOTTOM, 0, 45)
+
+
+-- 加载背景图片
+imgTradeTop = UI_CreateCompent( frmManage, IMAGE_TYPE, "imgTradeTop", 256, 256, 0, 0 )
+UI_LoadImage( imgTradeTop, "texture/ui2009/guild1.tga", NORMAL, 256, 256, 0, 0 )
+
+imgTradeDown = UI_CreateCompent( frmManage, IMAGE_TYPE, "imgTradeDown", 256, 149, 0, 256 )
+UI_LoadImage( imgTradeDown, "texture/ui2009/guild3.tga", NORMAL, 256, 149, 0, 0 )
+
+imgTradeTopR = UI_CreateCompent( frmManage, IMAGE_TYPE, "imgTradeTopR", 207, 256, 256, 2 )
+UI_LoadImage( imgTradeTopR, "texture/ui2009/guild2.tga", NORMAL, 207, 256, 0, 0 )
+
+imgTradeDownR = UI_CreateCompent( frmManage, IMAGE_TYPE, "imgTradeDownR", 207, 149, 256, 256 )
+UI_LoadImage( imgTradeDownR, "texture/ui2009/guild5.tga", NORMAL, 207, 149, 0, 0 )
+
+-- 无效文字
+imgTxt01 = UI_CreateCompent( frmManage, IMAGE_TYPE, "imgTxt01", 49, 29, 222, 35 )
+UI_LoadImage( imgTxt01, "texture/ui2009/guild4.tga", NORMAL, 49, 29, 0, 93 )
+
+imgTxt02 = UI_CreateCompent( frmManage, IMAGE_TYPE, "imgTxt02", 49, 29, 272, 35 )
+UI_LoadImage( imgTxt02, "texture/ui2009/guild4.tga", NORMAL, 49, 29, 0, 155 )
+
+imgTxt03 = UI_CreateCompent( frmManage, IMAGE_TYPE, "imgTxt03", 49, 29, 322, 35 )
+UI_LoadImage( imgTxt03, "texture/ui2009/guild4.tga", NORMAL, 49, 29, 0, 217 )
+
+imgTxt04 = UI_CreateCompent( frmManage, IMAGE_TYPE, "imgTxt04", 49, 29, 372, 35 )
+UI_LoadImage( imgTxt04, "texture/ui2009/guild4.tga", NORMAL, 49, 29, 49, 31 )
+
+-- 临时使用解散按钮
+-- imgSan = UI_CreateCompent( frmManage, IMAGE_TYPE, "imgSan", 43, 22, 407, 345 )
+-- UI_LoadImage( imgSan, "texture/ui2009/guild4.tga", NORMAL, 43, 22, 92, 151 )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmManage, BUTTON_TYPE, "btnClose", 15, 15, 431, 12 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+--创建公会成员
+lstNum = UI_CreateListView( frmManage, "lstNum", 305, 279, 144, 7, 6, 2 )
+UI_ListViewSetTitle( lstNum, 0, 93, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstNum, 1, 76, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstNum, 2, 30, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstNum, 3, 28, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstNum, 4, 28, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstNum, 6, 30, "", 0, 0, 0, 0 )
+UI_SetListRowHeight( lstNum, 18 )
+
+
+--获得滚动条
+scrollid = UI_GetScroll( lstNum )
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/ui2009/item1.tga", COMPENT_BACK, 11, 1, 232, 190 )
+
+--加载向上按钮
+id = UI_GetScrollObj( scrollid, SCROLL_UP )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--加载滚动条
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/ui2009/item1.tga", COMPENT_BACK, 8, 33, 203, 0 )
+UI_SetSize( id, 8, 33 )
+
+--加载向下按钮
+id = UI_GetScrollObj( scrollid, SCROLL_DOWN )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+--创建申请成员列表
+lstAsk = UI_CreateListView( frmManage, "lstAsk", 305, 279, 144, 7, 3, 2 )
+UI_ListViewSetTitle( lstAsk, 0, 93, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstAsk, 1, 76, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstAsk, 2, 30, "", 0, 0, 0, 0 )
+UI_SetListRowHeight( lstAsk, 18 )
+
+--获得滚动条
+scrollid = UI_GetScroll( lstAsk )
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/ui2009/item1.tga", COMPENT_BACK, 11, 1, 232, 190 )
+
+--加载向上按钮
+id = UI_GetScrollObj( scrollid, SCROLL_UP )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--加载滚动条
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/ui2009/item1.tga", COMPENT_BACK, 8, 33, 203, 0 )
+UI_SetSize( id, 8, 33 )
+
+--加载向下按钮
+id = UI_GetScrollObj( scrollid, SCROLL_DOWN )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--创建页面
+pgePublic = UI_CreateCompent( frmManage, PAGE_TYPE, "pgePublic", 185, 275, 11, 79 )
+UI_SetPageButton( pgePublic, PAGE_BUTTON_CUSTOM, 48, 16 )
+
+--公会成员
+skillid = UI_CreatePageItem( pgePublic )
+ttlNum = UI_GetPageItemObj( skillid, PAGE_ITEM_TITLE )
+UI_LoadImage( ttlNum, "texture/ui2009/guild4.tga", PAGE_ITEM_TITLE_NORMAL, 49, 29, 0, 31 )
+UI_LoadImage( ttlNum, "texture/ui2009/guild4.tga", PAGE_ITEM_TITLE_ACTIVE, 49, 29, 0, 0 )
+UI_SetPos( ttlNum, 161, -44 )
+UI_SetSize( ttlNum, 49, 29 )
+UI_AddCompent( skillid, lstNum )
+
+
+--申请成员
+skillid = UI_CreatePageItem( pgePublic )
+ttlLive = UI_GetPageItemObj( skillid, PAGE_ITEM_TITLE )
+UI_LoadImage( ttlAsk, "texture/ui2009/guild4.tga", PAGE_ITEM_TITLE_NORMAL, 49, 29, 49, 31 )
+UI_LoadImage( ttlLive, "texture/ui2009/guild4.tga", PAGE_ITEM_TITLE_ACTIVE, 49, 29, 49, 0 )
+UI_SetPos( ttlLive, 361, -44 )
+UI_SetSize( ttlLive, 49, 29 )
+
+id1 = UI_CreateCompent( frmManage, IMAGE_TYPE, "id1", 114, 197, 131, -20 )
+UI_LoadImage( id1, "texture/ui2009/guild1.tga", NORMAL, 114, 197, 142, 59 )
+UI_AddCompent( skillid, id1 )
+
+id2 = UI_CreateCompent( frmManage, IMAGE_TYPE, "id2", 194, 197, 245, -20 )
+UI_LoadImage( id2, "texture/ui2009/guild2.tga", NORMAL, 194, 197, 0, 57 )
+UI_AddCompent( skillid, id2 )
+
+id3 = UI_CreateCompent( frmManage, IMAGE_TYPE, "id3", 114, 82, 131, 177 )
+UI_LoadImage( id3, "texture/ui2009/guild3.tga", NORMAL, 114, 82, 142, 0 )
+UI_AddCompent( skillid, id3 )
+
+id4 = UI_CreateCompent( frmManage, IMAGE_TYPE, "id4", 194, 82, 245, 177 )
+UI_LoadImage( id4, "texture/ui2009/guild5.tga", NORMAL, 194, 82, 0, 0 )
+
+UI_AddCompent( skillid, id4 )
+UI_AddCompent( skillid, lstAsk )
+
+--公会属性
+labName = UI_CreateCompent( frmManage, LABELEX_TYPE, "labName", 95, 13, 27, 93 )
+FORMS_MANAGE_CLU_000001 = GetResString("FORMS_MANAGE_CLU_000001")
+UI_SetCaption( labName, FORMS_MANAGE_CLU_000001 )
+UI_SetTextColor( labName, COLOR_BLACK )
+UI_SetLabelExFont( labName, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+labState = UI_CreateCompent( frmManage, LABELEX_TYPE, "labState", 49, 13, 49, 133 )
+FORMS_MANAGE_CLU_000002 = GetResString("FORMS_MANAGE_CLU_000002")
+UI_SetCaption( labState, FORMS_MANAGE_CLU_000002 )
+UI_SetTextColor( labState, COLOR_BLACK )
+UI_SetLabelExFont( labState, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+labPeople = UI_CreateCompent( frmManage, LABELEX_TYPE, "labPeople", 95, 13, 27, 169 )
+FORMS_MANAGE_CLU_000001 = GetResString("FORMS_MANAGE_CLU_000001")
+UI_SetCaption( labPeople, FORMS_MANAGE_CLU_000001 )
+UI_SetTextColor( labPeople, COLOR_BLACK )
+UI_SetLabelExFont( labPeople, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+labNum = UI_CreateCompent( frmManage, LABELEX_TYPE, "labNum", 50, 13, 49, 209 )
+FORMS_MANAGE_CLU_000002 = GetResString("FORMS_MANAGE_CLU_000002")
+UI_SetCaption( labNum, FORMS_MANAGE_CLU_000002 )
+UI_SetTextColor( labNum, COLOR_BLACK )
+UI_SetLabelExFont( labNum, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+labExp = UI_CreateCompent( frmManage, LABELEX_TYPE, "labExp", 50, 13, 49, 247 )
+UI_SetCaption( labExp, "11111111" )
+UI_SetTextColor( labExp, COLOR_BLACK )
+UI_SetLabelExFont( labExp, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+labMen = UI_CreateCompent( frmManage, LABELEX_TYPE, "labMen", 50, 13, 49, 284 )
+UI_SetCaption( labMen, "11111111" )
+UI_SetTextColor( labMen, COLOR_BLACK )
+UI_SetLabelExFont( labMen, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+labReason = UI_CreateCompent( frmManage, LABELEX_TYPE, "labReason", 101, 11, 28, 320 )
+FORMS_MANAGE_CLU_000003 = GetResString("FORMS_MANAGE_CLU_000003")
+UI_SetCaption( labReason, FORMS_MANAGE_CLU_000003 )
+UI_SetTextColor( labReason, COLOR_BLACK )
+UI_SetLabelExFont( labReason, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+labState = UI_CreateCompent( frmManage, LABELEX_TYPE, "labRemain", 95, 13, 25, 333 )
+FORMS_MANAGE_CLU_000004 = GetResString("FORMS_MANAGE_CLU_000004")
+UI_SetCaption( labState, FORMS_MANAGE_CLU_000004 )
+UI_SetTextColor( labState, COLOR_BLACK )
+UI_SetLabelExFont( labState, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载招收按钮
+btnYes = UI_CreateCompent( frmManage, BUTTON_TYPE, "btnYes", 43, 22, 275, 345 )
+UI_LoadButtonImage( btnYes, "texture/ui2009/guild4.tga", 43, 22, 49, 63, FALSE )
+
+
+--加载拒绝按钮
+btnNo = UI_CreateCompent( frmManage, BUTTON_TYPE, "btnNo", 43, 22, 319, 345 )
+UI_LoadButtonImage( btnNo, "texture/ui2009/guild4.tga", 43, 22, 49, 151, FALSE )
+
+--加载踢出按钮
+btnkick = UI_CreateCompent( frmManage, BUTTON_TYPE, "btnkick", 43, 22, 363, 345 )
+UI_LoadButtonImage( btnkick, "texture/ui2009/guild4.tga", 43, 22, 92, 63, FALSE )
+
+--加载解散按钮
+btnSan = UI_CreateCompent( frmManage, BUTTON_TYPE, "btnSan", 43, 22, 407, 345 )
+UI_LoadButtonImage( btnSan, "texture/ui2009/guild4.tga", 43, 22, 92, 151, FALSE )
+
+--加载座右铭按钮
+btnMaxim = UI_CreateCompent( frmManage, BUTTON_TYPE, "btnMaxim", 60, 22, 12, 345 )
+UI_LoadButtonImage( btnMaxim, "texture/ui2009/guild4.tga", 60, 22, 135, 151, FALSE )
+
+imgMaxim = UI_CreateCompent( frmManage, IMAGE_TYPE, "imgMaxim", 193, 18, 77, 347 )
+--UI_LoadImage( imgMaxim, "texture/ui/ShipBuild4.tga", NORMAL, 193, 18, 4, 202 )
+
+labMaxim = UI_CreateCompent( frmManage, LABELEX_TYPE, "labMaxim", 179, 11, 82, 352 )
+FORMS_MANAGE_CLU_000005 = GetResString("FORMS_MANAGE_CLU_000005")
+UI_SetCaption( labMaxim, FORMS_MANAGE_CLU_000005 )
+UI_SetTextColor( labMaxim, COLOR_BLACK )
+UI_SetLabelExFont( labMaxim, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载邀请加入公会按钮
+btnyqrh = UI_CreateCompent( frmManage, BUTTON_TYPE, "btnyqrh", 93, 22, 275, 370 )
+UI_LoadButtonImage( btnyqrh, "texture/ui2009/guild3.tga", 93, 22, 63, 168, FALSE )
+FORMS_MANAGE_CLU_000006 = GetResString("FORMS_MANAGE_CLU_000006")
+UI_SetHint( btnyqrh, FORMS_MANAGE_CLU_000006 )
+
+labyqrh = UI_CreateCompent( frmManage, LABELEX_TYPE, "labyqrh", 60, 11, 18, 376 )
+FORMS_MAIN_CLU_000171 = GetResString("FORMS_MAIN_CLU_000171")
+UI_SetCaption( labyqrh, FORMS_MAIN_CLU_000171 )
+UI_SetTextColor( labyqrh, COLOR_BLACK )
+UI_SetLabelExFont( labyqrh, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载玩家姓名输入框
+edtyqname = UI_CreateCompent( frmManage, EDIT_TYPE, "edtyqname", 179, 11, 80, 375 )
+UI_SetTextColor( edtyqname, COLOR_BLACK )
+UI_SetEditMaxNum( edtyqname, 26 )
+UI_SetEditMaxNumVisible( edtyqname, 26 )
+
+-----------------------------------------------------------------------
+-- 定义编辑座右铭
+-----------------------------------------------------------------------
+frmEditMaxim = UI_CreateForm( "frmEditMaxim",  FALSE, 224, 112, 397, 500, TRUE, FALSE )
+UI_LoadFormImage( frmEditMaxim, "texture/ui2009/ty2.tga", 224, 112, 19, 3, "", 0, 0 )
+UI_ShowForm( frmEditMaxim, FALSE )
+UI_AddFormToTemplete( frmEditMaxim, FORM_MAIN )
+UI_SetFormStyle( frmEditMaxim, 0 )
+UI_SetIsDrag( frmEditMaxim, TRUE )
+--UI_FormSetHotKey( frmEditMaxim, ALT_KEY, HOTKEY_W ) 
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmEditMaxim, BUTTON_TYPE, "btnClose", 15, 15, 197, 10 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+
+-- imgMaxim = UI_CreateCompent( frmEditMaxim, IMAGE_TYPE, "imgMaxim", 193, 18, 8, 66 )
+-- UI_LoadImage( imgMaxim, "texture/ui/ShipBuild4.tga", NORMAL, 193, 18, 4, 202 )
+
+labMaxim = UI_CreateCompent( frmEditMaxim, LABELEX_TYPE, "labMaxim", 58, 11, 78, 43 )
+FORMS_MANAGE_CLU_000007 = GetResString("FORMS_MANAGE_CLU_000007")
+UI_SetCaption( labMaxim, FORMS_MANAGE_CLU_000007 )
+UI_SetTextColor( labMaxim, COLOR_BLACK )
+UI_SetLabelExFont( labMaxim, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--显示底纹
+imgZym = UI_CreateCompent( frmEditMaxim, IMAGE_TYPE, "imgZym", 161, 20, 31, 55 )
+UI_LoadImage( imgZym, "texture/ui2009/button.tga", NORMAL, 161, 20, 15, 236 )
+
+--加载格言输入框
+edtMaxim = UI_CreateCompent( frmEditMaxim, EDIT_TYPE, "edtMaxim", 179, 11, 35, 60 )
+UI_SetTextColor( edtMaxim, COLOR_BLACK )
+UI_SetEditMaxNum( edtMaxim, 26 )
+UI_SetEditMaxNumVisible( edtMaxim, 26 )
+
+
+--加载确定按钮
+btnYes = UI_CreateCompent( frmEditMaxim, BUTTON_TYPE, "btnYes", 47, 22, 45, 81 )
+UI_LoadButtonImage( btnYes, "texture/ui2009/button.tga", 47, 22, 0, 0, TRUE )
+UI_SetEditEnterButton( edtTradeGold, btnYes )
+
+--加载取消按钮
+btnNo = UI_CreateCompent( frmEditMaxim, BUTTON_TYPE, "btnNo", 47, 22, 119, 81 )
+UI_LoadButtonImage( btnNo, "texture/ui2009/button.tga", 47, 22, 0, 22, TRUE )
+
+UI_SetButtonModalResult( btnNo, BUTTON_CLOSE )

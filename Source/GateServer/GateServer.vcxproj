@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{b1593748-4575-464c-b0f0-abe00f0884e7}</ProjectGuid>
+    <RootNamespace>GateServer</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)..\..\Server\</OutDir>
+    <TargetName>$(ProjectName)_$(PlatformShortName)_$(Configuration)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)..\..\Server\</OutDir>
+    <TargetName>$(ProjectName)_$(PlatformShortName)_$(Configuration)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)..\..\Server\</OutDir>
+    <TargetName>$(ProjectName)_$(PlatformShortName)_$(Configuration)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)..\..\Server\</OutDir>
+    <TargetName>$(ProjectName)_$(PlatformShortName)_$(Configuration)</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NOMINMAX;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\Common\;..\LIBDBC\;..\Utility\;..\ICUHelper\;..\ICU\Include\$(PlatformName)\;..\licensecc\out\$(LibrariesArchitecture)-$(Configuration)\include\;..\licensecc\out\$(LibrariesArchitecture)-$(Configuration)\include\licensecc\Yatops;..\Botan\$(LibrariesArchitecture)\$(ConfigurationName)\include</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\Common\$(PlatformShortName)\$(ConfigurationName)\;..\LIBDBC\$(PlatformShortName)\$(ConfigurationName)\;..\Utility\$(PlatformShortName)\$(ConfigurationName)\;..\ICUHelper\$(PlatformShortName)\$(ConfigurationName)\;..\ICU\lib\$(PlatformName)\$(ConfigurationName)\;..\InfoNet\$(PlatformShortName)\$(ConfigurationName)\;..\CaLua\lib\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Common_$(PlatformShortName).lib;LIBDBC_$(PlatformShortName).lib;Utility_$(PlatformShortName).lib;ICUHelper_$(PlatformShortName).lib;icudt.lib;icuucd.lib;icuind.lib;Ws2_32.lib;shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NOMINMAX;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\Common\;..\LIBDBC\;..\Utility\;..\ICUHelper\;..\ICU\Include\$(PlatformName);..\licensecc\out\$(LibrariesArchitecture)-$(Configuration)\include\;..\licensecc\out\$(LibrariesArchitecture)-$(Configuration)\include\licensecc\Yatops;..\Botan\$(LibrariesArchitecture)\$(ConfigurationName)\include</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\Common\$(PlatformShortName)\$(ConfigurationName)\;..\LIBDBC\$(PlatformShortName)\$(ConfigurationName)\;..\Utility\$(PlatformShortName)\$(ConfigurationName)\;..\ICUHelper\$(PlatformShortName)\$(ConfigurationName)\;..\ICU\lib\$(PlatformName)\$(ConfigurationName)\;..\InfoNet\$(PlatformShortName)\$(ConfigurationName)\;..\CaLua\lib\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Common_$(PlatformShortName).lib;LIBDBC_$(PlatformShortName).lib;Utility_$(PlatformShortName).lib;ICUHelper_$(PlatformShortName).lib;icudt.lib;icuuc.lib;icuin.lib;Ws2_32.lib;shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NOMINMAX;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\Common\;..\LIBDBC\;..\Utility\;..\ICUHelper\;..\ICU\Include\$(PlatformName)\;..\licensecc\out\$(LibrariesArchitecture)-$(Configuration)\include\;..\licensecc\out\$(LibrariesArchitecture)-$(Configuration)\include\licensecc\Yatops;..\Botan\$(LibrariesArchitecture)\$(ConfigurationName)\include</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\Common\$(PlatformShortName)\$(ConfigurationName)\;..\LIBDBC\$(PlatformShortName)\$(ConfigurationName)\;..\Utility\$(PlatformShortName)\$(ConfigurationName)\;..\ICUHelper\$(PlatformShortName)\$(ConfigurationName)\;..\ICU\lib\$(PlatformName)\Release\;..\InfoNet\$(PlatformShortName)\$(ConfigurationName)\;..\licensecc\out\$(PlatformName)-$(ConfigurationName)\licensecc\Yatops\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Common_$(PlatformShortName).lib;LIBDBC_$(PlatformShortName).lib;Utility_$(PlatformShortName).lib;ICUHelper_$(PlatformShortName).lib;icudt.lib;icuuc.lib;icuin.lib;Ws2_32.lib;shlwapi.lib;%(AdditionalDependencies);licensecc_static.lib;bcrypt.lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NOMINMAX;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\Common\;..\LIBDBC\;..\Utility\;..\ICUHelper\;..\ICU\Include\$(PlatformName);..\licensecc\out\$(LibrariesArchitecture)-$(Configuration)\include\;..\licensecc\out\$(LibrariesArchitecture)-$(Configuration)\include\licensecc\Yatops;..\Botan\$(LibrariesArchitecture)\$(ConfigurationName)\include</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\Common\$(PlatformShortName)\$(ConfigurationName)\;..\LIBDBC\$(PlatformShortName)\$(ConfigurationName)\;..\Utility\$(PlatformShortName)\$(ConfigurationName)\;..\ICUHelper\$(PlatformShortName)\$(ConfigurationName)\;..\ICU\lib\$(PlatformName)\$(ConfigurationName)\;..\InfoNet\$(PlatformShortName)\$(ConfigurationName)\;..\LuaJIT\src;..\licensecc\out\$(PlatformName)-$(ConfigurationName)\licensecc\Yatops\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Common_$(PlatformShortName).lib;LIBDBC_$(PlatformShortName).lib;Utility_$(PlatformShortName).lib;ICUHelper_$(PlatformShortName).lib;icudt.lib;icuuc.lib;icuin.lib;Ws2_32.lib;shlwapi.lib;%(AdditionalDependencies);licensecc_static.lib;bcrypt.lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="GateServer.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GateServer.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="ToClient.cpp" />
+    <ClCompile Include="ToGameServer.cpp" />
+    <ClCompile Include="ToGroupServer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="GateServer.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

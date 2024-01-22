@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{3e60e91c-b7c9-4c4e-ba87-7e517fb48648}</ProjectGuid>
+    <RootNamespace>Client</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)..\..\Client\system\</OutDir>
+    <TargetName>$(ProjectName)_$(PlatformShortName)_$(Configuration)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)..\..\Client\system\</OutDir>
+    <TargetName>$(ProjectName)_$(PlatformShortName)_$(Configuration)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)..\..\Client\system\</OutDir>
+    <TargetName>$(ProjectName)_$(PlatformShortName)_$(Configuration)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)..\..\Client\system\</OutDir>
+    <TargetName>$(ProjectName)_$(PlatformShortName)_$(Configuration)</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>_LUA_GAME;__FPS_DEBUG__;__SOUND__;LIGHTENGINE_USE_DLL;NOMINMAX;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>..\EncLib\;..\Common\;..\ICUHelper\;..\Utility\;..\Engine\;..\DirectX\Include\;..\ICU\include\$(PlatformName);..\LIBDBC\;..\CaLua\include\;..\AudioSDL\;..\Botan\$(LibrariesArchitecture)\$(ConfigurationName)\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\AudioSDL\$(PlatformShortName)\$(ConfigurationName)\;..\ICU\lib\$(PlatformName)\$(ConfigurationName)\;..\ICUHelper\$(PlatformShortName)\$(ConfigurationName)\;..\Utility\$(PlatformShortName)\$(ConfigurationName)\;..\Common\$(PlatformShortName)\$(ConfigurationName)\;..\LIBDBC\$(PlatformShortName)\$(ConfigurationName)\;$(OutDir);..\CaLua\lib\;..\SDL-1.2.7\LIB\;..\EncLib\$(PlatformShortName)\$(ConfigurationName)\;..\DirectX\Lib\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>AudioSDL_$(PlatformShortName).lib;SDL.lib;SDL_mixer.lib;Utility_$(PlatformShortName).lib;Common_$(PlatformShortName).lib;LIBDBC_$(PlatformShortName).lib;ICUHelper_$(PlatformShortName).lib;CaLua.lib;lua50.lib;lualib.lib;Engine_$(PlatformShortName)_$(Configuration).lib;Ws2_32.lib;icudt.lib;icuucd.lib;icuind.lib;EncLib_$(PlatformShortName).lib;legacy_stdio_definitions.lib;ddraw.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>libci.lib</IgnoreSpecificDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>_LUA_GAME;__SOUND__;LIGHTENGINE_USE_DLL;NOMINMAX;WIN32;NDEBUG;_NOSERVER;_CONSOLE;WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>..\EncLib\;..\Common\;..\ICUHelper\;..\Utility\;..\Engine\;..\DirectX\Include\;..\ICU\include\$(PlatformName);..\LIBDBC\;..\CaLua\include\;..\AudioSDL\;..\Botan\$(LibrariesArchitecture)\$(ConfigurationName)\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\AudioSDL\$(PlatformShortName)\$(ConfigurationName)\;..\ICU\lib\$(PlatformName)\$(ConfigurationName)\;..\ICUHelper\$(PlatformShortName)\$(ConfigurationName)\;..\Utility\$(PlatformShortName)\$(ConfigurationName)\;..\Common\$(PlatformShortName)\$(ConfigurationName)\;..\LIBDBC\$(PlatformShortName)\$(ConfigurationName)\;$(OutDir);..\CaLua\lib\;..\SDL-1.2.7\LIB\;..\EncLib\$(PlatformShortName)\$(ConfigurationName)\;..\DirectX\Lib\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>AudioSDL_$(PlatformShortName).lib;SDL.lib;SDL_mixer.lib;Utility_$(PlatformShortName).lib;Common_$(PlatformShortName).lib;LIBDBC_$(PlatformShortName).lib;ICUHelper_$(PlatformShortName).lib;CaLua.lib;lua50.lib;lualib.lib;Engine_$(PlatformShortName)_$(Configuration).lib;Ws2_32.lib;icudt.lib;icuuc.lib;icuin.lib;EncLib_$(PlatformShortName).lib;legacy_stdio_definitions.lib;ddraw.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>libci.lib</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>_LUA_GAME;__SOUND__;LIGHTENGINE_USE_DLL;NOMINMAX;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>..\EncLib\;..\Common\;..\ICUHelper\;..\Utility\;..\Engine\;..\DirectX\Include\;..\ICU\include\;..\LIBDBC\;..\CaLua\include\;..\AudioSDL\;..\Botan\$(LibrariesArchitecture)\$(ConfigurationName)\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>AudioSDL_$(PlatformShortName).lib;SDL.lib;SDL_mixer.lib;Utility_$(PlatformShortName).lib;Common_$(PlatformShortName).lib;LIBDBC_$(PlatformShortName).lib;ICUHelper_$(PlatformShortName).lib;CaLua.lib;lua50.lib;lualib.lib;Engine_$(PlatformShortName)_$(Configuration).lib;Ws2_32.lib;icudt.lib;icuucd.lib;icuind.lib;EncLib_$(PlatformShortName).lib;legacy_stdio_definitions.lib;ddraw.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\AudioSDL\$(PlatformShortName)\$(ConfigurationName)\;..\ICU\lib\$(PlatformName)\$(ConfigurationName)\;..\ICUHelper\$(PlatformShortName)\$(ConfigurationName)\;..\Utility\$(PlatformShortName)\$(ConfigurationName)\;..\Common\$(PlatformShortName)\$(ConfigurationName)\;..\LIBDBC\$(PlatformShortName)\$(ConfigurationName)\;$(OutDir);..\CaLua\lib\;..\SDL-1.2.7\LIB\;..\EncLib\$(PlatformShortName)\$(ConfigurationName)\</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>libci.lib</IgnoreSpecificDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>_LUA_GAME;__SOUND__;LIGHTENGINE_USE_DLL;NOMINMAX;NDEBUG;_CONSOLE;WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>..\EncLib\;..\Common\;..\ICUHelper\;..\Utility\;..\Engine\;..\DirectX\Include\;..\ICU\include\;..\LIBDBC\;..\CaLua\include\;..\AudioSDL\;..\Botan\$(LibrariesArchitecture)\$(ConfigurationName)\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>AudioSDL_$(PlatformShortName).lib;SDL.lib;SDL_mixer.lib;Utility_$(PlatformShortName).lib;Common_$(PlatformShortName).lib;LIBDBC_$(PlatformShortName).lib;ICUHelper_$(PlatformShortName).lib;CaLua.lib;lua50.lib;lualib.lib;Engine_$(PlatformShortName)_$(Configuration).lib;Ws2_32.lib;icudt.lib;icuucd.lib;icuind.lib;EncLib_$(PlatformShortName).lib;legacy_stdio_definitions.lib;ddraw.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\AudioSDL\$(PlatformShortName)\$(ConfigurationName)\;..\ICU\lib\$(PlatformName)\$(ConfigurationName)\;..\ICUHelper\$(PlatformShortName)\$(ConfigurationName)\;..\Utility\$(PlatformShortName)\$(ConfigurationName)\;..\Common\$(PlatformShortName)\$(ConfigurationName)\;..\LIBDBC\$(PlatformShortName)\$(ConfigurationName)\;$(OutDir);..\CaLua\lib\;..\SDL-1.2.7\LIB\;..\EncLib\$(PlatformShortName)\$(ConfigurationName)\;</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>libci.lib</IgnoreSpecificDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="Actor.h" />
+    <ClInclude Include="ArcTrack.h" />
+    <ClInclude Include="AudioThread.h" />
+    <ClInclude Include="AutoAttack.h" />
+    <ClInclude Include="bass.h" />
+    <ClInclude Include="BassLoader.h" />
+    <ClInclude Include="BassMusicInterface.h" />
+    <ClInclude Include="BoolSet.h" />
+    <ClInclude Include="CameraCtrl.h" />
+    <ClInclude Include="ChaClientAttr.h" />
+    <ClInclude Include="ChaCreateSet.h" />
+    <ClInclude Include="Character.h" />
+    <ClInclude Include="CharacterAction.h" />
+    <ClInclude Include="CharacterModel.h" />
+    <ClInclude Include="CharacterPoseSet.h" />
+    <ClInclude Include="ChaState.h" />
+    <ClInclude Include="ChatIconSet.h" />
+    <ClInclude Include="ChatRecord.h" />
+    <ClInclude Include="Connection.h" />
+    <ClInclude Include="CRCircle.h" />
+    <ClInclude Include="CRCursor.h" />
+    <ClInclude Include="CRCursorObj.h" />
+    <ClInclude Include="CreateChaScene.h" />
+    <ClInclude Include="d3des.h" />
+    <ClInclude Include="DrawPointList.h" />
+    <ClInclude Include="DSoundInstance.h" />
+    <ClInclude Include="DSoundManager.h" />
+    <ClInclude Include="EffDelay.h" />
+    <ClInclude Include="EffectObj.h" />
+    <ClInclude Include="EffectSet.h" />
+    <ClInclude Include="ElfSkillSet.h" />
+    <ClInclude Include="Event.h" />
+    <ClInclude Include="EventSoundSet.h" />
+    <ClInclude Include="FindPath.h" />
+    <ClInclude Include="FrndInviteFormMgr.h" />
+    <ClInclude Include="GameApp.h" />
+    <ClInclude Include="GameAppMsg.h" />
+    <ClInclude Include="GameConfig.h" />
+    <ClInclude Include="GameErrorReport.h" />
+    <ClInclude Include="GameLoading.h" />
+    <ClInclude Include="GameMovie.h" />
+    <ClInclude Include="GameWG.h" />
+    <ClInclude Include="GlobalVar.h" />
+    <ClInclude Include="GuildData.h" />
+    <ClInclude Include="GuildInviteFormMgr.h" />
+    <ClInclude Include="GuildListData.h" />
+    <ClInclude Include="GuildListMgr.h" />
+    <ClInclude Include="GuildMemberData.h" />
+    <ClInclude Include="GuildMembersMgr.h" />
+    <ClInclude Include="HairTool.h" />
+    <ClInclude Include="helpinfoset.h" />
+    <ClInclude Include="HMAttack.h" />
+    <ClInclude Include="HMManage.h" />
+    <ClInclude Include="HMSynchroObj.h" />
+    <ClInclude Include="IAudioPlayer.h" />
+    <ClInclude Include="IMusicThread.h" />
+    <ClInclude Include="InputBox.h" />
+    <ClInclude Include="IsSkillUse.h" />
+    <ClInclude Include="ItemLit.h" />
+    <ClInclude Include="ItemLitAnim.h" />
+    <ClInclude Include="ItemPreSet.h" />
+    <ClInclude Include="ItemRefineEffectSet.h" />
+    <ClInclude Include="ItemRefineSet.h" />
+    <ClInclude Include="ItemTypeSet.h" />
+    <ClInclude Include="LitLoad.h" />
+    <ClInclude Include="LoginScene.h" />
+    <ClInclude Include="LuaInterface.h" />
+    <ClInclude Include="lua_app.h" />
+    <ClInclude Include="lua_camera.h" />
+    <ClInclude Include="lua_input.h" />
+    <ClInclude Include="lua_network.h" />
+    <ClInclude Include="lua_object.h" />
+    <ClInclude Include="lua_platform.h" />
+    <ClInclude Include="lua_scene.h" />
+    <ClInclude Include="lua_ui.h" />
+    <ClInclude Include="lua_util.h" />
+    <ClInclude Include="Main.h" />
+    <ClInclude Include="MapSet.h" />
+    <ClInclude Include="MonsterSet.h" />
+    <ClInclude Include="MouseDown.h" />
+    <ClInclude Include="MPEditor.h" />
+    <ClInclude Include="MusicInterface.h" />
+    <ClInclude Include="MusicSet.h" />
+    <ClInclude Include="NetChat.h" />
+    <ClInclude Include="NetGuild.h" />
+    <ClInclude Include="NetIF.h" />
+    <ClInclude Include="NetProtocol.h" />
+    <ClInclude Include="notifyset.h" />
+    <ClInclude Include="NPCHelper.h" />
+    <ClInclude Include="PacketCmd.h" />
+    <ClInclude Include="PackFile.h" />
+    <ClInclude Include="ProCirculate.h" />
+    <ClInclude Include="publicfun.h" />
+    <ClInclude Include="Readme.h" />
+    <ClInclude Include="RecruitMemberData.h" />
+    <ClInclude Include="RecruitMembersMgr.h" />
+    <ClInclude Include="RenderStateMgr.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneArea.h" />
+    <ClInclude Include="SceneHeight.h" />
+    <ClInclude Include="SceneItem.h" />
+    <ClInclude Include="SceneItemSet.h" />
+    <ClInclude Include="SceneLight.h" />
+    <ClInclude Include="SceneNode.h" />
+    <ClInclude Include="SceneObj.h" />
+    <ClInclude Include="SceneObjFile.h" />
+    <ClInclude Include="SceneObjSet.h" />
+    <ClInclude Include="SceneSign.h" />
+    <ClInclude Include="Script.h" />
+    <ClInclude Include="SelectChaScene.h" />
+    <ClInclude Include="ServerSet.h" />
+    <ClInclude Include="ShipFactory.h" />
+    <ClInclude Include="SMallMap.h" />
+    <ClInclude Include="SoundCommon.h" />
+    <ClInclude Include="SoundInstance.h" />
+    <ClInclude Include="SoundManager.h" />
+    <ClInclude Include="state_reading.h" />
+    <ClInclude Include="STAttack.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="SteadyFrame.h" />
+    <ClInclude Include="STMove.h" />
+    <ClInclude Include="STNpcTalk.h" />
+    <ClInclude Include="StoneSet.h" />
+    <ClInclude Include="STPose.h" />
+    <ClInclude Include="STReadyDie.h" />
+    <ClInclude Include="STSeat.h" />
+    <ClInclude Include="STStateObj.h" />
+    <ClInclude Include="TalkSessionFormMgr.h" />
+    <ClInclude Include="TeamInviteFormMgr.h" />
+    <ClInclude Include="TestDemo.h" />
+    <ClInclude Include="ThreadBase.h" />
+    <ClInclude Include="Tools.h" />
+    <ClInclude Include="Track.h" />
+    <ClInclude Include="UI3DCompent.h" />
+    <ClInclude Include="UIAllButtonForm.h" />
+    <ClInclude Include="UIBakGhostForm.h" />
+    <ClInclude Include="UIBankForm.h" />
+    <ClInclude Include="UIBoatForm.h" />
+    <ClInclude Include="UIBoothForm.h" />
+    <ClInclude Include="UIBourseForm.h" />
+    <ClInclude Include="UIBoxForm.h" />
+    <ClInclude Include="UIBreakForm.h" />
+    <ClInclude Include="UIChaInfo.h" />
+    <ClInclude Include="UIChat.h" />
+    <ClInclude Include="UICheckBox.h" />
+    <ClInclude Include="UICheckBoxItem.h" />
+    <ClInclude Include="UIChurchChallenge.h" />
+    <ClInclude Include="UICloneForm.h" />
+    <ClInclude Include="UICombo.h" />
+    <ClInclude Include="UICommand.h" />
+    <ClInclude Include="UICommandCompent.h" />
+    <ClInclude Include="UICompent.h" />
+    <ClInclude Include="UIComposeForm.h" />
+    <ClInclude Include="UICookingForm.h" />
+    <ClInclude Include="UICozeForm.h" />
+    <ClInclude Include="UICursor.h" />
+    <ClInclude Include="UIDoublePwdForm.h" />
+    <ClInclude Include="UIDragTitle.h" />
+    <ClInclude Include="UIEdit.h" />
+    <ClInclude Include="UIEditData.h" />
+    <ClInclude Include="UIEditKey.h" />
+    <ClInclude Include="UIEditor.h" />
+    <ClInclude Include="UIEditStrategy.h" />
+    <ClInclude Include="UIEquipForm.h" />
+    <ClInclude Include="UIFastCommand.h" />
+    <ClInclude Include="UIFindTeamForm.h" />
+    <ClInclude Include="UIFont.h" />
+    <ClInclude Include="UIForgeForm.h" />
+    <ClInclude Include="UIForgeMoveForm.h" />
+    <ClInclude Include="UIForm.h" />
+    <ClInclude Include="UIFormMgr.h" />
+    <ClInclude Include="UIFoundForm.h" />
+    <ClInclude Include="UIGlobalVar.h" />
+    <ClInclude Include="UIGoodsGrid.h" />
+    <ClInclude Include="UIGraph.h" />
+    <ClInclude Include="UIGrid.h" />
+    <ClInclude Include="UIGuiData.h" />
+    <ClInclude Include="UIGuildApply.h" />
+    <ClInclude Include="UIGuildChallengeForm.h" />
+    <ClInclude Include="UIGuildList.h" />
+    <ClInclude Include="UIGuildMgr.h" />
+    <ClInclude Include="UIHaircutForm.h" />
+    <ClInclude Include="UIHeadSay.h" />
+    <ClInclude Include="UIHelpInfoForm.h" />
+    <ClInclude Include="UIImage.h" />
+    <ClInclude Include="UIImeInput.h" />
+    <ClInclude Include="UIItem.h" />
+    <ClInclude Include="UIItemCommand.h" />
+    <ClInclude Include="UIItemReForm.h" />
+    <ClInclude Include="UIJewelryUpForm.h" />
+    <ClInclude Include="UILabel.h" />
+    <ClInclude Include="UIList.h" />
+    <ClInclude Include="UIListView.h" />
+    <ClInclude Include="UIMailForm.h" />
+    <ClInclude Include="UIMakeEquipForm.h" />
+    <ClInclude Include="UIMemo.h" />
+    <ClInclude Include="UIMenu.h" />
+    <ClInclude Include="UIMinimapForm.h" />
+    <ClInclude Include="UIMisLogForm.h" />
+    <ClInclude Include="UIMissionForm.h" />
+    <ClInclude Include="UINpcTalkForm.h" />
+    <ClInclude Include="UINpcTradeForm.h" />
+    <ClInclude Include="UINumAnswer.h" />
+    <ClInclude Include="UIPage.h" />
+    <ClInclude Include="UIPicList.h" />
+    <ClInclude Include="UIPicture.h" />
+    <ClInclude Include="UIPKDialog.h" />
+    <ClInclude Include="UIPKSilverForm.h" />
+    <ClInclude Include="UIProgressBar.h" />
+    <ClInclude Include="UIPurifyForm.h" />
+    <ClInclude Include="UIRender.h" />
+    <ClInclude Include="UIRichEdit.h" />
+    <ClInclude Include="UIRumBuyForm.h" />
+    <ClInclude Include="UIRumDealForm.h" />
+    <ClInclude Include="UIRumGetForm.h" />
+    <ClInclude Include="uirumpurform.h" />
+    <ClInclude Include="uirumsaleform.h" />
+    <ClInclude Include="UIRumSellForm.h" />
+    <ClInclude Include="UIScript.h" />
+    <ClInclude Include="UIScroll.h" />
+    <ClInclude Include="UISkillCommand.h" />
+    <ClInclude Include="UISkillList.h" />
+    <ClInclude Include="UISpiritForm.h" />
+    <ClInclude Include="UIStartForm.h" />
+    <ClInclude Include="UIStateForm.h" />
+    <ClInclude Include="UIStep.h" />
+    <ClInclude Include="UIStoreForm.h" />
+    <ClInclude Include="UISystemForm.h" />
+    <ClInclude Include="UITeam.h" />
+    <ClInclude Include="UITemplete.h" />
+    <ClInclude Include="UITextButton.h" />
+    <ClInclude Include="UITextParse.h" />
+    <ClInclude Include="UITitle.h" />
+    <ClInclude Include="UITradeForm.h" />
+    <ClInclude Include="UITreeView.h" />
+    <ClInclude Include="UIWebBrowser.h" />
+    <ClInclude Include="WebBrowser.h" />
+    <ClInclude Include="wequ.h" />
+    <ClInclude Include="wmp3.h" />
+    <ClInclude Include="wmp3decoder.h" />
+    <ClInclude Include="WorldScene.h" />
+    <ClInclude Include="wwave.h" />
+    <ClInclude Include="xmlwriter.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Actor.cpp" />
+    <ClCompile Include="AppScript.cpp" />
+    <ClCompile Include="ArcTrack.cpp" />
+    <ClCompile Include="AudioThread.cpp" />
+    <ClCompile Include="AutoAttack.cpp" />
+    <ClCompile Include="BassLoader.cpp" />
+    <ClCompile Include="BassMusicInterface.cpp" />
+    <ClCompile Include="CameraCtrl.cpp" />
+    <ClCompile Include="Character.cpp" />
+    <ClCompile Include="CharacterAction.cpp" />
+    <ClCompile Include="CharacterModel.cpp" />
+    <ClCompile Include="ChaScript.cpp" />
+    <ClCompile Include="ChaState.cpp" />
+    <ClCompile Include="ChatRecord.cpp" />
+    <ClCompile Include="Connection.cpp" />
+    <ClCompile Include="CRCircle.cpp" />
+    <ClCompile Include="CRCursor.cpp" />
+    <ClCompile Include="CRCursorObj.cpp" />
+    <ClCompile Include="CreateChaScene.cpp" />
+    <ClCompile Include="d3des.cpp" />
+    <ClCompile Include="DrawPointList.cpp" />
+    <ClCompile Include="DSoundInstance.cpp" />
+    <ClCompile Include="DSoundManager.cpp" />
+    <ClCompile Include="EffDelay.cpp" />
+    <ClCompile Include="EffectObj.cpp" />
+    <ClCompile Include="Event.cpp" />
+    <ClCompile Include="FindPath.cpp" />
+    <ClCompile Include="FrndInviteFormMgr.cpp" />
+    <ClCompile Include="GameAppFrameMove.cpp" />
+    <ClCompile Include="GameAppInit.cpp" />
+    <ClCompile Include="GameAppInterface.cpp" />
+    <ClCompile Include="GameAppMsg.cpp" />
+    <ClCompile Include="GameAppNet.cpp" />
+    <ClCompile Include="GameAppRender.cpp" />
+    <ClCompile Include="GameConfig.cpp" />
+    <ClCompile Include="GameErrorReport.cpp" />
+    <ClCompile Include="GameLoading.cpp" />
+    <ClCompile Include="GameMovie.cpp" />
+    <ClCompile Include="GameWG.cpp" />
+    <ClCompile Include="GlobalVar.cpp" />
+    <ClCompile Include="GuildData.cpp" />
+    <ClCompile Include="GuildInviteFormMgr.cpp" />
+    <ClCompile Include="GuildListData.cpp" />
+    <ClCompile Include="GuildListMgr.cpp" />
+    <ClCompile Include="GuildMemberData.cpp" />
+    <ClCompile Include="GuildMembersMgr.cpp" />
+    <ClCompile Include="HairTool.cpp" />
+    <ClCompile Include="HMAttack.cpp" />
+    <ClCompile Include="HMManage.cpp" />
+    <ClCompile Include="HMSynchroObj.cpp" />
+    <ClCompile Include="IsSkillUse.cpp" />
+    <ClCompile Include="ItemLit.cpp" />
+    <ClCompile Include="ItemLitAnim.cpp" />
+    <ClCompile Include="LitLoad.cpp" />
+    <ClCompile Include="LoginScene.cpp" />
+    <ClCompile Include="lua_platform.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MouseDown.cpp" />
+    <ClCompile Include="MPEditor.cpp" />
+    <ClCompile Include="MusicThread.cpp" />
+    <ClCompile Include="NetChat.cpp" />
+    <ClCompile Include="NetGuild.cpp" />
+    <ClCompile Include="NetIF.cpp" />
+    <ClCompile Include="NetPkChat.cpp" />
+    <ClCompile Include="NetPkGuild.cpp" />
+    <ClCompile Include="NetProtocol.cpp" />
+    <ClCompile Include="NPCHelper.cpp" />
+    <ClCompile Include="PacketCmd_CS.cpp" />
+    <ClCompile Include="PacketCmd_SC.cpp" />
+    <ClCompile Include="PackFile.cpp" />
+    <ClCompile Include="ProCirculateCC.cpp" />
+    <ClCompile Include="ProCirculateCS.cpp" />
+    <ClCompile Include="RecruitMemberData.cpp" />
+    <ClCompile Include="RecruitMembersMgr.cpp" />
+    <ClCompile Include="RenderStateMgr.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneArea.cpp" />
+    <ClCompile Include="SceneCreateNode.cpp" />
+    <ClCompile Include="SceneFrameMove.cpp" />
+    <ClCompile Include="SceneItem.cpp" />
+    <ClCompile Include="SceneLight.cpp" />
+    <ClCompile Include="SceneMsg.cpp" />
+    <ClCompile Include="SceneNode.cpp" />
+    <ClCompile Include="SceneObj.cpp" />
+    <ClCompile Include="SceneObjFile.cpp" />
+    <ClCompile Include="SceneRender.cpp" />
+    <ClCompile Include="SceneScript.cpp" />
+    <ClCompile Include="SceneSign.cpp" />
+    <ClCompile Include="Script.cpp" />
+    <ClCompile Include="SelectChaScene.cpp" />
+    <ClCompile Include="ShipFactory.cpp" />
+    <ClCompile Include="SMallMap.cpp" />
+    <ClCompile Include="SoundCommon.cpp" />
+    <ClCompile Include="state_reading.cpp" />
+    <ClCompile Include="STAttack.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="SteadyFrame.cpp" />
+    <ClCompile Include="STMove.cpp" />
+    <ClCompile Include="STNpcTalk.cpp" />
+    <ClCompile Include="STPose.cpp" />
+    <ClCompile Include="STReadyDie.cpp" />
+    <ClCompile Include="STSeat.cpp" />
+    <ClCompile Include="STStateObj.cpp" />
+    <ClCompile Include="TalkSessionFormMgr.cpp" />
+    <ClCompile Include="TeamInviteFormMgr.cpp" />
+    <ClCompile Include="TestDemo.cpp" />
+    <ClCompile Include="ThreadBase.cpp" />
+    <ClCompile Include="Tools.cpp" />
+    <ClCompile Include="UI3DCompent.cpp" />
+    <ClCompile Include="UIAllButtonForm.cpp" />
+    <ClCompile Include="UIBakGhostForm.cpp" />
+    <ClCompile Include="UIBankForm.cpp" />
+    <ClCompile Include="UIBoatForm.cpp" />
+    <ClCompile Include="UIBoothForm.cpp" />
+    <ClCompile Include="UIBourseForm.cpp" />
+    <ClCompile Include="UIBoxForm.cpp" />
+    <ClCompile Include="UIBreakForm.cpp" />
+    <ClCompile Include="UIChaInfo.cpp" />
+    <ClCompile Include="UIChat.cpp" />
+    <ClCompile Include="UICheckBox.cpp" />
+    <ClCompile Include="UICheckBoxItem.cpp" />
+    <ClCompile Include="UIChurchChallenge.cpp" />
+    <ClCompile Include="UICloneForm.cpp" />
+    <ClCompile Include="UICombo.cpp" />
+    <ClCompile Include="UICommand.cpp" />
+    <ClCompile Include="UICommandCompent.cpp" />
+    <ClCompile Include="UICompent.cpp" />
+    <ClCompile Include="UIComposeForm.cpp" />
+    <ClCompile Include="UICookingForm.cpp" />
+    <ClCompile Include="UICozeForm.cpp" />
+    <ClCompile Include="UICursor.cpp" />
+    <ClCompile Include="UIDoublePwdForm.cpp" />
+    <ClCompile Include="UIDragTitle.cpp" />
+    <ClCompile Include="UIEdit.cpp" />
+    <ClCompile Include="UIEditData.cpp" />
+    <ClCompile Include="UIEditKey.cpp" />
+    <ClCompile Include="UIEditor.cpp" />
+    <ClCompile Include="UIEditStrategy.cpp" />
+    <ClCompile Include="UIEquipForm.cpp" />
+    <ClCompile Include="UIFastCommand.cpp" />
+    <ClCompile Include="UIFindTeamForm.cpp" />
+    <ClCompile Include="UIFont.cpp" />
+    <ClCompile Include="UIForgeForm.cpp" />
+    <ClCompile Include="UIForgeMoveForm.cpp" />
+    <ClCompile Include="UIForm.cpp" />
+    <ClCompile Include="UIFormMgr.cpp" />
+    <ClCompile Include="UIFoundForm.cpp" />
+    <ClCompile Include="UIGlobalVar.cpp" />
+    <ClCompile Include="UIGoodsGrid.cpp" />
+    <ClCompile Include="UIGraph.cpp" />
+    <ClCompile Include="UIGrid.cpp" />
+    <ClCompile Include="UIGuiData.cpp" />
+    <ClCompile Include="UIGuildApply.cpp" />
+    <ClCompile Include="UIGuildChallengeForm.cpp" />
+    <ClCompile Include="UIGuildList.cpp" />
+    <ClCompile Include="UIGuildMgr.cpp" />
+    <ClCompile Include="UIHaircutForm.cpp" />
+    <ClCompile Include="UIHeadSay.cpp" />
+    <ClCompile Include="UIHelpInfoForm.cpp" />
+    <ClCompile Include="UIImage.cpp" />
+    <ClCompile Include="UIImeInput.cpp" />
+    <ClCompile Include="UIItem.cpp" />
+    <ClCompile Include="UIItemCommand.cpp" />
+    <ClCompile Include="UIItemReForm.cpp" />
+    <ClCompile Include="UIJewelryUpForm.cpp" />
+    <ClCompile Include="UILabel.cpp" />
+    <ClCompile Include="UIList.cpp" />
+    <ClCompile Include="UIListView.cpp" />
+    <ClCompile Include="UIMailForm.cpp" />
+    <ClCompile Include="UIMakeEquipForm.cpp" />
+    <ClCompile Include="UIMemo.cpp" />
+    <ClCompile Include="UIMenu.cpp" />
+    <ClCompile Include="UIMinimapForm.cpp" />
+    <ClCompile Include="UIMisLogForm.cpp" />
+    <ClCompile Include="UIMissionForm.cpp" />
+    <ClCompile Include="UINpcTalkForm.cpp" />
+    <ClCompile Include="UINpcTradeForm.cpp" />
+    <ClCompile Include="UINumAnswer.cpp" />
+    <ClCompile Include="UIPage.cpp" />
+    <ClCompile Include="UIPicList.cpp" />
+    <ClCompile Include="UIPicture.cpp" />
+    <ClCompile Include="UIPKDialog.cpp" />
+    <ClCompile Include="UIPKSilverForm.cpp" />
+    <ClCompile Include="UIProgressBar.cpp" />
+    <ClCompile Include="UIPurifyForm.cpp" />
+    <ClCompile Include="UIRender.cpp" />
+    <ClCompile Include="UIRichEdit.cpp" />
+    <ClCompile Include="UIRumBuyForm.cpp" />
+    <ClCompile Include="UIRumDealForm.cpp" />
+    <ClCompile Include="UIRumGetForm.cpp" />
+    <ClCompile Include="uirumpurform.cpp" />
+    <ClCompile Include="uirumsaleform.cpp" />
+    <ClCompile Include="UIRumSellForm.cpp" />
+    <ClCompile Include="UIScript.cpp" />
+    <ClCompile Include="UIScroll.cpp" />
+    <ClCompile Include="UISkillCommand.cpp" />
+    <ClCompile Include="UISkillList.cpp" />
+    <ClCompile Include="UISpiritForm.cpp" />
+    <ClCompile Include="UIStartForm.cpp" />
+    <ClCompile Include="UIStateForm.cpp" />
+    <ClCompile Include="UIStoreForm.cpp" />
+    <ClCompile Include="UISystemForm.cpp" />
+    <ClCompile Include="UITeam.cpp" />
+    <ClCompile Include="UITextButton.cpp" />
+    <ClCompile Include="UITextParse.cpp" />
+    <ClCompile Include="UITitle.cpp" />
+    <ClCompile Include="UITradeForm.cpp" />
+    <ClCompile Include="UITreeView.cpp" />
+    <ClCompile Include="UIWebBrowser.cpp" />
+    <ClCompile Include="WebBrowser.cpp" />
+    <ClCompile Include="wequ.cpp" />
+    <ClCompile Include="wmp3.cpp" />
+    <ClCompile Include="wmp3decoder.cpp" />
+    <ClCompile Include="WorldScene.cpp" />
+    <ClCompile Include="wwave.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="kop.ico" />
+    <Image Include="nagesha.ico" />
+    <Image Include="small.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="kop.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

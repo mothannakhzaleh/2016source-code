@@ -1,0 +1,66 @@
+//ID	Name	1?	2?	3?	4?	5?	6?	7?	8?	9?
+10	Dual Shot Path of Flight Element	1	runningattack.eff,,,,,,,	10	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+11	Dispersion Bullet Path of Flight Element	1	04000002.eff,,,,,,,	3	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	6	0	0
+12	Penetrating Bullet Path of Flight	1	04000003.eff,,,,,,,	3	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	5	0	0
+13	Magma Bullet Path of Flight	2	04000004.eff,04000004(0).eff,,,,,,	10	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	4	0	0
+14	Ninja Blind Path of Flight	2	04000005.eff,04000005(0).eff,,,,,,	10	1	4000005,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	0	0	0
+15	Ninja Venom Tooth Path of Flight	2	04000005.eff,04000005(0).eff,,,,,,	10	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	0	0	0
+16	Astro Strike Path of Flight	1	04000007.eff,,,,,,,	10	1	4000007,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	0	0	0
+17	Cripple Path of Flight	1	04000008.eff,,,,,,,	10	1	4000008,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	5	0	0
+18	Illusion Slash Path of Flight	1	04000009.eff,,,,,,,	15	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	3	0	0
+19	Numb Path of Flight	1	04000010.eff,,,,,,,	10	1	4000010,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	0	0	0
+20	Frozen Arrow Path of Flight	2	icearrowf.eff,icearrowf(a).eff,,,,,,	10	1	icearrowf,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	icearrowh
+21	Spiritual Bolt Path of Flight	1	hpushf02.eff,,,,,,,	10	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	hpusht
+22	Arrow	1	arrow.eff,,,,,,,	3	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+23	Ship	1	04000103.eff,,,,,,,	3	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	3	0	0
+24	Octopus Ink	1	04000307.eff,,,,,,,	3	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+25	Dual Shot Path of Flight Element	1	runningattack2.eff,,,,,,,	10	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+26	Dual Shot Path of Flight Element 2	1	runningattack3.eff,,,,,,,	10	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+27	Saliva of Lizard	1	04000308.eff,,,,,,,	3	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+28	Treant Effect	1	stone.eff,,,,,,,	3	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+29	Panda Effect	1	04000314.eff,,,,,,,	3	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+30	Pearl Effect	1	04000317.eff,,,,,,,	3	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+31	Terra Elder Effect	1	04000315.eff,,,,,,,	3	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+32	Naiad Effect	1	04000316.eff,,,,,,,	3	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+33	Baby Icy Dragon Effect	1	04000310.eff,,,,,,,	3	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+34	Big Icy Dragon Effect	1	04000310.eff,,,,,,,	3	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+35	Oyster Effect	1	04000312.eff,,,,,,,	3	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+36	Shadow Arrow Effect	1	04000318.eff,,,,,,,	3	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	1030006
+37	Spiritual Bolt Path of Flight	1	hpushf03.eff,,,,,,,	10	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	hpusht
+38	Spiritual Bolt Path of Flight 2	1	hpushf04.eff,,,,,,,	10	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	hpusht
+39	Poison Dart Path of Flight	1	poisonfly.eff,,,,,,,	10	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+40	Mud Path of Flight	1	04000322.eff,,,,,,,	10	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	1010515
+41	Fireball of Sachem Path of Flight	1	04000321.eff,,,,,,,	10	1	4000321,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	1060007
+42	Werewolf Arrow Path of Flight	1	04000325.eff,,,,,,,	10	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	1030006
+43	Fireball of Giant Slug Path of Flight	1	04000324.eff,,,,,,,	10	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	1060007
+44	Icecube of King Penguin Path of Flight	1	04000310.eff,,,,,,,	10	1	4000310,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	1010507
+45	Dart of Ninja Mole Path of Flight	1	04000319.eff,,,,,,,	10	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	1030006
+46	Heart of Mermaid Path of Flight	1	04000320(a).eff,,,,,,,	10	1	4000320,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	1010518
+47	Water Dance Path of Flight	1	04000320(a).eff,,,,,,,	10	1	4000323,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	shuihua01
+48	Mud of Mudman	1	04000322.eff,,,,,,,	10	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	1010515
+49	Cannon Shot	1	cannon02.eff,,,,,,,	10	1	cannon03,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	4	0	0
+50	Venom Arrow Path of Flight	1	parrowf.eff,,,,,,,	10	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	parrowh
+51	Guardian Angel Path of Flight	1	01050039.eff,,,,,,,	10	1	1050039,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	1050040
+52	Blood Fury Path of Flight	1	xnfxa.eff,,,,,,,	10	1	xnfxb,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+53	da arrow	1	darrow.eff,,,,,,,	3	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+54	Fox Sorcery Path of Flight	1	hymffx.eff,,,,,,,	10	1	0,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+55	Fox Sorcery Path of Flight	1	hxmffx.eff,,,,,,,	10	1	0,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+56	Bind Path of Flight	1	04000316.eff,,,,,,,	10	1	0,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+57	Water Fairy Path of Flight	1	zzgq.eff,,,,,,,	10	1	0,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+58	Pharaoh Corpse Poison damaged	1	sd.eff,,,,,,,	10	1	0,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+59	Black Dragon's Breath Path of Flight	2	lx.eff,lx2.eff,,,,,,	10	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+60	Black Dragon shadow strike Path of Flight	2	bdwindf1.eff,bdwindf4.eff,,,,,,	10	1	bdwindfp,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+61	Black Dragon Lightning Bolt	2	bdlighting1.eff,bdlighting3.eff,,,,,,	10	1	bdlightfp,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+62	Black Dragon Fireball	1	zzfireball.eff,,,,,,,	10	1	zzfbfp,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+63	Gunboat Magma Bullet	1	fcannon1.eff,,,,,,,	10	1	fcansmoke1,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+64	Evil Attack	1	fdeathheadff.eff,,,,,,,	10	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+65	Bomb Throwing	1	fboomerff.eff,,,,,,,	10	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+66	Water Arrow path of flight	1	fwaterff.eff,,,,,,,	10	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+67	Little Snow Ball	1	xueqiu.eff,,,,,,,	3	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+68	Serpent 	1	snk.eff,,,,,,,	3	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+69	Magic-sucking Attack	1	ximo.eff,,,,,,,	3	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+70	Slowdown Tower Attack	1	jiansu.eff,,,,,,,	3	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+71	Navy Guardian Strike	1	shzhan.eff,,,,,,,	3	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+72	Pirate Guardian Strike	1	hdzhan.eff,,,,,,,	3	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+73	Fireball	1	huoqiu2.eff,,,,,,,	10	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0
+74	Iceball	1	bingqiu.eff,,,,,,,	10	0	,,,,,,,	-1,-1,-1,-1,-1,-1,-1,-1	2	0	0

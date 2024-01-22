@@ -1,0 +1,7 @@
+-- 创建选人场景
+SCENE_SELECTCHASCENE_CLU_000001 = GetResString("SCENE_SELECTCHASCENE_CLU_000001")
+nScene = SN_CreateScene( enumSelectChaScene, SCENE_SELECTCHASCENE_CLU_000001, "", FORM_SELECT, 100, 2, 2000, 300 )	
+GP_GotoScene( nScene )
+
+SN_SetIsShowMinimap( FALSE )
+SN_SetIsShow3DCursor( FALSE )

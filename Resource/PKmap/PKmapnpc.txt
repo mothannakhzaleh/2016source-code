@@ -1,0 +1,2 @@
+0	Isle Teleport - Niecy	1	11	7	6900,4100	6900,4100	225	PKmap	154	0	island	0
+1	Nurse ¨C Nala	1	29	3	6100,4500	6100,4500	135	PKmap	154	0	jjsj_talk1	0

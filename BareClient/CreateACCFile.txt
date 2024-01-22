@@ -1,0 +1,15 @@
+DECLARE @Username AS VARCHAR(50) = 'Fake'
+DECLARE @Password AS VARCHAR(250) = '123456'
+DECLARE @Counter AS INT = 1
+DECLARE @Total AS INT = 100
+WHILE @Counter <= @Total
+BEGIN
+	DECLARE @CountedUsername AS VARCHAR(50) = NULL
+	SET @CountedUsername = CONCAT(@Username, @Counter)
+
+	PRINT('YATOPS')
+	PRINT(@CountedUsername)
+	PRINT(@Password)
+	PRINT('0')
+	SET @Counter = @Counter + 1
+END

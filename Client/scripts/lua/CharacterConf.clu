@@ -1,0 +1,7 @@
+--设置客户端才有的CharacterInfo, 比如组队时的头像的角度, 位置
+
+--                ID   angle distance   height
+CLU_Call("CHA_SetClientAttr",1,   30,   1.5,   0.5)
+CLU_Call("CHA_SetClientAttr",2,   30,   1.8,   0.4)
+CLU_Call("CHA_SetClientAttr",3,   30,   1.5,   0.3)
+CLU_Call("CHA_SetClientAttr",4,   30,   1.4,   0.5)

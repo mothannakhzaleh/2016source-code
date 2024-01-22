@@ -1,0 +1,5 @@
+-- 创建主场景
+SCENE_MAINSCENE_CLU_000001 = GetResString("SCENE_MAINSCENE_CLU_000001")
+local nMainScene = SN_CreateScene( enumWorldScene, SCENE_MAINSCENE_CLU_000001, "garner", FORM_MAIN, 300, 400, 400, 600)
+GP_GotoScene( nMainScene )
+

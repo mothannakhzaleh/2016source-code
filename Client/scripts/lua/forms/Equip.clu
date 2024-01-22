@@ -1,0 +1,967 @@
+-----------------------------------------------------------------------
+-- 定义道具表单
+-----------------------------------------------------------------------
+frmItem = UI_CreateForm( "frmItem", FALSE, 203, 448, 198, 160, TRUE, FALSE )
+UI_FormSetHotKey( frmItem, ALT_KEY, HOTKEY_E ) --'E'
+--UI_LoadFormImage( frmItem, "texture/ui/Item.dds", 233, 358, 0, 0, "", 0, 0 )
+UI_ShowForm( frmItem, FALSE )
+UI_AddFormToTemplete( frmItem, FORM_MAIN )
+UI_SetIsDrag( frmItem, TRUE )
+--UI_SetFormStyle( frmItem, 0 )
+--UI_SetAlpha( frmItem, 200 )
+
+-- 加载背景图片
+imgItemTop = UI_CreateCompent( frmItem, IMAGE_TYPE, "imgItemTop", 203, 256, 0, 0 )
+UI_LoadImage( imgItemTop, "texture/ui2009/item1.tga", NORMAL, 203, 256, 0, 0 )
+imgItemDown = UI_CreateCompent( frmItem, IMAGE_TYPE, "imgItemDown", 202, 192, 1, 256 )
+UI_LoadImage( imgItemDown, "texture/ui2009/item2.tga", NORMAL, 202, 192, 0, 0 )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmItem, BUTTON_TYPE, "btnClose", 15, 15, 175, 10 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+
+-- 加载道具前4格的图片
+imgItem4 = UI_CreateCompent( frmItem, IMAGE_TYPE, "imgItem4", 147, 38, 27, 208 )
+UI_LoadImage( imgItem4, "texture/ui2009/item2.tga", NORMAL, 147, 38, 0, 192 )
+
+--创建道具物品表格
+grdItem = UI_CreateCompent( frmItem, GOODS_GRID_TYPE, "grdItem", 187, 174, 11, 201 ) 
+UI_SetGridSpace( grdItem, 4, 3 )
+UI_SetGridContent( grdItem, 8, 4 )
+UI_SetGridUnitSize( grdItem, 32, 32 )
+UI_SetMargin( grdItem, 20, 12, 0, 0 )
+
+--获得滚动条
+scrollid = UI_GetScroll( grdItem )
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/ui2009/item1.tga", COMPENT_BACK, 11, 1, 232, 190 )
+
+--加载向上按钮
+id = UI_GetScrollObj( scrollid, SCROLL_UP )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--加载滚动条
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/ui2009/item1.tga", COMPENT_BACK, 8, 33, 203, 0 )
+UI_SetSize( id, 8, 33 )
+
+--加载向下按钮
+id = UI_GetScrollObj( scrollid, SCROLL_DOWN )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+
+-- 加载金钱图片
+imgItemM = UI_CreateCompent( frmItem, IMAGE_TYPE, "imgItemM", 27, 28, 18, 377 )
+UI_LoadImage( imgItemM, "texture/ui2009/button2.tga", NORMAL, 27, 28, 190, 124 )
+
+imgItemM2 = UI_CreateCompent( frmItem, IMAGE_TYPE, "imgItemM2", 27, 28, 18, 407 )
+UI_LoadImage( imgItemM2, "texture/ui2009/button2.tga", NORMAL, 27, 28, 217, 124 )
+
+--创建金币栏
+imgItemgold = UI_CreateCompent( frmItem, IMAGE_TYPE, "imgItemgold", 100, 19, 48, 383 )
+UI_LoadImage( imgItemgold, "texture/ui2009/button2.tga", NORMAL, 154, 19, 86, 224 )
+
+imgItemgold2 = UI_CreateCompent( frmItem, IMAGE_TYPE, "imgItemgold2", 100, 19, 48, 414 )
+UI_LoadImage( imgItemgold2, "texture/ui2009/button2.tga", NORMAL, 154, 19, 86, 224 )
+
+labItemgoldnumber = UI_CreateCompent( frmItem, LABELEX_TYPE, "labItemgoldnumber", 90, 17, 58, 386 )
+--UI_SetCaption( labItemgoldnumber, "7777777" )
+UI_SetTextColor( labItemgoldnumber, COLOR_BLACK )
+UI_SetLabelExFont( labItemgoldnumber, DEFAULT_FONT, TRUE, 4289901234 )
+
+labItemgoldnumber2 = UI_CreateCompent( frmItem, LABELEX_TYPE, "labItemgoldnumber2", 90, 17, 58, 417 )
+--UI_SetCaption( labItemgoldnumber, "7777777" )
+UI_SetTextColor( labItemgoldnumber2, COLOR_BLACK )
+UI_SetLabelExFont( labItemgoldnumber2, DEFAULT_FONT, TRUE, 4289901234 )
+
+--创建透明控制按钮
+btnLock = UI_CreateCompent( frmItem, BUTTON_TYPE, "btnLock", 14, 17, 172, 415 )
+--创建密码锁定图片(锁定)----美术未做图片
+imgLock = UI_CreateCompent( frmItem, IMAGE_TYPE, "imgLock", 14, 17, 172, 415 )
+UI_LoadImage( imgLock, "texture/ui2009/item1.tga",NORMAL, 14, 17, 203, 101, TRUE )
+--创建密码锁定图片(未锁定)
+imgUnLock = UI_CreateCompent( frmItem, IMAGE_TYPE, "imgUnLock", 14, 17, 172, 415 )
+UI_LoadImage( imgUnLock, "texture/ui2009/item1.tga",NORMAL, 14, 17, 203, 33, TRUE )
+
+--创建丢弃按钮
+btnbrush = UI_CreateCompent( frmItem, BUTTON_TYPE, "btnbrush", 18, 20, 170, 383 )
+UI_LoadButtonImage( btnbrush, "texture/ui2009/item1.tga", 18, 20, 217, 33, TRUE ) 
+cmdLost = UI_CreateCompent( frmItem, COMMAND_ONE_TYPE, "cmdLost", 18, 20, 170, 383 )	-- 鞋子
+UI_SetTag( cmdLost, 999 )
+
+-- 装备
+cmdArmet = UI_CreateCompent( frmItem, COMMAND_ONE_TYPE, "cmdArmet", 32, 32, 86, 62 )	-- 头盔
+cmdBody = UI_CreateCompent( frmItem, COMMAND_ONE_TYPE, "cmdBody", 32, 32, 86, 100 )	-- 身体
+cmdNecklace = UI_CreateCompent( frmItem, COMMAND_ONE_TYPE, "cmdNecklace", 32, 32, 11, 40 )	-- 项链
+cmdRightHand = UI_CreateCompent( frmItem, COMMAND_ONE_TYPE, "cmdRightHand", 32, 32, 48, 100 )	-- 右手
+cmdLeftHand = UI_CreateCompent( frmItem, COMMAND_ONE_TYPE, "cmdLeftHand", 32, 32, 124, 100 )	-- 左手
+cmdGlove = UI_CreateCompent( frmItem, COMMAND_ONE_TYPE, "cmdGlove", 32, 32, 161, 40 )	-- 手套
+cmdCirclet1 = UI_CreateCompent( frmItem, COMMAND_ONE_TYPE, "cmdCirclet1", 32, 32, 11, 162 )	-- 手饰1
+cmdCirclet2 = UI_CreateCompent( frmItem, COMMAND_ONE_TYPE, "cmdCirclet2", 32, 32, 161, 162 )	-- 手饰2
+cmdShoes = UI_CreateCompent( frmItem, COMMAND_ONE_TYPE, "cmdShoes", 32, 32, 86, 138 )	-- 鞋子
+cmdJewelry1 = UI_CreateCompent( frmItem, COMMAND_ONE_TYPE, "cmdJewelry1", 32, 32, 48, 62 )	-- 饰品左上
+cmdJewelry2 = UI_CreateCompent( frmItem, COMMAND_ONE_TYPE, "cmdJewelry2", 32, 32, 124, 62 )	-- 饰品右上
+cmdJewelry3 = UI_CreateCompent( frmItem, COMMAND_ONE_TYPE, "cmdJewelry3", 32, 32, 48, 138 )	-- 饰品左下
+cmdJewelry4 = UI_CreateCompent( frmItem, COMMAND_ONE_TYPE, "cmdJewelry4", 32, 32, 124, 138 )	-- 饰品右下
+	
+-- 设置Tag值供程序使用
+UI_SetTag( cmdArmet, enumEQUIP_HEAD )
+UI_SetTag( cmdBody, enumEQUIP_BODY )
+UI_SetTag( cmdNecklace, enumEQUIP_NECK )
+UI_SetTag( cmdRightHand, enumEQUIP_RHAND )
+UI_SetTag( cmdLeftHand, enumEQUIP_LHAND )
+UI_SetTag( cmdGlove, enumEQUIP_GLOVE )
+UI_SetTag( cmdCirclet1, enumEQUIP_HAND1 )
+UI_SetTag( cmdCirclet2, enumEQUIP_HAND2 )
+UI_SetTag( cmdShoes, enumEQUIP_SHOES )
+UI_SetTag( cmdJewelry1, enumEQUIP_Jewelry1 )
+UI_SetTag( cmdJewelry2, enumEQUIP_Jewelry2 )
+UI_SetTag( cmdJewelry3, enumEQUIP_Jewelry3 )
+UI_SetTag( cmdJewelry4, enumEQUIP_Jewelry4 )
+
+labItemgoldnumber = UI_CreateCompent( frmItem, LABELEX_TYPE, "labItemgoldnumber", 100, 19, 43, 382 )
+--UI_SetCaption( labItemgoldnumber, "0" )
+UI_SetTextColor( labItemgoldnumber, COLOR_BLACK )
+UI_SetLabelExFont( labItemgoldnumber, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+-----------------------------------------------------------------------
+-- 定义技能
+-----------------------------------------------------------------------
+frmSkill = UI_CreateForm( "frmSkill", FALSE, 203, 406, 396, 160, FALSE, FALSE )
+UI_FormSetHotKey( frmSkill, ALT_KEY, HOTKEY_S ) 
+UI_ShowForm( frmSkill, TRUE )
+UI_AddFormToTemplete( frmSkill, FORM_MAIN )
+UI_SetIsDrag( frmSkill, TRUE )
+--UI_SetFormStyle( frmSkill, 0 )
+--UI_SetAlpha( frmSkill, 200 )
+
+-- 加载背景图片
+-- imgSkillBTop = UI_CreateCompent( frmSkill, IMAGE_TYPE, "imgSkillBTop", 198, 256, 0, 0 )
+-- UI_LoadImage( imgSkillBTop, "texture/ui/PublicD.bmp", NORMAL, 198, 256, 0, 0 )
+-- imgSkillBDown = UI_CreateCompent( frmSkill, IMAGE_TYPE, "imgSkillBDown", 198, 138, 0, 256 )
+-- UI_LoadImage( imgSkillBDown, "texture/ui/PublicD2.bmp", NORMAL, 198, 138, 0, 0 )
+
+imgSkillTop = UI_CreateCompent( frmSkill, IMAGE_TYPE, "imgSkillTop", 203, 256, 0, 0 )
+UI_LoadImage( imgSkillTop, "texture/ui2009/jineng1.tga", NORMAL, 203, 256, 0, 0 )
+imgSkillDown = UI_CreateCompent( frmSkill, IMAGE_TYPE, "imgSkillDown", 201, 150, 1, 256 )
+UI_LoadImage( imgSkillDown, "texture/ui2009/jineng2.tga", NORMAL, 201, 150, 0, 0 )
+
+-- imgSkillD = UI_CreateCompent( frmSkill, IMAGE_TYPE, "imgSkillD", 184, 43, 7, 330 )
+-- UI_LoadImage( imgSkillD, "texture/ui/TalkM.dds", NORMAL, 184, 43, 0, 213 )
+
+-- imgSkillDL = UI_CreateCompent( frmSkill, IMAGE_TYPE, "imgSkillDL", 36, 36, 15, 334 )
+-- UI_LoadImage( imgSkillDL, "texture/ui/PublicC.tga", NORMAL, 36, 36, 167, 59 )
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+--创建剩余技能点信息
+imgSkillP = UI_CreateCompent( frmSkill, IMAGE_TYPE, "imgSkillP", 39, 18, 132, 296 )
+-- UI_LoadImage( imgSkillP, "texture/ui/SysBotton4.tga", NORMAL, 39, 18, 106, 99 )
+
+labFront = UI_CreateCompent( frmSkill, LABELEX_TYPE, "labFront", 59, 11, 64, 303 )
+UI_SetCaption( labFront, "" )
+UI_SetTextColor( labFront, COLOR_BLACK )
+UI_SetLabelExFont( labFront, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--战斗技能点
+labPoint = UI_CreateCompent( frmSkill, LABELEX_TYPE, "labPoint",  59, 11, 143, 305 )
+UI_SetCaption( labPoint, "100" )
+UI_SetTextColor( labPoint, COLOR_BLACK )
+UI_SetLabelExFont( labPoint, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--生活技能点
+labPoint1 = UI_CreateCompent( frmSkill, LABELEX_TYPE, "labPoint1", 59, 11, 143, 305 )
+UI_SetCaption( labPoint1, "100" )
+UI_SetTextColor( labPoint1, COLOR_BLACK )
+UI_SetLabelExFont( labPoint1, DEFAULT_FONT, TRUE, COLOR_WHITE )
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmSkill, BUTTON_TYPE, "btnClose", 15, 15, 174, 10 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+-- 加载界面title
+-- imgSkillTitle = UI_CreateCompent( frmSkill, IMAGE_TYPE, "imgSkillTitle", 25, 13, 8, 4 )
+-- UI_LoadImage( imgSkillTitle, "texture/ui/Word.dds", NORMAL, 25, 13, 84, 58 )
+
+--创建战斗技能列表
+lstSkill = UI_CreateCompent( frmSkill, SKILL_LIST_TYPE, "lstSkill", 180, 272, 12, -14 )
+UI_SetMargin( lstSkill, 1, 4, 3, 5 )
+UI_SetListRowHeight( lstSkill, 38 )
+--UI_ListLoadSelectImage( lstSkill, "texture/ui/button.dds", 148, 32, 38, 175 )
+
+UI_LoadSkillListButtonImage( lstSkill, "texture/ui/Quest1.tga", 17, 17, 4, 198, 17, 17 )
+
+--获得滚动条
+scrollid = UI_GetScroll( lstSkill )
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/ui2009/item1.tga", COMPENT_BACK, 11, 1, 232, 190 )
+
+--加载向上按钮
+id = UI_GetScrollObj( scrollid, SCROLL_UP )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--加载滚动条
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/ui2009/item1.tga", COMPENT_BACK, 8, 33, 203, 0 )
+UI_SetSize( id, 8, 33 )
+
+--加载向下按钮
+id = UI_GetScrollObj( scrollid, SCROLL_DOWN )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--创建生活技能列表
+lstSkillW = UI_CreateCompent( frmSkill, SKILL_LIST_TYPE, "lstSkillW", 180, 272, 12, -14 )
+UI_SetMargin( lstSkillW, 1, 4, 3, 5 )
+UI_SetListRowHeight( lstSkillW, 38 )
+--UI_ListLoadSelectImage( lstSkillW, "texture/ui/button.dds", 148, 32, 38, 175 )
+UI_LoadSkillListButtonImage( lstSkillW, "texture/ui/Quest1.tga", 17, 17, 4, 198, 17, 17 )
+
+--获得滚动条
+scrollid = UI_GetScroll( lstSkillW )
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/ui2009/item1.tga", COMPENT_BACK, 11, 1, 232, 190 )
+
+--加载向上按钮
+id = UI_GetScrollObj( scrollid, SCROLL_UP )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--加载滚动条
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/ui2009/item1.tga", COMPENT_BACK, 8, 33, 203, 0 )
+UI_SetSize( id, 8, 33 )
+
+--加载向下按钮
+id = UI_GetScrollObj( scrollid, SCROLL_DOWN )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+
+--创建海上技能列表
+lstSkillS = UI_CreateCompent( frmSkill, SKILL_LIST_TYPE, "lstSkillS", 180, 272, 12, -14 )
+UI_SetMargin( lstSkillS, 1, 4, 3, 5 )
+UI_SetListRowHeight( lstSkillS, 38 )
+--UI_ListLoadSelectImage( lstSkillS, "texture/ui/button.dds", 148, 32, 38, 175 )
+
+UI_LoadSkillListButtonImage( lstSkillS, "texture/ui/Quest1.tga", 17, 17, 4, 198, 17, 17 )
+
+--获得滚动条
+scrollid = UI_GetScroll( lstSkillS )
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/ui2009/item1.tga", COMPENT_BACK, 11, 1, 232, 190 )
+
+--加载向上按钮
+id = UI_GetScrollObj( scrollid, SCROLL_UP )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--加载滚动条
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/ui2009/item1.tga", COMPENT_BACK, 8, 33, 203, 0 )
+UI_SetSize( id, 8, 33 )
+
+--加载向下按钮
+id = UI_GetScrollObj( scrollid, SCROLL_DOWN )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--创建页面
+pgeSkill = UI_CreateCompent( frmSkill, PAGE_TYPE, "pgeSkill", 211, 233, 11, 79 )
+UI_SetPageButton( pgeSkill, PAGE_BUTTON_CUSTOM, 48, 16 )
+
+--战斗技能
+skillid = UI_CreatePageItem( pgeSkill )
+ttlBattle = UI_GetPageItemObj( skillid, PAGE_ITEM_TITLE )
+UI_LoadImage( ttlBattle, "texture/ui2009/jineng1.tga", PAGE_ITEM_TITLE_NORMAL, 43, 37, 203, 37 )
+UI_LoadImage( ttlBattle, "texture/ui2009/jineng1.tga", PAGE_ITEM_TITLE_ACTIVE, 43, 37, 203, 0 )
+UI_SetPos( ttlBattle, 15, -49 )
+UI_SetSize( ttlBattle, 43, 37 )
+UI_AddCompent( skillid, lstSkill )
+UI_AddCompent( skillid, imgSkillP )
+UI_AddCompent( skillid, labFront )
+UI_AddCompent( skillid, labPoint )
+
+--生活技能
+skillid = UI_CreatePageItem( pgeSkill )
+ttlLive = UI_GetPageItemObj( skillid, PAGE_ITEM_TITLE )
+UI_LoadImage( ttlLive, "texture/ui2009/jineng1.tga", PAGE_ITEM_TITLE_NORMAL, 43, 37, 203, 111 )
+UI_LoadImage( ttlLive, "texture/ui2009/jineng1.tga", PAGE_ITEM_TITLE_ACTIVE, 43, 37, 203, 74 )
+UI_SetPos( ttlLive, 69, -49 )
+UI_SetSize( ttlLive, 43, 37 )
+UI_AddCompent( skillid, lstSkillW )
+UI_AddCompent( skillid, imgSkillP )
+UI_AddCompent( skillid, labFront )
+UI_AddCompent( skillid, labPoint1 )
+
+--海上技能
+skillid = UI_CreatePageItem( pgeSkill )
+ttlSail = UI_GetPageItemObj( skillid, PAGE_ITEM_TITLE )
+UI_LoadImage( ttlSail, "texture/ui2009/jineng1.tga", PAGE_ITEM_TITLE_NORMAL, 43, 37, 203, 185 )
+UI_LoadImage( ttlSail, "texture/ui2009/jineng1.tga", PAGE_ITEM_TITLE_ACTIVE, 43, 37, 203, 148 )
+UI_SetPos( ttlSail, 123, -49 )
+UI_SetSize( ttlSail, 43, 37 )
+UI_AddCompent( skillid, lstSkillS )
+
+------------------------------------------------------------------------------
+--   Lee 的NPC 怪物查询面板  20080715
+------------------------------------------------------------------------------
+frmNpcShow= UI_CreateForm( "frmNpcShow", FALSE, 334, 425, 0, 0, FALSE, FALSE )
+UI_ShowForm( frmNpcShow, TRUE )
+UI_AddFormToTemplete( frmNpcShow, FORM_MAIN )
+UI_SetIsDrag( frmNpcShow, TRUE )
+UI_SetFormStyleEx( frmNpcShow, 1 )
+
+UI_FormSetHotKey( frmNpcShow, ALT_KEY, HOTKEY_Z )
+
+imgSkilld1 = UI_CreateCompent( frmNpcShow, IMAGE_TYPE, "imgSkilld1", 256, 256, 0, 0 )
+UI_LoadImage( imgSkilld1, "texture/ui2009/NPCList01.tga", NORMAL, 256, 256, 0, 0 )
+
+imgSkilld2 = UI_CreateCompent( frmNpcShow, IMAGE_TYPE, "imgSkilld2", 256, 169, 0, 256 )
+UI_LoadImage( imgSkilld2, "texture/ui2009/NPCList02.tga", NORMAL, 256, 169, 0, 0 ) 
+
+imgSkilld3 = UI_CreateCompent( frmNpcShow, IMAGE_TYPE, "imgSkilld3", 79, 253, 256, 1 )
+UI_LoadImage( imgSkilld3, "texture/ui2009/NPCList03.tga", NORMAL, 79, 253, 0, 3 )
+
+imgSkilld4 = UI_CreateCompent( frmNpcShow, IMAGE_TYPE, "imgSkilld4", 78, 171, 256, 254 )
+UI_LoadImage( imgSkilld4, "texture/ui2009/NPCList03.tga", NORMAL, 78, 171, 83, 0 )
+
+--tittle
+-- labTittle= UI_CreateCompent( frmNpcShow, LABELEX_TYPE, "labTittle", 104,11, 10,3 )
+-- UI_SetCaption( labTittle, "NPC&怪物坐标指引" )
+-- UI_SetTextColor( labTittle, COLOR_BLACK )
+-- UI_SetLabelExFont( labTittle, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmNpcShow, BUTTON_TYPE, "btnClose", 15, 15, 305, 11 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+--加载寻路锁定框
+chkID = UI_CreateCompent( frmNpcShow, CHECK_TYPE, "chkID", 10, 10, 233, 41 )
+UI_LoadImage( chkID, "texture/ui2009/login01.tga", UNCHECKED, 10, 10, 221, 88 )
+UI_LoadImage( chkID, "texture/ui2009/login01.tga", CHECKED, 10, 10, 191, 88 )
+FORMS_EQUIP_CLU_000001 = GetResString("FORMS_EQUIP_CLU_000001")
+UI_SetHint( chkID, FORMS_EQUIP_CLU_000001 )
+
+labID= UI_CreateCompent( frmNpcShow, LABELEX_TYPE, "labID", 12, 12, 250,40 )
+FORMS_EQUIP_CLU_000002 = GetResString("FORMS_EQUIP_CLU_000002")
+UI_SetCaption( labID, FORMS_EQUIP_CLU_000002 )
+UI_SetTextColor( labID, COLOR_BLACK )
+UI_SetLabelExFont( labID, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--------------下面是两个列表, NPC列表和怪物列表 
+labNPC= UI_CreateCompent( frmNpcShow, LABELEX_TYPE, "labNPC", 128, 11,33,17 )
+FORMS_EQUIP_CLU_000003 = GetResString("FORMS_EQUIP_CLU_000003")
+UI_SetCaption( labNPC, FORMS_EQUIP_CLU_000003 )
+UI_SetTextColor( labNPC, COLOR_BLACK )
+UI_SetLabelExFont( labNPC, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+labNpcPos= UI_CreateCompent( frmNpcShow, LABELEX_TYPE, "labNpcPos", 219, 11, 133, 17)
+FORMS_EQUIP_CLU_000004 = GetResString("FORMS_EQUIP_CLU_000004")
+UI_SetCaption( labNpcPos, FORMS_EQUIP_CLU_000004 )
+UI_SetTextColor( labNpcPos, COLOR_BLACK )
+UI_SetLabelExFont( labNpcPos, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+labPOS= UI_CreateCompent( frmNpcShow, LABELEX_TYPE, "labPOS", 219, 11, 226, 17)
+FORMS_EQUIP_CLU_000005 = GetResString("FORMS_EQUIP_CLU_000005")
+UI_SetCaption( labPOS, FORMS_EQUIP_CLU_000005 )
+UI_SetTextColor( labPOS, COLOR_BLACK )
+UI_SetLabelExFont( labPOS, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--创建NPC列表
+lstNpcList = UI_CreateCompent( frmNpcShow, LIST_TYPE, "lstNpcList", 302, 282, 10, 32 )
+lstHelpButton = UI_GetList(lstNpcList)
+UI_SetListRowHeight(lstNpcList,15)
+UI_SetListIsMouseFollow( lstNpcList, TRUE )
+
+--获得滚动条
+scrollid = UI_GetScroll( lstNpcList )
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/ui2009/item1.tga", COMPENT_BACK, 11, 1, 232, 190 )
+--加载向上按钮
+id = UI_GetScrollObj( scrollid, SCROLL_UP )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+--加载滚动条
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/ui2009/item1.tga", COMPENT_BACK, 8, 33, 203, 0 )
+UI_SetSize( id, 8, 33 )
+--加载向下按钮
+id = UI_GetScrollObj( scrollid, SCROLL_DOWN )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+------------------------------------------------------------
+labMonster= UI_CreateCompent( frmNpcShow, LABELEX_TYPE, "labMonster", 61, 11, 30,17 )
+FORMS_EQUIP_CLU_000006 = GetResString("FORMS_EQUIP_CLU_000006")
+UI_SetCaption( labMonster, FORMS_EQUIP_CLU_000006 )
+UI_SetTextColor( labMonster, COLOR_BLACK )
+UI_SetLabelExFont( labMonster, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+labMonsterLV= UI_CreateCompent( frmNpcShow, LABELEX_TYPE, "labMonsterLV", 61, 11, 132,17 )
+FORMS_EQUIP_CLU_000007 = GetResString("FORMS_EQUIP_CLU_000007")
+UI_SetCaption( labMonsterLV, FORMS_EQUIP_CLU_000007 )
+UI_SetTextColor( labMonsterLV, COLOR_BLACK )
+UI_SetLabelExFont( labMonsterLV, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+labMPOS= UI_CreateCompent( frmNpcShow, LABELEX_TYPE, "labMPOS",216, 11, 225,17 )
+FORMS_EQUIP_CLU_000008 = GetResString("FORMS_EQUIP_CLU_000008")
+UI_SetCaption( labMPOS, FORMS_EQUIP_CLU_000008 )
+UI_SetTextColor( labMPOS, COLOR_BLACK )
+UI_SetLabelExFont( labMPOS, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--创建怪物列表
+lstMonsterList = UI_CreateCompent( frmNpcShow, LIST_TYPE, "lstMonsterList", 302, 282, 10, 32 )
+lstHelpButton = UI_GetList(lstMonsterList)
+UI_SetListRowHeight(lstMonsterList,15)
+UI_SetListIsMouseFollow( lstMonsterList, TRUE )
+
+--获得滚动条
+scrollid = UI_GetScroll( lstMonsterList )
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/ui2009/item1.tga", COMPENT_BACK, 11, 1, 232, 190 )
+--加载向上按钮
+id = UI_GetScrollObj( scrollid, SCROLL_UP )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+--加载滚动条
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/ui2009/item1.tga", COMPENT_BACK, 8, 33, 203, 0 )
+UI_SetSize( id, 8, 33 )
+--加载向下按钮
+id = UI_GetScrollObj( scrollid, SCROLL_DOWN )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+------------------------------------------------------------------------------------
+--将 list分别加入到页面
+--创建页面
+pgeSkill = UI_CreateCompent( frmNpcShow, PAGE_TYPE, "pgeSkill", 211, 233, 9, 82 )
+UI_SetPageButton( pgeSkill, PAGE_BUTTON_CUSTOM, 48, 16 )
+
+--NPC列表
+skillid = UI_CreatePageItem( pgeSkill )
+ttlBattle = UI_GetPageItemObj( skillid, PAGE_ITEM_TITLE )
+UI_LoadImage( ttlBattle, "texture/ui2009/NPCList03.tga", PAGE_ITEM_TITLE_NORMAL, 67, 35, 171, 131 )
+UI_LoadImage( ttlBattle, "texture/ui2009/NPCList03.tga", PAGE_ITEM_TITLE_ACTIVE, 67, 35, 171, 91 )
+UI_SetPos( ttlBattle, 20, -33 )
+UI_SetSize( ttlBattle, 67, 35 )
+UI_AddCompent( skillid, lstNpcList )
+UI_AddCompent( skillid, labNPC )
+UI_AddCompent( skillid, labNpcPos )
+UI_AddCompent( skillid, labPOS )
+
+--怪物列表
+skillid = UI_CreatePageItem( pgeSkill )
+ttlBattle = UI_GetPageItemObj( skillid, PAGE_ITEM_TITLE )
+UI_LoadImage( ttlBattle, "texture/ui2009/NPCList03.tga", PAGE_ITEM_TITLE_NORMAL, 67, 35, 171, 40 )
+UI_LoadImage( ttlBattle, "texture/ui2009/NPCList03.tga", PAGE_ITEM_TITLE_ACTIVE, 67, 35, 171, 0 )
+UI_SetPos( ttlBattle, 85, -33 )
+UI_SetSize( ttlBattle, 67, 35 )
+UI_AddCompent( skillid, lstMonsterList )
+UI_AddCompent( skillid, labMonster )
+UI_AddCompent( skillid, labMonsterLV )
+UI_AddCompent( skillid, labMPOS )
+
+--------label群
+-- lab= UI_CreateCompent( frmNpcShow, LABELEX_TYPE, "lab", 31, 11, 54,63 )
+-- UI_SetCaption( lab, "NPC" )
+-- UI_SetTextColor( lab, COLOR_BLACK )
+-- UI_SetLabelExFont( lab, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+-- labM= UI_CreateCompent( frmNpcShow, LABELEX_TYPE, "labM", 81, 11, 104,63 )
+-- UI_SetCaption( labM, "怪物" )
+-- UI_SetTextColor( labM, COLOR_BLACK )
+-- UI_SetLabelExFont( labM, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+------------------------------------------------
+-----------------------------------------------------
+------ 水晶兑换界面 By 小白 090316 ------
+-----------------------------------------------------
+--兑换平台
+---------------
+--创建基本页面
+frmRumDeal = UI_CreateForm( "frmRumDeal", FALSE, 584, 446, 0, 0, TRUE, FALSE )
+UI_ShowForm( frmRumDeal, TRUE )
+UI_AddFormToTemplete( frmRumDeal, FORM_MAIN )
+UI_SetIsDrag( frmRumDeal, FALSE )
+
+-- 加载背景图片
+imgBakA = UI_CreateCompent( frmRumDeal, IMAGE_TYPE, "imgBakA", 256, 256, 0, 0 )
+UI_LoadImage( imgBakA, "texture/ui2009/pingtai01.tga", NORMAL, 256, 256, 0, 0 )
+
+imgBakB = UI_CreateCompent( frmRumDeal, IMAGE_TYPE, "imgBakB", 256, 256, 256, 0 )
+UI_LoadImage( imgBakB, "texture/ui2009/pingtai02.tga", NORMAL, 256, 256, 0, 0 )
+
+imgBakC = UI_CreateCompent( frmRumDeal, IMAGE_TYPE, "imgBakC", 256, 190, 0, 256 )
+UI_LoadImage( imgBakC, "texture/ui2009/pingtai03.tga", NORMAL, 256, 190, 0, 0 )
+
+imgBakD = UI_CreateCompent( frmRumDeal, IMAGE_TYPE, "imgBakD", 256, 188, 256, 256 )
+UI_LoadImage( imgBakD, "texture/ui2009/pingtai04.tga", NORMAL, 256, 188, 0, 0 )
+
+imgBakE = UI_CreateCompent( frmRumDeal, IMAGE_TYPE, "imgBakE", 72, 256, 512, 0 )
+UI_LoadImage( imgBakE, "texture/ui2009/pingtai05.tga", NORMAL, 72, 256, 0, 0 )
+
+imgBakF = UI_CreateCompent( frmRumDeal, IMAGE_TYPE, "imgBakF", 72, 190, 512, 256 )
+UI_LoadImage( imgBakF, "texture/ui2009/pingtai05.tga", NORMAL, 72, 190, 72, 0 )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmRumDeal, BUTTON_TYPE, "btnClose", 15, 15, 555, 12 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+--卖出文字列表
+txtAsk0 = UI_CreateCompent( frmRumDeal, LABELEX_TYPE, "txtAsk0", 50, 12, 50, 50 )
+FORMS_EQUIP_CLU_000013 = GetResString("FORMS_EQUIP_CLU_000013")
+UI_SetCaption( txtAsk0, FORMS_EQUIP_CLU_000013 )
+UI_SetTextColor( txtAsk0, COLOR_BLACK )
+UI_SetLabelExFont( txtAsk0, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+txtAsk0 = UI_CreateCompent( frmRumDeal, LABELEX_TYPE, "txtAsk0", 50, 12, 35, 74 )
+FORMS_EQUIP_CLU_000014 = GetResString("FORMS_EQUIP_CLU_000014")
+UI_SetCaption( txtAsk0, FORMS_EQUIP_CLU_000014 )
+UI_SetTextColor( txtAsk0, COLOR_BLACK )
+UI_SetLabelExFont( txtAsk0, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+txtAsk0 = UI_CreateCompent( frmRumDeal, LABELEX_TYPE, "txtAsk0", 50, 12, 100, 74 )
+FORMS_DIALOG_CLU_000002 = GetResString("FORMS_DIALOG_CLU_000002")
+UI_SetCaption( txtAsk0, FORMS_DIALOG_CLU_000002 )
+UI_SetTextColor( txtAsk0, COLOR_BLACK )
+UI_SetLabelExFont( txtAsk0, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+lstAsk0 = UI_CreateListView( frmRumDeal, "lstAsk0", 119, 125, 30, 91, 2, 2 )
+UI_ListViewSetTitle( lstAsk0, 0, 68, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstAsk0, 1, 51, "", 0, 0, 0, 0 )
+
+--买入文字列表
+txtAsk1 = UI_CreateCompent( frmRumDeal, LABELEX_TYPE, "txtAsk1", 50, 12, 50, 249 )
+FORMS_EQUIP_CLU_000015 = GetResString("FORMS_EQUIP_CLU_000015")
+UI_SetCaption( txtAsk1, FORMS_EQUIP_CLU_000015 )
+UI_SetTextColor( txtAsk1, COLOR_BLACK )
+UI_SetLabelExFont( txtAsk1, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+txtAsk1 = UI_CreateCompent( frmRumDeal, LABELEX_TYPE, "txtAsk1", 50, 12, 35, 272 )
+FORMS_EQUIP_CLU_000014 = GetResString("FORMS_EQUIP_CLU_000014")
+UI_SetCaption( txtAsk1, FORMS_EQUIP_CLU_000014 )
+UI_SetTextColor( txtAsk1, COLOR_BLACK )
+UI_SetLabelExFont( txtAsk1, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+txtAsk1 = UI_CreateCompent( frmRumDeal, LABELEX_TYPE, "txtAsk1", 50, 12, 100, 272 )
+FORMS_DIALOG_CLU_000002 = GetResString("FORMS_DIALOG_CLU_000002")
+UI_SetCaption( txtAsk1, FORMS_DIALOG_CLU_000002 )
+UI_SetTextColor( txtAsk1, COLOR_BLACK )
+UI_SetLabelExFont( txtAsk1, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+lstAsk1 = UI_CreateListView( frmRumDeal, "lstAsk1", 119, 125, 30, 289, 2, 2 )
+UI_ListViewSetTitle( lstAsk1, 0, 68, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstAsk1, 1, 51, "", 0, 0, 0, 0 )
+
+--手续费与物价
+labTitle01 = UI_CreateCompent( frmRumDeal, LABELEX_TYPE, "labTitle01", 100, 11, 200, 49 )
+FORMS_EQUIP_CLU_000016 = GetResString("FORMS_EQUIP_CLU_000016")
+UI_SetCaption( labTitle01, FORMS_EQUIP_CLU_000016 )
+UI_SetTextColor( labTitle01, COLOR_BLACK )
+UI_SetLabelExFont( labTitle01, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+labTitle01 = UI_CreateCompent( frmRumDeal, LABELEX_TYPE, "labTitle01", 120, 11, 210, 74 )
+FORMS_EQUIP_CLU_000017 = GetResString("FORMS_EQUIP_CLU_000017")
+UI_SetCaption( labTitle01, FORMS_EQUIP_CLU_000017 )
+UI_SetTextColor( labTitle01, COLOR_BLACK )
+UI_SetLabelExFont( labTitle01, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+sellIndex = UI_CreateCompent( frmRumDeal, LABELEX_TYPE, "sellIndex", 100, 11, 335, 74 )
+FORMS_EQUIP_CLU_000018 = GetResString("FORMS_EQUIP_CLU_000018")
+UI_SetCaption( sellIndex, FORMS_EQUIP_CLU_000018 )
+UI_SetTextColor( sellIndex, COLOR_BLACK )
+UI_SetLabelExFont( sellIndex, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+labTitle01 = UI_CreateCompent( frmRumDeal, LABELEX_TYPE, "labTitle01", 120, 11, 210, 95 )
+FORMS_EQUIP_CLU_000019 = GetResString("FORMS_EQUIP_CLU_000019")
+UI_SetCaption( labTitle01, FORMS_EQUIP_CLU_000019 )
+UI_SetTextColor( labTitle01, COLOR_BLACK )
+UI_SetLabelExFont( labTitle01, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+buyInde = UI_CreateCompent( frmRumDeal, LABELEX_TYPE, "buyIndex", 100, 11, 335, 95 )
+FORMS_EQUIP_CLU_000018 = GetResString("FORMS_EQUIP_CLU_000018")
+UI_SetCaption( buyIndex, FORMS_EQUIP_CLU_000018 )
+UI_SetTextColor( buyIndex, COLOR_BLACK )
+UI_SetLabelExFont( buyIndex, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+labTitle01 = UI_CreateCompent( frmRumDeal, LABELEX_TYPE, "labTitle01", 80, 11, 210, 117 )
+FORMS_EQUIP_CLU_000020 = GetResString("FORMS_EQUIP_CLU_000020")
+UI_SetCaption( labTitle01, FORMS_EQUIP_CLU_000020 )
+UI_SetTextColor( labTitle01, COLOR_BLACK )
+UI_SetLabelExFont( labTitle01, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+labTitle04 = UI_CreateCompent( frmRumDeal, LABELEX_TYPE, "labTitle04", 80, 11, 293, 117 )
+FORMS_EQUIP_CLU_000021 = GetResString("FORMS_EQUIP_CLU_000021")
+UI_SetCaption( labTitle04, FORMS_EQUIP_CLU_000021 )
+UI_SetTextColor( labTitle04, COLOR_BLACK )
+UI_SetLabelExFont( labTitle04, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+labTitle01 = UI_CreateCompent( frmRumDeal, LABELEX_TYPE, "labTitle01", 80, 11, 376, 117 )
+FORMS_EQUIP_CLU_000022 = GetResString("FORMS_EQUIP_CLU_000022")
+UI_SetCaption( labTitle01, FORMS_EQUIP_CLU_000022 )
+UI_SetTextColor( labTitle01, COLOR_BLACK )
+UI_SetLabelExFont( labTitle01, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+labTitle05 = UI_CreateCompent( frmRumDeal, LABELEX_TYPE, "labTitle04", 80, 11, 459, 117 )
+FORMS_EQUIP_CLU_000023 = GetResString("FORMS_EQUIP_CLU_000023")
+UI_SetCaption( labTitle05, FORMS_EQUIP_CLU_000023 )
+UI_SetTextColor( labTitle05, COLOR_BLACK )
+UI_SetLabelExFont( labTitle05, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+labTitlexx = UI_CreateCompent( frmRumDeal, LABELEX_TYPE, "labTitlexx", 80, 11, 200, 142 )
+FORMS_EQUIP_CLU_000024 = GetResString("FORMS_EQUIP_CLU_000024")
+UI_SetCaption( labTitlexx, FORMS_EQUIP_CLU_000024 )
+UI_SetTextColor( labTitlexx, COLOR_BLACK )
+UI_SetLabelExFont( labTitlexx, DEFAULT_FONT, TRUE, COLOR_WHITE )
+--我的交易列表
+txtAsk2 = UI_CreateCompent( frmRumDeal, LABELEX_TYPE, "txtAsk2", 50, 12, 200, 142 )
+UI_SetCaption( txtAsk2, "" )
+UI_SetTextColor( txtAsk2, COLOR_BLACK )
+UI_SetLabelExFont( txtAsk2, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+txtAsk2 = UI_CreateCompent( frmRumDeal, LABELEX_TYPE, "txtAsk2", 50, 12, 278, 142 )
+UI_SetCaption( txtAsk2, "" )
+UI_SetTextColor( txtAsk2, COLOR_BLACK )
+UI_SetLabelExFont( txtAsk2, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+txttime = UI_CreateCompent( frmRumDeal, LABELEX_TYPE, "txttime", 50, 12, 342, 142 )
+UI_SetCaption( txttime, "" )
+UI_SetTextColor( txttime, COLOR_BLACK )
+UI_SetLabelExFont( txttime, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--挂单窗
+txtAsk2 = UI_CreateCompent( frmRumDeal, LABELEX_TYPE, "txtAsk2", 50, 12, 230, 175 )
+FORMS_EQUIP_CLU_000014 = GetResString("FORMS_EQUIP_CLU_000014")
+UI_SetCaption( txtAsk2, FORMS_EQUIP_CLU_000014 )
+UI_SetTextColor( txtAsk2, COLOR_BLACK )
+UI_SetLabelExFont( txtAsk2, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+txtAsk2 = UI_CreateCompent( frmRumDeal, LABELEX_TYPE, "txtAsk2", 50, 12, 310, 175 )
+FORMS_DIALOG_CLU_000002 = GetResString("FORMS_DIALOG_CLU_000002")
+UI_SetCaption( txtAsk2, FORMS_DIALOG_CLU_000002 )
+UI_SetTextColor( txtAsk2, COLOR_BLACK )
+UI_SetLabelExFont( txtAsk2, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+txtAsk2 = UI_CreateCompent( frmRumDeal, LABELEX_TYPE, "txtAsk2", 50, 12, 380, 175 )
+FORMS_EQUIP_CLU_000025 = GetResString("FORMS_EQUIP_CLU_000025")
+UI_SetCaption( txtAsk2, FORMS_EQUIP_CLU_000025 )
+UI_SetTextColor( txtAsk2, COLOR_BLACK )
+UI_SetLabelExFont( txtAsk2, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+txtAsk2 = UI_CreateCompent( frmRumDeal, LABELEX_TYPE, "txtAsk2", 50, 12, 480, 175 )
+FORMS_EQUIP_CLU_000026 = GetResString("FORMS_EQUIP_CLU_000026")
+UI_SetCaption( txtAsk2, FORMS_EQUIP_CLU_000026 )
+UI_SetTextColor( txtAsk2, COLOR_BLACK )
+UI_SetLabelExFont( txtAsk2, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+lstAsk2 = UI_CreateListView( frmRumDeal, "lstAsk2", 320, 100, 215, 193, 4, 2 )
+UI_ListViewSetTitle( lstAsk2, 0, 100, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstAsk2, 1, 60, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstAsk2, 2, 100, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstAsk2, 3, 60, "", 0, 0, 0, 0 )
+
+--我的帐号
+txtAsk2 = UI_CreateCompent( frmRumDeal, LABELEX_TYPE, "txtAsk2", 50, 12, 200, 334 )
+FORMS_EQUIP_CLU_000027 = GetResString("FORMS_EQUIP_CLU_000027")
+UI_SetCaption( txtAsk2, FORMS_EQUIP_CLU_000027 )
+UI_SetTextColor( txtAsk2, COLOR_BLACK )
+UI_SetLabelExFont( txtAsk2, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--水晶
+labGold01 = UI_CreateCompent( frmRumDeal, LABELEX_TYPE, "labGold01", 100, 11, 210, 356 )
+FORMS_EQUIP_CLU_000028 = GetResString("FORMS_EQUIP_CLU_000028")
+UI_SetCaption( labGold01, FORMS_EQUIP_CLU_000028 )
+UI_SetTextColor( labGold01, COLOR_BLACK )
+UI_SetLabelExFont( labGold01, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+labGold02 = UI_CreateCompent( frmRumDeal, LABELEX_TYPE, "labGold02", 100, 11, 263, 356 )
+FORMS_EQUIP_CLU_000029 = GetResString("FORMS_EQUIP_CLU_000029")
+UI_SetCaption( labGold02, FORMS_EQUIP_CLU_000029 )
+UI_SetTextColor( labGold02, COLOR_BLACK )
+UI_SetLabelExFont( labGold02, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--金币
+labGold01 = UI_CreateCompent( frmRumDeal, LABELEX_TYPE, "labGold01", 100, 11, 210, 377 )
+FORMS_EQUIP_CLU_000030 = GetResString("FORMS_EQUIP_CLU_000030")
+UI_SetCaption( labGold01, FORMS_EQUIP_CLU_000030 )
+UI_SetTextColor( labGold01, COLOR_BLACK )
+UI_SetLabelExFont( labGold01, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+labGold03 = UI_CreateCompent( frmRumDeal, LABELEX_TYPE, "labGold03", 100, 11, 263, 377 )
+FORMS_EQUIP_CLU_000031 = GetResString("FORMS_EQUIP_CLU_000031")
+UI_SetCaption( labGold03, FORMS_EQUIP_CLU_000031 )
+UI_SetTextColor( labGold03, COLOR_BLACK )
+UI_SetLabelExFont( labGold03, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--买入金币按钮
+btnDeal01 = UI_CreateCompent( frmRumDeal, BUTTON_TYPE, "btnDeal01", 70, 22, 299, 302 )
+UI_LoadButtonImage( btnDeal01, "texture/ui2009/JewelryUp.tga", 70, 22, 0, 0, FALSE )
+
+txtDeal01 = UI_CreateCompent( frmRumDeal, LABELEX_TYPE, "txtDeal01", 50, 12, 308, 307 )
+FORMS_EQUIP_CLU_000032 = GetResString("FORMS_EQUIP_CLU_000032")
+UI_SetCaption( txtDeal01, FORMS_EQUIP_CLU_000032 )
+UI_SetTextColor( txtDeal01, COLOR_BLACK )
+UI_SetLabelExFont( txtDeal01, DEFAULT_FONT, TRUE, COLOR_WHITE )
+FORMS_EQUIP_CLU_000033 = GetResString("FORMS_EQUIP_CLU_000033")
+UI_SetHint( txtDeal01, FORMS_EQUIP_CLU_000033 )
+
+--卖出金币按钮
+btnDeal02 = UI_CreateCompent( frmRumDeal, BUTTON_TYPE, "btnDeal02", 70, 22, 382, 302  )
+UI_LoadButtonImage( btnDeal02, "texture/ui2009/JewelryUp.tga", 70, 22, 0, 0, FALSE )
+
+txtDeal02 = UI_CreateCompent( frmRumDeal, LABELEX_TYPE, "txtDeal02", 50, 12, 391, 307 )
+FORMS_EQUIP_CLU_000034 = GetResString("FORMS_EQUIP_CLU_000034")
+UI_SetCaption( txtDeal02, FORMS_EQUIP_CLU_000034 )
+UI_SetTextColor( txtDeal02, COLOR_BLACK )
+UI_SetLabelExFont( txtDeal02, DEFAULT_FONT, TRUE, COLOR_WHITE )
+FORMS_EQUIP_CLU_000035 = GetResString("FORMS_EQUIP_CLU_000035")
+UI_SetHint( txtDeal02, FORMS_EQUIP_CLU_000035 )
+
+--取消交易按钮
+btnDeal03 = UI_CreateCompent( frmRumDeal, BUTTON_TYPE, "btnDeal03", 70, 22, 465, 302  )
+UI_LoadButtonImage( btnDeal03, "texture/ui2009/JewelryUp.tga", 70, 22, 0, 0, FALSE )
+
+txtDeal03 = UI_CreateCompent( frmRumDeal, LABELEX_TYPE, "txtDeal03", 50, 12, 476, 307 )
+FORMS_EQUIP_CLU_000036 = GetResString("FORMS_EQUIP_CLU_000036")
+UI_SetCaption( txtDeal03, FORMS_EQUIP_CLU_000036 )
+UI_SetTextColor( txtDeal03, COLOR_BLACK )
+UI_SetLabelExFont( txtDeal03, DEFAULT_FONT, TRUE, COLOR_WHITE )
+FORMS_EQUIP_CLU_000037 = GetResString("FORMS_EQUIP_CLU_000037")
+UI_SetHint( txtDeal03, FORMS_EQUIP_CLU_000037 )
+
+--取出银两按钮
+btnDeal04 = UI_CreateCompent( frmRumDeal, BUTTON_TYPE, "btnDeal04", 70, 22, 465, 395  )
+UI_LoadButtonImage( btnDeal04, "texture/ui2009/JewelryUp.tga", 70, 22, 0, 0, FALSE )
+
+txtDeal04 = UI_CreateCompent( frmRumDeal, LABELEX_TYPE, "txtDeal04", 50, 12, 476, 401 )
+FORMS_EQUIP_CLU_000038 = GetResString("FORMS_EQUIP_CLU_000038")
+UI_SetCaption( txtDeal04, FORMS_EQUIP_CLU_000038 )
+UI_SetTextColor( txtDeal04, COLOR_BLACK )
+UI_SetLabelExFont( txtDeal04, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--刷新按钮
+btnDealF5 = UI_CreateCompent( frmRumDeal, BUTTON_TYPE, "btnDealF5", 70, 22, 215, 302 )
+UI_LoadButtonImage( btnDealF5, "texture/ui2009/JewelryUp.tga", 70, 22, 0, 0, FALSE )
+
+txtDealF5 = UI_CreateCompent( frmRumDeal, LABELEX_TYPE, "txtDealF5", 50, 12, 236, 307 )
+FORMS_EQUIP_CLU_000039 = GetResString("FORMS_EQUIP_CLU_000039")
+UI_SetCaption( txtDealF5, FORMS_EQUIP_CLU_000039 )
+UI_SetTextColor( txtDealF5, COLOR_BLACK )
+UI_SetLabelExFont( txtDealF5, DEFAULT_FONT, TRUE, COLOR_WHITE )
+FORMS_EQUIP_CLU_000040 = GetResString("FORMS_EQUIP_CLU_000040")
+UI_SetHint( txtDealF5, FORMS_EQUIP_CLU_000040 )
+---------------
+--买入水晶
+---------------
+--创建基本页面
+frmRumBuy = UI_CreateForm( "frmRumBuy", FALSE, 206, 173, 250, 400, TRUE, FALSE )
+UI_ShowForm( frmRumBuy, TRUE )
+UI_AddFormToTemplete( frmRumBuy, FORM_MAIN )
+-- UI_FormSetHotKey( frmRumBuy, ALT_KEY, HOTKEY_V )
+UI_SetIsDrag( frmRumBuy, TRUE )
+
+-- 加载背景图片
+imgBakA = UI_CreateCompent( frmRumBuy, IMAGE_TYPE, "imgBakA", 206, 173, 0, 0 )
+UI_LoadImage( imgBakA, "texture/ui2009/pingtai06.tga", NORMAL, 206, 173, 0, 0 )
+
+--title
+labTitle01 = UI_CreateCompent( frmRumBuy, LABELEX_TYPE, "labTitle01", 100, 11, 15, 10 )
+FORMS_EQUIP_CLU_000041 = GetResString("FORMS_EQUIP_CLU_000041")
+UI_SetCaption( labTitle01, FORMS_EQUIP_CLU_000041 )
+UI_SetTextColor( labTitle01, COLOR_BLACK )
+UI_SetLabelExFont( labTitle01, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmRumBuy, BUTTON_TYPE, "btnClose", 15, 15, 179, 8 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+--文字列表
+labTitle01 = UI_CreateCompent( frmRumBuy, LABELEX_TYPE, "labTitle01", 100, 11, 23, 49 )
+FORMS_EQUIP_CLU_000042 = GetResString("FORMS_EQUIP_CLU_000042")
+UI_SetCaption( labTitle01, FORMS_EQUIP_CLU_000042 )
+UI_SetTextColor( labTitle01, COLOR_BLACK )
+UI_SetLabelExFont( labTitle01, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--单位价格输入
+edtPrice = UI_CreateCompent( frmRumBuy, EDIT_TYPE, "edtPrice", 100, 11, 92, 49 )
+UI_SetTextColor( edtPrice, COLOR_BLACK )
+UI_SetEditMaxNum( edtPrice, 9 )
+UI_SetEditMaxNumVisible( edtPrice, 9 )
+
+labTitle01 = UI_CreateCompent( frmRumBuy, LABELEX_TYPE, "labTitle01", 100, 11, 23, 72 )
+FORMS_EQUIP_CLU_000043 = GetResString("FORMS_EQUIP_CLU_000043")
+UI_SetCaption( labTitle01, FORMS_EQUIP_CLU_000043 )
+UI_SetTextColor( labTitle01, COLOR_BLACK )
+UI_SetLabelExFont( labTitle01, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--数量输入
+edtNumber = UI_CreateCompent( frmRumBuy, EDIT_TYPE, "edtNumber", 100, 11, 92, 72 )
+UI_SetTextColor( edtNumber, COLOR_BLACK )
+UI_SetEditMaxNum( edtNumber, 4 )
+UI_SetEditMaxNumVisible( edtNumber, 4 )
+
+labTitle01 = UI_CreateCompent( frmRumBuy, LABELEX_TYPE, "labTitle01", 100, 11, 23, 95 )
+FORMS_EQUIP_CLU_000044 = GetResString("FORMS_EQUIP_CLU_000044")
+UI_SetCaption( labTitle01, FORMS_EQUIP_CLU_000044 )
+UI_SetTextColor( labTitle01, COLOR_BLACK )
+UI_SetLabelExFont( labTitle01, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+labTitle04 = UI_CreateCompent( frmRumBuy, LABELEX_TYPE, "labTitle04", 100, 11, 92, 95 )
+UI_SetCaption( labTitle04, "0" )
+UI_SetTextColor( labTitle04, COLOR_BLACK )
+UI_SetLabelExFont( labTitle04, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+labTitle01 = UI_CreateCompent( frmRumBuy, LABELEX_TYPE, "labTitle01", 100, 11, 23, 118 )
+FORMS_EQUIP_CLU_000045 = GetResString("FORMS_EQUIP_CLU_000045")
+UI_SetCaption( labTitle01, FORMS_EQUIP_CLU_000045 )
+UI_SetTextColor( labTitle01, COLOR_BLACK )
+UI_SetLabelExFont( labTitle01, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+labTitle05 = UI_CreateCompent( frmRumBuy, LABELEX_TYPE, "labTitle05", 100, 11, 92, 118 )
+UI_SetCaption( labTitle05, "0" )
+UI_SetTextColor( labTitle05, COLOR_BLACK )
+UI_SetLabelExFont( labTitle05, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--加载确定按钮
+btnDeal01 = UI_CreateCompent( frmRumBuy, BUTTON_TYPE, "btnDeal01", 47, 22, 26, 143 )
+UI_LoadButtonImage( btnDeal01, "texture/ui2009/button.tga", 47, 22, 0, 0, TRUE )
+
+--加载取消按钮
+btnDeal02 = UI_CreateCompent( frmRumBuy, BUTTON_TYPE, "btnDeal02", 47, 22, 134, 143 )
+UI_LoadButtonImage( btnDeal02, "texture/ui2009/button.tga", 47, 22, 0, 22, TRUE )
+UI_SetButtonModalResult( btnDeal02, BUTTON_NO )
+
+---------------
+--卖出水晶
+---------------
+--创建基本页面
+frmRumSell = UI_CreateForm( "frmRumSell", FALSE, 206, 173, 250, 400, TRUE, FALSE )
+UI_ShowForm( frmRumSell, TRUE )
+UI_AddFormToTemplete( frmRumSell, FORM_MAIN )
+-- UI_FormSetHotKey( frmRumSell, ALT_KEY, HOTKEY_V )
+UI_SetIsDrag( frmRumSell, TRUE )
+
+-- 加载背景图片
+imgBakA = UI_CreateCompent( frmRumSell, IMAGE_TYPE, "imgBakA", 206, 173, 0, 0 )
+UI_LoadImage( imgBakA, "texture/ui2009/pingtai06.tga", NORMAL, 206, 173, 0, 0 )
+
+--title
+labTitle01 = UI_CreateCompent( frmRumSell, LABELEX_TYPE, "labTitle01", 100, 11, 15, 10 )
+FORMS_EQUIP_CLU_000046 = GetResString("FORMS_EQUIP_CLU_000046")
+UI_SetCaption( labTitle01, FORMS_EQUIP_CLU_000046 )
+UI_SetTextColor( labTitle01, COLOR_BLACK )
+UI_SetLabelExFont( labTitle01, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmRumSell, BUTTON_TYPE, "btnClose", 15, 15, 179, 8 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+--文字列表
+labTitle01 = UI_CreateCompent( frmRumSell, LABELEX_TYPE, "labTitle01", 100, 11, 23, 49 )
+FORMS_EQUIP_CLU_000042 = GetResString("FORMS_EQUIP_CLU_000042")
+UI_SetCaption( labTitle01, FORMS_EQUIP_CLU_000042 )
+UI_SetTextColor( labTitle01, COLOR_BLACK )
+UI_SetLabelExFont( labTitle01, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--单位价格输入
+edtPrice = UI_CreateCompent( frmRumSell, EDIT_TYPE, "edtPrice", 100, 11, 92, 49 )
+UI_SetTextColor( edtPrice, COLOR_BLACK )
+UI_SetEditMaxNum( edtPrice, 9 )
+UI_SetEditMaxNumVisible( edtPrice, 9 )
+
+labTitle01 = UI_CreateCompent( frmRumSell, LABELEX_TYPE, "labTitle01", 100, 11, 23, 72 )
+FORMS_EQUIP_CLU_000043 = GetResString("FORMS_EQUIP_CLU_000043")
+UI_SetCaption( labTitle01, FORMS_EQUIP_CLU_000043 )
+UI_SetTextColor( labTitle01, COLOR_BLACK )
+UI_SetLabelExFont( labTitle01, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--数量输入
+edtNumber= UI_CreateCompent( frmRumSell, EDIT_TYPE, "edtNumber", 100, 11, 92, 72 )
+UI_SetTextColor( edtNumber, COLOR_BLACK )
+UI_SetEditMaxNum( edtNumber, 4 )
+UI_SetEditMaxNumVisible( edtNumber, 4 )
+
+labTitle01 = UI_CreateCompent( frmRumSell, LABELEX_TYPE, "labTitle01", 100, 11, 23, 95 )
+FORMS_EQUIP_CLU_000044 = GetResString("FORMS_EQUIP_CLU_000044")
+UI_SetCaption( labTitle01, FORMS_EQUIP_CLU_000044 )
+UI_SetTextColor( labTitle01, COLOR_BLACK )
+UI_SetLabelExFont( labTitle01, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+labTitle04 = UI_CreateCompent( frmRumSell, LABELEX_TYPE, "labTitle04", 100, 11, 92, 95 )
+UI_SetCaption( labTitle04, "0" )
+UI_SetTextColor( labTitle04, COLOR_BLACK )
+UI_SetLabelExFont( labTitle04, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+labTitle01 = UI_CreateCompent( frmRumSell, LABELEX_TYPE, "labTitle01", 100, 11, 23, 118 )
+FORMS_EQUIP_CLU_000045 = GetResString("FORMS_EQUIP_CLU_000045")
+UI_SetCaption( labTitle01, FORMS_EQUIP_CLU_000045 )
+UI_SetTextColor( labTitle01, COLOR_BLACK )
+UI_SetLabelExFont( labTitle01, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+labTitle05 = UI_CreateCompent( frmRumSell, LABELEX_TYPE, "labTitle05", 100, 11, 92, 118 )
+UI_SetCaption( labTitle05, "0" )
+UI_SetTextColor( labTitle05, COLOR_BLACK )
+UI_SetLabelExFont( labTitle05, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--加载确定按钮
+btnDeal01 = UI_CreateCompent( frmRumSell, BUTTON_TYPE, "btnDeal01", 47, 22, 26, 143 )
+UI_LoadButtonImage( btnDeal01, "texture/ui2009/button.tga", 47, 22, 0, 0, TRUE )
+
+--加载取消按钮
+btnDeal02 = UI_CreateCompent( frmRumSell, BUTTON_TYPE, "btnDeal02", 47, 22, 134, 143 )
+UI_LoadButtonImage( btnDeal02, "texture/ui2009/button.tga", 47, 22, 0, 22, TRUE )
+UI_SetButtonModalResult( btnDeal02, BUTTON_NO )
+
+---------------
+--取出金币
+---------------
+--创建基本页面
+frmRumGet = UI_CreateForm( "frmRumGet", FALSE, 206, 92, 250, 400, TRUE, FALSE )
+UI_ShowForm( frmRumGet, TRUE )
+UI_AddFormToTemplete( frmRumGet, FORM_MAIN )
+-- UI_FormSetHotKey( frmRumGet, ALT_KEY, HOTKEY_V )
+UI_SetIsDrag( frmRumGet, TRUE )
+
+-- 加载背景图片
+imgBakA = UI_CreateCompent( frmRumGet, IMAGE_TYPE, "imgBakA", 206, 92, 0, 0 )
+UI_LoadImage( imgBakA, "texture/ui2009/pingtai07.tga", NORMAL, 206, 92, 0, 0 )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmRumGet, BUTTON_TYPE, "btnClose", 15, 15, 184, 5 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+--title
+labTitle01 = UI_CreateCompent( frmRumGet, LABELEX_TYPE, "labTitle01", 100, 11, 10, 6 )
+FORMS_EQUIP_CLU_000038 = GetResString("FORMS_EQUIP_CLU_000038")
+UI_SetCaption( labTitle01, FORMS_EQUIP_CLU_000038 )
+UI_SetTextColor( labTitle01, COLOR_BLACK )
+UI_SetLabelExFont( labTitle01, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载确定按钮
+btnDeal01 = UI_CreateCompent( frmRumGet, BUTTON_TYPE, "btnDeal01", 47, 22, 26, 60 )
+UI_LoadButtonImage( btnDeal01, "texture/ui2009/button.tga", 47, 22, 0, 0, TRUE )
+
+--加载取消按钮
+btnDeal02 = UI_CreateCompent( frmRumGet, BUTTON_TYPE, "btnDeal02", 47, 22, 134, 60 )
+UI_LoadButtonImage( btnDeal02, "texture/ui2009/button.tga", 47, 22, 0, 22, TRUE )
+UI_SetButtonModalResult( btnDeal02, BUTTON_NO )
+
+--银两输入
+edtID = UI_CreateCompent( frmRumGet, EDIT_TYPE, "edtID", 158, 12, 24, 40 )
+UI_SetTextColor( edtID, COLOR_BLACK )
+UI_SetEditMaxNum( edtID, 18 )-- 设置输入框最大输入字数,单位:byte
+UI_SetEditMaxNumVisible( edtID, 9 )-- 设置输入框最大输入字数,单位:byte

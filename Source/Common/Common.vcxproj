@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{9c104412-067e-4d84-983b-8b93862adeb1}</ProjectGuid>
+    <RootNamespace>Common</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)$(PlatformShortName)\$(Configuration)\</OutDir>
+    <TargetName>$(ProjectName)_$(PlatformShortName)</TargetName>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)$(PlatformShortName)\$(Configuration)\</OutDir>
+    <TargetName>$(ProjectName)_$(PlatformShortName)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)$(PlatformShortName)\$(Configuration)\</OutDir>
+    <TargetName>$(ProjectName)_$(PlatformShortName)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)$(PlatformShortName)\$(Configuration)\</OutDir>
+    <TargetName>$(ProjectName)_$(PlatformShortName)</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <AdditionalIncludeDirectories>..\Utility\;..\ICUHelper\;..\ICU\include\$(PlatformName)\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableLanguageExtensions>false</DisableLanguageExtensions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\Utility\;..\ICUHelper\;..\ICU\include\$(PlatformName);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <AdditionalIncludeDirectories>..\Utility\;..\ICUHelper\;..\ICU\include\$(PlatformName)\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\Utility\;..\ICUHelper\;..\ICU\include\$(PlatformName);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>../ICU/lib/$(PlatformName)/$(ConfigurationName);../Utility/$(PlatformName)/$(ConfigurationName);../ICUHelper/$(PlatformName)/$(ConfigurationName)/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Utility_$(PlatformName).lib;ICUHelper_$(PlatformName).lib;icuuc.lib;icutu.lib;icutest.lib;icuio.lib;icuin.lib;icudt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="AreaRecord.h" />
+    <ClInclude Include="ChaAction.h" />
+    <ClInclude Include="ChaAttr.h" />
+    <ClInclude Include="ChaAttrType.h" />
+    <ClInclude Include="ChaMask.h" />
+    <ClInclude Include="CharacterRecord.h" />
+    <ClInclude Include="commfunc.h" />
+    <ClInclude Include="CompCommand.h" />
+    <ClInclude Include="EnumSQLStatements.h" />
+    <ClInclude Include="EventRecord.h" />
+    <ClInclude Include="GameCommon.h" />
+    <ClInclude Include="HairRecord.h" />
+    <ClInclude Include="i18n.h" />
+    <ClInclude Include="ItemAttr.h" />
+    <ClInclude Include="ItemAttrType.h" />
+    <ClInclude Include="ItemContent.h" />
+    <ClInclude Include="ItemRecord.h" />
+    <ClInclude Include="JobInitEquip.h" />
+    <ClInclude Include="JobType.h" />
+    <ClInclude Include="Kitbag.h" />
+    <ClInclude Include="KitbagEnCode.h" />
+    <ClInclude Include="LevelRecord.h" />
+    <ClInclude Include="LifeLvRecord.h" />
+    <ClInclude Include="LogFile.h" />
+    <ClInclude Include="MapCopyRecord.h" />
+    <ClInclude Include="memcheck.h" />
+    <ClInclude Include="MonRefRecord.h" />
+    <ClInclude Include="conformity.h" />
+    <ClInclude Include="NetCommand.h" />
+    <ClInclude Include="NetRetCode.h" />
+    <ClInclude Include="NoLockRecord.h" />
+    <ClInclude Include="NpcRecord.h" />
+    <ClInclude Include="Point.h" />
+    <ClInclude Include="RoleCommon.h" />
+    <ClInclude Include="SailLvRecord.h" />
+    <ClInclude Include="ShipSet.h" />
+    <ClInclude Include="SkillBag.h" />
+    <ClInclude Include="SkillRecord.h" />
+    <ClInclude Include="SkillStateRecord.h" />
+    <ClInclude Include="SkillStateType.h" />
+    <ClInclude Include="StringLib.h" />
+    <ClInclude Include="StringPoolL.h" />
+    <ClInclude Include="SwitchMapRecord.h" />
+    <ClInclude Include="TableData.h" />
+    <ClInclude Include="TerrainAttrib.h" />
+    <ClInclude Include="ToolClass.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ChaAttr.cpp" />
+    <ClCompile Include="ChaMask.cpp" />
+    <ClCompile Include="CharacterRecord.cpp" />
+    <ClCompile Include="CommFunc.cpp" />
+    <ClCompile Include="EventRecord.cpp" />
+    <ClCompile Include="HairRecord.cpp" />
+    <ClCompile Include="i18n.cpp" />
+    <ClCompile Include="ItemAttr.cpp" />
+    <ClCompile Include="ItemContent.cpp" />
+    <ClCompile Include="ItemRecord.cpp" />
+    <ClCompile Include="JobInitEquip.cpp" />
+    <ClCompile Include="Kitbag.cpp" />
+    <ClCompile Include="LevelRecord.cpp" />
+    <ClCompile Include="LifeLvRecord.cpp" />
+    <ClCompile Include="LogFile.cpp" />
+    <ClCompile Include="MapCopyRecord.cpp" />
+    <ClCompile Include="memcheck.cpp" />
+    <ClCompile Include="MonRefRecord.cpp" />
+    <ClCompile Include="NetCommand.cpp" />
+    <ClCompile Include="NoLockRecord.cpp" />
+    <ClCompile Include="NpcRecord.cpp" />
+    <ClCompile Include="Point.cpp" />
+    <ClCompile Include="SailLvRecord.cpp" />
+    <ClCompile Include="ShipSet.cpp" />
+    <ClCompile Include="SkillRecord.cpp" />
+    <ClCompile Include="SkillStateRecord.cpp" />
+    <ClCompile Include="stringlib.cpp" />
+    <ClCompile Include="stringpooll.cpp" />
+    <ClCompile Include="SwitchMapRecord.cpp" />
+    <ClCompile Include="TerrainAttrib.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

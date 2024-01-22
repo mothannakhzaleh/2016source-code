@@ -1,0 +1,9 @@
+USE AccountServer;
+DECLARE @Username AS VARCHAR(50) = 'local'
+DECLARE @Password AS VARCHAR(250) = '$2a$12$JXGuT05v1dY6zCcB04HouuaaAcnEA1IpP7A1ck5gm.48.SkOpn0aS' -- 123456 (bcrypt) 
+INSERT INTO account_login (name, password) VALUES (@Username, @Password);
+
+DECLARE @AccountID AS INT
+SELECT @AccountID = id FROM account_login WHERE name = @Username;
+USE GameDB;
+INSERT INTO account (act_id, act_name, gm) VALUES (@AccountID, @Username, 99);

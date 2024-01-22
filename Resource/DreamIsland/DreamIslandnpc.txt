@@ -1,0 +1,46 @@
+//序号	NPC名字	NPC类型	Chr索引ID	小地图显示	坐标起点	坐标终点	NPC面向	区域	区域编号	NPC脚本	消息處理	检测状态
+1	Resident - Auntie Susan	1	737	11	40400,63900	40400,63900	180	Dream City	157	0	kzd_susandashen	0
+2	Resident - May	1	758	12	43300,61900	43300,61900	270	Dream City	157	0	kzd_amei	0
+3	Private - Whitely	1	735	0	45400,59000	45400,59000	180	Dream City	157	0	kzd_xiaobai	0
+4	Private - Goldy	1	735	0	45400,60200	45400,60200	0	Dream City	157	0	kzd_xiaojin	0
+5	Private - Solomon	1	735	0	32700,59600	32700,59600	270	Dream City	157	0	kzd_suoluomen	0
+6	Private - Maesomom	1	735	0	32700,60300	32700,60300	270	Dream City	157	0	kzd_meisuomen	0
+7	Private - Hawong	1	410	0	34200,55800	34200,55800	180	Dream City	157	0	kzd_hawang	0
+8	Private - Hachoi	1	409	0	34800,55900	34800,55900	180	Dream City	157	0	kzd_hacai	0
+9	Dream City Captain - Haagen Dazs	1	1170	0	40700,53800	40700,53800	180	Dream City	157	0	kzd_hagendasi	0
+10	Mysterious Augur - Yuichi	1	1141	0	37800,53400	37800,53400	180	Dream City	157	0	kzd_youyi	0
+11	Banker - Lovely	1	755	0	34600,58800	34600,58800	180	Dream City	157	0	kzd_xiaoai	0
+12	Banker - Abbey	1	16	0	43700,60600	43700,60600	0	Dream City	157	0	kzd_aibi	0
+13	Mysterious Loner - Xiaoxun	1	30	0	36700,50600	36700,50600	90	Dream City	157	0	kzd_xiaoxun	0
+14	Millionaire - Sheep	1	421	0	36600,56800	36600,56800	180	Dream City	157	0	kzd_mianyang	0
+15	Teleporter - Shiyazhi	1	1173	7	34300,64000	34300,64000	90	Dream City	157	0	kzd_yazhiya	0
+16	Teleporter - Feifei	1	732	7	41200,65800	41200,65800	90	Dream City	157	0	kzd_feifei	0
+17	Teleporter - Huihui	1	418	7	43500,54700	43500,54700	180	Dream City	157	0	kzd_huihui	0
+18	Teleporter - Xiuxiu	1	423	7	36600,53400	36600,53400	180	Dream City	157	0	kzd_xiuxiu	0
+19	Event NPC - Jingle	1	260	0	37900,59900	37900,59900	270	Dream City	157	0	kzd_xiaojinjin	0
+20	Physician - Strong	1	759	13	39200,55000	39200,55000	180	Dream City	157	0	kzd_jian	0
+21	Hotel Owner - Whiskey	1	421	0	43700,64700	43700,64700	270	Dream City	157	0	kzd_weishiji	0
+22	Hotel Owner - Dust	1	421	0	43700,65800	43700,65800	270	Dream City	157	0	kzd_chengjie	0
+23	Flower Fairy JJ - Linger	1	1174	0	30800,53700	30800,53700	270	Dream City	157	0	kzd_linger	0
+24	Flower Fairy MM - Snowy	1	1064	0	43200,50100	43200,50100	0	Dream City	157	0	kzd_xueying	0
+25	Nurse - Blue	1	29	3	40400,54800	40400,54800	180	Dream City	157	0	kzd_weilan	0
+26	Resident - Olda	1	14	0	36900,63100	36900,63100	180	Dream City	157	0	kzd_laoa	0
+27	Resident - Uncle Jack	1	415	0	40800,65300	40800,65300	0	Dream City	157	0	kzd_jiekedashu	0
+28	Resident - Red-bearded Grandpa	1	452	0	39000,65200	39000,65200	0	Dream City	157	0	kzd_honghuzi	0
+29	Resident - Depress	1	1142	0	44700,54500	44700,54500	180	Dream City	157	0	kzd_yumen	0
+30	Tools - Honor	1	17	13	42600,56500	42600,56500	270	Dream City	157	0	kzd_guangrong	0
+31	Accessory - Twinkle	1	17	13	43800,56200	43800,56200	0	Dream City	157	0	kzd_shanliang	0
+32	Tailor - Feifan	1	17	13	45000,56300	45000,56300	0	Dream City	157	0	kzd_feifan	0
+33	Grocery - Bazhe	1	756	13	43300,58500	43300,58500	180	Dream City	157	0	kzd_bazhe	0
+34	Fruit Merchant - Linger	1	17	13	40500,56500	40500,56500	270	Dream City	157	0	kzd_liulian	0
+35	Armory Merchant - Perak	1	17	13	37100,65200	37100,65200	360	Dream City	157	0	kzd_pili	0
+36	Blacksmith - Uncle Jin	1	733	13	36200,65100	36400,65200	0	Dream City	157	0	kzd_jinshu	0
+37	City Leader - Alex	1	417	0	33600,54400	33600,54400	180	Dream City	157	0	kzd_ailikesi	0
+38	Bar Waitress - Cuihua	1	407	0	43500,63400	33600,54400	270	Dream City	157	0	kzd_cuihua	0
+39	Beach Shop - Xiao Li	1	30	0	47100,62200	47100,62200	0	Dream City	157	0	kzd_xiaoli	0
+40	Twin MM	1	1140	0	39900,59900	39900,59900	90	Dream City	157	0	kzd_shuangermm	0
+41	Teleporter - Junior You	1	774	7	65200,28100	65200,28100	180	Forgotten Island	159	0	di_talk1	0
+42	Bard - Er Hao	1	775	0	66900,11000	66900,11000	45	Forgotten Island	159	0	di_talk2	0
+43	Teleporter - Rolan	1	424	7	25000,15400	25000,15400	260	Region of the Demons	158	0	di_talk3	0
+44	Traveler - Nawei	1	415	11	15700,25300	15700,25300	160	Region of the Demons	158	0	di_talk4	0
+45	Demon Deacon - Sebastien	1	1311	0	38000,60800	38000,60800	260	Dream City	157	0	kzd_saibasi	0

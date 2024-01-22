@@ -1,0 +1,14 @@
+-- 获取资源 
+-- 李灵辉 
+function GetResString( id )		
+	return CLU_Call("UI_ResString", id )
+end
+
+-- 设置控件的显示文字
+function UI_SetCaptionEx( id, caption, tail )
+	CLU_Call( "UI_SetCaptionEx", id, caption, tail )
+end
+
+function AddMisDataFromLua( id, name, type, x1, y1, map1, x2, y2, map2)	
+	return CLU_Call("AddMisDataFromC", id, name, type, x1, y1, map1, x2, y2, map2)
+end

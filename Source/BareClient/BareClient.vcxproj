@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{09c0df33-7d3e-4d84-8001-6e6565ab239e}</ProjectGuid>
+    <RootNamespace>BareClient</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(ProjectDir)..\..\Client\system\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(ProjectDir)..\..\Client\system\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>NOMINMAX;WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <AdditionalIncludeDirectories>..\Common\;..\LIBDBC\;..\CaLua\include\;..\Utility\;..\ICUHelper\;..\ICU\include\;..\Botan\$(LibrariesArchitecture)\$(ConfigurationName)\include</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <ForceConformanceInForLoopScope>false</ForceConformanceInForLoopScope>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\Common\$(PlatformShortName)\$(ConfigurationName)\;..\LIBDBC\$(PlatformShortName)\$(ConfigurationName)\;..\CaLua\lib\;..\ICU\lib\$(PlatformName)\$(ConfigurationName)\;..\ICUHelper\$(PlatformShortName)\$(ConfigurationName)\;..\Utility\$(PlatformShortName)\$(ConfigurationName)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Utility_$(PlatformShortName).lib;Common_$(PlatformShortName).lib;LIBDBC_$(PlatformShortName).lib;ICUHelper_$(PlatformShortName).lib;CaLua.lib;lua50.lib;lualib.lib;icudt.lib;icuucd.lib;icuind.lib;legacy_stdio_definitions.lib;ComCtl32.lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>NOMINMAX;WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <AdditionalIncludeDirectories>..\Common\;..\LIBDBC\;..\CaLua\include\;..\Utility\;..\ICUHelper\;..\ICU\include\$(PlatformName);..\Botan\$(LibrariesArchitecture)\$(ConfigurationName)\include</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <ForceConformanceInForLoopScope>false</ForceConformanceInForLoopScope>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\Common\$(PlatformShortName)\$(ConfigurationName)\;..\LIBDBC\$(PlatformShortName)\$(ConfigurationName)\;..\CaLua\lib\;..\ICU\lib\$(PlatformName)\$(ConfigurationName)\;..\ICUHelper\$(PlatformShortName)\$(ConfigurationName)\;..\Utility\$(PlatformShortName)\$(ConfigurationName)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Utility_$(PlatformShortName).lib;Common_$(PlatformShortName).lib;LIBDBC_$(PlatformShortName).lib;ICUHelper_$(PlatformShortName).lib;CaLua.lib;lua50.lib;lualib.lib;icudt.lib;icuuc.lib;icuin.lib;legacy_stdio_definitions.lib;ComCtl32.lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>NOMINMAX;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <AdditionalIncludeDirectories>..\Common\;..\LIBDBC\;..\CaLua\include\;..\Utility\;..\ICUHelper\;..\ICU\include\</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <ForceConformanceInForLoopScope>false</ForceConformanceInForLoopScope>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\Common\$(PlatformShortName)\$(ConfigurationName)\;..\LIBDBC\$(PlatformShortName)\$(ConfigurationName)\;..\CaLua\lib\;..\ICU\lib\$(PlatformName)\$(ConfigurationName)\;..\ICUHelper\$(PlatformShortName)\$(ConfigurationName)\;..\Utility\$(PlatformShortName)\$(ConfigurationName)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Utility_$(PlatformShortName).lib;Common_$(PlatformShortName).lib;LIBDBC_$(PlatformShortName).lib;ICUHelper_$(PlatformShortName).lib;CaLua.lib;lua50.lib;lualib.lib;icudt.lib;icuucd.lib;icuind.lib;legacy_stdio_definitions.lib;ComCtl32.lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>NOMINMAX;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <AdditionalIncludeDirectories>..\Common\;..\LIBDBC\;..\CaLua\include\;..\Utility\;..\ICUHelper\;..\ICU\include\$(PlatformName);..\botan\$(PlatformName)\$(ConfigurationName)\include</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <ForceConformanceInForLoopScope>false</ForceConformanceInForLoopScope>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\Common\$(PlatformShortName)\$(ConfigurationName)\;..\LIBDBC\$(PlatformShortName)\$(ConfigurationName)\;..\CaLua\lib\;..\ICU\lib\$(PlatformName)\$(ConfigurationName)\;..\ICUHelper\$(PlatformShortName)\$(ConfigurationName)\;..\Utility\$(PlatformShortName)\$(ConfigurationName)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Utility_$(PlatformShortName).lib;Common_$(PlatformShortName).lib;LIBDBC_$(PlatformShortName).lib;ICUHelper_$(PlatformShortName).lib;CaLua.lib;lua50.lib;lualib.lib;icudt.lib;icuucd.lib;icuind.lib;legacy_stdio_definitions.lib;ComCtl32.lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="AutoPublishData.cpp" />
+    <ClCompile Include="AutoPublishDlg.cpp" />
+    <ClCompile Include="AutoPublishMgr.cpp" />
+    <ClCompile Include="BKop.cpp" />
+    <ClCompile Include="ChannelChatMgr.cpp" />
+    <ClCompile Include="ChannelControl.cpp" />
+    <ClCompile Include="ChatMgr.cpp" />
+    <ClCompile Include="ColorListBox.cpp" />
+    <ClCompile Include="CommandChat.cpp" />
+    <ClCompile Include="CommandDropItem.cpp" />
+    <ClCompile Include="CommandMgr.cpp" />
+    <ClCompile Include="CommandObject.cpp" />
+    <ClCompile Include="CommandPickup.cpp" />
+    <ClCompile Include="CommandPrivateChat.cpp" />
+    <ClCompile Include="CommandUnEquip.cpp" />
+    <ClCompile Include="CommandUseItem.cpp" />
+    <ClCompile Include="ControlCommand.cpp" />
+    <ClCompile Include="DeleteConfirmDlg.cpp" />
+    <ClCompile Include="EquipObject.cpp" />
+    <ClCompile Include="FixedSplitter.cpp" />
+    <ClCompile Include="GameThread.cpp" />
+    <ClCompile Include="GroundObject.cpp" />
+    <ClCompile Include="ItemDataMgr.cpp" />
+    <ClCompile Include="ItemInfo.cpp" />
+    <ClCompile Include="ItemObject.cpp" />
+    <ClCompile Include="ItemsPage.cpp" />
+    <ClCompile Include="ItemView.cpp" />
+    <ClCompile Include="KopMap.cpp" />
+    <ClCompile Include="LoginData.cpp" />
+    <ClCompile Include="LoginPage.cpp" />
+    <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="MainView.cpp" />
+    <ClCompile Include="MapPage.cpp" />
+    <ClCompile Include="MonsterObject.cpp" />
+    <ClCompile Include="MonsterType.cpp" />
+    <ClCompile Include="NetIF.cpp" />
+    <ClCompile Include="NetModule.cpp" />
+    <ClCompile Include="NormalTalkSessionPage.cpp" />
+    <ClCompile Include="NPCObject.cpp" />
+    <ClCompile Include="NPCPage.cpp" />
+    <ClCompile Include="PacketObject.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerMessage.cpp" />
+    <ClCompile Include="PlayerMessageInfo.cpp" />
+    <ClCompile Include="PlayerMgr.cpp" />
+    <ClCompile Include="PlayerObject.cpp" />
+    <ClCompile Include="PlayerOption.cpp" />
+    <ClCompile Include="PrivateRivalMgr.cpp" />
+    <ClCompile Include="PrivateTalkSessionPage.cpp" />
+    <ClCompile Include="Receivers.cpp" />
+    <ClCompile Include="RoleList.cpp" />
+    <ClCompile Include="RoleMgr.cpp" />
+    <ClCompile Include="RoleObject.cpp" />
+    <ClCompile Include="RolePage.cpp" />
+    <ClCompile Include="ScriptPage.cpp" />
+    <ClCompile Include="SelfObject.cpp" />
+    <ClCompile Include="Sender.cpp" />
+    <ClCompile Include="ServerMgr.cpp" />
+    <ClCompile Include="SetupPage.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="SurroundPage.cpp" />
+    <ClCompile Include="SystemInfo.cpp" />
+    <ClCompile Include="SystemPage.cpp" />
+    <ClCompile Include="TalkPage.cpp" />
+    <ClCompile Include="TalkSessionBase.cpp" />
+    <ClCompile Include="TeleTable.cpp" />
+    <ClCompile Include="TotalTalkSessionPage.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Algo.h" />
+    <ClInclude Include="AutoPublishData.h" />
+    <ClInclude Include="AutoPublishDlg.h" />
+    <ClInclude Include="AutoPublishMgr.h" />
+    <ClInclude Include="BKop.h" />
+    <ClInclude Include="ChannelChatMgr.h" />
+    <ClInclude Include="ChannelControl.h" />
+    <ClInclude Include="ChatMgr.h" />
+    <ClInclude Include="ColorListBox.h" />
+    <ClInclude Include="CommandChat.h" />
+    <ClInclude Include="CommandDropItem.h" />
+    <ClInclude Include="CommandMgr.h" />
+    <ClInclude Include="CommandObject.h" />
+    <ClInclude Include="CommandPickup.h" />
+    <ClInclude Include="CommandPrivateChat.h" />
+    <ClInclude Include="CommandUnEquip.h" />
+    <ClInclude Include="CommandUseItem.h" />
+    <ClInclude Include="CommonHeader.h" />
+    <ClInclude Include="ControlCommand.h" />
+    <ClInclude Include="DeleteConfirmDlg.h" />
+    <ClInclude Include="EquipObject.h" />
+    <ClInclude Include="FixedSplitter.h" />
+    <ClInclude Include="GameThread.h" />
+    <ClInclude Include="GroundObject.h" />
+    <ClInclude Include="ItemDataMgr.h" />
+    <ClInclude Include="ItemInfo.h" />
+    <ClInclude Include="ItemObject.h" />
+    <ClInclude Include="ItemsPage.h" />
+    <ClInclude Include="ItemView.h" />
+    <ClInclude Include="KopMap.h" />
+    <ClInclude Include="LoginData.h" />
+    <ClInclude Include="LoginPage.h" />
+    <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="MainView.h" />
+    <ClInclude Include="MapPage.h" />
+    <ClInclude Include="MonsterObject.h" />
+    <ClInclude Include="MonsterType.h" />
+    <ClInclude Include="NetIF.h" />
+    <ClInclude Include="NetModule.h" />
+    <ClInclude Include="NormalTalkSessionPage.h" />
+    <ClInclude Include="NPCObject.h" />
+    <ClInclude Include="NPCPage.h" />
+    <ClInclude Include="PacketObject.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerMessage.h" />
+    <ClInclude Include="PlayerMessageInfo.h" />
+    <ClInclude Include="PlayerMgr.h" />
+    <ClInclude Include="PlayerObject.h" />
+    <ClInclude Include="PlayerOption.h" />
+    <ClInclude Include="PrivateRivalMgr.h" />
+    <ClInclude Include="PrivateTalkSessionPage.h" />
+    <ClInclude Include="Receivers.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="RoleList.h" />
+    <ClInclude Include="RoleMgr.h" />
+    <ClInclude Include="RoleObject.h" />
+    <ClInclude Include="RolePage.h" />
+    <ClInclude Include="ScriptPage.h" />
+    <ClInclude Include="SelfObject.h" />
+    <ClInclude Include="Sender.h" />
+    <ClInclude Include="ServerHeader.h" />
+    <ClInclude Include="ServerMgr.h" />
+    <ClInclude Include="SetupPage.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="SurroundPage.h" />
+    <ClInclude Include="SystemInfo.h" />
+    <ClInclude Include="SystemPage.h" />
+    <ClInclude Include="TalkPage.h" />
+    <ClInclude Include="TalkSessionBase.h" />
+    <ClInclude Include="TeleTable.h" />
+    <ClInclude Include="TotalTalkSessionPage.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="BKop.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\BKop.ico" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

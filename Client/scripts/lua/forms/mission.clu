@@ -1,0 +1,99 @@
+-----------------------------------------------------------------------
+-- 定义任务面板
+-----------------------------------------------------------------------
+frmMission = UI_CreateForm( "frmMission", FALSE, 243, 403, 470, 150, FALSE, FALSE )
+UI_FormSetHotKey( frmMission, ALT_KEY, HOTKEY_Q ) 
+UI_ShowForm( frmMission, TRUE )
+UI_AddFormToTemplete( frmMission, FORM_MAIN )
+UI_SetIsDrag( frmMission, TRUE )
+--UI_SetFormStyle( frmMission, 0 )
+--UI_SetAlpha( frmMission, 200 )
+
+-- 加载背景图片
+
+imgMissonT = UI_CreateCompent( frmMission, IMAGE_TYPE, "imgMissonT", 243, 256, 0, 0 )
+UI_LoadImage( imgMissonT, "texture/ui2009/taskwindow1.tga", NORMAL, 243, 256, 0, 0 )
+imgMissonD = UI_CreateCompent( frmMission, IMAGE_TYPE, "imgMissonD", 242, 147, 1, 256 )
+UI_LoadImage( imgMissonD, "texture/ui2009/taskwindow2.tga", NORMAL, 242, 147, 0, 0 )
+
+labMisson = UI_CreateCompent( frmMission, LABELEX_TYPE, "labMisson", 47, 11, 97, 159 )
+FORMS_MISSION_CLU_000001 = GetResString("FORMS_MISSION_CLU_000001")
+UI_SetCaption( labMisson, FORMS_MISSION_CLU_000001 )
+UI_SetTextColor( labMisson, COLOR_BLACK )
+UI_SetLabelExFont( labMisson, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--寻路提示
+--labMisson = UI_CreateCompent( frmMission, IMAGE_TYPE, "labMisson", 154, 21, 13, 371 )
+--UI_LoadImage( labMisson, "texture/ui2009/mappath.tga", NORMAL, 154, 21, 102, 0 )
+
+-- labMisson = UI_CreateCompent( frmMission, LABELEX_TYPE, "labMisson", 47, 11, 15, 375 )
+-- UI_SetCaption( labMisson, "点击红色文字进行自动寻路" )
+-- UI_SetTextColor( labMisson, COLOR_RED )
+-- UI_SetLabelExFont( labMisson, DEFAULT_FONT, FALSE, COLOR_BLACK )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmMission, BUTTON_TYPE, "btnClose", 15, 15, 213, 10 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+--创建树型结构
+trvMission = UI_CreateCompent( frmMission, TREE_TYPE, "trvMission", 223, 110, 9, 50 )
+
+UI_SetIsDrag( trvEditor, TRUE )
+
+UI_TreeLoadImage( trvMission, enumTreeAddImage, "texture/ui/SystemBotton3.tga", 16, 16, 205, 120, 12, 22 )
+UI_TreeLoadImage( trvMission, enumTreeSubImage, "texture/ui/SystemBotton3.tga", 16, 16, 222, 120, 12, 22 )
+
+--获得滚动条
+scrollid = UI_GetScroll( trvMission )
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/ui2009/item1.tga", COMPENT_BACK, 11, 1, 232, 190 )
+
+--加载向上按钮
+id = UI_GetScrollObj( scrollid, SCROLL_UP )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--加载滚动条
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/ui2009/item1.tga", COMPENT_BACK, 8, 33, 203, 0 )
+UI_SetSize( id, 8, 33 )
+
+--加载向下按钮
+id = UI_GetScrollObj( scrollid, SCROLL_DOWN )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--创建任务描述
+memMiss  = UI_CreateCompent( frmMission, MEMOEX_TYPE, "memMiss", 215, 190, 20, 181 )
+UI_SetCaption( memMiss, "400" )
+UI_SetTextColor( memMiss, COLOR_BLACK )
+UI_SetLabelExFont( memMiss, DEFAULT_FONT, TRUE, COLOR_WHITE )
+UI_SetMemoPageShowNum( memMiss, 12 )
+
+--获得滚动条
+scrollid = UI_GetScroll( memMiss )
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/ui2009/item1.tga", COMPENT_BACK, 11, 1, 232, 190 )
+
+--加载向上按钮
+id = UI_GetScrollObj( scrollid, SCROLL_UP )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--加载滚动条
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/ui2009/item1.tga", COMPENT_BACK, 8, 33, 203, 0 )
+UI_SetSize( id, 8, 33 )
+
+--加载向下按钮
+id = UI_GetScrollObj( scrollid, SCROLL_DOWN )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+
+--创建中断按钮
+btnBreak = UI_CreateCompent( frmMission, BUTTON_TYPE, "btnBreak", 43, 22, 171, 372 )
+UI_LoadButtonImage( btnBreak, "texture/ui2009/taskwindow2.tga", 43, 22, 0, 149, FALSE )
+FORMS_MISSION_CLU_000002 = GetResString("FORMS_MISSION_CLU_000002")
+UI_SetHint( btnBreak, FORMS_MISSION_CLU_000002 )

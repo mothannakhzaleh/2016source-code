@@ -1,0 +1,1411 @@
+-----------------------------------------------------------------------
+-- 定义玩家间交易
+-----------------------------------------------------------------------	
+-- 创建玩家间交易表单
+frmPlayertrade = UI_CreateForm( "frmPlayertrade", FALSE, 202, 474, 240, 468, TRUE, FALSE )
+--UI_FormSetHotKey( frmPlayertrade, ALT_KEY, HOTKEY_T )
+UI_ShowForm( frmPlayertrade, TRUE )
+UI_SetIsDrag( frmPlayertrade, TRUE )
+UI_AddFormToTemplete( frmPlayertrade, FORM_MAIN )
+UI_SetFormStyle( frmPlayertrade, 1 )---左右居中
+UI_FormSetIsEscClose( frmPlayertrade, FALSE )
+
+-- 加载背景图片
+imgBakTop = UI_CreateCompent( frmPlayertrade, IMAGE_TYPE, "imgBakTop", 203, 256, 0, 0 )
+UI_LoadImage( imgBakTop, "texture/ui2009/trade1.tga", NORMAL, 203, 256, 0, 0 )
+imgBakDown = UI_CreateCompent( frmPlayertrade, IMAGE_TYPE, "imgBakDown", 201, 217, 1, 256 )
+UI_LoadImage( imgBakDown, "texture/ui2009/trade2.tga", NORMAL, 201, 217, 0, 0 )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmPlayertrade, BUTTON_TYPE, "btnClose", 15, 15, 175, 11 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+
+-- 加载界面title
+-- imgBakTitle = UI_CreateCompent( frmPlayertrade, IMAGE_TYPE, "imgBakTitle", 48, 13, 8, 4 )
+-- UI_LoadImage( imgBakTitle, "texture/ui/word.dds", NORMAL, 48, 13, 36, 29 )
+
+--加载对方的道具几个字
+-- imgOtherItem = UI_CreateCompent( frmPlayertrade, IMAGE_TYPE, "imgOtherItem", 90, 13, 6, 28 )
+-- UI_LoadImage( imgOtherItem, "texture/ui/SysBotton1.dds", NORMAL, 90, 13, 12, 226 )
+
+--加载对方姓名显示
+labPlayertradeName = UI_CreateCompent( frmPlayertrade, LABELEX_TYPE, "labPlayertradeName", 95, 11, 84, 38 )
+FORMS_PLAYER_CLU_000001 = GetResString("FORMS_PLAYER_CLU_000001")
+UI_SetCaption( labPlayertradeName, FORMS_PLAYER_CLU_000001 )
+UI_SetTextColor( labPlayertradeName, COLOR_BLACK )
+UI_SetLabelExFont( labPlayertradeName, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建对方物品表格
+grdBuy = UI_CreateCompent( frmPlayertrade, GOODS_GRID_TYPE, "grdBuy", 184, 121, 10, 55 ) 
+UI_LoadImage( grdBuy,  "", NORMAL, 184, 121, 0, 119 )
+UI_SetGridSpace( grdBuy, 4, 4 )
+UI_SetGridContent( grdBuy, 3, 4 )
+UI_SetGridUnitSize( grdBuy, 32, 32 )
+UI_SetMargin( grdBuy, 21, 10, 0, 3 )
+UI_SetIsEnabled( grdBuy, FALSE )
+
+--加载别人的金币几个字    texture/ui/sure.dds 
+-- imgOtherGold = UI_CreateCompent( frmPlayertrade, IMAGE_TYPE, "imgOtherGold", 90, 13, 6, 172 )
+-- UI_LoadImage( imgOtherGold, "texture/ui/SysBotton1.dds", NORMAL, 90, 13, 14, 240 )
+
+--加载别人的金币显示底纹
+-- imgOtherGoldBak = UI_CreateCompent( frmPlayertrade, IMAGE_TYPE, "imgOtherGoldBak", 87, 18, 81, 181 )
+-- UI_LoadImage( imgOtherGoldBak, "texture/ui/PublicC.tga", NORMAL, 87, 18, 99, 235 )
+
+-- 加载金钱图片
+imgItemM = UI_CreateCompent( frmPlayertrade, IMAGE_TYPE, "imgItemM", 27, 28, 21, 179 )
+UI_LoadImage( imgItemM, "texture/ui2009/button2.tga", NORMAL, 27, 28, 190, 124 )
+
+imgItemM2 = UI_CreateCompent( frmPlayertrade, IMAGE_TYPE, "imgItemM2", 27, 28, 21, 209 )
+UI_LoadImage( imgItemM2, "texture/ui2009/button2.tga", NORMAL, 27, 28, 217, 124 )
+
+--创建金币栏
+imgItemgold = UI_CreateCompent( frmPlayertrade, IMAGE_TYPE, "imgItemgold", 100, 19, 56, 185 )
+UI_LoadImage( imgItemgold, "texture/ui2009/button2.tga", NORMAL, 154, 19, 86, 224 )
+
+imgItemgold2 = UI_CreateCompent( frmPlayertrade, IMAGE_TYPE, "imgItemgold2", 100, 19, 56, 216 )
+UI_LoadImage( imgItemgold2, "texture/ui2009/button2.tga", NORMAL, 154, 19, 86, 224 )
+
+--加载金币显示框
+labOtherGold = UI_CreateCompent( frmPlayertrade, LABELEX_TYPE, "labOtherGold", 47, 11, 60, 191 )
+UI_SetCaption( labOtherGold, "0" )
+UI_SetTextColor( labOtherGold, COLOR_WHITE )
+UI_SetLabelExFont( labOtherGold, DEFAULT_FONT, TRUE, COLOR_BLACK )
+
+labOtherGold1 = UI_CreateCompent( frmPlayertrade, LABELEX_TYPE, "labOtherGold1", 47, 11, 60, 222 )
+UI_SetCaption( labOtherGold1, "0" )
+UI_SetTextColor( labOtherGold1, COLOR_WHITE )
+UI_SetLabelExFont( labOtherGold1, DEFAULT_FONT, TRUE, COLOR_BLACK )
+
+
+--加载自己的道具几个字
+-- imgMineItem = UI_CreateCompent( frmPlayertrade, IMAGE_TYPE, "imgMineItem", 90, 13, 6, 202 )
+-- UI_LoadImage( imgMineItem, "texture/ui/SysBotton1.dds", NORMAL, 90, 13, 116, 212 )
+
+--加载确认文字
+labOtherYes = UI_CreateCompent( frmPlayertrade, LABELEX_TYPE, "labOtherYes", 23, 11, 79, 241 )
+FORMS_PLAYER_CLU_000002 = GetResString("FORMS_PLAYER_CLU_000002")
+UI_SetCaption( labOtherYes, FORMS_PLAYER_CLU_000002 )
+UI_SetTextColor( labOtherYes, COLOR_BLACK )
+UI_SetLabelExFont( labOtherYes, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载对方确定按钮状态显示
+chkYes = UI_CreateCompent( frmPlayertrade, CHECK_TYPE, "chkYes", 12, 12, 121, 241 )
+UI_LoadImage( chkYes, "texture/ui2009/trade2.tga", UNCHECKED, 12, 12, 224, 169 )
+UI_LoadImage( chkYes, "texture/ui2009/trade2.tga", CHECKED, 12, 12, 236, 169 )
+UI_SetIsEnabled( chkYes, FALSE )
+
+--加载交易文字
+labOtherTrade = UI_CreateCompent( frmPlayertrade, LABELEX_TYPE, "labOtherTrade", 23, 11, 137, 241 )
+FORMS_MAIN_CLU_000006 = GetResString("FORMS_MAIN_CLU_000006")
+UI_SetCaption( labOtherTrade, FORMS_MAIN_CLU_000006 )
+UI_SetTextColor( labOtherTrade, COLOR_WHITE )
+UI_SetLabelExFont( labOtherTrade, DEFAULT_FONT, TRUE, COLOR_BLACK )
+
+--加载对方交易按钮是否按下的状态
+chkTrade = UI_CreateCompent( frmPlayertrade, CHECK_TYPE, "chkTrade", 12, 12, 168, 241 )
+UI_LoadImage( chkTrade, "texture/ui2009/trade2.tga", UNCHECKED, 12, 12, 224, 169 )
+UI_LoadImage( chkTrade, "texture/ui2009/trade2.tga", CHECKED, 12, 12, 236, 169 )
+UI_SetIsEnabled( chkTrade, FALSE )
+
+
+--创建自己物品表格
+grdSale = UI_CreateCompent( frmPlayertrade, GOODS_GRID_TYPE, "grdSale", 184, 121, 10, 258 ) 
+-- UI_LoadImage( grdSale,  "texture/ui/sure.dds", NORMAL, 184, 121, 0, 119 )
+UI_SetGridSpace( grdSale, 4, 4 )
+UI_SetGridContent( grdSale, 3, 4 )
+UI_SetGridUnitSize( grdSale, 32, 32 )
+UI_SetMargin( grdSale, 21, 10, 0, 3 )
+
+--加载自己的金币几个字
+-- imgMineGold = UI_CreateCompent( frmPlayertrade, IMAGE_TYPE, "imgMineGold", 90, 13, 6, 347 )
+-- UI_LoadImage( imgMineGold, "texture/ui/SysBotton1.dds", NORMAL, 90, 13, 117, 226 )
+
+--加载自己的金币显示底纹
+-- imgMineGoldBak = UI_CreateCompent( frmPlayertrade, IMAGE_TYPE, "imgMineGoldBak", 87, 18, 79, 344 )
+-- UI_LoadImage( imgMineGoldBak, "texture/ui/PublicC.tga", NORMAL, 87, 18, 99, 235 )
+-- 加载金钱图片
+imgItemM = UI_CreateCompent( frmPlayertrade, IMAGE_TYPE, "imgItemM", 27, 28, 21, 384 )
+UI_LoadImage( imgItemM, "texture/ui2009/button2.tga", NORMAL, 27, 28, 190, 124 )
+
+imgItemM2 = UI_CreateCompent( frmPlayertrade, IMAGE_TYPE, "imgItemM2", 27, 28, 21, 413 )
+UI_LoadImage( imgItemM2, "texture/ui2009/button2.tga", NORMAL, 27, 28, 217, 124 )
+
+--创建金币栏
+imgItemgold = UI_CreateCompent( frmPlayertrade, IMAGE_TYPE, "imgItemgold", 100, 19, 56, 390 )
+UI_LoadImage( imgItemgold, "texture/ui2009/button2.tga", NORMAL, 154, 19, 86, 224 )
+
+imgItemgold2 = UI_CreateCompent( frmPlayertrade, IMAGE_TYPE, "imgItemgold2", 100, 19, 56, 420 )
+UI_LoadImage( imgItemgold2, "texture/ui2009/button2.tga", NORMAL, 154, 19, 86, 224 )
+
+--加载金额显示
+labSelfGold = UI_CreateCompent( frmPlayertrade, LABELEX_TYPE, "labSelfGold", 47, 11, 66, 396 )
+UI_SetCaption( labSelfGold, "0" )
+UI_SetTextColor( labSelfGold, COLOR_WHITE )
+UI_SetLabelExFont( labSelfGold, DEFAULT_FONT, TRUE, COLOR_BLACK )
+
+labSelfGold2 = UI_CreateCompent( frmPlayertrade, LABELEX_TYPE, "labSelfGold2", 47, 11, 66, 425 )
+UI_SetCaption( labSelfGold2, "0" )
+UI_SetTextColor( labSelfGold2, COLOR_WHITE )
+UI_SetLabelExFont( labSelfGold2, DEFAULT_FONT, TRUE, COLOR_BLACK )
+
+--加载金币输入按钮
+btnGold = UI_CreateCompent( frmPlayertrade, BUTTON_TYPE, "btnGold", 28, 26, 165, 386 )
+UI_LoadButtonImage( btnGold, "texture/ui/PublicC.tga", 28, 26, 190, 208, TRUE )
+FORMS_PLAYER_CLU_000003 = GetResString("FORMS_PLAYER_CLU_000003")
+UI_SetHint( btnGold, FORMS_PLAYER_CLU_000003 )
+
+--加载对方金币图标
+-- imgOtherGoldBak = UI_CreateCompent( frmPlayertrade, IMAGE_TYPE, "imgOtherGoldBak", 28, 26, 167, 167 )
+-- UI_LoadImage( imgOtherGoldBak, "texture/ui/PublicC.tga", NORMAL, 28, 26, 190, 208 )
+
+--加载确定按钮
+btnYes = UI_CreateCompent( frmPlayertrade, BUTTON_TYPE, "btnYes", 47, 22, 20, 444 )
+UI_LoadButtonImage( btnYes, "texture/ui2009/button.tga", 47, 22, 0, 0, TRUE )
+
+--加载交易按钮
+btnTrade = UI_CreateCompent( frmPlayertrade, BUTTON_TYPE, "btnTrade", 43, 21, 82, 445 )
+UI_LoadButtonImage( btnTrade, "texture/ui2009/trade2.tga", 43, 21, 0, 218, TRUE )
+
+--加载取消按钮
+btnNo = UI_CreateCompent( frmPlayertrade, BUTTON_TYPE, "btnNo", 47, 22, 144, 444 )
+UI_LoadButtonImage( btnNo, "texture/ui2009/button.tga", 47, 22, 0, 22, TRUE )
+
+
+-----------------------------------------------------------------------
+-- 定义是否添加为好友 -added by Arcol
+-----------------------------------------------------------------------
+frmAcceptFrnd = UI_CreateForm( "frmAcceptFrnd",  FALSE, 224, 112, 0, 0, FALSE, FALSE )
+UI_LoadFormImage( frmAcceptFrnd, "texture/ui2009/ty2.tga", 224, 112, 19, 3, "", 0, 0 )
+UI_ShowForm( frmAcceptFrnd, FALSE )
+UI_AddFormToTemplete( frmAcceptFrnd, FORM_MAIN )
+UI_SetFormStyle( frmAcceptFrnd, 0 )
+UI_SetIsDrag( frmAcceptFrnd, TRUE )
+UI_FormSetIsEscClose( frmAcceptFrnd, FALSE )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmAcceptFrnd, BUTTON_TYPE, "btnClose", 15, 15, 197, 10 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+
+--创建询问者姓名
+labFrndName = UI_CreateCompent( frmAcceptFrnd, LABELEX_TYPE, "labFrndName", 23, 11, 57, 44 )
+UI_SetCaption( labFrndName, "" )
+UI_SetTextColor( labFrndName, COLOR_BLACK )
+UI_SetLabelExFont( labFrndName, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建询问内容
+labFrnd = UI_CreateCompent( frmAcceptFrnd, LABELEX_TYPE, "labFrnd", 23, 11, 57, 62 )
+UI_SetCaption( labFrnd, "" )
+UI_SetTextColor( labFrnd, COLOR_BLACK )
+UI_SetLabelExFont( labFrnd, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载接受按钮
+btnYes = UI_CreateCompent( frmAcceptFrnd, BUTTON_TYPE, "btnYes", 48, 22, 45, 81 )
+UI_LoadButtonImage( btnYes, "texture/ui2009/mchat2.tga", 48, 22, 22, 168, FALSE )
+
+--加载取消按钮
+btnNo = UI_CreateCompent( frmAcceptFrnd, BUTTON_TYPE, "btnNo", 47, 22, 119, 81 )
+UI_LoadButtonImage( btnNo, "texture/ui2009/button.tga", 47, 22, 0, 22, TRUE )
+
+
+-----------------------------------------------------------------------
+-- 定义是否组队
+-----------------------------------------------------------------------
+frmAcceptGroup = UI_CreateForm( "frmAcceptGroup",  FALSE, 224, 112, 0, 0, FALSE, FALSE )
+UI_LoadFormImage( frmAcceptGroup, "texture/ui2009/ty2.tga", 224, 112, 19, 3, "", 0, 0 )
+UI_ShowForm( frmAcceptGroup, FALSE )
+UI_AddFormToTemplete( frmAcceptGroup, FORM_MAIN )
+UI_SetFormStyle( frmAcceptGroup, 0 )
+UI_SetIsDrag( frmAcceptGroup, TRUE )
+UI_FormSetIsEscClose( frmAcceptGroup, FALSE )
+--UI_SetAlpha( frmAcceptGroup, 200 )
+--UI_FormSetHotKey( frmAcceptGroup, ALT_KEY, HOTKEY_V )
+
+
+--创建Title
+--labTitle = UI_CreateCompent( frmAcceptGroup, LABELEX_TYPE, "labTitle", 47, 11, 69, 5 )
+--UI_SetCaption( labTitle, "交易询问" )
+--UI_SetTextColor( labTitle, COLOR_WHITE )
+--UI_SetLabelExFont( labTitle, DEFAULT_FONT, TRUE, COLOR_BLACK )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmAcceptGroup, BUTTON_TYPE, "btnClose", 15, 15, 197, 10 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+
+--创建询问者姓名
+labGroupName = UI_CreateCompent( frmAcceptGroup, LABELEX_TYPE, "labGroupName", 23, 11, 57, 44 )
+UI_SetCaption( labGroupName, "" )
+UI_SetTextColor( labGroupName, COLOR_BLACK )
+UI_SetLabelExFont( labGroupName, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建询问内容
+labGroup = UI_CreateCompent( frmAcceptGroup, LABELEX_TYPE, "labGroup", 23, 11, 57, 62 )
+UI_SetCaption( labGroup, "" )
+UI_SetTextColor( labGroup, COLOR_BLACK )
+UI_SetLabelExFont( labGroup, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载接受按钮
+btnYes = UI_CreateCompent( frmAcceptGroup, BUTTON_TYPE, "btnYes", 48, 22, 45, 81 )
+UI_LoadButtonImage( btnYes, "texture/ui2009/mchat2.tga", 48, 22, 22, 168, FALSE )
+
+--加载取消按钮
+btnNo = UI_CreateCompent( frmAcceptGroup, BUTTON_TYPE, "btnNo", 47, 22, 119, 81 )
+UI_LoadButtonImage( btnNo, "texture/ui2009/button.tga", 47, 22, 0, 22, TRUE )
+
+
+-----------------------------------------------------------------------
+-- 定义玩家间组队队员4
+-----------------------------------------------------------------------	
+-- 创建玩家间组队表单
+frmTeamMenber4 = UI_CreateForm( "frmTeamMenber4", FALSE, 178, 54, 6, 310, TRUE, FALSE )
+--UI_FormSetHotKey( frmTeamMenber4, ALT_KEY, HOTKEY_U ) 
+UI_LoadFormImage( frmTeamMenber4, "texture/ui2009/main2.tga", 178, 54, 1, 93, "", 0, 0 )
+UI_ShowForm( frmTeamMenber4, FLASE )
+UI_SetIsDrag( frmTeamMenber4, FLASE )
+UI_AddFormToTemplete( frmTeamMenber4, FORM_MAIN )
+UI_FormSetIsEscClose( frmTeamMenber4, FALSE )
+
+--创建队员名称显示
+labMenber4Name = UI_CreateCompent( frmTeamMenber4, LABELEX_TYPE, "labMenber4Name", 11, 11, 54, 25 )
+FORMS_DIALOG_CLU_000001 = GetResString("FORMS_DIALOG_CLU_000001")
+UI_SetCaption( labMenber4Name, FORMS_DIALOG_CLU_000001 )
+UI_SetTextColor( labMenber4Name, COLOR_WHITE )
+UI_SetLabelExFont( labMenber4Name, DEFAULT_FONT, TRUE, COLOR_BLACK )
+
+--加载HP显示
+proTeamMenber4HP = UI_CreateCompent( frmTeamMenber4, PROGRESS_TYPE, "proTeamMenber4HP", 115, 5, 54, 42 )
+UI_LoadScaleImage( proTeamMenber4HP, "texture/ui2009/main2.tga", PROGRESS_PROGRESS, 115, 5, 0, 78, 1.0, 1.0 )
+UI_SetHint( proTeamMenber4HP, "HP" )
+UI_SetProgressHintStyle( proTeamMenber4HP, PROGRESS_HINT_NUM )
+
+--加载SP显示
+proTeamMenber4SP = UI_CreateCompent( frmTeamMenber4, PROGRESS_TYPE, "proTeamMenber4SP", 50, 4, 1, 59 )
+--UI_LoadScaleImage( proTeamMenber4SP, "texture/ui/StartF.dds", PROGRESS_PROGRESS, 50, 4, 124, 16, 1.0, 1.0 )
+UI_SetHint( proTeamMenber4SP, "SP" )
+UI_SetProgressHintStyle( proTeamMenber4SP, PROGRESS_HINT_NUM )
+
+--创建3D角色
+d3dHead = UI_CreateCompent( frmTeamMenber4, UI3D_COMPENT_TYPE, "d3dHead", 24, 24, 8, 22 )
+
+
+d3dDown = UI_CreateCompent( frmTeamMenber4, UI3D_COMPENT_TYPE, "d3dDown", 178, 54, 0, 0 )
+
+--加载玩家等级
+labFLv = UI_CreateCompent( frmTeamMenber4, LABELEX_TYPE, "labFLv", 14, 9, 37, 25 )
+UI_SetTextColor( labFLv, COLOR_WHITE )
+UI_SetLabelExFont( labFLv, DEFAULT_FONT, TRUE, COLOR_BLACK )
+UI_SetCaption( labLv, "99" )
+
+--加载玩家职业图标
+imgobj = UI_CreateCompent( frmTeamMenber4, IMAGE_TYPE, "imgobj", 9, 9, 23, 21 )
+UI_SetMaxImage( imgobj, 19 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 0, 9, 9, 0, 0 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 1, 9, 9, 0, 9 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 2, 9, 9, 0, 18 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 3, 9, 9, 0, 27 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 4, 9, 9, 0, 36 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 5, 9, 9, 0, 45 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 6, 9, 9, 0, 54 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 7, 9, 9, 0, 63 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 8, 9, 9, 0, 72 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 9, 9, 9, 0, 81 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 10, 9, 9, 0, 90 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 11, 9, 9, 0, 99 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 12, 9, 9, 0, 108 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 13, 9, 9, 0, 117 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 14, 9, 9, 9, 0 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 15, 9, 9, 9, 9 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 16, 9, 9, 9, 18 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 17, 9, 9, 9, 27 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 18, 9, 9, 9, 36 )
+
+imgLeader = UI_CreateCompent( frmTeamMenber4, IMAGE_TYPE, "imgLeader", 9, 9, 8, 23 )
+UI_LoadImage( imgLeader, "texture/ui2009/main2.tga", NORMAL, 9, 9, 181, 108 )
+
+
+------------------------------------------------------------------------------
+---创建右键表单
+mainMouseRight = UI_CreateCompent( frmMain800, MENU_TYPE, "mainMouseRight", 68, 97, 240, 468 )
+UI_MenuLoadImage( mainMouseRight, TRUE, FALSE, "texture/ui/right.tga", 5, 5, 10, 10, "texture/ui/right.tga", 5, 5 )
+UI_SetMargin( mainMouseRight, 10, 5, 5, 5 )
+
+-- 装载菜单选择条的图片
+UI_MenuLoadSelect( mainMouseRight, "texture/ui/SystemBotton3.tga", 79, 13, 25, 227  )
+
+-- 增加菜单
+FORMS_PLAYER_CLU_000004 = GetResString("FORMS_PLAYER_CLU_000004")
+UI_MenuAddText( mainMouseRight, FORMS_PLAYER_CLU_000004 )
+FORMS_CHAT_CLU_000018 = GetResString("FORMS_CHAT_CLU_000018")
+UI_MenuAddText( mainMouseRight, FORMS_CHAT_CLU_000018 )
+FORMS_CHAT_CLU_000020 = GetResString("FORMS_CHAT_CLU_000020")
+UI_MenuAddText( mainMouseRight, FORMS_CHAT_CLU_000020 )
+FORMS_MAIN_CLU_000016 = GetResString("FORMS_MAIN_CLU_000016")
+UI_MenuAddText( mainMouseRight, FORMS_MAIN_CLU_000016 )
+FORMS_CHAT_CLU_000014 = GetResString("FORMS_CHAT_CLU_000014")
+UI_MenuAddText( mainMouseRight, FORMS_CHAT_CLU_000014 )
+FORMS_PLAYER_CLU_000005 = GetResString("FORMS_PLAYER_CLU_000005")
+UI_MenuAddText( mainMouseRight, FORMS_PLAYER_CLU_000005 )
+FORMS_PLAYER_CLU_000006 = GetResString("FORMS_PLAYER_CLU_000006")
+UI_MenuAddText( mainMouseRight, FORMS_PLAYER_CLU_000006 )
+FORMS_PLAYER_CLU_000007 = GetResString("FORMS_PLAYER_CLU_000007")
+UI_MenuAddText( mainMouseRight, FORMS_PLAYER_CLU_000007 )
+FORMS_PLAYER_CLU_000008 = GetResString("FORMS_PLAYER_CLU_000008")
+UI_MenuAddText( mainMouseRight, FORMS_PLAYER_CLU_000008 )
+FORMS_PLAYER_CLU_000009 = GetResString("FORMS_PLAYER_CLU_000009")
+UI_MenuAddText( mainMouseRight, FORMS_PLAYER_CLU_000009 )
+FORMS_PLAYER_CLU_000010 = GetResString("FORMS_PLAYER_CLU_000010")
+UI_MenuAddText( mainMouseRight, FORMS_PLAYER_CLU_000010 )
+
+-----------------------------------------------------------------------
+-- 定义玩家间组队队员3
+-----------------------------------------------------------------------	
+-- 创建玩家间组队表单
+frmTeamMenber3 = UI_CreateForm( "frmTeamMenber3", FALSE, 178, 54, 6, 250, TRUE, FALSE )
+--UI_FormSetHotKey( frmTeamMenber3, ALT_KEY, HOTKEY_Y ) 
+UI_LoadFormImage( frmTeamMenber3, "texture/ui2009/main2.tga", 178, 54, 1, 93, "", 0, 0 )
+UI_ShowForm( frmTeamMenber3, FLASE )
+UI_SetIsDrag( frmTeamMenber3, FLASE )
+UI_AddFormToTemplete( frmTeamMenber3, FORM_MAIN )
+UI_FormSetIsEscClose( frmTeamMenber3, FALSE )
+
+--创建队员名称显示
+labMenber3Name = UI_CreateCompent( frmTeamMenber3, LABELEX_TYPE, "labMenber3Name", 11, 11, 54, 25 )
+FORMS_DIALOG_CLU_000001 = GetResString("FORMS_DIALOG_CLU_000001")
+UI_SetCaption( labMenber3Name, FORMS_DIALOG_CLU_000001 )
+UI_SetTextColor( labMenber3Name, COLOR_WHITE )
+UI_SetLabelExFont( labMenber3Name, DEFAULT_FONT, TRUE, COLOR_BLACK )
+
+--加载HP显示
+proTeamMenber3HP = UI_CreateCompent( frmTeamMenber3, PROGRESS_TYPE, "proTeamMenber3HP", 115, 5, 54, 42 )
+UI_LoadScaleImage( proTeamMenber3HP, "texture/ui2009/main2.tga", PROGRESS_PROGRESS, 115, 5, 0, 78, 1.0, 1.0 )
+UI_SetHint( proTeamMenber3HP, "HP" )
+UI_SetProgressHintStyle( proTeamMenber3HP, PROGRESS_HINT_NUM )
+
+
+--加载SP显示
+proTeamMenber3SP = UI_CreateCompent( frmTeamMenber3, PROGRESS_TYPE, "proTeamMenber3SP", 50, 4, 1, 59 )
+--UI_LoadScaleImage( proTeamMenber3SP, "texture/ui/StartF.dds", PROGRESS_PROGRESS, 50, 4, 124, 16, 1.0, 1.0 )
+UI_SetHint( proTeamMenber3SP, "SP" )
+UI_SetProgressHintStyle( proTeamMenber3SP, PROGRESS_HINT_NUM )
+
+--创建3D角色
+d3dHead = UI_CreateCompent( frmTeamMenber3, UI3D_COMPENT_TYPE, "d3dHead", 24, 24, 8, 22 )
+
+d3dDown = UI_CreateCompent( frmTeamMenber3, UI3D_COMPENT_TYPE, "d3dDown", 178, 54, 0, 0 )
+
+
+--加载玩家等级
+labFLv = UI_CreateCompent( frmTeamMenber3, LABELEX_TYPE, "labFLv", 14, 9, 37, 25 )
+UI_SetTextColor( labFLv, COLOR_WHITE )
+UI_SetLabelExFont( labFLv, DEFAULT_FONT, TRUE, COLOR_BLACK )
+UI_SetCaption( labLv, "99" )
+
+--加载玩家职业图标
+imgobj = UI_CreateCompent( frmTeamMenber3, IMAGE_TYPE, "imgobj", 9, 9, 23, 21 )
+UI_SetMaxImage( imgobj, 19 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 0, 9, 9, 0, 0 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 1, 9, 9, 0, 9 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 2, 9, 9, 0, 18 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 3, 9, 9, 0, 27 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 4, 9, 9, 0, 36 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 5, 9, 9, 0, 45 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 6, 9, 9, 0, 54 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 7, 9, 9, 0, 63 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 8, 9, 9, 0, 72 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 9, 9, 9, 0, 81 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 10, 9, 9, 0, 90 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 11, 9, 9, 0, 99 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 12, 9, 9, 0, 108 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 13, 9, 9, 0, 117 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 14, 9, 9, 9, 0 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 15, 9, 9, 9, 9 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 16, 9, 9, 9, 18 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 17, 9, 9, 9, 27 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 18, 9, 9, 9, 36 )
+
+imgLeader = UI_CreateCompent( frmTeamMenber3, IMAGE_TYPE, "imgLeader", 9, 9, 8, 23 )
+UI_LoadImage( imgLeader, "texture/ui2009/main2.tga", NORMAL, 9, 9, 181, 108 )
+
+
+-----------------------------------------------------------------------
+-- 定义玩家间组队队员2
+-----------------------------------------------------------------------	
+-- 创建玩家间组队表单
+frmTeamMenber2 = UI_CreateForm( "frmTeamMenber2", FALSE, 178, 54, 6, 190, TRUE, FALSE )
+--UI_FormSetHotKey( frmTeamMenber2, ALT_KEY, HOTKEY_T ) 
+UI_LoadFormImage( frmTeamMenber2, "texture/ui2009/main2.tga", 178, 54, 1, 93, "", 0, 0 )
+UI_ShowForm( frmTeamMenber2, FLASE )
+UI_SetIsDrag( frmTeamMenber2, FLASE )
+UI_AddFormToTemplete( frmTeamMenber2, FORM_MAIN )
+UI_FormSetIsEscClose( frmTeamMenber2, FALSE )
+
+--创建队员名称显示
+labMenber2Name = UI_CreateCompent( frmTeamMenber2, LABELEX_TYPE, "labMenber2Name", 11, 11, 54, 25 )
+FORMS_DIALOG_CLU_000001 = GetResString("FORMS_DIALOG_CLU_000001")
+UI_SetCaption( labMenber2Name, FORMS_DIALOG_CLU_000001 )
+UI_SetTextColor( labMenber2Name, COLOR_WHITE )
+UI_SetLabelExFont( labMenber2Name, DEFAULT_FONT, TRUE, COLOR_BLACK )
+
+--加载HP显示
+proTeamMenber2HP = UI_CreateCompent( frmTeamMenber2, PROGRESS_TYPE, "proTeamMenber2HP", 115, 5, 54, 42 )
+UI_LoadScaleImage( proTeamMenber2HP, "texture/ui2009/main2.tga", PROGRESS_PROGRESS, 115, 5, 0, 78, 1.0, 1.0 )
+UI_SetHint( proTeamMenber2HP, "HP" )
+UI_SetProgressHintStyle( proTeamMenber2HP, PROGRESS_HINT_NUM )
+
+
+
+--加载SP显示
+proTeamMenber2SP = UI_CreateCompent( frmTeamMenber2, PROGRESS_TYPE, "proTeamMenber2SP", 50, 4, 1, 59 )
+--UI_LoadScaleImage( proTeamMenber2SP, "texture/ui/StartF.dds", PROGRESS_PROGRESS, 50, 4, 124, 16, 1.0, 1.0 )
+UI_SetHint( proTeamMenber2SP, "SP" )
+UI_SetProgressHintStyle( proTeamMenber2SP, PROGRESS_HINT_NUM )
+
+--创建3D角色
+d3dHead = UI_CreateCompent( frmTeamMenber2, UI3D_COMPENT_TYPE, "d3dHead", 24, 24, 8, 22 )
+
+d3dDown = UI_CreateCompent( frmTeamMenber2, UI3D_COMPENT_TYPE, "d3dDown", 178, 54, 0, 0 )
+
+
+--加载玩家等级
+labFLv = UI_CreateCompent( frmTeamMenber2, LABELEX_TYPE, "labFLv", 14, 9, 37, 25 )
+UI_SetTextColor( labFLv, COLOR_WHITE )
+UI_SetLabelExFont( labFLv, DEFAULT_FONT, TRUE, COLOR_BLACK )
+UI_SetCaption( labLv, "99" )
+
+--加载玩家职业图标
+imgobj = UI_CreateCompent( frmTeamMenber2, IMAGE_TYPE, "imgobj", 9, 9, 23, 21 )
+UI_SetMaxImage( imgobj, 19 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 0, 9, 9, 0, 0 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 1, 9, 9, 0, 9 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 2, 9, 9, 0, 18 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 3, 9, 9, 0, 27 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 4, 9, 9, 0, 36 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 5, 9, 9, 0, 45 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 6, 9, 9, 0, 54 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 7, 9, 9, 0, 63 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 8, 9, 9, 0, 72 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 9, 9, 9, 0, 81 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 10, 9, 9, 0, 90 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 11, 9, 9, 0, 99 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 12, 9, 9, 0, 108 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 13, 9, 9, 0, 117 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 14, 9, 9, 9, 0 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 15, 9, 9, 9, 9 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 16, 9, 9, 9, 18 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 17, 9, 9, 9, 27 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 18, 9, 9, 9, 36 )
+
+imgLeader = UI_CreateCompent( frmTeamMenber2, IMAGE_TYPE, "imgLeader", 9, 9, 8, 23 )
+UI_LoadImage( imgLeader, "texture/ui2009/main2.tga", NORMAL, 9, 9, 181, 108 )
+
+-----------------------------------------------------------------------
+-- 定义玩家间组队队员1
+-----------------------------------------------------------------------	
+-- 创建玩家间组队表单
+frmTeamMenber1 = UI_CreateForm( "frmTeamMenber1", FALSE, 178, 54, 6, 130, TRUE, FALSE )
+--UI_FormSetHotKey( frmTeamMenber1, ALT_KEY, HOTKEY_R ) 
+UI_LoadFormImage( frmTeamMenber1, "texture/ui2009/main2.tga", 178, 54, 1, 93, "", 0, 0 )
+UI_ShowForm( frmTeamMenber1, FLASE )
+UI_SetIsDrag( frmTeamMenber1, FLASE )
+UI_AddFormToTemplete( frmTeamMenber1, FORM_MAIN )
+UI_FormSetIsEscClose( frmTeamMenber1, FALSE )
+
+--创建队员名称显示
+labMenber1Name = UI_CreateCompent( frmTeamMenber1, LABELEX_TYPE, "labMenber1Name", 11, 11, 54, 25 )
+FORMS_DIALOG_CLU_000001 = GetResString("FORMS_DIALOG_CLU_000001")
+UI_SetCaption( labMenber1Name, FORMS_DIALOG_CLU_000001 )
+UI_SetTextColor( labMenber1Name, COLOR_WHITE )
+UI_SetLabelExFont( labMenber1Name, DEFAULT_FONT, TRUE, COLOR_BLACK )
+
+
+--加载HP显示 
+proTeamMenber1HP = UI_CreateCompent( frmTeamMenber1, PROGRESS_TYPE, "proTeamMenber1HP", 115, 5, 54, 42 )
+UI_LoadScaleImage( proTeamMenber1HP, "texture/ui2009/main2.tga", PROGRESS_PROGRESS, 115, 5, 0, 78, 1.0, 1.0 )
+UI_SetHint( proTeamMenber1HP, "HP" )
+UI_SetProgressHintStyle( proTeamMenber1HP, PROGRESS_HINT_NUM )
+
+--加载SP显示
+proTeamMenber1SP = UI_CreateCompent( frmTeamMenber1, PROGRESS_TYPE, "proTeamMenber1SP", 50, 4, 1, 59 )
+--UI_LoadScaleImage( proTeamMenber1SP, "texture/ui/StartF.dds", PROGRESS_PROGRESS, 50, 4, 124, 16, 1.0, 1.0 )
+UI_SetHint( proTeamMenber1SP, "SP" )
+UI_SetProgressHintStyle( proTeamMenber1SP, PROGRESS_HINT_NUM )
+
+--创建3D角色
+d3dHead = UI_CreateCompent( frmTeamMenber1, UI3D_COMPENT_TYPE, "d3dHead", 24, 24, 8, 22 )
+
+d3dDown = UI_CreateCompent( frmTeamMenber1, UI3D_COMPENT_TYPE, "d3dDown", 178, 54, 0, 0 )
+
+
+--加载玩家等级
+labFLv = UI_CreateCompent( frmTeamMenber1, LABELEX_TYPE, "labFLv", 14, 9, 37, 25 )
+UI_SetTextColor( labFLv, COLOR_WHITE )
+UI_SetLabelExFont( labFLv, DEFAULT_FONT, TRUE, COLOR_BLACK )
+UI_SetCaption( labLv, "99" )
+
+--加载玩家职业图标
+imgobj = UI_CreateCompent( frmTeamMenber1, IMAGE_TYPE, "imgobj", 9, 9, 23, 21 )
+UI_SetMaxImage( imgobj, 19 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 0, 9, 9, 0, 0 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 1, 9, 9, 0, 9 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 2, 9, 9, 0, 18 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 3, 9, 9, 0, 27 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 4, 9, 9, 0, 36 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 5, 9, 9, 0, 45 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 6, 9, 9, 0, 54 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 7, 9, 9, 0, 63 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 8, 9, 9, 0, 72 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 9, 9, 9, 0, 81 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 10, 9, 9, 0, 90 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 11, 9, 9, 0, 99 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 12, 9, 9, 0, 108 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 13, 9, 9, 0, 117 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 14, 9, 9, 9, 0 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 15, 9, 9, 9, 9 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 16, 9, 9, 9, 18 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 17, 9, 9, 9, 27 )
+--UI_LoadImage( imgobj, "texture/ui/obj1.tga", 18, 9, 9, 9, 36 )
+
+imgLeader = UI_CreateCompent( frmTeamMenber1, IMAGE_TYPE, "imgLeader", 9, 9, 8, 23 )
+UI_LoadImage( imgLeader, "texture/ui2009/main2.tga", NORMAL, 9, 9, 181, 108 )
+
+-----------------------------------------------------------------------
+-- 定义复活框
+-----------------------------------------------------------------------
+frmRelive = UI_CreateForm( "frmRelive",  FALSE, 224, 112, 397, 500, TRUE, FALSE )
+UI_LoadFormImage( frmRelive, "texture/ui2009/ty2.tga", 224, 112, 19, 3, "", 0, 0 )
+UI_ShowForm( frmRelive, FALSE )
+UI_AddFormToTemplete( frmRelive, FORM_MAIN )
+UI_SetFormStyle( frmRelive, 0 )
+UI_SetIsDrag( frmRelive, TRUE )
+ UI_FormSetIsEscClose( frmRelive, FALSE )
+--UI_SetAlpha( frmRelive, 200 )
+--UI_FormSetHotKey( frmRelive, ALT_KEY, HOTKEY_X ) 
+
+--创建询问显示
+labReCity = UI_CreateCompent( frmRelive, LABELEX_TYPE, "labReCity", 1, 1, 58, 50 )
+FORMS_PLAYER_CLU_000011 = GetResString("FORMS_PLAYER_CLU_000011")
+UI_SetCaption( labReCity, FORMS_PLAYER_CLU_000011 )
+UI_SetTextColor( labReCity, COLOR_BLACK)
+UI_SetLabelExFont( labReCity, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+-- 加载界面title
+--imgReCity = UI_CreateCompent( frmRelive, IMAGE_TYPE, "imgReCity", 48, 13, 16, 10 )
+--UI_LoadImage( imgReCity, "texture/ui/Word.dds", NORMAL, 480, 13, 158, 161 )
+labReCity1 = UI_CreateCompent( frmRelive, LABELEX_TYPE, "labReCity1", 48, 13, 16, 11 )
+UI_SetCaption( labReCity1, "" )
+UI_SetTextColor( labReCity1, COLOR_BLACK)
+UI_SetLabelExFont( labReCity1, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+
+--加载回城按钮
+btnReCity = UI_CreateCompent( frmRelive, BUTTON_TYPE, "btnReCity", 41, 19, 90, 82 )
+UI_LoadButtonImage( btnReCity, "texture/ui/SystemBotton3.tga", 41, 19, 169, 39, FALSE )
+
+-----------------------------------------------------------------------
+-- 定义倒计时框
+-----------------------------------------------------------------------
+frmTime = UI_CreateForm( "frmTime",  FALSE, 224, 112, 397, 500, TRUE, FALSE )
+UI_LoadFormImage( frmTime, "texture/ui2009/ty2.tga", 224, 112, 19, 3, "", 0, 0 )
+UI_ShowForm( frmTime, FALSE )
+UI_AddFormToTemplete( frmTime, FORM_MAIN )
+UI_SetFormStyle( frmTime, 0 )
+UI_SetIsDrag( frmTime, TRUE )
+--UI_SetAlpha( frmTime, 200 )
+--UI_FormSetHotKey( frmTime, ALT_KEY, HOTKEY_X ) 
+
+--创建询问显示
+labTime = UI_CreateCompent( frmTime, LABELEX_TYPE, "labTime", 1, 1, 58, 50 )
+--UI_SetCaption( labTime, "是否回城复活" )
+UI_SetTextColor( labTime, COLOR_BLACK)
+UI_SetLabelExFont( labTime, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+-- 加载界面title
+imgTime = UI_CreateCompent( frmTime, IMAGE_TYPE, "imgTime", 36, 13, 16, 10 )
+UI_LoadImage( imgTime, "texture/ui/Word.dds", NORMAL, 36, 13, 211, 161 )
+
+--加载取消按钮
+btnNo = UI_CreateCompent( frmTime, BUTTON_TYPE, "btnNo", 47, 22, 90, 82 )
+UI_LoadButtonImage( btnNo, "texture/ui2009/button.tga", 47, 22, 0, 22, TRUE )
+
+-----------------------------------------------------------------------
+-- 定义玩家摆摊
+-----------------------------------------------------------------------	
+-- 创建玩家摆摊表单
+frmBooth = UI_CreateForm( "frmBooth", FALSE, 293, 301, 100, 100, TRUE, FALSE )
+UI_ShowForm( frmBooth, FALSE )
+UI_AddFormToTemplete( frmBooth, FORM_MAIN )
+-- UI_FormSetHotKey( frmBooth, ALT_KEY, HOTKEY_T )
+UI_SetIsDrag( frmBooth, TRUE )
+UI_FormSetIsEscClose( frmFound, FALSE )
+
+-- 加载图片
+imgBak = UI_CreateCompent( frmBooth, IMAGE_TYPE, "imgBak", 256, 256, 0, 0 )
+UI_LoadImage( imgBak, "texture/ui2009/sale1.tga", NORMAL, 256, 256, 0, 0 )
+
+imgBak1 = UI_CreateCompent( frmBooth, IMAGE_TYPE, "imgBak1", 37, 256, 256, 0 )
+UI_LoadImage( imgBak1, "texture/ui2009/sale2.tga", NORMAL, 37, 256, 0, 0 )
+
+imgBak2 = UI_CreateCompent( frmBooth, IMAGE_TYPE, "imgBak2", 256, 45, 0, 256 )
+UI_LoadImage( imgBak2, "texture/ui2009/sale3.tga", NORMAL, 256, 45, 0, 0 )
+
+imgBak3 = UI_CreateCompent( frmBooth, IMAGE_TYPE, "imgBak3", 38, 46, 256, 256 )
+UI_LoadImage( imgBak3, "texture/ui2009/sale2.tga", NORMAL, 38, 46, 37, 0 )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmBooth, BUTTON_TYPE, "btnClose", 15, 15, 256, 9 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+--加载摆主名称
+lblOwnerName = UI_CreateCompent( frmBooth, LABELEX_TYPE, "lblOwnerName", 94, 31, 130 ,27 )
+FORMS_DIALOG_CLU_000001 = GetResString("FORMS_DIALOG_CLU_000001")
+UI_SetCaption( lblOwnerName, FORMS_DIALOG_CLU_000001 )
+UI_SetTextColor( lblOwnerName, COLOR_BLACK )
+UI_SetLabelExFont( lblOwnerName, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--摊位名
+edtBoothName = UI_CreateCompent( frmBooth, EDIT_TYPE, "edtBoothName", 264, 13, 43, 56 )
+UI_SetEditMaxNum( edtBoothName, 32 )
+
+--创建物品表格
+grdBoothItem = UI_CreateCompent( frmBooth, GOODS_GRID_TYPE, "grdBoothItem", 269, 171, 22, 87 ) 
+UI_SetGridSpace( grdBoothItem, 22, 19 )
+UI_SetGridContent( grdBoothItem, 4, 3 )
+UI_SetGridUnitSize( grdBoothItem, 66, 66 )
+UI_SetMargin( grdBoothItem, 0, 0, 0, 0 )
+UI_GoodGridLoadUnitImage( grdBoothItem, "texture/ui2009/sale1.tga", 66, 66, 24, 91 )
+
+--获得滚动条
+scrollid = UI_GetScroll( grdBoothItem)
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/ui2009/item1.tga", COMPENT_BACK, 11, 1, 232, 190 )
+
+--加载向上按钮
+id = UI_GetScrollObj( scrollid, SCROLL_UP )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--加载滚动条
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/ui2009/item1.tga", COMPENT_BACK, 8, 33, 203, 0 )
+UI_SetSize( id, 8, 33 )
+
+--加载向下按钮
+id = UI_GetScrollObj( scrollid, SCROLL_DOWN )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--加载摆摊，取消按钮
+btnSetupBooth = UI_CreateCompent( frmBooth, BUTTON_TYPE, "btnSetupBooth", 48, 22, 122, 268 )
+UI_LoadButtonImage( btnSetupBooth, "texture/ui2009/sale3.tga", 48, 22, 0, 46, FALSE )
+
+btnPullStakes = UI_CreateCompent( frmBooth, BUTTON_TYPE, "btnPullStakes", 48, 22, 122, 268 )
+UI_LoadButtonImage( btnPullStakes, "texture/ui2009/sale3.tga", 48, 22, 0, 134, FALSE )
+
+-----------------------------------------------------------------------
+-- 定义理发界面
+-----------------------------------------------------------------------	
+-- 创建玩家理发表单
+frmHead = UI_CreateForm( "frmHead", FALSE, 454, 382, 100, 100, TRUE, FALSE )
+UI_ShowForm( frmHead, FALSE )
+UI_AddFormToTemplete( frmHead, FORM_MAIN )
+-- UI_FormSetHotKey( frmHead, ALT_KEY, HOTKEY_T )
+UI_FormSetIsEscClose( frmHead, FALSE )
+
+-- 加载图片
+
+imgbakL1 = UI_CreateCompent( frmHead, IMAGE_TYPE, "imgbakL1", 249, 256, 12, 22 )
+UI_LoadImage( imgbakL1, "texture/ui2009/haircutbak1.tga", NORMAL, 249, 256, 7, 0 )
+UI_SetAlpha( imgbakL1, 200 )
+
+imgbakL2 = UI_CreateCompent( frmHead, IMAGE_TYPE, "imgbakL2", 249, 76, 12, 278 )
+UI_LoadImage( imgbakL2, "texture/ui2009/haircutbak2.tga", NORMAL, 249, 76, 7, 0 )
+UI_SetAlpha( imgbakL2, 200 )
+
+imgbakR1 = UI_CreateCompent( frmHead, IMAGE_TYPE, "imgbakR1", 10, 141, 261, 22 )
+UI_LoadImage( imgbakR1, "texture/ui2009/haircutbak2.tga", NORMAL, 10, 141, 14, 115 )
+UI_SetAlpha( imgbakR1, 200 )
+
+imgbakR2 = UI_CreateCompent( frmHead, IMAGE_TYPE, "imgbakR2", 10, 100, 261, 163 )
+UI_LoadImage( imgbakR2, "texture/ui2009/haircutbak2.tga", NORMAL, 10, 100, 46, 156 )
+UI_SetAlpha( imgbakR2, 200 )
+
+imgbakR3 = UI_CreateCompent( frmHead, IMAGE_TYPE, "imgbakR3", 10, 91, 261, 263 )
+UI_LoadImage( imgbakR3, "texture/ui2009/haircutbak2.tga", NORMAL, 10, 91, 80, 164 )
+UI_SetAlpha( imgbakR3, 200 )
+
+
+imgFoundTop = UI_CreateCompent( frmHead, IMAGE_TYPE, "imgFoundTop", 256, 256, 0, 0 )
+UI_LoadImage( imgFoundTop, "texture/ui2009/haircut1.tga", NORMAL, 256, 256, 0, 0 )
+
+imgFoundDown = UI_CreateCompent( frmHead, IMAGE_TYPE, "imgFoundDown", 198, 256, 256, 0 )
+UI_LoadImage( imgFoundDown, "texture/ui2009/haircut3.tga", NORMAL, 198, 256, 0, 0 )
+
+imgFoundTopR = UI_CreateCompent( frmHead, IMAGE_TYPE, "imgFoundTopR", 256, 125, 0, 256 )
+UI_LoadImage( imgFoundTopR, "texture/ui2009/haircut2.tga", NORMAL, 256, 125, 0, 131 )
+
+imgFoundDownR = UI_CreateCompent( frmHead, IMAGE_TYPE, "imgFoundDownR", 199, 126, 256, 256 )
+UI_LoadImage( imgFoundDownR, "texture/ui2009/haircut4.tga", NORMAL, 199, 126, 0, 0 )
+
+
+--创建发型
+labHairColor = UI_CreateCompent( frmHead, LABELEX_TYPE, "labHairColor", 61, 12, 332, 175 )
+FORMS_PLAYER_CLU_000012 = GetResString("FORMS_PLAYER_CLU_000012")
+UI_SetCaption( labHairColor, FORMS_PLAYER_CLU_000012 )
+UI_SetTextColor( labHairColor, COLOR_BLACK )
+UI_SetLabelExFont( labHairColor, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建发色
+labHair = UI_CreateCompent( frmHead, LABELEX_TYPE, "labHair", 61, 12, 332, 223 )
+FORMS_PLAYER_CLU_000013 = GetResString("FORMS_PLAYER_CLU_000013")
+UI_SetCaption( labHair, FORMS_PLAYER_CLU_000013 )
+UI_SetTextColor( labHair, COLOR_BLACK )
+UI_SetLabelExFont( labHair, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载向左按钮
+btnLeftColor = UI_CreateCompent( frmHead, BUTTON_TYPE, "btnLeftColor", 12, 12, 300, 175 )
+UI_LoadButtonImage( btnLeftColor, "texture/ui2009/renwu3.tga", 12, 12, 6, 15, FALSE )
+
+btnLeftHair = UI_CreateCompent( frmHead, BUTTON_TYPE, "btnLeftHair", 12, 12, 300, 223 )
+UI_LoadButtonImage( btnLeftHair, "texture/ui2009/renwu3.tga", 12, 12, 6, 15, FALSE )
+
+--加载向右按钮
+btnRightColor = UI_CreateCompent( frmHead, BUTTON_TYPE, "btnRightColor", 12, 12, 414, 175 )
+UI_LoadButtonImage( btnRightColor, "texture/ui2009/renwu3.tga", 12, 12, 6, 15, FALSE )
+
+btnRightHair = UI_CreateCompent( frmHead, BUTTON_TYPE, "btnRightHair", 12, 12, 414, 223 )
+UI_LoadButtonImage( btnRightHair, "texture/ui2009/renwu3.tga", 12, 12, 6, 15,  FALSE)
+
+--创建3D角色
+ui3dCreateCha = UI_CreateCompent( frmHead, UI3D_COMPENT, "ui3dCreateCha", 160, 300, 62, 24 )
+
+btnLeft3d = UI_CreateCompent( frmHead, BUTTON_TYPE, "btnLeft3d", 28, 39, 33, 298 )
+UI_LoadButtonImage( btnLeft3d, "texture/ui2009/button.tga", 28, 39, 52, 123, TRUE )
+
+btnRight3d = UI_CreateCompent( frmHead, BUTTON_TYPE, "btnRight3d", 28, 39, 223, 298 )
+UI_LoadButtonImage( btnRight3d, "texture/ui2009/button.tga",  28, 39, 115, 162, TRUE )
+
+-- 加载金钱图片
+imgItemM = UI_CreateCompent( frmHead, IMAGE_TYPE, "imgItemM", 27, 28, 292, 264 )
+UI_LoadImage( imgItemM, "texture/ui2009/button2.tga", NORMAL, 27, 28, 190, 124 )
+
+--imgItemM2 = UI_CreateCompent( frmHead, IMAGE_TYPE, "imgItemM2", 27, 28, 292, 296 )
+--UI_LoadImage( imgItemM2, "texture/ui2009/button2.tga", NORMAL, 27, 28, 217, 124 )
+
+--创建金币栏
+imgItemgold = UI_CreateCompent( frmHead, IMAGE_TYPE, "imgItemgold", 100, 19, 328, 270 )
+UI_LoadImage( imgItemgold, "texture/ui2009/button2.tga", NORMAL, 154, 19, 86, 224 )
+
+--imgItemgold2 = UI_CreateCompent( frmHead, IMAGE_TYPE, "imgItemgold2", 100, 19, 328, 303 )
+--UI_LoadImage( imgItemgold2, "texture/ui2009/button2.tga", NORMAL, 154, 19, 86, 224 )
+
+--创建金钱
+labHairMoney = UI_CreateCompent( frmHead, LABELEX_TYPE, "labHairMoney", 65, 12, 338, 274 )
+UI_SetCaption( labHairMoney, "99999999" )
+UI_SetTextColor( labHairMoney, COLOR_BLACK )
+UI_SetLabelExFont( labHairMoney, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--labHairMoney2 = UI_CreateCompent( frmHead, LABELEX_TYPE, "labHairMoney2", 65, 12, 338, 307 )
+--UI_SetCaption( labHairMoney2, "99999999" )
+--UI_SetTextColor( labHairMoney2, COLOR_BLACK )
+--UI_SetLabelExFont( labHairMoney2, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载接受按钮
+btnYes = UI_CreateCompent( frmHead, BUTTON_TYPE, "btnYes", 47, 22, 297, 330 )
+UI_LoadButtonImage( btnYes, "texture/ui2009/button.tga", 47, 22, 0, 0, TRUE )
+UI_SetButtonModalResult( btnYes, BUTTON_YES )
+
+--加载取消按钮
+btnNo = UI_CreateCompent( frmHead, BUTTON_TYPE, "btnNo", 47, 22, 380, 330 )
+UI_LoadButtonImage( btnNo, "texture/ui2009/button.tga", 47, 22, 0, 22, TRUE )
+UI_SetButtonModalResult( btnNo, BUTTON_NO )
+
+--定义关闭按钮
+btnClose = UI_CreateCompent( frmHead, BUTTON_TYPE, "btnClose", 15, 15, 420, 12 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+-- 理发道具(程序显示)
+cmdHead1 = UI_CreateCompent( frmHead, COMMAND_ONE_TYPE, "cmdHead1", 32, 32, 0, 0 )
+UI_SetIsShow( cmdHead1, FALSE )
+
+UI_CreateCompent( frmHead, COMMAND_ONE_TYPE, "cmdHead2", 32, 32, 301, 59 )
+UI_CreateCompent( frmHead, COMMAND_ONE_TYPE, "cmdHead3", 32, 32, 348, 59 )
+UI_CreateCompent( frmHead, COMMAND_ONE_TYPE, "cmdHead4", 32, 32, 395, 59 )
+
+labTicket = UI_CreateCompent( frmHead, LABELEX_TYPE, "labTicket", 65, 12, 301, 111 )
+FORMS_PLAYER_CLU_000014 = GetResString("FORMS_PLAYER_CLU_000014")
+UI_SetCaption( labTicket, FORMS_PLAYER_CLU_000014 )
+UI_SetTextColor( labTicket, COLOR_BLACK )
+UI_SetLabelExFont( labTicket, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+-----------------------------------------------------------------------
+-- 定义玩家间PK申请
+-----------------------------------------------------------------------	
+-- 创建玩家间交易表单
+frmTeamPK = UI_CreateForm( "frmTeamPK", FALSE, 376, 431, 159, 468, TRUE, FALSE )
+--UI_FormSetHotKey( frmTeamPK, ALT_KEY, HOTKEY_Z )
+UI_ShowForm( frmTeamPK, TRUE )
+UI_SetIsDrag( frmTeamPK, TRUE )
+UI_AddFormToTemplete( frmTeamPK, FORM_MAIN )
+UI_SetFormStyle( frmTeamPK, 1 )---左右居中
+UI_FormSetIsEscClose( frmTeamPK, TRUE )
+
+-- 加载背景图片
+imgBakTop1 = UI_CreateCompent( frmTeamPK, IMAGE_TYPE, "imgBakTop1", 256, 256, 0, 0 )
+UI_LoadImage( imgBakTop1, "texture/ui/PK1.tga", NORMAL, 256, 256, 0, 0 )
+
+imgBakTop2 = UI_CreateCompent( frmTeamPK, IMAGE_TYPE, "imgBakTop2", 120, 256, 256, 0 )
+UI_LoadImage( imgBakTop2, "texture/ui/PK2.tga", NORMAL, 120, 256, 0, 0 )
+
+--imgBakTop3 = UI_CreateCompent( frmTeamPK, IMAGE_TYPE, "imgBakTop3", 46, 256, 512, 0 )
+--UI_LoadImage( imgBakTop3, "texture/ui/PK4.tga", NORMAL, 46, 256, 0, 0 )
+
+imgBakDown1 = UI_CreateCompent( frmTeamPK, IMAGE_TYPE, "imgBakDown1", 256, 175, 0, 256 )
+UI_LoadImage( imgBakDown1, "texture/ui/PK3.tga", NORMAL, 256, 175, 0, 0 )
+
+imgBakDown2 = UI_CreateCompent( frmTeamPK, IMAGE_TYPE, "imgBakDown2", 120, 175, 256, 256 )
+UI_LoadImage( imgBakDown2, "texture/ui/PK4.tga", NORMAL, 120, 175, 0, 0 )
+
+--imgBakDown3 = UI_CreateCompent( frmTeamPK, IMAGE_TYPE, "imgBakDown3", 46, 26, 512, 256 )
+--UI_LoadImage( imgBakDown3, "texture/ui/PK3.tga", NORMAL, 46, 26, 210, 52 )
+
+--创建PK地图title
+labPKtitle = UI_CreateCompent( frmTeamPK, LABELEX_TYPE, "labPKtitle", 207, 12, 87, 7 )
+UI_SetCaption( labPKtitle, "" )
+UI_SetTextColor( labPKtitle, COLOR_BLACK )
+UI_SetLabelExFont( labPKtitle, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmTeamPK, BUTTON_TYPE, "btnClose", 15, 15, 340, 3 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+
+--创建PK地图名称lab
+labPKmap = UI_CreateCompent( frmTeamPK, LABELEX_TYPE, "labPKmap", 100, 12, 256, 31 )
+UI_SetCaption( labPKmap, "" )
+UI_SetTextColor( labPKmap, COLOR_BLACK )
+UI_SetLabelExFont( labPKmap, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+
+----------team1队员列表
+lstTeam0 = UI_CreateListView( frmTeamPK, "lstTeam0", 296, 115, 44, 87, 5, 2 )
+UI_SetListRowHeight( lstTeam0, 21 )
+UI_SetListFontColor( lstTeam0, COLOR_BLACK, COLOR_BLACK )
+UI_SetListIsMouseFollow( lstTeam0, TRUE)
+--UI_SetMargin( lstTeam0, 2,2,2,2 )
+UI_SetIsShow( lstTeam0, TRUE )
+id = UI_GetScroll( lstTeam0 )
+UI_SetIsEnabled( id, FALSE )
+UI_ListViewSetTitle( lstTeam0, 0, 109, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstTeam0, 1, 46, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstTeam0, 2, 37, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstTeam0, 3, 42, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstTeam0, 4, 42, "", 0, 0, 0, 0 )
+FORMS_PLAYER_CLU_000015 = GetResString("FORMS_PLAYER_CLU_000015")
+UI_AddListText( lstTeam0, FORMS_PLAYER_CLU_000015 )
+FORMS_PLAYER_CLU_000015 = GetResString("FORMS_PLAYER_CLU_000015")
+UI_AddListText( lstTeam0, FORMS_PLAYER_CLU_000015 )
+FORMS_PLAYER_CLU_000015 = GetResString("FORMS_PLAYER_CLU_000015")
+UI_AddListText( lstTeam0, FORMS_PLAYER_CLU_000015 )
+FORMS_PLAYER_CLU_000015 = GetResString("FORMS_PLAYER_CLU_000015")
+UI_AddListText( lstTeam0, FORMS_PLAYER_CLU_000015 )
+FORMS_PLAYER_CLU_000015 = GetResString("FORMS_PLAYER_CLU_000015")
+UI_AddListText( lstTeam0, FORMS_PLAYER_CLU_000015 )
+
+----------team2队员列表
+lstTeam1 = UI_CreateListView( frmTeamPK, "lstTeam1", 296, 115, 44, 264, 5, 2 )
+UI_SetListRowHeight( lstTeam1, 21 )
+UI_SetListFontColor( lstTeam1, COLOR_BLACK, COLOR_BLACK )
+UI_SetListIsMouseFollow( lstTeam1, TRUE)
+--UI_SetMargin( lstTeam1, 2,2,2,2 )
+UI_SetIsShow( lstTeam1, TRUE )
+id = UI_GetScroll( lstTeam1 )
+UI_SetIsEnabled( id, FALSE )
+UI_ListViewSetTitle( lstTeam1, 0, 109, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstTeam1, 1, 46, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstTeam1, 2, 37, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstTeam1, 3, 42, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstTeam1, 4, 42, "", 0, 0, 0, 0 )
+FORMS_PLAYER_CLU_000015 = GetResString("FORMS_PLAYER_CLU_000015")
+UI_AddListText( lstTeam1, FORMS_PLAYER_CLU_000015 )
+FORMS_PLAYER_CLU_000015 = GetResString("FORMS_PLAYER_CLU_000015")
+UI_AddListText( lstTeam1, FORMS_PLAYER_CLU_000015 )
+FORMS_PLAYER_CLU_000015 = GetResString("FORMS_PLAYER_CLU_000015")
+UI_AddListText( lstTeam1, FORMS_PLAYER_CLU_000015 )
+FORMS_PLAYER_CLU_000015 = GetResString("FORMS_PLAYER_CLU_000015")
+UI_AddListText( lstTeam1, FORMS_PLAYER_CLU_000015 )
+FORMS_PLAYER_CLU_000015 = GetResString("FORMS_PLAYER_CLU_000015")
+UI_AddListText( lstTeam1, FORMS_PLAYER_CLU_000015 )
+
+
+--加载确定按钮
+btnYes = UI_CreateCompent( frmTeamPK, BUTTON_TYPE, "btnYes", 47, 22, 224, 382 )
+UI_LoadButtonImage( btnYes, "texture/ui2009/button.tga", 47, 22, 0, 0, TRUE )
+
+
+--加载取消按钮
+btnNo = UI_CreateCompent( frmTeamPK, BUTTON_TYPE, "btnNo", 47, 22, 279, 382 )
+UI_LoadButtonImage( btnNo, "texture/ui2009/button.tga", 47, 22, 0, 22, TRUE )
+
+-----------------------------------------------------------------------
+-- 定义竞技场PK申请
+-----------------------------------------------------------------------	
+-- 创建玩家间交易表单
+frmArenaPK = UI_CreateForm( "frmArenaPK", FALSE, 376, 431, 159, 468, TRUE, FALSE )
+-- UI_FormSetHotKey( frmArenaPK, ALT_KEY, HOTKEY_N )
+UI_ShowForm( frmArenaPK, TRUE )
+UI_SetIsDrag( frmArenaPK, TRUE )
+UI_AddFormToTemplete( frmArenaPK, FORM_MAIN )
+UI_SetFormStyle( frmArenaPK, 1 )---左右居中
+UI_FormSetIsEscClose( frmArenaPK, TRUE )
+
+-- 加载背景图片
+imgBakTop1 = UI_CreateCompent( frmArenaPK, IMAGE_TYPE, "imgBakTop1", 256, 256, 0, 0 )
+UI_LoadImage( imgBakTop1, "texture/ui/PK1.tga", NORMAL, 256, 256, 0, 0 )
+
+imgBakTop2 = UI_CreateCompent( frmArenaPK, IMAGE_TYPE, "imgBakTop2", 120, 256, 256, 0 )
+UI_LoadImage( imgBakTop2, "texture/ui/PK2.tga", NORMAL, 120, 256, 0, 0 )
+
+--imgBakTop3 = UI_CreateCompent( frmArenaPK, IMAGE_TYPE, "imgBakTop3", 46, 256, 512, 0 )
+--UI_LoadImage( imgBakTop3, "texture/ui/PK4.tga", NORMAL, 46, 256, 0, 0 )
+
+imgBakDown1 = UI_CreateCompent( frmArenaPK, IMAGE_TYPE, "imgBakDown1", 256, 175, 0, 256 )
+UI_LoadImage( imgBakDown1, "texture/ui/PK3.tga", NORMAL, 256, 175, 0, 0 )
+
+imgBakDown2 = UI_CreateCompent( frmArenaPK, IMAGE_TYPE, "imgBakDown2", 120, 175, 256, 256 )
+UI_LoadImage( imgBakDown2, "texture/ui/PK4.tga", NORMAL, 120, 175, 0, 0 )
+
+--imgBakDown3 = UI_CreateCompent( frmArenaPK, IMAGE_TYPE, "imgBakDown3", 46, 26, 512, 256 )
+--UI_LoadImage( imgBakDown3, "texture/ui/PK3.tga", NORMAL, 46, 26, 210, 52 )
+
+--创建PK地图title
+labPKtitle = UI_CreateCompent( frmArenaPK, LABELEX_TYPE, "labPKtitle", 207, 12, 87, 7 )
+UI_SetCaption( labPKtitle, "" )
+UI_SetTextColor( labPKtitle, COLOR_BLACK )
+UI_SetLabelExFont( labPKtitle, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建关闭按钮
+-- btnClose = UI_CreateCompent( frmArenaPK, BUTTON_TYPE, "btnClose", 15, 15, 340, 3 )
+-- UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+
+--创建PK地图名称lab
+labPKmap = UI_CreateCompent( frmArenaPK, LABELEX_TYPE, "labPKmap", 100, 12, 256, 31 )
+UI_SetCaption( labPKmap, "" )
+UI_SetTextColor( labPKmap, COLOR_BLACK )
+UI_SetLabelExFont( labPKmap, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+
+----------team1队员列表
+lstTeam0 = UI_CreateListView( frmArenaPK, "lstTeam0", 296, 115, 44, 87, 5, 2 )
+UI_SetListRowHeight( lstTeam0, 21 )
+UI_SetListFontColor( lstTeam0, COLOR_BLACK, COLOR_BLACK )
+UI_SetListIsMouseFollow( lstTeam0, TRUE)
+--UI_SetMargin( lstTeam0, 2,2,2,2 )
+UI_SetIsShow( lstTeam0, TRUE )
+id = UI_GetScroll( lstTeam0 )
+UI_SetIsEnabled( id, FALSE )
+UI_ListViewSetTitle( lstTeam0, 0, 109, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstTeam0, 1, 46, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstTeam0, 2, 37, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstTeam0, 3, 42, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstTeam0, 4, 42, "", 0, 0, 0, 0 )
+FORMS_PLAYER_CLU_000015 = GetResString("FORMS_PLAYER_CLU_000015")
+UI_AddListText( lstTeam0, FORMS_PLAYER_CLU_000015 )
+FORMS_PLAYER_CLU_000015 = GetResString("FORMS_PLAYER_CLU_000015")
+UI_AddListText( lstTeam0, FORMS_PLAYER_CLU_000015 )
+FORMS_PLAYER_CLU_000015 = GetResString("FORMS_PLAYER_CLU_000015")
+UI_AddListText( lstTeam0, FORMS_PLAYER_CLU_000015 )
+FORMS_PLAYER_CLU_000015 = GetResString("FORMS_PLAYER_CLU_000015")
+UI_AddListText( lstTeam0, FORMS_PLAYER_CLU_000015 )
+FORMS_PLAYER_CLU_000015 = GetResString("FORMS_PLAYER_CLU_000015")
+UI_AddListText( lstTeam0, FORMS_PLAYER_CLU_000015 )
+
+----------team2队员列表
+lstTeam1 = UI_CreateListView( frmArenaPK, "lstTeam1", 296, 115, 44, 264, 5, 2 )
+UI_SetListRowHeight( lstTeam1, 21 )
+UI_SetListFontColor( lstTeam1, COLOR_BLACK, COLOR_BLACK )
+UI_SetListIsMouseFollow( lstTeam1, TRUE)
+--UI_SetMargin( lstTeam1, 2,2,2,2 )
+UI_SetIsShow( lstTeam1, TRUE )
+id = UI_GetScroll( lstTeam1 )
+UI_SetIsEnabled( id, FALSE )
+UI_ListViewSetTitle( lstTeam1, 0, 109, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstTeam1, 1, 46, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstTeam1, 2, 37, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstTeam1, 3, 42, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lstTeam1, 4, 42, "", 0, 0, 0, 0 )
+FORMS_PLAYER_CLU_000015 = GetResString("FORMS_PLAYER_CLU_000015")
+UI_AddListText( lstTeam1, FORMS_PLAYER_CLU_000015 )
+FORMS_PLAYER_CLU_000015 = GetResString("FORMS_PLAYER_CLU_000015")
+UI_AddListText( lstTeam1, FORMS_PLAYER_CLU_000015 )
+FORMS_PLAYER_CLU_000015 = GetResString("FORMS_PLAYER_CLU_000015")
+UI_AddListText( lstTeam1, FORMS_PLAYER_CLU_000015 )
+FORMS_PLAYER_CLU_000015 = GetResString("FORMS_PLAYER_CLU_000015")
+UI_AddListText( lstTeam1, FORMS_PLAYER_CLU_000015 )
+FORMS_PLAYER_CLU_000015 = GetResString("FORMS_PLAYER_CLU_000015")
+UI_AddListText( lstTeam1, FORMS_PLAYER_CLU_000015 )
+
+--------------------------------------------------------------
+-----------精灵挂机 By 小白 2009.03.03------------
+--------------------------------------------------------------
+-- 创建精灵挂机界面
+frmElfAfk = UI_CreateForm( "frmElfAfk", FALSE, 320, 290, 239, 122, TRUE, FALSE )
+UI_ShowForm( frmElfAfk, TRUE )
+UI_SetIsDrag( frmElfAfk, TRUE )
+UI_AddFormToTemplete( frmElfAfk, FORM_MAIN )
+UI_SetFormStyle( frmElfAfk, 2 )---左右居中
+UI_SetIsDrag( frmElfAfk, TRUE )
+-- UI_FormSetHotKey( frmElfAfk, ALT_KEY, HOTKEY_V )
+
+-- 加载背景图片
+imgBakLeft = UI_CreateCompent( frmElfAfk, IMAGE_TYPE, "imgBakLeft", 256, 256, 0, 0 )
+UI_LoadImage( imgBakLeft, "texture/ui2009/tongyongX1.tga", NORMAL, 256, 256, 0, 0 )
+
+imgBakRight = UI_CreateCompent( frmElfAfk, IMAGE_TYPE, "imgBakRight", 54, 256, 256, 0 )
+UI_LoadImage( imgBakRight, "texture/ui2009/tongyongX2.tga", NORMAL, 54, 256, 0, 0 )
+
+imgBakLeftD = UI_CreateCompent( frmElfAfk, IMAGE_TYPE, "imgBakLeftD", 202, 19, 0, 256 )
+UI_LoadImage( imgBakLeftD, "texture/ui2009/tongyongX2.tga", NORMAL, 202, 19, 54, 0 )
+
+imgBakRightD = UI_CreateCompent( frmElfAfk, IMAGE_TYPE, "imgBakRightD", 109, 19, 202, 256 )
+UI_LoadImage( imgBakRightD, "texture/ui2009/tongyongX2.tga", NORMAL, 109, 19, 54, 19 )
+
+--加载文字title
+labtitle = UI_CreateCompent( frmElfAfk, LABELEX_TYPE, "labtitle", 261, 12, 22, 12 )
+FORMS_MAIN_CLU_000027 = GetResString("FORMS_MAIN_CLU_000027")
+UI_SetCaption( labtitle, FORMS_MAIN_CLU_000027 )
+UI_SetTextColor( labtitle, COLOR_WHITE )
+UI_SetLabelExFont( labtitle, DEFAULT_FONT, TRUE, COLOR_BLACK )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmElfAfk, BUTTON_TYPE, "btnClose", 15, 15, 278, 12 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+--加载确定按钮
+btnelfafkYes = UI_CreateCompent( frmElfAfk, BUTTON_TYPE, "btnelfafkYes", 44, 22, 58, 238 )
+UI_LoadButtonImage( btnelfafkYes, "texture/ui2009/JewelryUp.tga", 44, 22, 71, 0, FALSE )
+
+--加载文字title
+labYes = UI_CreateCompent( frmElfAfk, LABELEX_TYPE, "labYes", 261, 12, 68, 243 )
+FORMS_PLAYER_CLU_000016 = GetResString("FORMS_PLAYER_CLU_000016")
+UI_SetCaption( labYes, FORMS_PLAYER_CLU_000016 )
+UI_SetTextColor( labYes, COLOR_BLACK )
+UI_SetLabelExFont( labYes, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载取消按钮
+btnelfafkNo = UI_CreateCompent( frmElfAfk, BUTTON_TYPE, "btnelfafkNo", 44, 22, 207, 238 )
+UI_LoadButtonImage( btnelfafkNo, "texture/ui2009/JewelryUp.tga", 44, 22, 71, 0, FALSE )
+UI_SetButtonModalResult( btnelfafkNo, BUTTON_CLOSE )
+
+--加载文字title
+lableave = UI_CreateCompent( frmElfAfk, LABELEX_TYPE, "lableave", 261, 12, 217, 243 )
+FORMS_PLAYER_CLU_000017 = GetResString("FORMS_PLAYER_CLU_000017")
+UI_SetCaption( lableave, FORMS_PLAYER_CLU_000017 )
+UI_SetTextColor( lableave, COLOR_BLACK )
+UI_SetLabelExFont( lableave, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载说明文字背景框
+imgTxtHelp1 = UI_CreateCompent( frmElfAfk, IMAGE_TYPE, "imgTxtHelp1", 202, 60, 16, 171 )
+UI_LoadImage( imgTxtHelp1, "texture/ui2009/tongyongX2.tga", NORMAL, 202, 60, 54, 38 )
+
+imgTxtHelp2 = UI_CreateCompent( frmElfAfk, IMAGE_TYPE, "imgTxtHelp2", 78, 60, 218, 171 )
+UI_LoadImage( imgTxtHelp2, "texture/ui2009/tongyongX2.tga", NORMAL, 78, 60, 54, 98 )
+
+--加载说明文字框1
+labTxthelp1 = UI_CreateCompent( frmElfAfk, LABELEX_TYPE, "labTxthelp1", 261, 12, 24, 180 )
+FORMS_PLAYER_CLU_000018 = GetResString("FORMS_PLAYER_CLU_000018")
+UI_SetCaption( labTxthelp1, FORMS_PLAYER_CLU_000018 )
+UI_SetTextColor( labTxthelp1, COLOR_BLACK )
+UI_SetLabelExFont( labTxthelp1, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--加载说明文字框2
+labTxthelp2 = UI_CreateCompent( frmElfAfk, LABELEX_TYPE, "labTxthelp2", 261, 12, 24, 195 )
+FORMS_PLAYER_CLU_000019 = GetResString("FORMS_PLAYER_CLU_000019")
+UI_SetCaption( labTxthelp2, FORMS_PLAYER_CLU_000019 )
+UI_SetTextColor( labTxthelp2, COLOR_BLACK )
+UI_SetLabelExFont( labTxthelp2, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--加载说明文字框3
+labTxthelp3 = UI_CreateCompent( frmElfAfk, LABELEX_TYPE, "labTxthelp3", 261, 12, 24, 210 )
+FORMS_PLAYER_CLU_000020 = GetResString("FORMS_PLAYER_CLU_000020")
+UI_SetCaption( labTxthelp3, FORMS_PLAYER_CLU_000020 )
+UI_SetTextColor( labTxthelp3, COLOR_BLACK )
+UI_SetLabelExFont( labTxthelp3, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--加载经验显示区
+imgelfexp = UI_CreateCompent( frmElfAfk, IMAGE_TYPE, "imgelfexp", 192, 24, 57, 47 )
+UI_LoadImage( imgelfexp, "texture/ui2009/elfafk02.tga", NORMAL, 192, 24, 64, 68 )
+
+labelfexp = UI_CreateCompent( frmElfAfk, LABELEX_TYPE, "labelfexp", 118, 12, 96, 54 )
+FORMS_MAIN_CLU_000192 = GetResString("FORMS_MAIN_CLU_000192")
+UI_SetCaption( labelfexp, FORMS_MAIN_CLU_000192 )
+UI_SetTextColor( labelfexp, COLOR_BLACK )
+UI_SetLabelExFont( labelfexp, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载经验选择区
+imgelftxt = UI_CreateCompent( frmElfAfk, IMAGE_TYPE, "imgelftxt", 60, 21, 92, 100 )
+UI_LoadImage( imgelftxt, "texture/ui2009/elfafk02.tga", NORMAL, 72, 21, 64, 92 )
+
+--经验选择按钮
+imgexpbtn = UI_CreateCompent( frmElfAfk, IMAGE_TYPE, "imgexpbtn", 15, 15, 134, 103 )
+UI_LoadImage( imgexpbtn, "texture/ui2009/button2.tga", NORMAL, 15, 15, 172, 21 )
+
+--加载领取图片
+imgexpget = UI_CreateCompent( frmElfAfk, IMAGE_TYPE, "imgexpget", 36, 18, 39, 101 )
+UI_LoadImage( imgexpget, "texture/ui2009/elfafk02.tga", NORMAL, 36, 18, 113, 114 )
+
+--创建经验选择列表
+cboexp  = UI_CreateCompent( frmElfAfk, COMBO_TYPE, "cboexp", 49, 20, 96, 100 )
+UI_ComboSetStyle( cboexp, TRUE )
+UI_ComboSetTextColor( cboexp, COLOR_BLACK )
+
+lsttime = UI_GetList( cboexp )
+UI_SetListFontColor( lsttime, COLOR_BLACK, COLOR_BLACK )
+UI_SetSize( lsttime, 49, 63 )
+UI_SetMargin( lsttime, 9, 3, 9, 0 )
+UI_SetListRowHeight( lsttime, 15 )
+UI_LoadImage( lsttime, "texture/ui2009/elfafk02.tga", COMPENT_BACK, 49, 63, 64, 113 )
+FORMS_PLAYER_CLU_000021 = GetResString("FORMS_PLAYER_CLU_000021")
+UI_AddListText( lsttime, FORMS_PLAYER_CLU_000021 )
+FORMS_PLAYER_CLU_000022 = GetResString("FORMS_PLAYER_CLU_000022")
+UI_AddListText( lsttime, FORMS_PLAYER_CLU_000022 )
+FORMS_PLAYER_CLU_000023 = GetResString("FORMS_PLAYER_CLU_000023")
+UI_AddListText( lsttime, FORMS_PLAYER_CLU_000023 )
+FORMS_PLAYER_CLU_000024 = GetResString("FORMS_PLAYER_CLU_000024")
+UI_AddListText( lsttime, FORMS_PLAYER_CLU_000024 )
+UI_SetListIsMouseFollow( lsttime, TRUE)
+UI_ListLoadSelectImage( lsttime, "texture/ui/SystemBotton3.tga", 79, 18, 0, 227  )
+UI_ComboSetTextColor( lsttime, COLOR_WHITE )
+
+--加载X图片
+imgexpX = UI_CreateCompent( frmElfAfk, IMAGE_TYPE, "imgexpX", 33, 34, 166, 94 )
+UI_LoadImage( imgexpX, "texture/ui2009/elfafk02.tga", NORMAL, 33, 34, 113, 132 )
+
+--加载经验加倍槽图片
+imgexpcao = UI_CreateCompent( frmElfAfk, IMAGE_TYPE, "imgexpcao", 47, 49, 211, 87 )
+UI_LoadImage( imgexpcao, "texture/ui2009/elfafk02.tga", NORMAL, 47, 49, 64, 177 )
+
+--加载倍图片
+imgexpB = UI_CreateCompent( frmElfAfk, IMAGE_TYPE, "imgexpB", 32, 32, 217, 94 )
+UI_LoadImage( imgexpB, "texture/ui2009/JewelryUp.tga", NORMAL, 32, 32, 0, 111 )
+UI_SetAlpha( imgexpB, 100 )
+
+--经验加倍槽
+cmdexpItem = UI_CreateCompent( frmElfAfk, COMMAND_ONE_TYPE, "cmdexpItem", 32, 32, 217, 94 )	-- 经验加倍类道具
+FORMS_PLAYER_CLU_000025 = GetResString("FORMS_PLAYER_CLU_000025")
+UI_SetHint( cmdexpItem, FORMS_PLAYER_CLU_000025 )
+
+-----------------------------------------------------------------------
+-- 定义对话
+-----------------------------------------------------------------------	
+--- 创建NPC对话表单
+frmElfchat = UI_CreateForm( "frmElfchat", FALSE, 326, 297, 240, 70, TRUE, FALSE )
+UI_ShowForm( frmElfchat, TRUE )
+UI_AddFormToTemplete( frmElfchat, FORM_MAIN )
+--UI_FormSetHotKey( frmElfchat, ALT_KEY, HOTKEY_V )
+UI_SetIsDrag( frmElfchat, TRUE )
+
+-- 加载背景图片
+imgBakLeft = UI_CreateCompent( frmElfchat, IMAGE_TYPE, "imgBakLeft", 256, 256, 0, 0 )
+UI_LoadImage( imgBakLeft, "texture/ui2009/NPC1.tga", NORMAL, 256, 256, 0, 0 )
+
+imgBakRight = UI_CreateCompent( frmElfchat, IMAGE_TYPE, "imgBakRight", 69, 256, 256, 0 )
+UI_LoadImage( imgBakRight, "texture/ui2009/NPC2.tga", NORMAL, 69, 256, 0, 0 )
+
+imgBakLeftD = UI_CreateCompent( frmElfchat, IMAGE_TYPE, "imgBakLeftD", 187, 41, 0, 256 )
+UI_LoadImage( imgBakLeftD, "texture/ui2009/NPC2.tga", NORMAL, 187, 41, 69, 0 )
+
+imgBakRightD = UI_CreateCompent( frmElfchat, IMAGE_TYPE, "imgBakRightD", 139, 41, 187, 256 )
+UI_LoadImage( imgBakRightD, "texture/ui2009/NPC2.tga", NORMAL, 139, 41, 69, 41 )
+
+imgpath = UI_CreateCompent( frmElfchat, IMAGE_TYPE, "imgpath", 28, 17, 26, 11 )
+UI_LoadImage( imgpath, "texture/ui2009/NPC1.tga", NORMAL, 28, 17, 53, 11 )
+
+-- 加载界面title
+labTitle = UI_CreateCompent( frmElfchat, LABELEX_TYPE, "labTitle", 400, 150, 23, 13 )
+FORMS_PLAYER_CLU_000026 = GetResString("FORMS_PLAYER_CLU_000026")
+UI_SetCaption( labTitle, FORMS_PLAYER_CLU_000026)
+UI_SetTextColor( labTitle, COLOR_WHITE )
+UI_SetLabelExFont( labTitle, DEFAULT_FONT, TRUE, COLOR_BLACK )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmElfchat, BUTTON_TYPE, "btnClose", 15, 15, 290, 12 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+--加载文字框1
+ElfTxt01 = UI_CreateCompent( frmElfchat, LABELEX_TYPE, "ElfTxt01", 90, 12, 43, 86 )
+FORMS_PLAYER_CLU_000027 = GetResString("FORMS_PLAYER_CLU_000027")
+UI_SetCaption( ElfTxt01, FORMS_PLAYER_CLU_000027)
+UI_SetTextColor( ElfTxt01, COLOR_BLACK )
+UI_SetLabelExFont( ElfTxt01, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载文字框2
+ElfTxt02 = UI_CreateCompent( frmElfchat, LABELEX_TYPE, "ElfTxt02", 90, 12, 168, 86 )
+FORMS_PLAYER_CLU_000028 = GetResString("FORMS_PLAYER_CLU_000028")
+UI_SetCaption( ElfTxt02, FORMS_PLAYER_CLU_000028)
+UI_SetTextColor( ElfTxt02, COLOR_BLUE )
+UI_SetLabelExFont( ElfTxt02, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载文字框3
+ElfTxt03 = UI_CreateCompent( frmElfchat, LABELEX_TYPE, "ElfTxt03", 90, 12, 43, 108 )
+FORMS_PLAYER_CLU_000029 = GetResString("FORMS_PLAYER_CLU_000029")
+UI_SetCaption( ElfTxt03, FORMS_PLAYER_CLU_000029)
+UI_SetTextColor( ElfTxt03, COLOR_BLACK )
+UI_SetLabelExFont( ElfTxt03, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载文字框4
+ElfTxt04 = UI_CreateCompent( frmElfchat, LABELEX_TYPE, "ElfTxt04", 90, 12, 168, 108 )
+FORMS_PLAYER_CLU_000030 = GetResString("FORMS_PLAYER_CLU_000030")
+UI_SetCaption( ElfTxt04, FORMS_PLAYER_CLU_000030)
+UI_SetTextColor( ElfTxt04, COLOR_BLUE )
+UI_SetLabelExFont( ElfTxt04, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载文字框5
+ElfTxt05 = UI_CreateCompent( frmElfchat, LABELEX_TYPE, "ElfTxt05", 90, 12, 43, 130 )
+FORMS_PLAYER_CLU_000031 = GetResString("FORMS_PLAYER_CLU_000031")
+UI_SetCaption( ElfTxt05, FORMS_PLAYER_CLU_000031)
+UI_SetTextColor( ElfTxt05, COLOR_BLACK )
+UI_SetLabelExFont( ElfTxt05, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载文字框6
+ElfTxt06 = UI_CreateCompent( frmElfchat, LABELEX_TYPE, "ElfTxt06", 90, 12, 168, 130 )
+FORMS_PLAYER_CLU_000032 = GetResString("FORMS_PLAYER_CLU_000032")
+UI_SetCaption( ElfTxt06, FORMS_PLAYER_CLU_000032)
+UI_SetTextColor( ElfTxt06, COLOR_BLUE )
+UI_SetLabelExFont( ElfTxt06, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载文字框7
+ElfTxt07 = UI_CreateCompent( frmElfchat, LABELEX_TYPE, "ElfTxt07", 90, 12, 43, 152 )
+FORMS_PLAYER_CLU_000033 = GetResString("FORMS_PLAYER_CLU_000033")
+UI_SetCaption( ElfTxt07, FORMS_PLAYER_CLU_000033)
+UI_SetTextColor( ElfTxt07, COLOR_BLACK )
+UI_SetLabelExFont( ElfTxt07, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载文字框8
+ElfTxt08 = UI_CreateCompent( frmElfchat, LABELEX_TYPE, "ElfTxt08", 90, 12, 168, 152 )
+FORMS_PLAYER_CLU_000034 = GetResString("FORMS_PLAYER_CLU_000034")
+UI_SetCaption( ElfTxt08, FORMS_PLAYER_CLU_000034)
+UI_SetTextColor( ElfTxt08, COLOR_BLUE )
+UI_SetLabelExFont( ElfTxt08, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载文字框9
+ElfTxt09 = UI_CreateCompent( frmElfchat, LABELEX_TYPE, "ElfTxt09", 90, 12, 43, 218 )
+FORMS_PLAYER_CLU_000035 = GetResString("FORMS_PLAYER_CLU_000035")
+UI_SetCaption( ElfTxt09, FORMS_PLAYER_CLU_000035)
+UI_SetTextColor( ElfTxt09, COLOR_BLACK )
+UI_SetLabelExFont( ElfTxt09, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载文字框10
+ElfTxt10 = UI_CreateCompent( frmElfchat, LABELEX_TYPE, "ElfTxt10", 90, 12, 168, 218 )
+FORMS_PLAYER_CLU_000036 = GetResString("FORMS_PLAYER_CLU_000036")
+UI_SetCaption( ElfTxt10, FORMS_PLAYER_CLU_000036)
+UI_SetTextColor( ElfTxt10, COLOR_BLUE )
+UI_SetLabelExFont( ElfTxt10, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载文字框11
+ElfTxt11 = UI_CreateCompent( frmElfchat, LABELEX_TYPE, "ElfTxt11", 90, 12, 43, 196 )
+FORMS_PLAYER_CLU_000037 = GetResString("FORMS_PLAYER_CLU_000037")
+UI_SetCaption( ElfTxt11, FORMS_PLAYER_CLU_000037)
+UI_SetTextColor( ElfTxt11, COLOR_BLACK )
+UI_SetLabelExFont( ElfTxt11, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载文字框12
+ElfTxt12 = UI_CreateCompent( frmElfchat, LABELEX_TYPE, "ElfTxt12", 90, 12, 168, 196 )
+FORMS_PLAYER_CLU_000038 = GetResString("FORMS_PLAYER_CLU_000038")
+UI_SetCaption( ElfTxt12, FORMS_PLAYER_CLU_000038)
+UI_SetTextColor( ElfTxt12, COLOR_BLUE )
+UI_SetLabelExFont( ElfTxt12, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载文字框13
+ElfTxt13 = UI_CreateCompent( frmElfchat, LABELEX_TYPE, "ElfTxt13", 90, 12, 43, 64 )
+FORMS_PLAYER_CLU_000039 = GetResString("FORMS_PLAYER_CLU_000039")
+UI_SetCaption( ElfTxt13, FORMS_PLAYER_CLU_000039)
+UI_SetTextColor( ElfTxt13, COLOR_BLACK )
+UI_SetLabelExFont( ElfTxt13, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载文字框14
+ElfTxt14 = UI_CreateCompent( frmElfchat, LABELEX_TYPE, "ElfTxt14", 90, 12, 168, 64 )
+FORMS_PLAYER_CLU_000040 = GetResString("FORMS_PLAYER_CLU_000040")
+UI_SetCaption( ElfTxt14, FORMS_PLAYER_CLU_000040)
+UI_SetTextColor( ElfTxt14, COLOR_BLUE )
+UI_SetLabelExFont( ElfTxt14, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--获得滚动条
+scrollid = UI_GetScroll( ElfTxt )
+UI_SetSize( scrollid, 8, 1 )
+UI_LoadImage( scrollid, "texture/ui2009/item1.tga", COMPENT_BACK, 8, 1, 232, 117 )
+
+--加载向上按钮
+id = UI_GetScrollObj( scrollid, SCROLL_UP )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--加载滚动条
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/ui2009/item1.tga", COMPENT_BACK, 8, 33, 203, 0 )
+UI_SetSize( id, 8, 33 )
+
+--加载向下按钮
+id = UI_GetScrollObj( scrollid, SCROLL_DOWN )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--加载确定按钮
+btnYes = UI_CreateCompent( frmElfchat, BUTTON_TYPE, "btnYes", 44, 22, 67, 258 )
+UI_LoadButtonImage( btnYes, "texture/ui2009/JewelryUp.tga", 44, 22, 71, 0, FALSE )
+
+--加载确定按钮
+ElfTxtYes = UI_CreateCompent( frmElfchat, LABELEX_TYPE, "ElfTxtYes", 90, 12, 77, 263 )
+FORMS_PLAYER_CLU_000041 = GetResString("FORMS_PLAYER_CLU_000041")
+UI_SetCaption( ElfTxtYes, FORMS_PLAYER_CLU_000041)
+UI_SetTextColor( ElfTxtYes, COLOR_BLACK )
+UI_SetLabelExFont( ElfTxtYes, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载离开按钮
+btnNo = UI_CreateCompent( frmElfchat, BUTTON_TYPE, "btnNo", 44, 22, 190, 258 )
+UI_LoadButtonImage( btnNo, "texture/ui2009/JewelryUp.tga", 44, 22, 71, 0, FALSE )
+UI_SetButtonModalResult( btnNo, BUTTON_CLOSE )
+
+--加载离开按钮
+ElfTxtNo = UI_CreateCompent( frmElfchat, LABELEX_TYPE, "ElfTxtNo", 90, 12, 200, 263 )
+FORMS_PLAYER_CLU_000017 = GetResString("FORMS_PLAYER_CLU_000017")
+UI_SetCaption( ElfTxtNo, FORMS_PLAYER_CLU_000017)
+UI_SetTextColor( ElfTxtNo, COLOR_BLACK )
+UI_SetLabelExFont( ElfTxtNo, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+-----------------------------------------------------------------------
+-- 定义是否添加到公会 -added by L.li 20090610
+-----------------------------------------------------------------------
+frmAcceptManage = UI_CreateForm( "frmAcceptManage",  FALSE, 224, 112, 0, 0, FALSE, FALSE )
+UI_LoadFormImage( frmAcceptManage, "texture/ui2009/ty2.tga", 224, 112, 19, 3, "", 0, 0 )
+UI_ShowForm( frmAcceptManage, FALSE )
+UI_AddFormToTemplete( frmAcceptManage, FORM_MAIN )
+UI_SetFormStyle( frmAcceptManage, 0 )
+UI_SetIsDrag( frmAcceptManage, TRUE )
+UI_FormSetIsEscClose( frmAcceptManage, FALSE )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmAcceptManage, BUTTON_TYPE, "btnClose", 15, 15, 197, 10 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+
+--创建询问者姓名
+labManageName = UI_CreateCompent( frmAcceptManage, LABELEX_TYPE, "labManageName", 23, 11, 57, 44 )
+UI_SetCaption( labManageName, "" )
+UI_SetTextColor( labManageName, COLOR_BLACK )
+UI_SetLabelExFont( labManageName, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建询问内容
+labManage = UI_CreateCompent( frmAcceptManage, LABELEX_TYPE, "labManage", 23, 11, 57, 62 )
+UI_SetCaption( labManage, "" )
+UI_SetTextColor( labManage, COLOR_BLACK )
+UI_SetLabelExFont( labManage, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载接受按钮
+btnYes = UI_CreateCompent( frmAcceptManage, BUTTON_TYPE, "btnYes", 48, 22, 45, 81 )
+UI_LoadButtonImage( btnYes, "texture/ui2009/mchat2.tga", 48, 22, 22, 168, FALSE )
+
+--加载取消按钮
+btnNo = UI_CreateCompent( frmAcceptManage, BUTTON_TYPE, "btnNo", 47, 22, 119, 81 )
+UI_LoadButtonImage( btnNo, "texture/ui2009/button.tga", 47, 22, 0, 22, TRUE )

@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{c894ac16-8c2e-4f9c-98cd-b2e59b629e91}</ProjectGuid>
+    <RootNamespace>GroupServer</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)..\..\Server\</OutDir>
+    <TargetName>$(ProjectName)_$(PlatformShortName)_$(Configuration)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)..\..\Server\</OutDir>
+    <TargetName>$(ProjectName)_$(PlatformShortName)_$(Configuration)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)..\..\Server\</OutDir>
+    <TargetName>$(ProjectName)_$(PlatformShortName)_$(Configuration)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)..\..\Server\</OutDir>
+    <TargetName>$(ProjectName)_$(PlatformShortName)_$(Configuration)</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>NOMINMAX;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <AdditionalIncludeDirectories>..\Common\;..\LIBDBC\;..\Utility\;..\ICUHelper\;..\ICU\Include\$(PlatformName);..\licensecc\out\$(LibrariesArchitecture)-$(Configuration)\include\;..\licensecc\out\$(LibrariesArchitecture)-$(Configuration)\include\licensecc\Yatops;..\LuaJIT\src\</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\LIBDBC\$(PlatformShortName)\$(ConfigurationName)\;..\Common\$(PlatformShortName)\$(ConfigurationName)\;..\Utility\$(PlatformShortName)\$(ConfigurationName)\;..\ICU\lib\$(PlatformName)\$(ConfigurationName)\;..\ICUHelper\$(PlatformShortName)\$(ConfigurationName)\;..\LuaJIT\lib\$(PlatformShortName)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Common_$(PlatformShortName).lib;LIBDBC_$(PlatformShortName).lib;Utility_$(PlatformShortName).lib;ICUHelper_$(PlatformShortName).lib;icudt.lib;icuucd.lib;icuind.lib;lua51.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>NOMINMAX;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <AdditionalIncludeDirectories>..\Common\;..\LIBDBC\;..\Utility\;..\ICUHelper\;..\ICU\Include\$(PlatformName);..\licensecc\out\$(LibrariesArchitecture)-$(Configuration)\include\;..\licensecc\out\$(LibrariesArchitecture)-$(Configuration)\include\licensecc\Yatops;..\LuaJIT\src\</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\LIBDBC\$(PlatformShortName)\$(ConfigurationName)\;..\Common\$(PlatformShortName)\$(ConfigurationName)\;..\Utility\$(PlatformShortName)\$(ConfigurationName)\;..\ICU\lib\$(PlatformName)\$(ConfigurationName)\;..\ICUHelper\$(PlatformShortName)\$(ConfigurationName)\;..\LuaJIT\lib\$(PlatformShortName)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Common_$(PlatformShortName).lib;LIBDBC_$(PlatformShortName).lib;Utility_$(PlatformShortName).lib;ICUHelper_$(PlatformShortName).lib;icudt.lib;icuuc.lib;icuin.lib;lua51.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>NOMINMAX;_DEBUG;_CONSOLE;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <AdditionalIncludeDirectories>..\Common\;..\LIBDBC\;..\Utility\;..\ICUHelper\;..\ICU\Include\$(PlatformName)\;..\LuaJIT\src\;..\licensecc\out\$(LibrariesArchitecture)-$(Configuration)\include\;..\licensecc\out\$(LibrariesArchitecture)-$(Configuration)\include\licensecc\Yatops;..\CaLua\include\</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\LIBDBC\$(PlatformShortName)\$(ConfigurationName)\;..\Common\$(PlatformShortName)\$(ConfigurationName)\;..\Utility\$(PlatformShortName)\$(ConfigurationName)\;..\ICU\lib\$(PlatformName)\Release\;..\ICUHelper\$(PlatformShortName)\$(ConfigurationName)\;..\LuaJIT\lib\$(PlatformName)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Common_$(PlatformShortName).lib;LIBDBC_$(PlatformShortName).lib;Utility_$(PlatformShortName).lib;ICUHelper_$(PlatformShortName).lib;icudt.lib;icuuc.lib;icuin.lib;lua51.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>NOMINMAX;NDEBUG;_CONSOLE;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <AdditionalIncludeDirectories>..\Common\;..\LIBDBC\;..\Utility\;..\ICUHelper\;..\ICU\Include\$(PlatformName);..\licensecc\out\$(LibrariesArchitecture)-$(Configuration)\include\;..\licensecc\out\$(LibrariesArchitecture)-$(Configuration)\include\licensecc\Yatops;..\LuaJIT\src</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\LIBDBC\$(PlatformShortName)\$(ConfigurationName)\;..\Common\$(PlatformShortName)\$(ConfigurationName)\;..\Utility\$(PlatformShortName)\$(ConfigurationName)\;..\ICU\lib\$(PlatformName)\$(ConfigurationName)\;..\ICUHelper\$(PlatformShortName)\$(ConfigurationName)\;..\LuaJIT\lib\$(PlatformName)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Common_$(PlatformShortName).lib;LIBDBC_$(PlatformShortName).lib;Utility_$(PlatformShortName).lib;ICUHelper_$(PlatformShortName).lib;icudt.lib;icuuc.lib;icuin.lib;Ws2_32.lib;lua51.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="DBConnect.h" />
+    <ClInclude Include="Friend.h" />
+    <ClInclude Include="GateServer.h" />
+    <ClInclude Include="GroupServerApp.h" />
+    <ClInclude Include="Guild.h" />
+    <ClInclude Include="GuildMember.h" />
+    <ClInclude Include="Invitation.h" />
+    <ClInclude Include="LuaFunc.h" />
+    <ClInclude Include="Master.h" />
+    <ClInclude Include="Parser.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="Script.h" />
+    <ClInclude Include="SessionChat.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Team.h" />
+    <ClInclude Include="TeamMember.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DBConnect.cpp" />
+    <ClCompile Include="Friend.cpp" />
+    <ClCompile Include="GroupServerApp.cpp" />
+    <ClCompile Include="GroupServerAppChat.cpp" />
+    <ClCompile Include="GroupServerAppFrnd.cpp" />
+    <ClCompile Include="GroupServerAppGuld.cpp" />
+    <ClCompile Include="GroupServerAppInit.cpp" />
+    <ClCompile Include="GroupServerAppMaster.cpp" />
+    <ClCompile Include="GroupServerAppPrsn.cpp" />
+    <ClCompile Include="GroupServerAppServ.cpp" />
+    <ClCompile Include="GroupServerAppTeam.cpp" />
+    <ClCompile Include="GroupSMain.cpp" />
+    <ClCompile Include="Guild.cpp" />
+    <ClCompile Include="GuildMember.cpp" />
+    <ClCompile Include="Invitation.cpp" />
+    <ClCompile Include="LuaFunc.cpp" />
+    <ClCompile Include="Master.cpp" />
+    <ClCompile Include="Parser.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Script.cpp" />
+    <ClCompile Include="SessionChat.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="Team.cpp" />
+    <ClCompile Include="TeamMember.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="GroupServer.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

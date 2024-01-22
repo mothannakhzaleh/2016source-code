@@ -1,0 +1,1829 @@
+--------------------------------------------------------------------------
+--									--
+--									--
+--				MissionScript04.lua 			--
+--									--
+--									--
+--------------------------------------------------------------------------
+print( "Loading MissionScript04.lua" )
+
+
+jp= JumpPage
+amp=AutoMissionPage
+ct=CloseTalk
+am=AddMission
+MissionCheck = HasFlag
+mc=MissionCheck
+
+
+
+
+
+
+----------------------------------------------------------
+--							--
+--							--
+--		主线任务	 				--
+--							--
+--							--
+----------------------------------------------------------
+	-->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>主线任务开始
+function CenterMission001()
+
+----------------------------野兽出没的森林
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000001 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000001")
+	DefineMission( 400, MISSCRIPT_MISSIONSCRIPT04_LUA_000001, 400 )
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000002 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000002")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000002 )
+	MisBeginCondition( LvCheck, ">", 120 )
+	MisBeginCondition(NoRecord, 400)
+	MisBeginCondition(NoMission, 400)
+	MisBeginAction(AddMission, 400)
+	MisCancelAction(ClearMission, 400)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000003 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000003")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000003)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000004 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000004")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000004)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------野兽出没的森林
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000001 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000001")
+	DefineMission( 401, MISSCRIPT_MISSIONSCRIPT04_LUA_000001, 400, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000005 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000005")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000005)
+	MisResultCondition(NoRecord, 400)
+	MisResultCondition(HasMission, 400)
+	MisResultAction(ClearMission, 400 )
+	MisResultAction(SetRecord, 400 )
+	MisResultAction(AddExp, 100, 100)
+	MisResultAction(AddMoney, 300, 300)
+
+
+
+----------------------------迟到的沙漠商旅
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000006 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000006")
+	DefineMission( 402, MISSCRIPT_MISSIONSCRIPT04_LUA_000006, 401 )
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000007 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000007")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000007 )
+	MisBeginCondition( LvCheck, ">", 120 )
+	MisBeginCondition(NoRecord, 401)
+	MisBeginCondition(NoMission, 401)
+	MisBeginAction(AddMission, 401)
+	MisCancelAction(ClearMission, 401)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000008 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000008")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000008)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000009 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000009")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000009)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------迟到的沙漠商旅
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000006 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000006")
+	DefineMission( 403, MISSCRIPT_MISSIONSCRIPT04_LUA_000006, 401, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000010 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000010")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000010)
+	MisResultCondition(NoRecord, 401)
+	MisResultCondition(HasMission, 401)
+	MisResultAction(ClearMission, 401 )
+	MisResultAction(SetRecord, 401 )
+	MisResultAction(AddExp, 100, 100)
+	MisResultAction(AddMoney, 300, 300)
+
+
+
+----------------------------冰原探险
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000011 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000011")
+	DefineMission( 404, MISSCRIPT_MISSIONSCRIPT04_LUA_000011, 402 )
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000012 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000012")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000012 )
+	MisBeginCondition( LvCheck, ">", 120 )
+	MisBeginCondition(NoRecord, 402)
+	MisBeginCondition(NoMission, 402)
+	MisBeginAction(AddMission, 402)
+	MisCancelAction(ClearMission, 402)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000013 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000013")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000013)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000014 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000014")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000014)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------冰原探险
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000011 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000011")
+	DefineMission( 405, MISSCRIPT_MISSIONSCRIPT04_LUA_000011, 402, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000015 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000015")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000015)
+	MisResultCondition(NoRecord, 402)
+	MisResultCondition(HasMission, 402)
+	MisResultAction(ClearMission, 402 )
+	MisResultAction(SetRecord, 402 )
+	MisResultAction(AddExp, 100, 100)
+	MisResultAction(AddMoney, 300, 300)
+
+
+----------------------------向着沙漠
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000016 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000016")
+	DefineMission( 406, MISSCRIPT_MISSIONSCRIPT04_LUA_000016, 403 )
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000017 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000017")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000017 )
+	MisBeginCondition( LvCheck, ">", 120 )
+	MisBeginCondition(NoRecord, 403)
+	MisBeginCondition(NoMission, 403)
+	MisBeginAction(AddMission, 403)
+	MisCancelAction(ClearMission, 403)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000018 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000018")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000018)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000019 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000019")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000019)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------向着沙漠
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000016 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000016")
+	DefineMission( 407, MISSCRIPT_MISSIONSCRIPT04_LUA_000016, 403, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000020 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000020")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000020)
+	MisResultCondition(NoRecord, 403)
+	MisResultCondition(HasMission, 403)
+	MisResultAction(ClearMission, 403 )
+	MisResultAction(SetRecord, 403 )
+	MisResultAction(AddExp, 100, 100)
+	MisResultAction(AddMoney, 300, 300)
+
+
+----------------------------来自白银的邀请
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000021 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000021")
+	DefineMission( 408, MISSCRIPT_MISSIONSCRIPT04_LUA_000021, 404 )
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000022 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000022")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000022 )
+	MisBeginCondition( LvCheck, ">", 120 )
+	MisBeginCondition(NoRecord, 404)
+	MisBeginCondition(NoMission, 404)
+	MisBeginAction(AddMission, 404)
+	MisCancelAction(ClearMission, 404)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000023 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000023")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000023)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000024 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000024")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000024)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------来自白银的邀请
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000021 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000021")
+	DefineMission( 409, MISSCRIPT_MISSIONSCRIPT04_LUA_000021, 404, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000025 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000025")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000025)
+	MisResultCondition(NoRecord, 404)
+	MisResultCondition(HasMission, 404)
+	MisResultAction(ClearMission, 404 )
+	MisResultAction(SetRecord, 404 )
+	MisResultAction(AddExp, 100, 100)
+	MisResultAction(AddMoney, 300, 300)
+
+
+----------------------------骚动的冰原
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000026 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000026")
+	DefineMission( 410, MISSCRIPT_MISSIONSCRIPT04_LUA_000026, 405 )
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000027 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000027")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000027 )
+	MisBeginCondition( LvCheck, ">", 120 )
+	MisBeginCondition(NoRecord, 405)
+	MisBeginCondition(NoMission, 405)
+	MisBeginAction(AddMission, 405)
+	MisCancelAction(ClearMission, 405)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000028 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000028")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000028)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000029 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000029")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000029)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------骚动的冰原
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000026 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000026")
+	DefineMission( 411, MISSCRIPT_MISSIONSCRIPT04_LUA_000026, 405, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000030 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000030")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000030)
+	MisResultCondition(NoRecord, 405)
+	MisResultCondition(HasMission, 405 )
+	MisResultAction(ClearMission, 405 )
+	MisResultAction(SetRecord, 405 )
+	MisResultAction(AddExp, 100, 100)
+	MisResultAction(AddMoney, 300, 300)
+
+
+----------------------------受阻的物资
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000031 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000031")
+	DefineMission( 412, MISSCRIPT_MISSIONSCRIPT04_LUA_000031, 406 )
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000032 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000032")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000032 )
+	MisBeginCondition( LvCheck, ">", 120 )
+	MisBeginCondition(NoRecord, 406)
+	MisBeginCondition(NoMission, 406)
+	MisBeginAction(AddMission, 406)
+	MisCancelAction(ClearMission, 406)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000033 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000033")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000033)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000034 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000034")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000034)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------受阻的物资
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000031 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000031")
+	DefineMission( 413, MISSCRIPT_MISSIONSCRIPT04_LUA_000031, 406, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000035 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000035")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000035)
+	MisResultCondition(NoRecord, 406)
+	MisResultCondition(HasMission, 406 )
+	MisResultAction(ClearMission, 406 )
+	MisResultAction(SetRecord, 406 )
+	MisResultAction(AddExp, 100, 100)
+	MisResultAction(AddMoney, 300, 300)
+
+
+----------------------------勇者招募
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000036 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000036")
+	DefineMission( 414, MISSCRIPT_MISSIONSCRIPT04_LUA_000036, 407 )
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000037 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000037")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000037 )
+	MisBeginCondition( LvCheck, ">", 120 )
+	MisBeginCondition(NoRecord, 407)
+	MisBeginCondition(NoMission, 407)
+	MisBeginAction(AddMission, 407)
+	MisCancelAction(ClearMission, 407)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000038 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000038")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000038)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000024 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000024")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000024)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------勇者招募
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000036 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000036")
+	DefineMission( 415, MISSCRIPT_MISSIONSCRIPT04_LUA_000036, 407, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000039 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000039")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000039)
+	MisResultCondition(NoRecord, 407)
+	MisResultCondition(HasMission, 407 )
+	MisResultAction(ClearMission, 407 )
+	MisResultAction(SetRecord, 407 )
+	MisResultAction(AddExp, 100, 100)
+	MisResultAction(AddMoney, 300, 300)
+
+
+----------------------------冰城的女神信徒
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000040 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000040")
+	DefineMission( 416, MISSCRIPT_MISSIONSCRIPT04_LUA_000040, 408 )
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000041 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000041")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000041 )
+	MisBeginCondition( LvCheck, ">", 120 )
+	MisBeginCondition(NoRecord, 408)
+	MisBeginCondition(NoMission, 408)
+	MisBeginAction(AddMission, 408)
+	MisCancelAction(ClearMission, 408)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000042 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000042")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000042)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000043 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000043")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000043)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------冰城的女神信徒
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000040 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000040")
+	DefineMission( 417, MISSCRIPT_MISSIONSCRIPT04_LUA_000040, 408, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000044 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000044")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000044)
+	MisResultCondition(NoRecord, 408)
+	MisResultCondition(HasMission, 408 )
+	MisResultAction(ClearMission, 408 )
+	MisResultAction(SetRecord, 408 )
+	MisResultAction(AddExp, 100, 100)
+	MisResultAction(AddMoney, 300, 300)
+
+
+----------------------------密林探险
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000045 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000045")
+	DefineMission( 418, MISSCRIPT_MISSIONSCRIPT04_LUA_000045, 409 )
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000046 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000046")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000046 )
+	MisBeginCondition( LvCheck, ">", 120 )
+	MisBeginCondition(NoRecord, 409)
+	MisBeginCondition(NoMission, 409)
+	MisBeginAction(AddMission, 409)
+	MisCancelAction(ClearMission, 409)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000047 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000047")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000047)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000048 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000048")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000048)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------密林探险
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000045 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000045")
+	DefineMission( 419, MISSCRIPT_MISSIONSCRIPT04_LUA_000045, 409, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000049 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000049")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000049)
+	MisResultCondition(NoRecord, 409)
+	MisResultCondition(HasMission, 409 )
+	MisResultAction(ClearMission, 409 )
+	MisResultAction(SetRecord, 409 )
+	MisResultAction(AddExp, 500, 500)
+	MisResultAction(AddMoney, 550, 550)
+
+
+
+----------------------------出行东方
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000050 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000050")
+	DefineMission( 420, MISSCRIPT_MISSIONSCRIPT04_LUA_000050, 410 )
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000051 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000051")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000051 )
+	MisBeginCondition( LvCheck, ">", 120 )
+	MisBeginCondition(NoRecord, 410)
+	MisBeginCondition(NoMission, 410)
+	MisBeginAction(AddMission, 410)
+	MisCancelAction(ClearMission, 410)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000052 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000052")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000052)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000053 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000053")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000053)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------出行东方
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000050 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000050")
+	DefineMission( 421, MISSCRIPT_MISSIONSCRIPT04_LUA_000050, 410, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000054 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000054")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000054)
+	MisResultCondition(NoRecord, 410)
+	MisResultCondition(HasMission, 410 )
+	MisResultAction(ClearMission, 410 )
+	MisResultAction(SetRecord, 410 )
+	MisResultAction(AddExp, 500, 500)
+	MisResultAction(AddMoney, 550, 550)
+
+
+----------------------------寻找保镖
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000055 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000055")
+	DefineMission( 422, MISSCRIPT_MISSIONSCRIPT04_LUA_000055, 411 )
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000056 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000056")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000056 )
+	MisBeginCondition( LvCheck, ">", 120 )
+	MisBeginCondition(NoRecord, 411)
+	MisBeginCondition(NoMission, 411)
+	MisBeginAction(AddMission, 411)
+	MisCancelAction(ClearMission, 411)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000057 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000057")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000057)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000058 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000058")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000058)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------寻找保镖
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000055 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000055")
+	DefineMission( 423, MISSCRIPT_MISSIONSCRIPT04_LUA_000055, 411, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000059 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000059")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000059)
+	MisResultCondition(NoRecord, 411)
+	MisResultCondition(HasMission, 411 )
+	MisResultAction(ClearMission, 411 )
+	MisResultAction(SetRecord, 411 )
+	MisResultAction(AddExp, 500, 500)
+	MisResultAction(AddMoney, 550, 550)
+
+
+----------------------------森林探险
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000060 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000060")
+	DefineMission( 424, MISSCRIPT_MISSIONSCRIPT04_LUA_000060, 412 )
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000061 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000061")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000061 )
+	MisBeginCondition( LvCheck, ">", 120 )
+	MisBeginCondition(NoRecord, 412)
+	MisBeginCondition(NoMission, 412)
+	MisBeginAction(AddMission, 412)
+	MisCancelAction(ClearMission, 412)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000062 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000062")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000062)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000063 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000063")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000063)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------森林探险
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000060 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000060")
+	DefineMission( 425, MISSCRIPT_MISSIONSCRIPT04_LUA_000060, 412, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000064 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000064")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000064)
+	MisResultCondition(NoRecord, 412)
+	MisResultCondition(HasMission, 412 )
+	MisResultAction(ClearMission, 412 )
+	MisResultAction(SetRecord, 412 )
+	MisResultAction(AddExp, 500, 500)
+	MisResultAction(AddMoney, 550, 550)
+
+
+----------------------------险境重重
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000065 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000065")
+	DefineMission( 426, MISSCRIPT_MISSIONSCRIPT04_LUA_000065, 413 )
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000066 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000066")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000066 )
+	MisBeginCondition( LvCheck, ">", 120 )
+	MisBeginCondition(NoRecord, 413)
+	MisBeginCondition(NoMission, 413)
+	MisBeginAction(AddMission, 413)
+	MisCancelAction(ClearMission, 413)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000067 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000067")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000067)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000068 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000068")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000068)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------险境重重
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000065 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000065")
+	DefineMission( 427, MISSCRIPT_MISSIONSCRIPT04_LUA_000065, 413, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000069 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000069")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000069)
+	MisResultCondition(NoRecord, 413)
+	MisResultCondition(HasMission, 413 )
+	MisResultAction(ClearMission, 413 )
+	MisResultAction(SetRecord, 413 )
+	MisResultAction(AddExp, 500, 500)
+	MisResultAction(AddMoney, 550, 550)
+
+
+----------------------------支援阿兰比斯
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000070 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000070")
+	DefineMission( 428, MISSCRIPT_MISSIONSCRIPT04_LUA_000070, 414 )
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000071 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000071")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000071 )
+	MisBeginCondition( LvCheck, ">", 120 )
+	MisBeginCondition(NoRecord, 414)
+	MisBeginCondition(NoMission, 414)
+	MisBeginAction(AddMission, 414)
+	MisCancelAction(ClearMission, 414)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000072 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000072")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000072)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000073 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000073")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000073)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------支援阿兰比斯
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000070 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000070")
+	DefineMission( 429, MISSCRIPT_MISSIONSCRIPT04_LUA_000070, 414, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000074 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000074")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000074)
+	MisResultCondition(NoRecord, 414)
+	MisResultCondition(HasMission, 414 )
+	MisResultAction(ClearMission, 414 )
+	MisResultAction(SetRecord, 414 )
+	MisResultAction(AddExp, 500, 500)
+	MisResultAction(AddMoney, 550, 550)
+
+
+----------------------------大开眼界
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000075 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000075")
+	DefineMission( 430, MISSCRIPT_MISSIONSCRIPT04_LUA_000075, 415 )
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000076 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000076")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000076 )
+	MisBeginCondition( LvCheck, ">", 120 )
+	MisBeginCondition(NoRecord, 415)
+	MisBeginCondition(NoMission, 415)
+	MisBeginAction(AddMission, 415)
+	MisCancelAction(ClearMission, 415)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000062 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000062")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000062)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000077 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000077")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000077)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------大开眼界
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000075 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000075")
+	DefineMission( 431, MISSCRIPT_MISSIONSCRIPT04_LUA_000075, 415, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000078 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000078")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000078)
+	MisResultCondition(NoRecord, 415)
+	MisResultCondition(HasMission, 415 )
+	MisResultAction(ClearMission, 415 )
+	MisResultAction(SetRecord, 415 )
+	MisResultAction(AddExp, 500, 500)
+	MisResultAction(AddMoney, 550, 550)
+
+
+
+----------------------------沙漠探险
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000079 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000079")
+	DefineMission( 432, MISSCRIPT_MISSIONSCRIPT04_LUA_000079, 416 )
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000080 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000080")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000080 )
+	MisBeginCondition( LvCheck, ">", 120 )
+	MisBeginCondition(NoRecord, 416)
+	MisBeginCondition(NoMission, 416)
+	MisBeginAction(AddMission, 416)
+	MisCancelAction(ClearMission, 416)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000081 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000081")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000081)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000082 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000082")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000082)
+	MisResultCondition(AlwaysFailure )
+
+
+-----------------------------------沙漠探险
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000079 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000079")
+	DefineMission( 433, MISSCRIPT_MISSIONSCRIPT04_LUA_000079, 416, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000083 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000083")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000083)
+	MisResultCondition(NoRecord, 416)
+	MisResultCondition(HasMission, 416 )
+	MisResultAction(ClearMission, 416 )
+	MisResultAction(SetRecord, 416 )
+	MisResultAction(AddExp, 500, 500)
+	MisResultAction(AddMoney, 550, 550)
+
+
+----------------------------向南方
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000084 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000084")
+	DefineMission( 434, MISSCRIPT_MISSIONSCRIPT04_LUA_000084, 417 )
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000085 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000085")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000085 )
+	MisBeginCondition( LvCheck, ">", 120 )
+	MisBeginCondition(NoRecord, 417)
+	MisBeginCondition(NoMission, 417)
+	MisBeginAction(AddMission, 417)
+	MisCancelAction(ClearMission, 417)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000086 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000086")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000086)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000087 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000087")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000087)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------向南方
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000084 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000084")
+	DefineMission( 435, MISSCRIPT_MISSIONSCRIPT04_LUA_000084, 417, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000088 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000088")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000088)
+	MisResultCondition(NoRecord, 417)
+	MisResultCondition(HasMission, 417 )
+	MisResultAction(ClearMission, 417 )
+	MisResultAction(SetRecord, 417 )
+	MisResultAction(AddExp, 500, 500)
+	MisResultAction(AddMoney, 550, 550)
+
+
+----------------------------梦想海洋
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000089 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000089")
+	DefineMission( 436, MISSCRIPT_MISSIONSCRIPT04_LUA_000089, 418 )
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000090 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000090")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000090 )
+	MisBeginCondition( LvCheck, ">", 24 )
+	MisBeginCondition(NoRecord, 418)
+	MisBeginCondition(NoRecord, 419)
+	MisBeginCondition(NoRecord, 420)
+	MisBeginCondition(NoMission, 418)
+	MisBeginCondition(NoMission, 419)
+	MisBeginCondition(NoMission, 420)
+	MisBeginAction(AddMission, 418)
+	MisCancelAction(ClearMission, 418)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000091 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000091")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000091)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000092 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000092")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000092)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------梦想海洋
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000089 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000089")
+	DefineMission( 437, MISSCRIPT_MISSIONSCRIPT04_LUA_000089, 418, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000093 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000093")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000093)
+	MisResultCondition(NoRecord, 418)
+	MisResultCondition(HasMission, 418 )
+	MisResultAction(ClearMission, 418 )
+	MisResultAction(SetRecord, 418 )
+	MisResultAction(AddExp, 1000, 1000)
+	MisResultAction(AddMoney, 700, 700)
+
+
+
+----------------------------海军事务所报到!
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000094 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000094")
+	DefineMission( 438, MISSCRIPT_MISSIONSCRIPT04_LUA_000094, 419 )
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000095 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000095")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000095 )
+	MisBeginCondition( LvCheck, ">", 24 )
+	MisBeginCondition(NoRecord, 418)
+	MisBeginCondition(NoRecord, 419)
+	MisBeginCondition(NoRecord, 420)
+	MisBeginCondition(NoMission, 418)
+	MisBeginCondition(NoMission, 419)
+	MisBeginCondition(NoMission, 420)
+	MisBeginAction(AddMission, 419)
+	MisCancelAction(ClearMission, 419)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000091 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000091")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000091)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000092 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000092")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000092)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------海军事务所报到!
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000094 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000094")
+	DefineMission( 439, MISSCRIPT_MISSIONSCRIPT04_LUA_000094, 419, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000093 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000093")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000093)
+	MisResultCondition(NoRecord, 419)
+	MisResultCondition(HasMission, 419 )
+	MisResultAction(ClearMission, 419 )
+	MisResultAction(SetRecord, 419 )
+	MisResultAction(AddExp, 1000, 1000)
+	MisResultAction(AddMoney, 700, 700)
+
+
+
+----------------------------海军事务所
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000096 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000096")
+	DefineMission( 440, MISSCRIPT_MISSIONSCRIPT04_LUA_000096, 420 )
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000090 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000090")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000090 )
+	MisBeginCondition( LvCheck, ">", 24 )
+	MisBeginCondition(NoRecord, 418)
+	MisBeginCondition(NoRecord, 419)
+	MisBeginCondition(NoRecord, 420)
+	MisBeginCondition(NoMission, 418)
+	MisBeginCondition(NoMission, 419)
+	MisBeginCondition(NoMission, 420)
+	MisBeginAction(AddMission, 420)
+	MisCancelAction(ClearMission, 420)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000091 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000091")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000091)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000092 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000092")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000092)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------海军事务所
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000096 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000096")
+	DefineMission( 441, MISSCRIPT_MISSIONSCRIPT04_LUA_000096, 420, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000093 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000093")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000093)
+	MisResultCondition(NoRecord, 420)
+	MisResultCondition(HasMission, 420 )
+	MisResultAction(ClearMission, 420 )
+	MisResultAction(SetRecord, 420 )
+	MisResultAction(AddExp, 1000, 1000)
+	MisResultAction(AddMoney, 700, 700)
+
+
+
+----------------------------天下第一商人
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000097 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000097")
+	DefineMission( 442, MISSCRIPT_MISSIONSCRIPT04_LUA_000097, 421 )
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000098 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000098")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000098 )
+	MisBeginCondition( LvCheck, ">", 29 )
+	MisBeginCondition(NoRecord, 421)
+	MisBeginCondition(NoRecord, 422)
+	MisBeginCondition(NoRecord, 423)
+	MisBeginCondition(NoMission, 421)
+	MisBeginCondition(NoMission, 422)
+	MisBeginCondition(NoMission, 423)
+	MisBeginAction(AddMission, 421)
+	MisCancelAction(ClearMission, 421)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000099 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000099")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000099)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000100 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000100")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000100)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------天下第一商人
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000097 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000097")
+	DefineMission( 443, MISSCRIPT_MISSIONSCRIPT04_LUA_000097, 421, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000101 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000101")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000101)
+	MisResultCondition(NoRecord, 421)
+	MisResultCondition(HasMission, 421 )
+	MisResultAction(ClearMission, 421 )
+	MisResultAction(SetRecord, 421 )
+	MisResultAction(AddExp, 2000, 2000)
+	MisResultAction(AddMoney, 850, 850)
+
+
+----------------------------白银交易所
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000102 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000102")
+	DefineMission( 444, MISSCRIPT_MISSIONSCRIPT04_LUA_000102, 422 )
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000098 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000098")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000098 )
+	MisBeginCondition( LvCheck, ">", 29 )
+	MisBeginCondition(NoRecord, 421)
+	MisBeginCondition(NoRecord, 422)
+	MisBeginCondition(NoRecord, 423)
+	MisBeginCondition(NoMission, 421)
+	MisBeginCondition(NoMission, 422)
+	MisBeginCondition(NoMission, 423)
+	MisBeginAction(AddMission, 422)
+	MisCancelAction(ClearMission, 422)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000099 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000099")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000099)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000100 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000100")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000100)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------白银交易所
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000102 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000102")
+	DefineMission( 445, MISSCRIPT_MISSIONSCRIPT04_LUA_000102, 422, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000101 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000101")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000101)
+	MisResultCondition(NoRecord, 422)
+	MisResultCondition(HasMission, 422 )
+	MisResultAction(ClearMission, 422 )
+	MisResultAction(SetRecord, 422 )
+	MisResultAction(AddExp, 2000, 2000)
+	MisResultAction(AddMoney, 850, 850)
+
+
+
+----------------------------出海交易
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000103 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000103")
+	DefineMission( 446, MISSCRIPT_MISSIONSCRIPT04_LUA_000103, 423 )
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000104 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000104")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000104 )
+	MisBeginCondition( LvCheck, ">", 29 )
+	MisBeginCondition(NoRecord, 421)
+	MisBeginCondition(NoRecord, 422)
+	MisBeginCondition(NoRecord, 423)
+	MisBeginCondition(NoMission, 421)
+	MisBeginCondition(NoMission, 422)
+	MisBeginCondition(NoMission, 423)
+	MisBeginAction(AddMission, 423)
+	MisCancelAction(ClearMission, 423)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000099 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000099")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000099)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000100 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000100")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000100)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------出海交易
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000103 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000103")
+	DefineMission( 447, MISSCRIPT_MISSIONSCRIPT04_LUA_000103, 423, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000101 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000101")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000101)
+	MisResultCondition(NoRecord, 423)
+	MisResultCondition(HasMission, 423 )
+	MisResultAction(ClearMission, 423 )
+	MisResultAction(SetRecord, 423 )
+	MisResultAction(AddExp, 2000, 2000)
+	MisResultAction(AddMoney, 850, 850)
+
+
+----------------------------被袭的剑士
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000105 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000105")
+	DefineMission( 448, MISSCRIPT_MISSIONSCRIPT04_LUA_000105, 424)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000106 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000106")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000106 )
+	MisBeginCondition( LvCheck, ">", 29 )
+	MisBeginCondition(NoRecord, 424)
+	MisBeginCondition(NoMission, 424)
+	MisBeginAction(AddMission, 424)
+	MisCancelAction(ClearMission, 424)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000107 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000107")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000107)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000108 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000108")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000108)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------被袭的剑士
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000105 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000105")
+	DefineMission( 449, MISSCRIPT_MISSIONSCRIPT04_LUA_000105, 424, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000109 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000109")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000109)
+	MisResultCondition(NoRecord, 424)
+	MisResultCondition(HasMission, 424 )
+	MisResultAction(ClearMission, 424 )
+	MisResultAction(SetRecord, 424 )
+	MisResultAction(AddExp, 2000, 2000)
+	MisResultAction(AddMoney, 850, 850)
+
+
+----------------------------穿越赖安森林
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000110 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000110")
+	DefineMission( 450, MISSCRIPT_MISSIONSCRIPT04_LUA_000110, 425)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000111 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000111")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000111 )
+	MisBeginCondition( LvCheck, ">", 29 )
+	MisBeginCondition(NoRecord, 425)
+	MisBeginCondition(NoMission, 425)
+	MisBeginAction(AddMission, 425)
+	MisCancelAction(ClearMission, 425)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000112 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000112")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000112)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000113 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000113")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000113)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------穿越赖安森林
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000110 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000110")
+	DefineMission( 451, MISSCRIPT_MISSIONSCRIPT04_LUA_000110, 425, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000114 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000114")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000114)
+	MisResultCondition(NoRecord, 425)
+	MisResultCondition(HasMission, 425 )
+	MisResultAction(ClearMission, 425 )
+	MisResultAction(SetRecord, 425 )
+	MisResultAction(AddExp, 2000, 2000)
+	MisResultAction(AddMoney, 850, 850)
+
+
+----------------------------迷宫悬案
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000115 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000115")
+	DefineMission( 452, MISSCRIPT_MISSIONSCRIPT04_LUA_000115, 426)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000116 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000116")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000116 )
+	MisBeginCondition( LvCheck, ">", 29 )
+	MisBeginCondition(NoRecord, 426)
+	MisBeginCondition(NoMission, 426)
+	MisBeginAction(AddMission, 426)
+	MisCancelAction(ClearMission, 426)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000117 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000117")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000117)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000118 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000118")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000118)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------迷宫悬案
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000115 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000115")
+	DefineMission( 453, MISSCRIPT_MISSIONSCRIPT04_LUA_000115, 426, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000119 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000119")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000119)
+	MisResultCondition(NoRecord, 426)
+	MisResultCondition(HasMission, 426 )
+	MisResultAction(ClearMission, 426 )
+	MisResultAction(SetRecord, 426 )
+	MisResultAction(AddExp, 2000, 2000)
+	MisResultAction(AddMoney, 850, 850)
+
+
+----------------------------废矿探究
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000120 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000120")
+	DefineMission( 454, MISSCRIPT_MISSIONSCRIPT04_LUA_000120, 427)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000121 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000121")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000121 )
+	MisBeginCondition( LvCheck, ">", 29 )
+	MisBeginCondition(NoRecord, 427)
+	MisBeginCondition(NoMission, 427)
+	MisBeginAction(AddMission, 427)
+	MisCancelAction(ClearMission, 427)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000122 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000122")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000122)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000123 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000123")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000123)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------废矿探究
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000120 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000120")
+	DefineMission( 455, MISSCRIPT_MISSIONSCRIPT04_LUA_000120, 427, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000124 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000124")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000124)
+	MisResultCondition(NoRecord, 427)
+	MisResultCondition(HasMission, 427 )
+	MisResultAction(ClearMission, 427 )
+	MisResultAction(SetRecord, 427 )
+	MisResultAction(AddExp, 2000, 2000)
+	MisResultAction(AddMoney, 850, 850)
+
+
+----------------------------瓦萨法尔的危机
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000125 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000125")
+	DefineMission( 456, MISSCRIPT_MISSIONSCRIPT04_LUA_000125, 428)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000126 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000126")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000126 )
+	MisBeginCondition( LvCheck, ">", 29 )
+	MisBeginCondition(NoRecord, 428)
+	MisBeginCondition(NoMission, 428)
+	MisBeginAction(AddMission, 428)
+	MisCancelAction(ClearMission, 428)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000127 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000127")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000127)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000128 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000128")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000128)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------瓦萨法尔的危机
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000125 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000125")
+	DefineMission( 457, MISSCRIPT_MISSIONSCRIPT04_LUA_000125, 428, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000129 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000129")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000129)
+	MisResultCondition(NoRecord, 428)
+	MisResultCondition(HasMission, 428 )
+	MisResultAction(ClearMission, 428 )
+	MisResultAction(SetRecord, 428 )
+	MisResultAction(AddExp, 2000, 2000)
+	MisResultAction(AddMoney, 850, 850)
+
+
+----------------------------神秘发现
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000130 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000130")
+	DefineMission( 458, MISSCRIPT_MISSIONSCRIPT04_LUA_000130, 429)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000131 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000131")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000131 )
+	MisBeginCondition( LvCheck, ">", 29 )
+	MisBeginCondition(NoRecord, 429)
+	MisBeginCondition(NoMission, 429)
+	MisBeginAction(AddMission, 429)
+	MisCancelAction(ClearMission, 429)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000132 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000132")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000132)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000133 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000133")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000133)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------神秘发现
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000130 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000130")
+	DefineMission( 459, MISSCRIPT_MISSIONSCRIPT04_LUA_000130, 429, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000134 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000134")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000134)
+	MisResultCondition(NoRecord, 429)
+	MisResultCondition(HasMission, 429 )
+	MisResultAction(ClearMission, 429 )
+	MisResultAction(SetRecord, 429 )
+	MisResultAction(AddExp, 2000, 2000)
+	MisResultAction(AddMoney, 850, 850)
+
+
+----------------------------废矿迷宫
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000135 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000135")
+	DefineMission( 460, MISSCRIPT_MISSIONSCRIPT04_LUA_000135, 430)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000136 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000136")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000136 )
+	MisBeginCondition( LvCheck, ">", 29 )
+	MisBeginCondition(NoRecord, 430)
+	MisBeginCondition(NoMission, 430)
+	MisBeginAction(AddMission, 430)
+	MisCancelAction(ClearMission, 430)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000122 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000122")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000122)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000123 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000123")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000123)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------废矿迷宫
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000135 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000135")
+	DefineMission( 461, MISSCRIPT_MISSIONSCRIPT04_LUA_000135, 430, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000137 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000137")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000137)
+	MisResultCondition(NoRecord, 430)
+	MisResultCondition(HasMission, 430 )
+	MisResultAction(ClearMission, 430 )
+	MisResultAction(SetRecord, 430 )
+	MisResultAction(AddExp, 2000, 2000)
+	MisResultAction(AddMoney, 850, 850)
+
+
+----------------------------寻觅人才
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000138 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000138")
+	DefineMission( 462, MISSCRIPT_MISSIONSCRIPT04_LUA_000138, 431)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000139 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000139")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000139 )
+	MisBeginCondition( LvCheck, ">", 29 )
+	MisBeginCondition(NoRecord, 431)
+	MisBeginCondition(NoMission, 431)
+	MisBeginAction(AddMission, 431)
+	MisCancelAction(ClearMission, 431)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000140 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000140")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000140)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000141 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000141")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000141)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------寻觅人才
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000138 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000138")
+	DefineMission( 463, MISSCRIPT_MISSIONSCRIPT04_LUA_000138, 431, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000142 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000142")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000142)
+	MisResultCondition(NoRecord, 431)
+	MisResultCondition(HasMission, 431 )
+	MisResultAction(ClearMission, 431 )
+	MisResultAction(SetRecord, 431 )
+	MisResultAction(AddExp, 2000, 2000)
+	MisResultAction(AddMoney, 850, 850)
+
+
+----------------------------迷宫探究
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000143 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000143")
+	DefineMission( 464, MISSCRIPT_MISSIONSCRIPT04_LUA_000143, 432)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000144 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000144")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000144 )
+	MisBeginCondition( LvCheck, ">", 29 )
+	MisBeginCondition(NoRecord, 432)
+	MisBeginCondition(NoMission, 432)
+	MisBeginAction(AddMission, 432)
+	MisCancelAction(ClearMission, 432)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000145 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000145")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000145)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000146 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000146")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000146)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------迷宫探究
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000143 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000143")
+	DefineMission( 465, MISSCRIPT_MISSIONSCRIPT04_LUA_000143, 432, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000147 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000147")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000147)
+	MisResultCondition(NoRecord, 432)
+	MisResultCondition(HasMission, 432 )
+	MisResultAction(ClearMission, 432 )
+	MisResultAction(SetRecord, 432 )
+	MisResultAction(AddExp, 2000, 2000)
+	MisResultAction(AddMoney, 850, 850)
+
+
+----------------------------绝地逢生
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000148 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000148")
+	DefineMission( 466, MISSCRIPT_MISSIONSCRIPT04_LUA_000148, 433)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000149 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000149")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000149 )
+	MisBeginCondition( LvCheck, ">", 29 )
+	MisBeginCondition(NoRecord, 433)
+	MisBeginCondition(NoMission, 433)
+	MisBeginAction(AddMission, 433)
+	MisCancelAction(ClearMission, 433)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000150 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000150")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000150)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000151 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000151")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000151)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------绝地逢生
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000148 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000148")
+	DefineMission( 467, MISSCRIPT_MISSIONSCRIPT04_LUA_000148, 433, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000152 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000152")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000152)
+	MisResultCondition(NoRecord, 433)
+	MisResultCondition(HasMission, 433 )
+	MisResultAction(ClearMission, 433 )
+	MisResultAction(SetRecord, 433 )
+	MisResultAction(AddExp, 3500, 3500)
+	MisResultAction(AddMoney, 1000, 1000)
+
+----------------------------东方导师
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000153 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000153")
+	DefineMission( 468, MISSCRIPT_MISSIONSCRIPT04_LUA_000153, 434)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000154 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000154")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000154 )
+	MisBeginCondition( LvCheck, ">", 39 )
+	MisBeginCondition(NoRecord, 434)
+	MisBeginCondition(NoMission, 434)
+	MisBeginAction(AddMission, 434)
+	MisCancelAction(ClearMission, 434)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000155 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000155")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000155)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000156 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000156")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000156)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------东方导师
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000153 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000153")
+	DefineMission( 469, MISSCRIPT_MISSIONSCRIPT04_LUA_000153, 434, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000157 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000157")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000157)
+	MisResultCondition(NoRecord, 434)
+	MisResultCondition(HasMission, 434 )
+	MisResultAction(ClearMission, 434 )
+	MisResultAction(SetRecord, 434 )
+	MisResultAction(AddExp, 6000, 6000)	
+	MisResultAction(AddMoney, 1000, 1000)
+
+
+----------------------------医生改行
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000158 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000158")
+	DefineMission( 470, MISSCRIPT_MISSIONSCRIPT04_LUA_000158, 435)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000159 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000159")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000159 )
+	MisBeginCondition( LvCheck, ">", 44 )
+	MisBeginCondition(NoRecord, 435)
+	MisBeginCondition(NoMission, 435)
+	MisBeginAction(AddMission, 435)
+	MisCancelAction(ClearMission, 435)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000160 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000160")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000160)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000161 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000161")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000161)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------医生改行
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000158 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000158")
+	DefineMission( 471, MISSCRIPT_MISSIONSCRIPT04_LUA_000158, 435, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000162 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000162")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000162)
+	MisResultCondition(NoRecord, 435)
+	MisResultCondition(HasMission, 435 )
+	MisResultAction(ClearMission, 435 )
+	MisResultAction(SetRecord, 435 )
+	MisResultAction(AddExp, 10000, 10000)	
+	MisResultAction(AddMoney, 1100, 1100)
+
+
+----------------------------雷霆海军
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000163 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000163")
+	DefineMission( 472, MISSCRIPT_MISSIONSCRIPT04_LUA_000163, 436)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000164 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000164")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000164 )
+	MisBeginCondition( LvCheck, ">", 49 )
+	MisBeginCondition(NoRecord, 436)
+	MisBeginCondition(NoMission, 436)
+	MisBeginAction(AddMission, 436)
+	MisCancelAction(ClearMission, 436)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000165 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000165")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000165)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000166 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000166")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000166)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------雷霆海军
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000163 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000163")
+	DefineMission( 473, MISSCRIPT_MISSIONSCRIPT04_LUA_000163, 436, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000167 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000167")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000167)
+	MisResultCondition(NoRecord, 436)
+	MisResultCondition(HasMission, 436 )
+	MisResultAction(ClearMission, 436 )
+	MisResultAction(SetRecord, 436 )
+	MisResultAction(AddExp, 16000, 16000)
+	MisResultAction(AddMoney, 1200, 1200)
+
+
+----------------------------森林深处
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000168 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000168")
+	DefineMission( 474, MISSCRIPT_MISSIONSCRIPT04_LUA_000168, 437)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000169 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000169")
+	MisBeginTalk( MISSCRIPT_MISSIONSCRIPT04_LUA_000169 )
+	MisBeginCondition( LvCheck, ">", 54 )
+	MisBeginCondition(NoRecord, 437)
+	MisBeginCondition(NoMission, 437)
+	MisBeginAction(AddMission, 437)
+	MisCancelAction(ClearMission, 437)
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000170 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000170")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000170)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000171 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000171")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000171)
+	MisResultCondition(AlwaysFailure )
+
+-----------------------------------森林深处
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000168 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000168")
+	DefineMission( 475, MISSCRIPT_MISSIONSCRIPT04_LUA_000168, 437, COMPLETE_SHOW )
+	
+	MisBeginCondition(AlwaysFailure )
+		
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000172 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000172")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000172)
+	MisResultCondition(NoRecord, 437)
+	MisResultCondition(HasMission, 437 )
+	MisResultAction(ClearMission, 437 )
+	MisResultAction(SetRecord, 437 )
+	MisResultAction(AddExp, 25000, 25000)
+	MisResultAction(AddMoney, 1300, 1300)
+
+
+
+
+----------------------------------------
+--                                    --
+--        加勒比海盗普通任务          --
+--                                    --
+----------------------------------------
+
+-- 诺灵顿将军 >> 司令的牢骚
+
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000173 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000173")
+	DefineMission(476, MISSCRIPT_MISSIONSCRIPT04_LUA_000173, 438)
+
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000174 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000174")
+	MisBeginTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000174)
+	MisBeginCondition(NoRecord, 438)
+	MisBeginCondition(NoMission,438)
+	MisBeginCondition(HasNavyGuild)
+
+	MisBeginAction(AddMission, 438)
+	MisCancelAction(ClearMission, 438)
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000175 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000175")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000175)
+
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000176 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000176")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000176)
+
+	MisResultCondition(AlwaysFailure)
+
+-- 雷霆堡海军司令 >> 司令的牢骚
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000173 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000173")
+	DefineMission(477,MISSCRIPT_MISSIONSCRIPT04_LUA_000173,438,COMPLETE_SHOW)
+
+	MisBeginCondition(AlwaysFailure)
+
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000177 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000177")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000177)
+
+	MisResultCondition(HasMission, 438)
+	MisResultCondition(NoRecord, 438)
+	MisResultCondition(HasNavyGuild)
+
+	MisResultAction(ClearMission, 438)
+	MisResultAction(SetRecord, 438)
+
+	
+-- 雷霆堡海军司令 >> 司令的秘密
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000178 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000178")
+	DefineMission(478, MISSCRIPT_MISSIONSCRIPT04_LUA_000178, 439)
+
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000179 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000179")
+	MisBeginTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000179)
+	MisBeginCondition(HasRecord, 438)
+	MisBeginCondition(NoRecord, 439)
+	MisBeginCondition(NoMission,439)
+	MisBeginCondition(HasNavyGuild)
+	MisBeginBagNeed(1)
+
+	MisBeginAction(AddMission, 439)
+	MisBeginAction(GiveItem, 2430, 1, 4)
+	MisCancelAction(ClearMission, 439)
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000180 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000180")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000180)
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000181 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000181")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000181)
+
+	MisResultCondition(AlwaysFailure)
+
+-- 诺灵顿将军 >> 司令的秘密
+
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000178 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000178")
+	DefineMission(479,MISSCRIPT_MISSIONSCRIPT04_LUA_000178,439,COMPLETE_SHOW)
+
+	MisBeginCondition(AlwaysFailure)
+
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000182 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000182")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000182)
+
+	MisResultCondition(HasMission, 439)
+	MisResultCondition(NoRecord, 439)
+
+	MisResultCondition(HasItem, 2430,1 )
+	MisResultCondition(HasNavyGuild)
+
+	MisResultAction(ClearMission, 439)
+	MisResultAction(TakeItem, 2430,1 )
+	MisResultAction(SetRecord, 439)
+	MisResultAction(AddExp, 10000, 10000)
+	MisResultAction(AddMoney, 25000, 25000)
+
+
+-- 诺灵顿将军 >> 海军的武器
+
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000183 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000183")
+	DefineMission(480, MISSCRIPT_MISSIONSCRIPT04_LUA_000183, 440)
+
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000184 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000184")
+	MisBeginTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000184)
+
+	MisBeginCondition(HasRecord, 439)
+	MisBeginCondition(NoMission, 440)
+	MisBeginCondition(NoRecord, 440)
+	MisBeginCondition(HasNavyGuild)
+
+	MisBeginAction(AddMission, 440)
+	MisBeginAction(AddTrigger, 4401, TE_GETITEM, 2386, 5)
+
+	MisNeed(MIS_NEED_ITEM, 2386, 5, 10, 5)
+
+	MisCancelAction(ClearMission, 440)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000185 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000185")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000185)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000186 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000186")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000186)
+
+	MisResultCondition(HasMission, 440)
+	MisResultCondition(NoRecord, 440)
+	MisResultCondition(HasItem, 2386, 5)
+	MisResultCondition(HasNavyGuild)
+
+	MisResultAction(TakeItem, 2386, 5)
+	MisResultAction(ClearMission, 440)
+	MisResultAction(SetRecord, 440)
+	MisResultAction(AddExp, 250000, 250000)
+	MisResultAction(AddMoney, 150000, 150000)
+
+	InitTrigger()
+	TriggerCondition(1, IsItem, 2386)
+	TriggerAction(1, AddNextFlag, 440, 10, 5)
+	RegCurTrigger(4401)
+
+-- 诺灵顿将军 >> 海军秘籍
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000187 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000187")
+	DefineMission(481,MISSCRIPT_MISSIONSCRIPT04_LUA_000187,441)
+
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000188 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000188")
+	MisBeginTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000188)
+
+
+	MisBeginCondition(HasRecord, 440)
+	MisBeginCondition(NoRecord, 441)
+	MisBeginCondition(NoMission, 441)
+
+	MisBeginCondition(HasNavyGuild)
+
+	MisBeginAction(AddMission, 441)
+
+	MisBeginAction(AddTrigger, 4411, TE_GETITEM, 2388, 1)
+	MisBeginAction(AddTrigger, 4412, TE_GETITEM, 2389, 1)
+	MisBeginAction(AddTrigger, 4413, TE_GETITEM, 2390, 1)
+	MisBeginAction(AddTrigger, 4414, TE_GETITEM, 2391, 1)
+	MisBeginAction(AddTrigger, 4415, TE_GETITEM, 2392, 1)
+	MisBeginAction(AddTrigger, 4416, TE_GETITEM, 2393, 1)
+	MisBeginAction(AddTrigger, 4417, TE_GETITEM, 2394, 1)
+	MisBeginAction(AddTrigger, 4418, TE_GETITEM, 2395, 1)
+	MisBeginAction(AddTrigger, 4419, TE_GETITEM, 2441, 1)
+
+	MisNeed(MIS_NEED_ITEM, 2388, 1, 10, 1)
+	MisNeed(MIS_NEED_ITEM, 2389, 1, 20, 1)
+	MisNeed(MIS_NEED_ITEM, 2390, 1, 30, 1)
+	MisNeed(MIS_NEED_ITEM, 2391, 1, 40, 1)
+	MisNeed(MIS_NEED_ITEM, 2392, 1, 50, 1)
+	MisNeed(MIS_NEED_ITEM, 2393, 1, 60, 1)
+	MisNeed(MIS_NEED_ITEM, 2394, 1, 70, 1)
+	MisNeed(MIS_NEED_ITEM, 2395, 1, 80, 1)
+	MisNeed(MIS_NEED_ITEM, 2441, 1, 90, 1)
+
+	MisCancelAction(ClearMission, 441)
+
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000189 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000189")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000189)
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000190 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000190")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000190)
+
+	MisResultCondition(HasMission, 441)
+	MisResultCondition(NoRecord, 441)
+	MisResultCondition(HasItem, 2388, 1)
+	MisResultCondition(HasItem, 2389, 1)
+	MisResultCondition(HasItem, 2390, 1)
+	MisResultCondition(HasItem, 2391, 1)
+	MisResultCondition(HasItem, 2392, 1)
+	MisResultCondition(HasItem, 2393, 1)
+	MisResultCondition(HasItem, 2394, 1)
+	MisResultCondition(HasItem, 2395, 1)
+	MisResultCondition(HasItem, 2441, 1)
+	MisResultBagNeed(1)
+	MisResultCondition(HasNavyGuild)
+
+	MisResultAction(TakeItem, 2388, 1)
+	MisResultAction(TakeItem, 2389, 1)
+	MisResultAction(TakeItem, 2390, 1)
+	MisResultAction(TakeItem, 2391, 1)
+	MisResultAction(TakeItem, 2392, 1)
+	MisResultAction(TakeItem, 2393, 1)
+	MisResultAction(TakeItem, 2394, 1)
+	MisResultAction(TakeItem, 2395, 1)
+	MisResultAction(TakeItem, 2441, 1)
+
+	MisResultAction(ClearMission, 441)
+	MisResultAction(SetRecord, 441)
+	MisResultAction(AddExp, 500000, 500000)
+	MisResultAction(AddMoney, 500000, 500000)
+
+	InitTrigger()
+	TriggerCondition(1, IsItem, 2388)
+	TriggerAction(1, AddNextFlag, 441, 10, 1)
+	RegCurTrigger(4411)
+
+	InitTrigger()
+	TriggerCondition(1, IsItem, 2389)
+	TriggerAction(1, AddNextFlag, 441, 20, 1)
+	RegCurTrigger(4412)
+
+	InitTrigger()
+	TriggerCondition(1, IsItem, 2390)
+	TriggerAction(1, AddNextFlag, 441, 30, 1)
+	RegCurTrigger(4413)
+
+	InitTrigger()
+	TriggerCondition(1, IsItem, 2391)
+	TriggerAction(1, AddNextFlag, 441, 40, 1)
+	RegCurTrigger(4414)
+
+	InitTrigger()
+	TriggerCondition(1, IsItem, 2392)
+	TriggerAction(1, AddNextFlag, 441, 50, 1)
+	RegCurTrigger(4415)
+
+	InitTrigger()
+	TriggerCondition(1, IsItem, 2393)
+	TriggerAction(1, AddNextFlag, 441, 60, 1)
+	RegCurTrigger(4416)
+
+	InitTrigger()
+	TriggerCondition(1, IsItem, 2394)
+	TriggerAction(1, AddNextFlag, 441, 70, 1)
+	RegCurTrigger(4417)
+
+	InitTrigger()
+	TriggerCondition(1, IsItem, 2395)
+	TriggerAction(1, AddNextFlag, 441, 80, 1)
+	RegCurTrigger(4418)
+
+	InitTrigger()
+	TriggerCondition(1, IsItem, 2441)
+	TriggerAction(1, AddNextFlag, 441, 90, 1)
+	RegCurTrigger(4419)
+
+
+
+-- 杰克史派罗 >> 求援
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000191 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000191")
+	DefineMission(482, MISSCRIPT_MISSIONSCRIPT04_LUA_000191, 442)
+
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000192 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000192")
+	MisBeginTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000192)
+	MisBeginCondition(NoRecord, 442)
+	MisBeginCondition(NoMission,442)
+	MisBeginCondition(HasPirateGuild)
+
+	MisBeginAction(AddMission, 442)
+	MisCancelAction(ClearMission, 442)
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000193 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000193")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000193)
+
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000194 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000194")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000194)
+
+	MisResultCondition(AlwaysFailure)
+
+
+-- 杰克船长 >> 求援
+
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000191 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000191")
+	DefineMission(483,MISSCRIPT_MISSIONSCRIPT04_LUA_000191,442,COMPLETE_SHOW)
+
+	MisBeginCondition(AlwaysFailure)
+
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000195 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000195")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000195)
+
+	MisResultCondition(HasMission, 442)
+	MisResultCondition(NoRecord, 442)
+	MisBeginCondition(HasPirateGuild)
+
+	MisResultAction(ClearMission, 442)
+	MisResultAction(SetRecord, 442)
+
+-- 杰克船长 >> 杰克又见杰克
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000196 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000196")
+	DefineMission(484, MISSCRIPT_MISSIONSCRIPT04_LUA_000196, 443)
+
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000197 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000197")
+	MisBeginTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000197)
+	MisBeginCondition(HasRecord, 442)
+	MisBeginCondition(NoRecord, 443)
+	MisBeginCondition(NoMission,443)
+	MisBeginCondition(HasPirateGuild)
+	MisBeginBagNeed(1)
+
+	MisBeginAction(AddMission, 443)
+
+	MisCancelAction(ClearMission, 443)
+	MisBeginAction(GiveItem, 2431, 1, 4)
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000198 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000198")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000198)
+
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000199 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000199")
+	MisNeed(MIS_NEED_DESP, MISSCRIPT_MISSIONSCRIPT04_LUA_000199)
+
+	MisResultCondition(AlwaysFailure)
+
+
+-- 杰克史派罗 >> 杰克又见杰克
+
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000196 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000196")
+	DefineMission(485,MISSCRIPT_MISSIONSCRIPT04_LUA_000196,443,COMPLETE_SHOW)
+
+	MisBeginCondition(AlwaysFailure)
+
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000200 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000200")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000200)
+
+	MisResultCondition(HasItem,2431,1)
+	MisResultCondition(HasMission, 443)
+	MisResultCondition(NoRecord, 443)
+	MisResultCondition(HasPirateGuild)
+
+	MisResultAction(ClearMission, 443)
+	MisResultAction(TakeItem,2431,1)
+	MisResultAction(SetRecord, 443)
+	MisResultAction(AddExp, 10000, 10000)
+	MisResultAction(AddMoney, 50000, 50000)
+
+-- 杰克史派罗 >> 加勒比宝藏
+
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000201 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000201")
+	DefineMission(486, MISSCRIPT_MISSIONSCRIPT04_LUA_000201, 444)
+
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000202 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000202")
+	MisBeginTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000202)
+
+	MisBeginCondition(HasRecord, 443)
+	MisBeginCondition(NoRecord, 444)
+	MisBeginCondition(NoMission, 444)
+	MisBeginCondition(HasPirateGuild)
+
+	MisBeginAction(AddMission, 444)
+	MisBeginAction(AddTrigger, 4441, TE_GETITEM, 2444, 1)
+
+	MisNeed(MIS_NEED_ITEM, 2444, 1, 10, 1)
+	MisCancelAction(ClearMission, 444)
+
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000203 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000203")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000203)
+
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000204 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000204")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000204)
+
+	MisResultCondition(NoRecord, 444)
+	MisResultCondition(HasMission, 444)
+	MisResultCondition(HasPirateGuild)
+	MisResultCondition(HasItem,2444,1)
+
+	MisResultAction(TakeItem, 2444, 1)
+	MisResultAction(ClearMission, 444)
+	MisResultAction(SetRecord, 444)
+
+	MisResultAction(AddExp, 250000, 250000)
+	MisResultAction(AddMoney, 150000, 150000)
+
+	InitTrigger()
+	TriggerCondition(1, IsItem, 2444)
+	TriggerAction(1, AddNextFlag, 444, 10, 1)
+	RegCurTrigger(4441)
+
+--铁匠 >> 圣柜
+	
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000205 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000205")
+	DefineMission(487, MISSCRIPT_MISSIONSCRIPT04_LUA_000205, 445)
+
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000206 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000206")
+	MisBeginTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000206)
+
+	MisBeginCondition(HasRecord, 444)
+	MisBeginCondition(NoRecord, 445)
+	MisBeginCondition(NoMission, 445)
+	MisBeginCondition(HasPirateGuild)
+
+	MisBeginAction(AddMission, 445)
+	MisBeginAction(AddTrigger, 4451, TE_GETITEM, 2427, 1)
+	MisBeginAction(AddTrigger, 4452, TE_GETITEM, 2438, 40)
+	
+
+	MisNeed(MIS_NEED_ITEM, 2427, 1, 10, 1)
+	MisNeed(MIS_NEED_ITEM, 2438, 40, 20, 40)
+	
+
+	MisCancelAction(ClearMission, 445)
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000207 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000207")
+	MisHelpTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000207)
+
+	MISSCRIPT_MISSIONSCRIPT04_LUA_000208 = GetResString("MISSCRIPT_MISSIONSCRIPT04_LUA_000208")
+	MisResultTalk(MISSCRIPT_MISSIONSCRIPT04_LUA_000208)
+
+	MisResultCondition(NoRecord, 445)
+	MisResultCondition(HasMission, 445)
+	MisResultCondition(HasItem, 2438, 40)
+	MisResultCondition(HasItem, 2427, 1)
+	MisResultCondition(HasPirateGuild)
+
+	MisResultAction(TakeItem, 2438, 40)
+	MisResultAction(TakeItem, 2427, 1)
+	MisResultAction(ClearMission ,445)
+	MisResultAction(SetRecord, 445)
+
+	MisResultAction(AddExp, 500000,500000)
+	MisResultAction(AddMoney, 800000, 800000)
+
+	InitTrigger()
+	TriggerCondition(1, IsItem, 2427)
+	TriggerAction(1, AddNextFlag, 445, 10, 1)
+	RegCurTrigger(4451)
+
+	InitTrigger()
+	TriggerCondition(1, IsItem, 2438)
+	TriggerAction(1, AddNextFlag, 445, 20, 40)
+	RegCurTrigger(4452)
+
+end
+CenterMission001()

@@ -1,0 +1,5 @@
+//ID	Name	Sound ID
+1	Mouse Click	92
+2	Cannot be clicked	91
+3	Error Operation	91
+4	Ship started	73

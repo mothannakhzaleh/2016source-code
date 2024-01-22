@@ -1,0 +1,278 @@
+
+-----------------------------------------------------------------------
+-- 定义角色属性
+-----------------------------------------------------------------------
+frmState = UI_CreateForm( "frmState", FALSE, 203, 414, 0, 160, TRUE, FALSE )
+UI_FormSetHotKey( frmState, ALT_KEY, HOTKEY_A )
+UI_ShowForm( frmState, FALSE )
+UI_AddFormToTemplete( frmState, 1 )
+UI_SetIsDrag( frmState, TRUE )
+--UI_SetFormStyle( frmState, 0 )
+--UI_SetAlpha( frmState, 200 )
+
+-- 加载背景图片
+imgBakTop = UI_CreateCompent( frmState, IMAGE_TYPE, "imgBakTop", 203, 256, 0, 0 )
+UI_LoadImage( imgBakTop, "texture/ui2009/juese1.tga", NORMAL, 203, 256, 0, 0 )
+imgBakDown = UI_CreateCompent( frmState, IMAGE_TYPE, "imgBakDown", 203, 158, 1, 256 )
+UI_LoadImage( imgBakDown, "texture/ui2009/juese2.tga", NORMAL, 203, 158, 0, 0 )
+
+--加载属性图片
+-- imgStateTop = UI_CreateCompent( frmState, IMAGE_TYPE, "imgStateTop", 184, 87, 7, 37 )
+-- UI_LoadImage( imgStateTop, "texture/ui/State1.dds", NORMAL, 184, 87, 0, 0 )
+
+-- imgStateDownT = UI_CreateCompent( frmState, IMAGE_TYPE, "imgStateDownT", 184, 169, 7, 128 )
+-- UI_LoadImage( imgStateDownT, "texture/ui/State1.dds", NORMAL, 184, 169, 0, 87 )
+
+-- imgStateDown = UI_CreateCompent( frmState, IMAGE_TYPE, "imgStateDown", 184, 17, 7, 297 )
+-- UI_LoadImage( imgStateDown, "texture/ui/ShipBuild4.dds", NORMAL, 184, 17, 0, 172 )
+
+-- imgStateL = UI_CreateCompent( frmState, IMAGE_TYPE, "imgStateL", 8, 8, 5,312 )
+-- UI_LoadImage( imgStateL, "texture/ui/PublicC.tga", NORMAL, 8, 8, 167, 0 )
+
+-- imgStateR = UI_CreateCompent( frmState, IMAGE_TYPE, "imgStateR", 8, 8, 185, 312 )
+-- UI_LoadImage( imgStateR, "texture/ui/PublicC.tga", NORMAL, 8, 8, 167, 0 )
+
+-- imgStateD = UI_CreateCompent( frmState, IMAGE_TYPE, "imgStateD", 184, 43, 7, 322 )
+-- UI_LoadImage( imgStateD, "texture/ui/ShipBuild2.tga", NORMAL, 184, 43, 0, 172 )
+
+--创建向下按钮
+--btnDown = UI_CreateCompent( frmState, BUTTON_TYPE, "btnDown", 20, 20, 167, 368)
+--UI_LoadButtonImage( btnDown, "texture/ui/PublicC.tga", 20, 20, 228, 140, FALSE )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmState, BUTTON_TYPE, "btnClose", 15, 15, 174, 10 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+-- 加载界面title
+-- imgBakTitle = UI_CreateCompent( frmState, IMAGE_TYPE, "imgBakTitle", 25, 13, 10, 4 )
+-- UI_LoadImage( imgBakTitle, "texture/ui/Word.dds", NORMAL, 25, 13, 132, 115 )
+
+
+--创建角色名称
+-- imgBakName = UI_CreateCompent( frmState, IMAGE_TYPE, "imgBakName", 129, 13, 32, 22 )
+-- UI_LoadImage( imgBakName, "texture/ui/SystemBotton3.tga", NORMAL, 129, 13, 0, 227 )
+
+labStateName = UI_CreateCompent( frmState, LABELEX_TYPE, "labStateName", 96, 11, 55, 35 )
+FORMS_CHAT_CLU_000001 = GetResString("FORMS_CHAT_CLU_000001")
+UI_SetCaption( labStateName, FORMS_CHAT_CLU_000001 )
+UI_SetTextColor( labStateName, COLOR_BLACK )
+UI_SetLabelExFont( labStateName, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建角色职业
+labStateJob = UI_CreateCompent( frmState, LABELEX_TYPE, "labStateJob", 47, 11, 52, 58 )
+--UI_SetCaption( labStateJob, "战士" )
+UI_SetTextColor( labStateJob, COLOR_BLACK )
+UI_SetLabelExFont( labStateJob, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建所属工会
+labStateGuid = UI_CreateCompent( frmState, LABELEX_TYPE, "labStateGuid", 128, 11, 73, 75 )
+--UI_SetCaption( labStateGuid, "浩方游戏制作部" )
+UI_SetTextColor( labStateGuid, COLOR_BLACK )
+UI_SetLabelExFont( labStateGuid, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建等级
+labStateLevel  = UI_CreateCompent( frmState, LABELEX_TYPE, "labStateLevel", 22, 10, 45, 91 )
+UI_SetCaption( labStateLevel, "22" )
+UI_SetTextColor( labStateLevel, COLOR_PURPLE )
+UI_SetLabelExFont( labStateLevel, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建经验
+labStateEXP = UI_CreateCompent( frmState, LABELEX_TYPE, "labStateEXP", 45, 10, 137, 91 )
+UI_SetCaption( labStateEXP, "11" )
+UI_SetTextColor( labStateEXP, COLOR_PURPLE )
+UI_SetLabelExFont( labStateEXP, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建航海等级
+labSailLevel  = UI_CreateCompent( frmState, LABELEX_TYPE, "labSailLevel", 22, 10, 45, 106 )
+--UI_SetCaption( labSailLevel, "22" )
+UI_SetTextColor( labSailLevel, COLOR_PURPLE )
+UI_SetLabelExFont( labSailLevel, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建航海经验
+labSailEXP = UI_CreateCompent( frmState, LABELEX_TYPE, "labSailEXP", 45, 10, 137, 106 )
+--UI_SetCaption( labSailEXP, "9999999999" )
+UI_SetTextColor( labSailEXP, COLOR_PURPLE )
+UI_SetLabelExFont( labSailEXP, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建HP
+labStateHP  = UI_CreateCompent( frmState, LABELEX_TYPE, "labStateHP", 45, 10, 45, 119 )
+UI_SetCaption( labStateHP, "9999/9999" )
+UI_SetTextColor( labStateHP, COLOR_PURPLE )
+UI_SetLabelExFont( labStateHP, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建SP
+labStateSP  = UI_CreateCompent( frmState, LABELEX_TYPE, "labStateSP", 45, 10, 130, 119 )
+UI_SetCaption( labStateSP, "9999/9999" )
+UI_SetTextColor( labStateSP, COLOR_PURPLE )
+UI_SetLabelExFont( labStateSP, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+
+--创建属性点数
+labStatePoint  = UI_CreateCompent( frmState, LABELEX_TYPE, "labStatePoint", 35, 13, 164, 151 )
+UI_SetCaption( labStatePoint, "1500" )
+UI_SetTextColor( labStatePoint, COLOR_PURPLE )
+UI_SetLabelExFont( labStatePoint, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建技能点数
+labSkillPoint  = UI_CreateCompent( frmState, LABELEX_TYPE, "labSkillPoint", 35, 13, 71, 151 )
+UI_SetCaption( labSkillPoint, "300" )
+UI_SetTextColor( labSkillPoint, COLOR_PURPLE )
+UI_SetLabelExFont( labSkillPoint, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建力量栏
+btnStr1 = UI_CreateCompent( frmState, BUTTON_TYPE, "btnStr1", 66, 13, 16, 186)
+FORMS_PREPERTY_CLU_000001 = GetResString("FORMS_PREPERTY_CLU_000001")
+UI_SetHint( btnStr1, FORMS_PREPERTY_CLU_000001 )
+
+btnStr = UI_CreateCompent( frmState, BUTTON_TYPE, "btnStr", 10, 11, 86, 187)
+UI_LoadButtonImage( btnStr, "texture/ui/PublicC.tga", 10, 11, 195, 238, TRUE )
+FORMS_PREPERTY_CLU_000001 = GetResString("FORMS_PREPERTY_CLU_000001")
+UI_SetHint( btnStr, FORMS_PREPERTY_CLU_000001 )
+
+labStrshow = UI_CreateCompent( frmState, LABELEX_TYPE, "labStrshow", 23, 8, 53, 187 )
+UI_SetCaption( labStrshow, "9527" )
+UI_SetTextColor( labStrshow, COLOR_PURPLE )
+UI_SetLabelExFont( labStrshow, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建敏捷栏
+btnAgi1 = UI_CreateCompent( frmState, BUTTON_TYPE, "btnAgi1", 66, 13, 102, 186 )
+FORMS_PREPERTY_CLU_000002 = GetResString("FORMS_PREPERTY_CLU_000002")
+UI_SetHint( btnAgi1, FORMS_PREPERTY_CLU_000002 )
+
+btnAgi = UI_CreateCompent( frmState, BUTTON_TYPE, "btnAgi", 10, 11, 172, 187 )
+UI_LoadButtonImage( btnAgi, "texture/ui/PublicC.tga", 10, 11, 195, 238, TRUE )
+FORMS_PREPERTY_CLU_000002 = GetResString("FORMS_PREPERTY_CLU_000002")
+UI_SetHint( btnAgi, FORMS_PREPERTY_CLU_000002 )
+
+labAgishow = UI_CreateCompent( frmState, LABELEX_TYPE, "labAgishow", 23, 8, 138, 187 )
+UI_SetCaption( labAgishow, "9527" )
+UI_SetTextColor( labAgishow, COLOR_PURPLE )
+UI_SetLabelExFont( labAgishow, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建体质栏
+btnCon1 = UI_CreateCompent( frmState, BUTTON_TYPE, "btnCon1", 66, 13, 31, 202 )
+FORMS_PREPERTY_CLU_000003 = GetResString("FORMS_PREPERTY_CLU_000003")
+UI_SetHint( btnCon1, FORMS_PREPERTY_CLU_000003 )
+
+btnCon = UI_CreateCompent( frmState, BUTTON_TYPE, "btnCon", 10, 11, 86, 203 )
+UI_LoadButtonImage( btnCon, "texture/ui/PublicC.tga", 10, 11, 195, 238, TRUE )
+FORMS_PREPERTY_CLU_000003 = GetResString("FORMS_PREPERTY_CLU_000003")
+UI_SetHint( btnCon, FORMS_PREPERTY_CLU_000003 )
+
+labConshow = UI_CreateCompent( frmState, LABELEX_TYPE, "labConshow", 23, 8, 53, 203 )
+UI_SetCaption( labConshow, "9527" )
+UI_SetTextColor( labConshow, COLOR_PURPLE )
+UI_SetLabelExFont( labConshow, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建精神栏
+btnSta1 = UI_CreateCompent( frmState, BUTTON_TYPE, "btnSta1", 66, 13, 102, 202 )
+FORMS_PREPERTY_CLU_000004 = GetResString("FORMS_PREPERTY_CLU_000004")
+UI_SetHint( btnSta1, FORMS_PREPERTY_CLU_000004 )
+
+btnSta = UI_CreateCompent( frmState, BUTTON_TYPE, "btnSta", 10, 11, 172, 203 )
+UI_LoadButtonImage( btnSta, "texture/ui/PublicC.tga", 10, 11, 195, 238, TRUE )
+FORMS_PREPERTY_CLU_000004 = GetResString("FORMS_PREPERTY_CLU_000004")
+UI_SetHint( btnSta, FORMS_PREPERTY_CLU_000004 )
+
+labStashow = UI_CreateCompent( frmState, LABELEX_TYPE, "labStashow", 23, 8, 138, 203 )
+UI_SetCaption( labStashow, "9527" )
+UI_SetTextColor( labStashow, COLOR_PURPLE )
+UI_SetLabelExFont( labStashow, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建专注栏
+btnDex1 = UI_CreateCompent( frmState, BUTTON_TYPE, "btnDex1", 66, 13, 16, 218 )
+FORMS_PREPERTY_CLU_000005 = GetResString("FORMS_PREPERTY_CLU_000005")
+UI_SetHint( btnDex1, FORMS_PREPERTY_CLU_000005 )
+
+btnDex = UI_CreateCompent( frmState, BUTTON_TYPE, "btnDex", 10, 11, 86, 219 )
+UI_LoadButtonImage( btnDex, "texture/ui/PublicC.tga", 10, 11, 195, 238, TRUE )
+FORMS_PREPERTY_CLU_000005 = GetResString("FORMS_PREPERTY_CLU_000005")
+UI_SetHint( btnDex, FORMS_PREPERTY_CLU_000005 )
+
+labDexshow = UI_CreateCompent( frmState, LABELEX_TYPE, "labDexshow", 23, 8, 53, 219 )
+UI_SetCaption( labDexshow, "9527" )
+UI_SetTextColor( labDexshow, COLOR_PURPLE )
+UI_SetLabelExFont( labDexshow, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建最小攻击
+labMinAtackShow  = UI_CreateCompent( frmState, LABELEX_TYPE, "labMinAtackShow", 22, 8, 73, 261 )
+UI_SetCaption( labMinAtackShow, "95278" )
+UI_SetTextColor( labMinAtackShow, COLOR_PURPLE )
+UI_SetLabelExFont( labMinAtackShow, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建最大攻击
+labMaxAtackShow  = UI_CreateCompent( frmState, LABELEX_TYPE, "labMaxAtackShow", 22, 8, 161, 261 )
+UI_SetCaption( labMaxAtackShow, "95278" )
+UI_SetTextColor( labMaxAtackShow, COLOR_PURPLE )
+UI_SetLabelExFont( labMaxAtackShow, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建命中
+labHitShow  = UI_CreateCompent( frmState, LABELEX_TYPE, "labHitShow", 22, 8, 73, 276 )
+UI_SetCaption( labHitShow, "400" )
+UI_SetTextColor( labHitShow, COLOR_PURPLE )
+UI_SetLabelExFont( labHitShow, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建闪避
+labFleeShow  = UI_CreateCompent( frmState, LABELEX_TYPE, "labFleeShow", 22, 8, 161, 276 )
+UI_SetCaption( labFleeShow, "400" )
+UI_SetTextColor( labFleeShow, COLOR_PURPLE )
+UI_SetLabelExFont( labFleeShow, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建防御
+labDefenceShow  = UI_CreateCompent( frmState, LABELEX_TYPE, "labDefenceShow", 22, 8, 73, 293 )
+UI_SetCaption( labDefenceShow, "4000" )
+UI_SetTextColor( labDefenceShow, COLOR_PURPLE )
+UI_SetLabelExFont( labDefenceShow, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建攻速
+labAspeedShow  = UI_CreateCompent( frmState, LABELEX_TYPE, "labAspeedShow", 22, 8, 161, 293 )
+UI_SetCaption( labAspeedShow, "400" )
+UI_SetTextColor( labAspeedShow, COLOR_PURPLE )
+UI_SetLabelExFont( labAspeedShow, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建物力抵抗
+labPhysDefineShow  = UI_CreateCompent( frmState, LABELEX_TYPE, "labPhysDefineShow", 22, 8, 133, 309 )
+UI_SetCaption( labPhysDefineShow, "400" )
+UI_SetTextColor( labPhysDefineShow, COLOR_PURPLE )
+UI_SetLabelExFont( labPhysDefineShow, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建名声
+labFameShow  = UI_CreateCompent( frmState, LABELEX_TYPE, "labFameShow", 26, 8, 78, 361 )
+UI_SetCaption( labFameShow, "0" )
+UI_SetTextColor( labFameShow, COLOR_PURPLE )
+UI_SetLabelExFont( labFameShow, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建称号
+labTitleShow  = UI_CreateCompent( frmState, LABELEX_TYPE, "labTitleShow", 71, 11, 114, 362 )
+--UI_SetCaption( labTitleShow, "0" )
+UI_SetTextColor( labTitleShow, COLOR_BLACK )
+UI_SetLabelExFont( labTitleShow, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建称号选择
+--cboAppellationShow  = UI_CreateCompent( frmState, COMBO_TYPE, "cboAppellationShow", 110, 20, 77, 368 )
+--lstAppellation = UI_GetList( cboAppellationShow )
+--UI_SetSize( lstAppellation, 110, 170 )
+--UI_LoadImage( lstAppellation, "texture/ui/QQ.dds", COMPENT_BACK, 142, 170, 0, 0 )
+
+--获得滚动条
+--scrollid = UI_GetScroll( lstAppellation )
+--UI_SetSize( scrollid, 11, 1 )
+--UI_LoadImage( scrollid, "texture/ui/PublicC.tga", COMPENT_BACK, 11, 1, 194, 13 )
+
+--加载向上按钮
+--id = UI_GetScrollObj( scrollid, SCROLL_UP )
+--UI_LoadButtonImage( id, "texture/ui/PublicC.tga", 11, 9, 166, 0, TRUE )
+--UI_SetSize( id, 11, 9 )
+
+--加载滚动条
+--id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+--UI_LoadImage( id, "texture/ui/PublicC.tga", COMPENT_BACK, 11, 43, 166, 10 )
+--UI_SetSize( id, 11, 43 )
+
+--加载向下按钮
+--id = UI_GetScrollObj( scrollid, SCROLL_DOWN )
+--UI_LoadButtonImage( id, "texture/ui/PublicC.tga", 11, 9, 166, 0, TRUE )
+--UI_SetSize( id, 11, 9 )
+
+

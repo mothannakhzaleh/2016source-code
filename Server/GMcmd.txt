@@ -1,0 +1,4 @@
+1=goto,move,estop,delestop,notice,hide,unhide
+2=call,kick
+3=attr,summon,summonex,kill,addkb,addmission,clearmission,delmission,skill,qcha
+99=closecrystal,opencrystal,make,updateall,setrecord,clearrecord,addmoney,addexp,lua

@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{8fa57a97-c51c-4578-87bf-cfe30239af80}</ProjectGuid>
+    <RootNamespace>Engine</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)..\..\Client\system\</OutDir>
+    <TargetName>$(ProjectName)_$(PlatformShortName)_$(Configuration)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)..\..\Client\system\</OutDir>
+    <TargetName>$(ProjectName)_$(PlatformShortName)_$(Configuration)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)..\..\Client\system\</OutDir>
+    <TargetName>$(ProjectName)_$(PlatformShortName)_$(Configuration)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)..\..\Client\system\</OutDir>
+    <TargetName>$(ProjectName)_$(PlatformShortName)_$(Configuration)</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>USE_LIGHTENGINE;__FPS_DEBUG__;LIGHTENGINE_USE_DLL;LIGHTENGINE_EXPORTS;DR_USE_DXMATH_LIB;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <AdditionalIncludeDirectories>..\Utility\;..\Common\;..\ICUHelper\;..\ICU\include\$(PlatformName);..\DirectX\Include\</AdditionalIncludeDirectories>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\Utility\$(PlatformShortName)\$(ConfigurationName)\;..\Common\$(PlatformShortName)\$(ConfigurationName)\;..\ICUHelper\$(PlatformShortName)\$(ConfigurationName)\;..\ICU\lib\$(PlatformName)\$(ConfigurationName)\;..\DirectX\Lib\</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>libci.lib</IgnoreSpecificDefaultLibraries>
+      <AdditionalDependencies>legacy_stdio_definitions.lib;Utility_$(PlatformShortName).lib;Common_$(PlatformShortName).lib;ICUHelper_$(PlatformShortName).lib;icudt.lib;icuucd.lib;icuind.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>USE_LIGHTENGINE;LIGHTENGINE_USE_DLL;LIGHTENGINE_EXPORTS;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <AdditionalIncludeDirectories>..\Utility\;..\Common\;..\ICUHelper\;..\ICU\include\$(PlatformName);..\DirectX\Include\</AdditionalIncludeDirectories>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\Utility\$(PlatformShortName)\$(ConfigurationName)\;..\Common\$(PlatformShortName)\$(ConfigurationName)\;..\ICUHelper\$(PlatformShortName)\$(ConfigurationName)\;..\ICU\lib\$(PlatformName)\$(ConfigurationName)\;..\DirectX\Lib\</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>libci.lib</IgnoreSpecificDefaultLibraries>
+      <AdditionalDependencies>legacy_stdio_definitions.lib;Utility_$(PlatformShortName).lib;Common_$(PlatformShortName).lib;ICUHelper_$(PlatformShortName).lib;icudt.lib;icuuc.lib;icuin.lib;kernel32.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>USE_LIGHTENGINE;LIGHTENGINE_USE_DLL;LIGHTENGINE_EXPORTS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>..\Utility\;..\Common\;..\ICUHelper\;..\ICU\include\;</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\Utility\$(PlatformShortName)\$(ConfigurationName)\;..\Common\$(PlatformShortName)\$(ConfigurationName)\;..\ICUHelper\$(PlatformShortName)\$(ConfigurationName)\;..\ICU\lib\$(PlatformName)\$(ConfigurationName)\;</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>libci.lib</IgnoreSpecificDefaultLibraries>
+      <AdditionalDependencies>legacy_stdio_definitions.lib;Utility_$(PlatformShortName).lib;Common_$(PlatformShortName).lib;ICUHelper_$(PlatformShortName).lib;icudt.lib;icuucd.lib;icuind.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>USE_LIGHTENGINE;LIGHTENGINE_USE_DLL;LIGHTENGINE_EXPORTS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>..\Utility\;..\Common\;..\ICUHelper\;..\ICU\include\;</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\Utility\$(PlatformShortName)\$(ConfigurationName)\;..\Common\$(PlatformShortName)\$(ConfigurationName)\;..\ICUHelper\$(PlatformShortName)\$(ConfigurationName)\;..\ICU\lib\$(PlatformName)\$(ConfigurationName)\;</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>libci.lib</IgnoreSpecificDefaultLibraries>
+      <AdditionalDependencies>legacy_stdio_definitions.lib;Utility_$(PlatformShortName).lib;Common_$(PlatformShortName).lib;ICUHelper_$(PlatformShortName).lib;icudt.lib;icuucd.lib;icuind.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="AniFile.cpp" />
+    <ClCompile Include="Blk.cpp" />
+    <ClCompile Include="Color.cpp" />
+    <ClCompile Include="d3dfont.cpp" />
+    <ClCompile Include="d3dutil.cpp" />
+    <ClCompile Include="drAnimCtrl.cpp" />
+    <ClCompile Include="drAnimCtrlObj.cpp" />
+    <ClCompile Include="drAnimKeySetPRS.cpp" />
+    <ClCompile Include="drBitmap.cpp" />
+    <ClCompile Include="drCamera.cpp" />
+    <ClCompile Include="drConsole.cpp" />
+    <ClCompile Include="drCoordinateSys.cpp" />
+    <ClCompile Include="drD3DSettings.cpp" />
+    <ClCompile Include="drDDSFile.cpp" />
+    <ClCompile Include="drdeviceobject.cpp" />
+    <ClCompile Include="drDirectoryBrowser.cpp" />
+    <ClCompile Include="drEfxTrack.cpp" />
+    <ClCompile Include="drExpObj.cpp" />
+    <ClCompile Include="drFile.cpp" />
+    <ClCompile Include="drFileEncode.cpp" />
+    <ClCompile Include="drFileStream.cpp" />
+    <ClCompile Include="drFileutil.cpp" />
+    <ClCompile Include="drgraphicsutil.cpp" />
+    <ClCompile Include="drGuidObj.cpp" />
+    <ClCompile Include="drHeap.cpp" />
+    <ClCompile Include="drHelperGeometry.cpp" />
+    <ClCompile Include="drIFunc.cpp" />
+    <ClCompile Include="drInterface.cpp" />
+    <ClCompile Include="drItem.cpp" />
+    <ClCompile Include="drIUtil.cpp" />
+    <ClCompile Include="drmath.cpp" />
+    <ClCompile Include="drMisc.cpp" />
+    <ClCompile Include="drModel.cpp" />
+    <ClCompile Include="drNodeObject.cpp" />
+    <ClCompile Include="drObjectMethod.cpp" />
+    <ClCompile Include="drObjectPool.cpp" />
+    <ClCompile Include="drPathInfo.cpp" />
+    <ClCompile Include="drPhysique.cpp" />
+    <ClCompile Include="drposectrl.cpp" />
+    <ClCompile Include="drprimitive.cpp" />
+    <ClCompile Include="drPrimitiveHelper.cpp" />
+    <ClCompile Include="drRenderCtrlEmb.cpp" />
+    <ClCompile Include="drRenderImp.cpp" />
+    <ClCompile Include="drresourcemgr.cpp" />
+    <ClCompile Include="drSceneMgr.cpp" />
+    <ClCompile Include="drShaderDeclMgr.cpp" />
+    <ClCompile Include="drShaderMgr.cpp" />
+    <ClCompile Include="drStreamObj.cpp" />
+    <ClCompile Include="drSysCharacter.cpp" />
+    <ClCompile Include="drSysGraphics.cpp" />
+    <ClCompile Include="drSystem.cpp" />
+    <ClCompile Include="drSystemInfo.cpp" />
+    <ClCompile Include="drThreadPool.cpp" />
+    <ClCompile Include="drTimer.cpp" />
+    <ClCompile Include="drTreeNode.cpp" />
+    <ClCompile Include="drViewFrustum.cpp" />
+    <ClCompile Include="drxRenderCtrVS.cpp" />
+    <ClCompile Include="dxutil.cpp" />
+    <ClCompile Include="EffectFile.cpp" />
+    <ClCompile Include="Frames.cpp" />
+    <ClCompile Include="Frustum.cpp" />
+    <ClCompile Include="Heightmap.cpp" />
+    <ClCompile Include="I_Effect.cpp" />
+    <ClCompile Include="LECamera.cpp" />
+    <ClCompile Include="LECharacter.cpp" />
+    <ClCompile Include="LEColorValue.cpp" />
+    <ClCompile Include="LEConsole.cpp" />
+    <ClCompile Include="LEDataStream.cpp" />
+    <ClCompile Include="LEEffectCtrl.cpp" />
+    <ClCompile Include="LEEffectMath.cpp" />
+    <ClCompile Include="LEEffQuaternion.cpp" />
+    <ClCompile Include="LEEffVector3.cpp" />
+    <ClCompile Include="LEFont.cpp" />
+    <ClCompile Include="LEGameApp.cpp" />
+    <ClCompile Include="LEMap.cpp" />
+    <ClCompile Include="LEMapData.cpp" />
+    <ClCompile Include="LEMath.cpp" />
+    <ClCompile Include="LEModelEff.cpp" />
+    <ClCompile Include="LEParticleCtrl.cpp" />
+    <ClCompile Include="LEParticleSys.cpp" />
+    <ClCompile Include="LERender.cpp" />
+    <ClCompile Include="LEResManger.cpp" />
+    <ClCompile Include="LESceneItem.cpp" />
+    <ClCompile Include="LESceneObject.cpp" />
+    <ClCompile Include="LEShadeMap.cpp" />
+    <ClCompile Include="LESkyBox.cpp" />
+    <ClCompile Include="LEStringUtil.cpp" />
+    <ClCompile Include="LETile.cpp" />
+    <ClCompile Include="mygraph.cpp" />
+    <ClCompile Include="ShaderLoad.cpp" />
+    <ClCompile Include="Singleton.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="Terrain.cpp" />
+    <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="TextureManager.cpp" />
+    <ClCompile Include="TgaCore.cpp" />
+    <ClCompile Include="ViM_helper.cpp" />
+    <ClCompile Include="ZRBlock.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AniFile.h" />
+    <ClInclude Include="Blk.h" />
+    <ClInclude Include="Color.h" />
+    <ClInclude Include="d3dfont.h" />
+    <ClInclude Include="d3dutil.h" />
+    <ClInclude Include="drAnimCtrl.h" />
+    <ClInclude Include="drAnimCtrlObj.h" />
+    <ClInclude Include="drAnimKeySetPRS.h" />
+    <ClInclude Include="drBitmap.h" />
+    <ClInclude Include="drCamera.h" />
+    <ClInclude Include="drclassdecl.h" />
+    <ClInclude Include="drConsole.h" />
+    <ClInclude Include="drCoordinateSys.h" />
+    <ClInclude Include="drd3d.h" />
+    <ClInclude Include="drD3DSettings.h" />
+    <ClInclude Include="drDDS.h" />
+    <ClInclude Include="drDDSFile.h" />
+    <ClInclude Include="drDeviceObject.h" />
+    <ClInclude Include="drDirectoryBrowser.h" />
+    <ClInclude Include="drDirectX.h" />
+    <ClInclude Include="drEfxTrack.h" />
+    <ClInclude Include="drerrorcode.h" />
+    <ClInclude Include="drExpObj.h" />
+    <ClInclude Include="drFile.h" />
+    <ClInclude Include="drFileEncode.h" />
+    <ClInclude Include="drFileStream.h" />
+    <ClInclude Include="drFileutil.h" />
+    <ClInclude Include="drfrontapi.h" />
+    <ClInclude Include="drgraphics.h" />
+    <ClInclude Include="drgraphicsutil.h" />
+    <ClInclude Include="drguidobj.h" />
+    <ClInclude Include="drHeader.h" />
+    <ClInclude Include="drHeap.h" />
+    <ClInclude Include="drHelperGeometry.h" />
+    <ClInclude Include="drifunc.h" />
+    <ClInclude Include="drinterface.h" />
+    <ClInclude Include="drInterfaceExt.h" />
+    <ClInclude Include="drItem.h" />
+    <ClInclude Include="dritypes.h" />
+    <ClInclude Include="dritypes2.h" />
+    <ClInclude Include="driutil.h" />
+    <ClInclude Include="drLinkCtrl.h" />
+    <ClInclude Include="drmath.h" />
+    <ClInclude Include="drMisc.h" />
+    <ClInclude Include="drModel.h" />
+    <ClInclude Include="drNodeObject.h" />
+    <ClInclude Include="drobjectmethod.h" />
+    <ClInclude Include="drObjectPool.h" />
+    <ClInclude Include="drPathInfo.h" />
+    <ClInclude Include="drPhysique.h" />
+    <ClInclude Include="drPoseCtrl.h" />
+    <ClInclude Include="drPreDefinition.h" />
+    <ClInclude Include="drPrimitive.h" />
+    <ClInclude Include="drPrimitiveHelper.h" />
+    <ClInclude Include="drRenderCtrlEmb.h" />
+    <ClInclude Include="drRenderImp.h" />
+    <ClInclude Include="drResourceMgr.h" />
+    <ClInclude Include="drSceneMgr.h" />
+    <ClInclude Include="drShaderDeclMgr.h" />
+    <ClInclude Include="drShaderMgr.h" />
+    <ClInclude Include="drshadertypes.h" />
+    <ClInclude Include="drStdInc.h" />
+    <ClInclude Include="drStreamObj.h" />
+    <ClInclude Include="drSyncObj.h" />
+    <ClInclude Include="drSysCharacter.h" />
+    <ClInclude Include="drSysGraphics.h" />
+    <ClInclude Include="drSystem.h" />
+    <ClInclude Include="drSystemInfo.h" />
+    <ClInclude Include="drThreadPool.h" />
+    <ClInclude Include="drTimer.h" />
+    <ClInclude Include="drTreeNode.h" />
+    <ClInclude Include="drutilsexp.h" />
+    <ClInclude Include="drViewFrustum.h" />
+    <ClInclude Include="drxRenderCtrlVS.h" />
+    <ClInclude Include="dxutil.h" />
+    <ClInclude Include="EffectFile.h" />
+    <ClInclude Include="Frames.h" />
+    <ClInclude Include="Frustum.h" />
+    <ClInclude Include="GlobalInc.h" />
+    <ClInclude Include="Heightmap.h" />
+    <ClInclude Include="I_Effect.h" />
+    <ClInclude Include="LECamera.h" />
+    <ClInclude Include="lecharacter.h" />
+    <ClInclude Include="LEColorValue.h" />
+    <ClInclude Include="LEConsole.h" />
+    <ClInclude Include="LEDataStream.h" />
+    <ClInclude Include="LEEffectAsmMath.h" />
+    <ClInclude Include="LEEffectCtrl.h" />
+    <ClInclude Include="LEEffectMath.h" />
+    <ClInclude Include="LEEffPrerequisites.h" />
+    <ClInclude Include="LEEffQuaternion.h" />
+    <ClInclude Include="LEEffVector3.h" />
+    <ClInclude Include="LEFactoryObj.h" />
+    <ClInclude Include="LEFont.h" />
+    <ClInclude Include="legameapp.h" />
+    <ClInclude Include="LEInterface.h" />
+    <ClInclude Include="LEIteratorWrappers.h" />
+    <ClInclude Include="lemap.h" />
+    <ClInclude Include="LEMath.h" />
+    <ClInclude Include="lemodeleff.h" />
+    <ClInclude Include="LEParameterInterface.h" />
+    <ClInclude Include="LEParticleAffector.h" />
+    <ClInclude Include="LEParticleAffectorFactory.h" />
+    <ClInclude Include="leparticlectrl.h" />
+    <ClInclude Include="LEParticleEmitterFactory.h" />
+    <ClInclude Include="LEParticleSys.h" />
+    <ClInclude Include="LERender.h" />
+    <ClInclude Include="LEResManger.h" />
+    <ClInclude Include="leresourceset.h" />
+    <ClInclude Include="LESceneItem.h" />
+    <ClInclude Include="LESceneObject.h" />
+    <ClInclude Include="LEScriptLoader.h" />
+    <ClInclude Include="LEShadeMap.h" />
+    <ClInclude Include="LESharedPtr.h" />
+    <ClInclude Include="LESingleton.h" />
+    <ClInclude Include="LESkyBox.h" />
+    <ClInclude Include="LEStringUtil.h" />
+    <ClInclude Include="LEStringVector.h" />
+    <ClInclude Include="leterrainset.h" />
+    <ClInclude Include="LETextureSet.h" />
+    <ClInclude Include="LETile.h" />
+    <ClInclude Include="LightEngine.h" />
+    <ClInclude Include="LightEngineAPI.h" />
+    <ClInclude Include="ModelObject.h" />
+    <ClInclude Include="mygraph.h" />
+    <ClInclude Include="ShaderLoad.h" />
+    <ClInclude Include="Singleton.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="StdHeader.h" />
+    <ClInclude Include="STLprerequisite.h" />
+    <ClInclude Include="Terrain.h" />
+    <ClInclude Include="Texture.h" />
+    <ClInclude Include="TextureManager.h" />
+    <ClInclude Include="TgaCore.h" />
+    <ClInclude Include="ViM_helper.h" />
+    <ClInclude Include="ZRBlock.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="drmath.inl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

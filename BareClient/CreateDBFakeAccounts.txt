@@ -1,0 +1,20 @@
+DECLARE @Username AS VARCHAR(50) = 'Fake'
+DECLARE @Password AS VARCHAR(250) = '$2a$12$JXGuT05v1dY6zCcB04HouuaaAcnEA1IpP7A1ck5gm.48.SkOpn0aS' -- 123456 (bcrypt) 
+DECLARE @Counter AS INT = 1
+DECLARE @Total AS INT = 100 -- Number of accounts to create 
+
+WHILE ( @Counter <= @Total ) 
+BEGIN
+	DECLARE @CountedUsername AS VARCHAR(50) = NULL
+	SET @CountedUsername = CONCAT(@Username, @Counter)
+
+	USE AccountServer;
+	INSERT INTO account_login (name, password) VALUES (@CountedUsername, @Password);
+	DECLARE @AccountID AS INT
+	SELECT @AccountID = id FROM account_login WHERE name = @CountedUsername;
+	
+	USE GameDB;
+	INSERT INTO account (act_id, act_name, gm) VALUES (@AccountID, @CountedUsername, 99);
+
+	SET @Counter = @Counter + 1
+END

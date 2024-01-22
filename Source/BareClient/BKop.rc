@@ -1,0 +1,658 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (Simplified, China) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#include ""res\\BKop.rc2""  // ?? Microsoft Visual C++ ?????\r\n"
+    "#include ""afxres.rc""         // ??????\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\BKop.ico"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Exit",                       ID_APP_EXIT
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&Help Topics",                ID_HELP_FINDER
+        MENUITEM SEPARATOR
+        MENUITEM "&About BKop...",              ID_APP_ABOUT
+    END
+END
+
+IDR_MENU_PACKAGE MENU
+BEGIN
+    POPUP "Pack"
+    BEGIN
+        MENUITEM "&Use",                        ID_M_USE
+        MENUITEM "&Equipment",                  ID_M_EQUIP
+        MENUITEM "&Drop",                       ID_M_DROP
+        MENUITEM SEPARATOR
+        MENUITEM "&Details",                    ID_M_INFO
+    END
+    POPUP "Equipment"
+    BEGIN
+        MENUITEM "&Uninstall",                  ID_M_UNEQUIP
+        MENUITEM SEPARATOR
+        MENUITEM "&Details",                    ID_M_INFO
+    END
+    POPUP "Props"
+    BEGIN
+        MENUITEM "&Pickup",                     ID_M_PICKUP
+    END
+END
+
+IDR_MENU_TALK MENU
+BEGIN
+    POPUP "Private Chat"
+    BEGIN
+        MENUITEM "&Clear Information",          ID_MENU_PRIVATE_CLEAR
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS
+BEGIN
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+    VK_F1,          ID_CONTEXT_HELP,        VIRTKEY, SHIFT, NOINVERT
+    VK_F1,          ID_HELP,                VIRTKEY, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About BKop"
+FONT 9, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "BKop Version 1.0",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2005",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "Sure",IDOK,178,7,50,16,WS_GROUP
+END
+
+IDD_MAINVIEW DIALOGEX 0, 0, 386, 400
+STYLE DS_SETFONT | WS_CHILD
+FONT 9, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_RICHEDIT23,"RichEdit20A",ES_MULTILINE | ES_NOHIDESEL | ES_READONLY | NOT WS_VISIBLE | WS_BORDER | WS_VSCROLL | WS_HSCROLL,7,15,373,202
+    CONTROL         "",IDC_TAB1,"SysTabControl32",TCS_BOTTOM | NOT WS_VISIBLE,7,216,187,14,WS_EX_TRANSPARENT
+    CONTROL         "information lock",IDC_CHECK_LOCK,"Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | NOT WS_VISIBLE | WS_TABSTOP,330,219,48,10
+    COMBOBOX        IDC_COMBO_MODE,249,218,46,74,CBS_DROPDOWNLIST | NOT WS_VISIBLE | WS_VSCROLL
+    LTEXT           "Display Mode:",IDC_STATIC,207,221,41,8,NOT WS_VISIBLE
+    PUSHBUTTON      "Clear Screen",IDC_BUTTON_CLEAR,296,217,33,14,NOT WS_VISIBLE
+    GROUPBOX        "Current account control (temporary processing)",IDC_STATIC,24,236,337,52,BS_FLAT | NOT WS_VISIBLE
+    CONTROL         "Repeated login impact account server",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_DISABLED | WS_GROUP,47,261,131,10
+    CONTROL         "Repeated login to impact game server",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_DISABLED,47,274,131,10
+    CONTROL         "Random walk after going online",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_DISABLED,227,248,80,10
+    CONTROL         "Do nothing after going online",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_DISABLED,227,274,91,10
+    CONTROL         "Use current settings for all accounts",IDC_CHECK_SET_THE_SAME,
+                    "Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,248,236,102,10
+    CONTROL         "random teleport after going online",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_DISABLED,227,261,85,10
+    CONTROL         "Repeatedly log in to the shock group server",IDC_RADIO6,
+                    "Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_DISABLED,47,248,131,10
+    CONTROL         "",IDC_STATIC_SHEET_RECT,"Static",SS_BLACKFRAME | NOT WS_VISIBLE,0,0,385,400
+END
+
+IDD_DIALOG_DELETE DIALOGEX 0, 0, 210, 91
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Delete Confirmation"
+FONT 8, "MS Shell Dlg", 400, 0, 0x0
+BEGIN
+    PUSHBUTTON      "Delete All",IDC_BUTTON_TOTAL_COUNT,105,8,98,14
+    PUSHBUTTON      "Delete List Selected",IDC_BUTTON_SELECTED_COUNT,105,23,98,14
+    PUSHBUTTON      "Delete List Checked",IDC_BUTTON_CHECK_COUNT,105,38,98,14
+    PUSHBUTTON      "Cancel",IDC_BUTTON7,105,68,98,14
+    PUSHBUTTON      "Delete the currently selected",IDC_BUTTON_NOW_COUNT,105,53,98,14
+    LTEXT           "Total number of accounts: 100",IDC_STATIC_TOTAL_COUNT,9,11,83,8
+    LTEXT           "Current account:",IDC_STATIC_NOW_COUNT,9,56,83,8
+    LTEXT           "Number of accounts: 100",IDC_STATIC_CHECK_COUNT,9,41,83,8
+    LTEXT           "Number of accounts: 100",IDC_STATIC_SELECTED_COUNT,9,26,83,8
+    LTEXT           "->",IDC_STATIC,94,11,9,8
+    LTEXT           "->",IDC_STATIC,94,41,9,8
+    LTEXT           "->",IDC_STATIC,94,26,9,8
+    LTEXT           "->",IDC_STATIC,94,56,9,8
+END
+
+IDD_DIALOG_ROLE DIALOGEX 0, 0, 153, 329
+STYLE DS_SETFONT | WS_CHILD | WS_CAPTION | WS_SYSMENU
+CAPTION "Role"
+FONT 8, "Arial", 400, 0, 0x0
+BEGIN
+    LTEXT           "Name: Arcol",IDC_STATIC_NAME,1,6,91,8
+    LTEXT           "Level:100",IDC_STATIC_LEVEL,92,6,61,8
+    GROUPBOX        "Personal Information",IDC_STATIC,1,17,126,217
+    GROUPBOX        "Map Information",IDC_STATIC,1,238,126,49
+    LTEXT           "HP:",IDC_STATIC,8,28,13,8
+    CONTROL         "",IDC_PROGRESS_HP,"msctls_progress32",PBS_SMOOTH,22,30,51,6
+    RTEXT           "10000/10000",IDC_STATIC_HP,77,29,45,8
+    LTEXT           "SP:",IDC_STATIC,8,40,13,8
+    CONTROL         "",IDC_PROGRESS_SP,"msctls_progress32",PBS_SMOOTH,22,41,51,6
+    RTEXT           "10000/10000",IDC_STATIC_SP,77,41,45,8
+    LTEXT           "EXP:",IDC_STATIC,4,51,17,8
+    CONTROL         "",IDC_PROGRESS_EXP,"msctls_progress32",PBS_SMOOTH,22,52,70,6
+    RTEXT           "100,000,000/1,000,000,000",IDC_STATIC_EXP,21,61,99,8
+    LTEXT           "Strength(STR):100",IDC_STATIC_STR,3,190,52,8
+    LTEXT           "Dexterous(DEX):100",IDC_STATIC_DEX,64,190,52,8
+    LTEXT           "Agility(AGI):100",IDC_STATIC_AGI,3,200,52,8
+    LTEXT           "Constitution(VIT):100",IDC_STATIC_VIT,64,200,52,8
+    LTEXT           "Energy(STA):100",IDC_STATIC_STA,3,210,52,8
+    LTEXT           "Lucky(LUK):100",IDC_STATIC_LUK,64,210,52,8
+    PUSHBUTTON      "+",IDC_BUTTON_ADD_STR,55,189,9,10,NOT WS_TABSTOP,WS_EX_STATICEDGE
+    PUSHBUTTON      "+",IDC_BUTTON_ADD_DEX,116,189,9,10,NOT WS_TABSTOP,WS_EX_STATICEDGE
+    PUSHBUTTON      "+",IDC_BUTTON_ADD_AGI,55,199,9,10,NOT WS_TABSTOP,WS_EX_STATICEDGE
+    PUSHBUTTON      "+",IDC_BUTTON_ADD_VIT,116,199,9,10,NOT WS_TABSTOP,WS_EX_STATICEDGE
+    PUSHBUTTON      "+",IDC_BUTTON_ADD_STA,55,209,9,10,NOT WS_TABSTOP,WS_EX_STATICEDGE
+    PUSHBUTTON      "+",IDC_BUTTON_ADD_LUK,116,209,9,10,NOT WS_TABSTOP,WS_EX_STATICEDGE
+    LTEXT           "Remaining attribute points: 100",IDC_STATIC_ATTRIBUTE_POINT,3,222,57,8
+    LTEXT           "Remaining skill points: 100",IDC_STATIC_SKILL_POINT,67,222,57,8
+    RTEXT           "99.99%",IDC_STATIC_EXP_PERCENT,98,51,25,8
+    CONTROL         "",IDC_LIST_STATE,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,4,81,119,105
+    LTEXT           "Money:",IDC_STATIC_MONEY,4,72,119,8
+    LTEXT           "Current Map: Unknown",IDC_STATIC_MAP_NAME,15,254,108,8
+    LTEXT           "Current Coordinates:",IDC_STATIC_MAP_POSITION,15,269,108,8
+END
+
+IDD_DIALOG_LOGIN DIALOGEX 0, 0, 134, 286
+STYLE DS_SETFONT | WS_CHILD | WS_CAPTION | WS_SYSMENU
+CAPTION "Login"
+FONT 8, "Arial", 400, 0, 0x86
+BEGIN
+    EDITTEXT        IDC_EDIT_ACCOUNT,48,22,69,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PASSWORD,48,38,69,13,ES_PASSWORD | ES_AUTOHSCROLL
+    PUSHBUTTON      "&Add",IDC_BUTTON_ADD,8,73,55,13
+    COMBOBOX        IDC_COMBO_ROLE,48,55,70,47,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_LIST_ACCOUNT,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,5,88,121,122
+    PUSHBUTTON      "&Delete",IDC_BUTTON_DELETE,66,73,55,13,WS_DISABLED
+    PUSHBUTTON      "&Save List",IDC_BUTTON_SAVE,11,214,54,13
+    PUSHBUTTON      "Login",IDC_BUTTON_LOGIN,11,227,54,13
+    PUSHBUTTON      "&Read List",IDC_BUTTON_LOAD,65,214,54,13
+    LTEXT           "Server:",IDC_STATIC,14,7,34,8
+    LTEXT           "username:",IDC_STATIC,14,23,33,8
+    LTEXT           "Password:",IDC_STATIC,22,41,25,8
+    LTEXT           "Person:",IDC_STATIC,22,57,25,8
+    PUSHBUTTON      "Logout",IDC_BUTTON6,65,227,54,13
+    CONTROL         "Do not reconnect after disconnection",IDC_CHECK_DONT_RECONNECT,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,259,135,10
+    PUSHBUTTON      "Read the automatic jump coordinate",IDC_BUTTON_LOAD_MOVE_TABLE,11,240,108,14,WS_DISABLED
+    CONTROL         "Repeatedly create and delete roles",IDC_CHECK_AUTO_CREATE_DEL,
+                    "Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_DISABLED | WS_TABSTOP,12,271,128,10
+    COMBOBOX        IDC_COMBO_SERVER,48,4,70,91,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_VIEW_ITEM DIALOGEX 0, 0, 133, 331
+STYLE DS_SETFONT | WS_CHILD | WS_SYSMENU
+FONT 9, "Arial", 400, 0, 0x0
+BEGIN
+    LTEXT           "Current Account:",IDC_STATIC,3,4,41,8
+    COMBOBOX        IDC_COMBO_SELECT_MAIN_PLAYER,44,2,86,110,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_STATIC_SHEET_RECT,"Static",SS_BLACKFRAME | SS_NOTIFY | NOT WS_VISIBLE,0,20,133,307
+END
+
+IDD_DIALOG_SURROUND DIALOGEX 0, 0, 153, 329
+STYLE DS_SETFONT | WS_CHILD | WS_CAPTION | WS_SYSMENU
+CAPTION "Enviroment"
+FONT 8, "Arial", 400, 0, 0x86
+BEGIN
+    LTEXT           "Nearby players:",IDC_STATIC,4,3,81,8
+    LTEXT           "Nearby monsters:",IDC_STATIC,4,102,81,8
+    LTEXT           "Nearby props:",IDC_STATIC,4,200,79,8
+    CONTROL         "",IDC_LIST_PLAYERS,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,3,13,123,84
+    CONTROL         "",IDC_LIST_MONSTER,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,3,111,123,84
+    CONTROL         "",IDC_LIST_ITEMS,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,3,211,123,84
+END
+
+IDD_DIALOG_NPC DIALOGEX 0, 0, 153, 329
+STYLE DS_SETFONT | WS_CHILD | WS_CAPTION | WS_SYSMENU
+CAPTION "NPC"
+FONT 8, "Arial", 400, 0, 0x86
+BEGIN
+    CONTROL         "",IDC_LIST_NPC,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,3,13,123,160
+    LTEXT           "Nearby NPCs:",IDC_STATIC,4,3,81,8
+END
+
+IDD_DIALOG_ITEMS DIALOGEX 0, 0, 153, 329
+STYLE DS_SETFONT | WS_CHILD | WS_CAPTION | WS_SYSMENU
+CAPTION "Props"
+FONT 8, "Arial", 400, 0, 0x86
+BEGIN
+    CONTROL         "",IDC_LIST_ITEMS,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,1,110,127,184
+    CONTROL         "",IDC_LIST_EQUIP,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,1,15,127,79
+    LTEXT           "Equipment worn:",IDC_STATIC,2,4,60,8
+    LTEXT           "Items in the package:",IDC_STATIC,2,99,67,8
+END
+
+IDD_DIALOG_SYSTEM DIALOGEX 0, 0, 381, 321
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_CHILD | WS_CAPTION | WS_SYSMENU
+CAPTION "System"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_RICHEDIT_SYSTEM,"RichEdit20A",ES_MULTILINE | ES_NOHIDESEL | ES_READONLY | WS_BORDER | WS_VSCROLL | WS_HSCROLL,4,8,373,289
+    CONTROL         "Scroll Lock",IDC_CHECK_LOCK,"Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,330,304,46,9
+    PUSHBUTTON      "&Clear Screen",IDC_BUTTON_CLEAR,252,302,57,13
+    CONTROL         "Shield system information(yellow)",IDC_CHECK_SYSTEM_FILTER,
+                    "Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,11,304,85,10
+    CONTROL         "Shield debugging information(blue)",IDC_CHECK_DEBUG_FILTER,
+                    "Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,101,304,85,10
+    PUSHBUTTON      "&Copy All",IDC_BUTTON_COPY,190,302,57,13
+END
+
+IDD_DIALOG_TALK DIALOGEX 0, 0, 381, 321
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_CHILD | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialouge"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "Receive Information:",IDC_STATIC,3,5,373,260
+    GROUPBOX        "Send message:",IDC_STATIC,3,272,373,43
+    COMBOBOX        IDC_COMBO_CHANNEL,58,282,51,30,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Select Channel:",IDC_STATIC,17,284,39,8
+    COMBOBOX        IDC_COMBO_TARGET,268,282,82,30,CBS_DROPDOWN | CBS_AUTOHSCROLL | CBS_SORT | WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Target:",IDC_STATIC,242,284,23,8
+    COMBOBOX        IDC_COMBO_TEXT,58,298,237,30,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Send content:",IDC_STATIC,17,300,39,8
+    PUSHBUTTON      "&Send",IDC_BUTTON_SEND,313,297,50,14
+    CONTROL         "",IDC_STATIC_SHEET_RECT,"Static",SS_BLACKFRAME | NOT WS_VISIBLE,7,18,363,230
+    COMBOBOX        IDC_COMBO_COMMAND,146,282,76,30,CBS_DROPDOWNLIST | CBS_SORT | WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Operation:",IDC_STATIC,121,284,20,8
+    PUSHBUTTON      "...",IDC_BUTTON_NAME_LIST,350,282,13,13,WS_DISABLED
+    PUSHBUTTON      "...",IDC_BUTTON_AUTO_PUBLISH_MGR,296,298,13,13
+END
+
+IDD_DIALOG_MAP DIALOGEX 0, 0, 381, 321
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_CHILD | WS_CAPTION | WS_SYSMENU
+CAPTION "Map"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+END
+
+IDD_DIALOG_SCRIPT DIALOGEX 0, 0, 381, 321
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_CHILD | WS_CAPTION | WS_SYSMENU
+CAPTION "Script"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+END
+
+IDD_DIALOG_SETUP DIALOGEX 0, 0, 381, 321
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_CHILD | WS_CAPTION | WS_SYSMENU
+CAPTION "Setup"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+END
+
+IDD_DIALOG_TOTAL_TALK_SESSION DIALOGEX 0, 0, 358, 225
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_CHILD | WS_CAPTION | WS_SYSMENU
+CAPTION "All"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_RICHEDIT_TALK,"RichEdit20A",ES_MULTILINE | ES_NOHIDESEL | ES_READONLY | WS_BORDER | WS_VSCROLL | WS_HSCROLL,0,1,357,223
+END
+
+IDD_DIALOG_PRIVATE_TALK_SESSION DIALOGEX 0, 0, 358, 225
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Private Chat"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_RICHEDIT_TALK,"RichEdit20A",ES_MULTILINE | ES_NOHIDESEL | ES_READONLY | WS_BORDER | WS_VSCROLL | WS_HSCROLL,0,0,286,144
+    LISTBOX         IDC_LIST_PLAYER,286,15,71,105,LBS_OWNERDRAWFIXED | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    LTEXT           "Total received items: 0",IDC_STATIC_IN,290,122,67,8
+    LTEXT           "Total number sent: 0",IDC_STATIC_OUT,290,133,67,8
+    LTEXT           "Player list (receiving/sending)",IDC_STATIC,290,4,63,8
+    PUSHBUTTON      "Clear All",IDC_BUTTON_CLEAR,288,143,65,14,NOT WS_VISIBLE
+    GROUPBOX        "ALL",IDC_STATIC,1,146,356,78,WS_TABSTOP
+    CONTROL         "",IDC_RICHEDIT_TOTAL_TALK,"RichEdit20A",ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_NOHIDESEL | ES_READONLY | WS_BORDER | WS_VSCROLL | WS_HSCROLL,4,155,349,65
+END
+
+IDD_DIALOG_NORMAL_TALK_SESSION DIALOGEX 0, 0, 358, 225
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialouge"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_RICHEDIT_TALK,"RichEdit20A",ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_NOHIDESEL | ES_READONLY | WS_BORDER | WS_VSCROLL | WS_HSCROLL,0,0,357,144
+    GROUPBOX        "All",IDC_STATIC,1,146,356,78,WS_TABSTOP
+    CONTROL         "",IDC_RICHEDIT_TOTAL_TALK,"RichEdit20A",ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_NOHIDESEL | ES_READONLY | WS_BORDER | WS_VSCROLL | WS_HSCROLL,4,155,349,65
+END
+
+IDD_DIALOG_AUTO_PUBLISH_MGR DIALOGEX 0, 0, 460, 154
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Auto Send Manager"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT_TEXT,39,23,416,14,ES_AUTOHSCROLL
+    LTEXT           "Published Content:",IDC_STATIC,3,26,36,8
+    LTEXT           "Publisher:",IDC_STATIC,11,10,28,8
+    COMBOBOX        IDC_COMBO1,39,8,57,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Release channeL:",IDC_STATIC,101,10,36,8
+    COMBOBOX        IDC_COMBO2,137,8,39,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Release time:",IDC_STATIC,181,10,36,8
+    CONTROL         "",IDC_DATETIMEPICKER1,"SysDateTimePick32",DTS_RIGHTALIGN | DTS_UPDOWN | WS_TABSTOP,218,7,73,15
+    LTEXT           "Interval:",IDC_STATIC,304,10,20,8
+    COMBOBOX        IDC_COMBO3,323,8,36,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO4,417,8,28,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Minute",IDC_STATIC,361,10,17,8
+    LTEXT           "Auto-repeat:",IDC_STATIC,381,10,36,8
+    LTEXT           "Times",IDC_STATIC,446,10,9,8
+    CONTROL         "",IDC_LIST_INFO,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,3,55,453,98
+    LTEXT           "Note: It will take effect immediately after adding, the actual release time will be postponed by 1 minute each time, if you add it by mistake, please delete it within 1 minute",IDC_STATIC,19,40,305,8
+    PUSHBUTTON      "Delete",IDC_BUTTON_DEL,406,38,50,14,WS_DISABLED
+    PUSHBUTTON      "Add",IDC_BUTTON_ADD,355,38,50,14,WS_DISABLED
+    PUSHBUTTON      "N",IDC_BUTTON_GET_NOW_TIME,291,7,10,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080403a8"
+        BEGIN
+            VALUE "CompanyName", "TODO: <Company Name>"
+            VALUE "FileDescription", "TODO: <Document description>"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "BKop.exe"
+            VALUE "LegalCopyright", "TODO: (C) <Company name>. all rights reserved."
+            VALUE "OriginalFilename", "BKop.exe"
+            VALUE "ProductName", "TODO: <product name>"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "translate", 0x804, 936
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_DIALOG_DELETE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 203
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 84
+    END
+
+    IDD_DIALOG_LOGIN, DIALOG
+    BEGIN
+    END
+
+    IDD_VIEW_ITEM, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 327
+    END
+
+    IDD_DIALOG_ITEMS, DIALOG
+    BEGIN
+        RIGHTMARGIN, 135
+    END
+
+    IDD_DIALOG_TOTAL_TALK_SESSION, DIALOG
+    BEGIN
+        RIGHTMARGIN, 357
+        BOTTOMMARGIN, 224
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_MAINVIEW DLGINIT
+BEGIN
+    IDC_COMBO_MODE, 0x403, 5, 0
+0xf2bc, 0xa5b5, "\000" 
+    IDC_COMBO_MODE, 0x403, 5, 0
+0xd5c6, 0xa8cd, "\000" 
+    IDC_COMBO_MODE, 0x403, 5, 0
+0xb5cf, 0xb3cd, "\000" 
+    IDC_COMBO_MODE, 0x403, 5, 0
+0xf7b5, 0xd4ca, "\000" 
+    IDC_COMBO_MODE, 0x403, 9, 0
+0xdfb8, 0xb6bc, 0xf7b5, 0xd4ca, "\000" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_DIALOG_LOGIN AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDP_OLE_INIT_FAILED     "OLE initialization failed. Make sure the OLE library is the correct version."
+    IDP_SOCKETS_INIT_FAILED "Windows Sockets initialization failed."
+END
+
+STRINGTABLE
+BEGIN
+    IDR_MAINFRAME           "BKop"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_APP_TITLE       "BKop"
+    AFX_IDS_IDLEMESSAGE     "For help, press F1"
+    AFX_IDS_HELPMODEMESSAGE "Select an object for which to get help information"
+END
+
+STRINGTABLE
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Exit the application; prompt to save document\nexit"
+    ID_HELP_INDEX           "Open Help\nHelp Topics"
+    ID_HELP_FINDER          "List help topics\nhelp topics"
+    ID_HELP_USING           "Show instructions on how to use help\nhelp"
+    ID_CONTEXT_HELP         "Displays help information about clicked buttons, menus and windows\nHelp"
+    ID_HELP                 "Show help information for the current task or command\nhelp"
+END
+
+STRINGTABLE
+BEGIN
+    ID_NEXT_PANE            "Switch to next pane\nnext pane"
+    ID_PREV_PANE            "Switch back to the previous pane\nPrevious pane"
+END
+
+STRINGTABLE
+BEGIN
+    ID_WINDOW_SPLIT         "Splits the active window into multiple panes\nSplit"
+END
+
+STRINGTABLE
+BEGIN
+    ID_EDIT_CLEAR           "Clear Selection\nClear"
+    ID_EDIT_CLEAR_ALL       "Clear all content\nClear all"
+    ID_EDIT_COPY            "Copy the selection and put it on the clipboard\nCopy"
+    ID_EDIT_CUT             "Cuts the selection and puts it on the clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert clipboard content\npaste"
+    ID_EDIT_REPEAT          "Repeat last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with other text\nreplace"
+    ID_EDIT_SELECT_ALL      "Selects the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redos the last undone\nredo"
+END
+
+STRINGTABLE
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\ntoggle toolbar"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCSIZE          "Change window size"
+    AFX_IDS_SCMOVE          "Change window position"
+    AFX_IDS_SCMINIMIZE      "Shrink windows to icons"
+    AFX_IDS_SCMAXIMIZE      "Maximize window display"
+    AFX_IDS_SCNEXTWINDOW    "Switch to next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompt to save the document"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCRESTORE       "restore window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate task list"
+END
+
+#endif    // Chinese (Simplified, China) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE 4, 2
+#pragma code_page(936)
+#include "res\BKop.rc2"  // ? Microsoft Visual C++ ????
+#include "afxres.rc"         // ????
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,890 @@
+-----------------------------------------------------------------------
+-- 定义区域列表
+-----------------------------------------------------------------------	
+-- 创建区域列表表单
+frmRegion = UI_CreateForm( "frmRegion", FALSE, 425, 436, 396, 325, FALSE, FALSE )
+UI_SetFormStyle( frmRegion , 1 )
+UI_AddFormToTemplete( frmRegion, FORM_LOGIN )
+--UI_SetAlpha( frmRegion, 200 )
+UI_FormSetIsEscClose( frmRegion, FALSE )
+
+-- 加载背景图片
+imgBakTopL = UI_CreateCompent( frmRegion, IMAGE_TYPE, "imgBakTopL", 256, 256, 0, 0 )
+UI_LoadImage( imgBakTopL, "texture/ui2009/servermain1.tga", NORMAL, 256, 256, 0, 0 )
+UI_SetImageAlpha(imgBakTopL,220)
+
+imgBakTopR = UI_CreateCompent( frmRegion, IMAGE_TYPE, "imgBakTopR", 169, 256, 256, 0 )
+UI_LoadImage( imgBakTopR, "texture/ui2009/servermain2.tga", NORMAL, 169, 256, 0, 0 )
+UI_SetImageAlpha(imgBakTopR,220)
+
+imgBakDownL = UI_CreateCompent( frmRegion, IMAGE_TYPE, "imgBakDownL", 256, 180, 0, 256 )
+UI_LoadImage( imgBakDownL, "texture/ui2009/servermain3.tga", NORMAL, 256, 180, 0, 0 )
+UI_SetImageAlpha(imgBakDownL,220)
+
+imgBakDownR = UI_CreateCompent( frmRegion, IMAGE_TYPE, "imgBakDownR", 169, 180, 256, 256 )
+UI_LoadImage( imgBakDownR, "texture/ui2009/servermain4.tga", NORMAL, 169, 180, 0, 0 )
+UI_SetImageAlpha(imgBakDownR,220)
+
+--获得区域列表
+--区域名称
+region0Name = UI_CreateCompent( frmRegion, LABELEX_TYPE, "region0Name", 130, 24, 20, 80 )
+UI_SetCaption( region0Name, "region0Name" )
+UI_SetTextColor( region0Name, COLOR_RED )
+UI_SetLabelExFont(region0Name, 7, 0, COLOR_BLACK)
+
+region1Name = UI_CreateCompent( frmRegion, LABELEX_TYPE, "region1Name", 130, 24, 148, 80 )
+FORMS_EDITOR_CLU_000001 = GetResString("FORMS_EDITOR_CLU_000001")
+UI_SetCaption( region1Name, "region1Name" )
+UI_SetTextColor( region1Name, COLOR_RED )
+UI_SetLabelExFont(region1Name, 7, 0, COLOR_BLACK)
+
+region2Name = UI_CreateCompent( frmRegion, LABELEX_TYPE, "region2Name", 130, 24, 277, 80 )
+FORMS_EDITOR_CLU_000001 = GetResString("FORMS_EDITOR_CLU_000001")
+UI_SetCaption( region02Name, "region2Name" )
+UI_SetTextColor( region2Name, COLOR_RED )
+UI_SetLabelExFont(region2Name, 7, 0, COLOR_BLACK)
+
+--服务器列表
+lstRegion0 = UI_CreateCompent( frmRegion, LIST_TYPE, "lstRegion0", 125, 230, 30, 94 )
+UI_ListSetItemMargin( lstRegion0, 0, 9 )
+UI_SetListRowHeight( lstRegion0, 24 )
+UI_SetListIsMouseFollow( lstRegion0, TRUE)
+UI_ListLoadSelectImage( lstRegion0, "texture/ui/SystemBotton3.tga", 79, 13, 25, 227 )
+UI_SetImageAlpha( lstRegion0, 134 )
+UI_SetListFontColor( lstRegion0, COLOR_BLACK, COLOR_BLACK )
+
+lstRegion1 = UI_CreateCompent( frmRegion, LIST_TYPE, "lstRegion1", 125, 230, 160, 94 )
+UI_ListSetItemMargin( lstRegion1, 0, 9 )
+UI_SetListRowHeight( lstRegion1, 24 )
+UI_SetListIsMouseFollow( lstRegion1, TRUE)
+UI_ListLoadSelectImage( lstRegion1, "texture/ui/SystemBotton3.tga", 79, 13, 25, 227 )
+UI_SetImageAlpha( lstRegion1, 134 )
+UI_SetListFontColor( lstRegion1, COLOR_BLACK, COLOR_BLACK )
+
+lstRegion2 = UI_CreateCompent( frmRegion, LIST_TYPE, "lstRegion2", 125, 230, 290, 94 )
+UI_ListSetItemMargin( lstRegion2, 0, 9 )
+UI_SetListRowHeight( lstRegion2, 24 )
+UI_SetListIsMouseFollow( lstRegion2, TRUE)
+UI_ListLoadSelectImage( lstRegion2, "texture/ui/SystemBotton3.tga", 79, 13, 25, 227 )
+UI_SetImageAlpha( lstRegion2, 134 )
+UI_SetListFontColor( lstRegion2, COLOR_BLACK, COLOR_BLACK )
+
+--获得滚动条
+scrollid = UI_GetScroll( lstRegion0 )
+UI_SetSize( scrollid, 8, 1 )
+UI_LoadImage( scrollid, "texture/ui2009/item1.tga", COMPENT_BACK, 8, 1, 232, 117 )
+
+--加载向上按钮
+id = UI_GetScrollObj( scrollid, SCROLL_UP )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--加载滚动条
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/ui2009/item1.tga", COMPENT_BACK, 8, 33, 203, 0 )
+UI_SetSize( id, 8, 33 )
+
+--加载向下按钮
+id = UI_GetScrollObj( scrollid, SCROLL_DOWN )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--获得滚动条
+scrollid = UI_GetScroll( lstRegion1 )
+UI_SetSize( scrollid, 8, 1 )
+UI_LoadImage( scrollid, "texture/ui2009/item1.tga", COMPENT_BACK, 8, 1, 232, 117 )
+
+--加载向上按钮
+id = UI_GetScrollObj( scrollid, SCROLL_UP )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--加载滚动条
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/ui2009/item1.tga", COMPENT_BACK, 8, 33, 203, 0 )
+UI_SetSize( id, 8, 33 )
+
+--加载向下按钮
+id = UI_GetScrollObj( scrollid, SCROLL_DOWN )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--获得滚动条
+scrollid = UI_GetScroll( lstRegion2 )
+UI_SetSize( scrollid, 8, 1 )
+UI_LoadImage( scrollid, "texture/ui2009/item1.tga", COMPENT_BACK, 8, 1, 232, 117 )
+
+--加载向上按钮
+id = UI_GetScrollObj( scrollid, SCROLL_UP )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--加载滚动条
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/ui2009/item1.tga", COMPENT_BACK, 8, 33, 203, 0 )
+UI_SetSize( id, 8, 33 )
+
+--加载向下按钮
+id = UI_GetScrollObj( scrollid, SCROLL_DOWN )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+
+
+
+--取消按钮
+btnNo = UI_CreateCompent( frmRegion, BUTTON_TYPE, "btnNo", 47, 22, 185, 402 )
+UI_LoadButtonImage( btnNo, "texture/ui2009/button.tga", 47, 22, 0, 22, TRUE )
+UI_SetAlpha(btnNo,210)
+
+--获得服务器列表
+lvServer0 = UI_CreateListView( frmServer, "lvServer0", 184, 150, 16, 37, 2, 2 )
+UI_SetMargin( lvServer0, 19, 20, 15, 0 )
+UI_ListViewSetTitle( lvServer0, 0, 15, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lvServer0, 1, 132, "", 0, 0, 0, 0 )
+UI_ListSetItemMargin( lvServer0, 10, 9 )
+UI_SetListRowHeight( lvServer0, 23 )
+UI_SetListIsMouseFollow( lvServer0, TRUE)
+UI_ListLoadSelectImage( lvServer0, "texture/ui/SystemBotton3.tga", 79, 13, 25, 227 )
+UI_SetImageAlpha( lvServer0, 134 )
+UI_SetListFontColor( lvServer0, COLOR_BLACK, COLOR_RED )
+
+lvServer1 = UI_CreateListView( frmServer, "lvServer1", 184, 150, 202, 37, 2, 2 )
+UI_SetMargin( lvServer1, 19, 20, 15, 0 )
+UI_ListViewSetTitle( lvServer1, 0, 15, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( lvServer1, 1, 132, "", 0, 0, 0, 0 )
+UI_ListSetItemMargin( lvServer1, 10, 9 )
+UI_SetListRowHeight( lvServer1, 23 )
+UI_SetListIsMouseFollow( lvServer1, TRUE)
+UI_ListLoadSelectImage( lvServer1, "texture/ui/SystemBotton3.tga", 79, 13, 25, 227, 2, 2 )
+UI_SetImageAlpha( lvServer1, 134 )
+UI_SetListFontColor( lvServer1, COLOR_BLACK, COLOR_RED )
+
+
+--获得滚动条
+scrollid = UI_GetScroll( lstServer )
+--UI_SetIsEnabled( scrollid, FALSE )
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/ui/PublicC.tga", COMPENT_BACK, 11, 1, 194, 13 )
+
+--加载向上按钮
+id = UI_GetScrollObj( scrollid, SCROLL_UP )
+UI_LoadButtonImage( id, "texture/ui/PublicC.tga", 11, 9, 166, 0, TRUE )
+UI_SetSize( id, 11, 9 )
+
+--加载滚动条
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/ui/PublicC.tga", COMPENT_BACK, 11, 43, 166, 10 )
+UI_SetSize( id, 11, 43 )
+
+--加载向下按钮
+id = UI_GetScrollObj( scrollid, SCROLL_DOWN )
+UI_LoadButtonImage( id, "texture/ui/PublicC.tga", 11, 9, 166, 0, TRUE )
+UI_SetSize( id, 11, 9 )
+
+
+--取消按钮
+btnNo = UI_CreateCompent( frmServer, BUTTON_TYPE, "btnNo", 47, 22, 185, 263 )
+UI_LoadButtonImage( btnNo, "texture/ui2009/button.tga", 47, 22, 0, 22, TRUE )
+UI_SetAlpha(btnNo,210)
+-----------------------------------------------------------------------
+-- 定义帐号输入表单
+-----------------------------------------------------------------------
+-- 创建帐号输入
+frmAccount = UI_CreateForm( "frmAccount", FALSE, 191, 112, 310, 373, FALSE, FALSE )
+UI_AddFormToTemplete( frmAccount, FORM_LOGIN )
+-- 将Form加入nTempleteNo模板中,nTempleteNo要小于max,大于等于零
+UI_SetFormStyle( frmAccount, 2 )
+--UI_SetIsDrag( frmAccount, TRUE )
+--UI_SetAlpha( frmAccount, 200 )
+--UI_FormSetHotKey( frmAccount, ALT_KEY, 75 ) --'K'
+UI_FormSetIsEscClose( frmAccount, FALSE )
+
+-- 加载背景图片
+imgAccout = UI_CreateCompent( frmAccount, IMAGE_TYPE, "imgAccout", 191, 112, 0, 0 )
+UI_LoadImage( imgAccout, "texture/ui2009/login01.tga", NORMAL, 191, 112, 0, 0 )
+UI_SetImageAlpha(imgAccout,235)
+
+-- 加载界面title
+-- imgBakTitle = UI_CreateCompent( frmAccount, IMAGE_TYPE, "imgBakTitle", 49, 13, 7, 4 )
+-- UI_LoadImage( imgBakTitle, "texture/ui/word.bmp", NORMAL, 49, 13, 96, 0 )
+
+--创建帐号两个字
+labID = UI_CreateCompent( frmAccount, LABELEX_TYPE, "labID", 23, 11, 23, 41 )
+FORMS_LOGIN_CLU_000001 = GetResString("FORMS_LOGIN_CLU_000001")
+UI_SetCaption( labID, FORMS_LOGIN_CLU_000001 )-- 设置控件的显示文字
+UI_SetTextColor( labID, COLOR_BLACK )
+UI_SetLabelExFont( labID, DEFAULT_FONT, TRUE, COLOR_WHITE )-- 设置扩展Label的字体,以及是否显示阴影
+
+--创建密码两个字
+labPass = UI_CreateCompent( frmAccount, LABELEX_TYPE, "labPass", 23, 11, 32, 62 )
+--FORMS_DIALOG_CLU_000007 = GetResString("FORMS_DIALOG_CLU_000007")
+UI_SetCaption( labPass, "Psd" )
+UI_SetTextColor( labPass, COLOR_BLACK )
+UI_SetLabelExFont( labPass, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--密码和帐号
+imgID = UI_CreateCompent( frmAccount, IMAGE_TYPE, "imgID", 88, 18, 62, 41 )
+-- UI_LoadImage( imgID, "texture/ui/PublicC.tga", NORMAL, 87, 18, 99, 235 )
+imgPass = UI_CreateCompent( frmAccount, IMAGE_TYPE, "imgPass", 88, 18, 62, 62 )
+-- UI_LoadImage( imgPass, "texture/ui/PublicC.tga", NORMAL, 87, 18, 99, 235 )
+
+--加载帐号锁定框
+chkID = UI_CreateCompent( frmAccount, CHECK_TYPE, "chkID", 10, 10, 158, 42 )
+UI_LoadImage( chkID, "texture/ui2009/login01.tga", UNCHECKED, 10, 10, 221, 88 )
+UI_LoadImage( chkID, "texture/ui2009/login01.tga", CHECKED, 10, 10, 191, 88 )
+FORMS_LOGIN_CLU_000002 = GetResString("FORMS_LOGIN_CLU_000002")
+UI_SetHint( chkID, FORMS_LOGIN_CLU_000002 )-- 设置控件提示
+
+--加载登陆，取消按钮
+btnYes = UI_CreateCompent( frmAccount, BUTTON_TYPE, "btnYes", 41, 19, 85, 83 )
+UI_LoadButtonImage( btnYes, "texture/ui2009/button.tga", 47, 22, 0, 0, TRUE ) 
+
+btnNo = UI_CreateCompent( frmAccount, BUTTON_TYPE, "btnNo", 41, 19, 131, 83 )
+UI_LoadButtonImage( btnNo, "texture/ui2009/button.tga", 47, 22, 0, 22, TRUE )
+
+labYes = UI_CreateCompent( frmAccount, LABELEX_TYPE, "labYes", 42, 10, 107, 155 )
+UI_SetCaption( labYes, "" )-- 设置控件的显示文字
+UI_SetTextColor( labYes, COLOR_WHITE )-- 设置控件字体颜色
+UI_SetLabelExFont( labYes, DEFAULT_FONT, TRUE, COLOR_BLACK )
+-- 设置扩展Label的字体,以及是否显示阴影
+
+labNo = UI_CreateCompent( frmAccount, LABELEX_TYPE, "labNo", 42, 10, 152, 155 )
+UI_SetCaption( labNo, "" )
+UI_SetTextColor( labNo, COLOR_WHITE )
+UI_SetLabelExFont( labNo, DEFAULT_FONT, TRUE, COLOR_BLACK )
+
+
+--加载帐号和密码输入框
+edtID = UI_CreateCompent( frmAccount, EDIT_TYPE, "edtID", 80, 12, 72, 40 )
+UI_SetTextColor( edtID, COLOR_BLACK )
+UI_SetEditMaxNum( edtID, 40 )-- 设置输入框最大输入字数,单位:byte
+UI_SetEditMaxNumVisible( edtID, 12 )-- 设置输入框最大输入字数,单位:byte
+
+edtPassword = UI_CreateCompent( frmAccount, EDIT_TYPE, "edtPassword", 80, 12, 72, 62 )
+UI_SetTextColor( edtPassword, COLOR_BLACK )
+UI_SetEditMaxNum( edtPassword, 20 )
+UI_SetEditMaxNumVisible( edtPassword, 12 )
+
+--加载软件盘开关按钮(程序实现，美术做字母按钮图形）
+btnKeyboard = UI_CreateCompent( frmAccount, BUTTON_TYPE, "btnKeyboard", 57, 21, 21, 84 )
+UI_LoadButtonImage( btnKeyboard, "texture/UI2009/login01.tga", 57, 21, 192, 1, FALSE )
+
+-----------------------------------------------------------------------
+-- 定义软件盘
+-----------------------------------------------------------------------	
+-- 创建软件盘表单
+frmKeyboard = UI_CreateForm( "frmKeyboard", FALSE, 447, 122, 396, 490, FALSE, FALSE )
+--UI_LoadFormImage( frmKeyboard, "texture/ui/Game.bmp", 198, 207, 0, 0, "", 0, 0 )
+UI_AddFormToTemplete( frmKeyboard, FORM_LOGIN )
+UI_SetFormStyle( frmKeyboard, 2 )
+--UI_SetAlpha( frmKeyboard, 200 )
+UI_FormSetIsEscClose( frmKeyboard, FALSE )
+--UI_FormSetHotKey( frmKeyboard, ALT_KEY, 75 ) --'K'
+
+
+-- 加载背景图片
+imgKeyboard1 = UI_CreateCompent( frmKeyboard, IMAGE_TYPE, "imgKeyboard1", 256, 128, -5, -2 )
+UI_LoadImage( imgKeyboard1, "texture/ui2009/Keyboard1.tga", NORMAL, 256, 128, 0, 0 )
+UI_SetImageAlpha( imgKeyboard1, 210 )
+
+imgKeyboard2 = UI_CreateCompent( frmKeyboard, IMAGE_TYPE, "imgKeyboard2", 191, 128, 251, -2 )
+UI_LoadImage( imgKeyboard2, "texture/ui2009/Keyboard1.tga", NORMAL, 195, 128, 0, 128 )
+UI_SetImageAlpha( imgKeyboard2, 210 )
+
+-- 加载界面title
+labTitle = UI_CreateCompent( frmKeyboard, LABELEX_TYPE, "labTitle", 24, 10, 53, 15 )
+--FORMS_LOGIN_CLU_000003 = GetResString("FORMS_LOGIN_CLU_000003")
+--UI_SetCaption( labTitle, "please use the soft keyboard to input your psd " )-- 设置控件的显示文字
+UI_SetCaption( labTitle, "Use the soft keyboard input for your account safety " )-- 设置控件的显示文字
+UI_SetTextColor( labTitle, COLOR_WHITE )
+UI_SetLabelExFont( labTitle, DEFAULT_FONT, TRUE, COLOR_BLACK )
+
+
+--加载数值按钮
+btnNum1 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnNum1", 27, 17, 28, 50 )
+UI_LoadButtonImage( btnNum1, "texture/ui2009/Keyboard2.tga", 27, 17, 108, 17, TRUE )
+btnNum2 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnNum2", 27, 17, 55, 50 )
+UI_LoadButtonImage( btnNum2, "texture/ui2009/Keyboard2.tga", 27, 17, 0, 102, TRUE )
+btnNum3 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnNum3", 27, 17, 82, 50 )
+UI_LoadButtonImage( btnNum3, "texture/ui2009/Keyboard2.tga", 27, 17, 108, 102, TRUE )
+btnNum4 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnNum4", 27, 17, 109, 50 )
+UI_LoadButtonImage( btnNum4, "texture/ui2009/Keyboard2.tga", 27, 17, 0, 187, TRUE )
+btnNum5 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnNum5", 27, 17, 136, 50 )
+UI_LoadButtonImage( btnNum5, "texture/ui2009/Keyboard2.tga", 27, 17, 108, 187, TRUE )
+btnNum6 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnNum6", 27, 17, 163, 50 )
+UI_LoadButtonImage( btnNum6, "texture/ui2009/Keyboard3.tga", 27, 17, 0, 17, TRUE )
+btnNum7 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnNum7", 27, 17, 190, 50 )
+UI_LoadButtonImage( btnNum7, "texture/ui2009/Keyboard3.tga", 27, 17, 108, 17, TRUE )
+btnNum8 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnNum8", 27, 17, 217, 50 )
+UI_LoadButtonImage( btnNum8, "texture/ui2009/Keyboard3.tga", 27, 17, 0, 102, TRUE )
+btnNum9 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnNum9", 27, 17, 244, 50 )
+UI_LoadButtonImage( btnNum9, "texture/ui2009/Keyboard3.tga", 27, 17, 108, 102, TRUE )
+btnNum0 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnNum0", 27, 17, 271, 50 )
+UI_LoadButtonImage( btnNum0, "texture/ui2009/Keyboard3.tga", 27, 17, 0, 187, TRUE )
+
+--加载字母按钮
+btnLetterA = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnLetterA", 27, 17, 1, 84 )
+UI_LoadButtonImage( btnLetterA, "texture/ui2009/Keyboard2.tga", 27, 17, 0, 51, TRUE )
+btnLetterB = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnLetterB", 27, 17, 109, 101 )
+UI_LoadButtonImage( btnLetterB, "texture/ui2009/Keyboard2.tga", 27, 17, 0, 238, TRUE )
+btnLetterC = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnLetterC", 27, 17, 55, 101 )
+UI_LoadButtonImage( btnLetterC, "texture/ui2009/Keyboard2.tga", 27, 17, 0, 153, TRUE )
+btnLetterD = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnLetterD", 27, 17, 55, 84 )
+UI_LoadButtonImage( btnLetterD, "texture/ui2009/Keyboard2.tga", 27, 17, 0, 136, TRUE )
+btnLetterE = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnLetterE", 27, 17, 55, 67 )
+UI_LoadButtonImage( btnLetterE, "texture/ui2009/Keyboard2.tga", 27, 17, 0, 119, TRUE )
+btnLetterF = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnLetterF", 27, 17, 82, 84 )
+UI_LoadButtonImage( btnLetterF, "texture/ui2009/Keyboard2.tga", 27, 17, 108, 136, TRUE )
+btnLetterG = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnLetterG", 27, 17, 109, 84 )
+UI_LoadButtonImage( btnLetterG, "texture/ui2009/Keyboard2.tga", 27, 17, 0, 221, TRUE )
+btnLetterH = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnLetterH", 27, 17, 136, 84 )
+UI_LoadButtonImage( btnLetterH, "texture/ui2009/Keyboard2.tga", 27, 17, 108, 221, TRUE )
+btnLetterI = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnLetterI", 27, 17, 190, 67 )
+UI_LoadButtonImage( btnLetterI, "texture/ui2009/Keyboard3.tga", 27, 17, 108, 34, TRUE )
+btnLetterJ = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnLetterJ", 27, 17, 163, 84 )
+UI_LoadButtonImage( btnLetterJ, "texture/ui2009/Keyboard3.tga", 27, 17, 0, 51, TRUE )
+btnLetterK = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnLetterK", 27, 17, 190, 84 )
+UI_LoadButtonImage( btnLetterK, "texture/ui2009/Keyboard3.tga", 27, 17, 108, 51, TRUE )
+btnLetterL = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnLetterL", 27, 17, 217, 84 )
+UI_LoadButtonImage( btnLetterL, "texture/ui2009/Keyboard3.tga", 27, 17, 0, 136, TRUE )
+btnLetterM = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnLetterM", 27, 17, 163, 101 )
+UI_LoadButtonImage( btnLetterM, "texture/ui2009/Keyboard3.tga", 27, 17, 0, 68, TRUE )
+btnLetterN = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnLetterN", 27, 17, 136, 101 )
+UI_LoadButtonImage( btnLetterN, "texture/ui2009/Keyboard2.tga", 27, 17, 108, 238, TRUE )
+btnLetterO = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnLetterO", 27, 17, 217, 67 )
+UI_LoadButtonImage( btnLetterO, "texture/ui2009/Keyboard3.tga", 27, 17, 0, 119, TRUE )
+btnLetterP = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnLetterP", 27, 17, 244, 67 )
+UI_LoadButtonImage( btnLetterP, "texture/ui2009/Keyboard3.tga", 27, 17, 108, 119, TRUE )
+btnLetterQ = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnLetterQ", 27, 17, 1, 67 )
+UI_LoadButtonImage( btnLetterQ, "texture/ui2009/Keyboard2.tga", 27, 17, 0, 34, TRUE )
+btnLetterR = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnLetterR", 27, 17, 82, 67 )
+UI_LoadButtonImage( btnLetterR, "texture/ui2009/Keyboard2.tga", 27, 17, 108, 119, TRUE )
+btnLetterS = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnLetterS", 27, 17, 28, 84 )
+UI_LoadButtonImage( btnLetterS, "texture/ui2009/Keyboard2.tga", 27, 17, 108, 51, TRUE )
+btnLetterT = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnLetterT", 27, 17, 109, 67 )
+UI_LoadButtonImage( btnLetterT, "texture/ui2009/Keyboard2.tga", 27, 17, 0, 204, TRUE )
+btnLetterU = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnLetterU", 27, 17, 163, 67 )
+UI_LoadButtonImage( btnLetterU, "texture/ui2009/Keyboard3.tga", 27, 17, 0, 34, TRUE )
+btnLetterV = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnLetterV", 27, 17, 82, 101 )
+UI_LoadButtonImage( btnLetterV, "texture/ui2009/Keyboard2.tga", 27, 17, 108, 153, TRUE )
+btnLetterW = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnLetterW", 27, 17, 28, 67 )
+UI_LoadButtonImage( btnLetterW, "texture/ui2009/Keyboard2.tga", 27, 17, 108, 34, TRUE )
+btnLetterX = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnLetterX", 27, 17, 28, 101 )
+UI_LoadButtonImage( btnLetterX, "texture/ui2009/Keyboard2.tga", 27, 17, 108, 68, TRUE )
+btnLetterY = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnLetterY", 27, 17, 136, 67 )
+UI_LoadButtonImage( btnLetterY, "texture/ui2009/Keyboard2.tga", 27, 17, 108, 204, TRUE )
+btnLetterZ = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnLetterZ", 27, 17, 1, 101 )
+UI_LoadButtonImage( btnLetterZ, "texture/ui2009/Keyboard2.tga", 27, 17, 0, 68, TRUE )
+
+---------------加载功能按钮
+--加载确定按钮
+btnYes = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnYes", 83, 34, 352, 84 )
+UI_LoadButtonImage( btnYes, "texture/ui2009/Keyboard4.tga", 83, 34, 57, 85, FALSE )
+--UI_SetAlign( btnYes, caWidthCenter )
+UI_SetCaption( btnYes, "" )
+
+--加载关闭按钮
+btnClose = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnClose", 57, 17, 379, 16 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/Keyboard4.tga", 57, 17, 140, 153, FALSE )
+
+
+
+--加载大小写切换开关
+chkShift = UI_CreateCompent( frmKeyboard, CHECK_TYPE, "chkShift", 57, 17, 379, 67 )
+UI_LoadImage( chkShift, "texture/ui2009/Keyboard4.tga", UNCHECKED, 57, 17, 140, 85 )
+UI_LoadImage( chkShift, "texture/ui2009/Keyboard4.tga", CHECKED, 57, 17, 140, 119 )
+
+
+
+--加载退格按钮
+btnDel = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnDel", 57, 34, 379, 33 )
+UI_LoadButtonImage( btnDel, "texture/ui2009/Keyboard4.tga", 57, 34, 0, 85, FALSE )
+--UI_SetAlign( btnDel, caWidthCenter )
+UI_SetCaption( btnDel, "" )
+
+--加载其他按钮
+btnOther101 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnOther101", 27, 17, 1, 33 )
+UI_LoadButtonImage( btnOther101, "texture/ui2009/Keyboard2.tga", 27, 17, 0, 0, TRUE )
+btnOther102 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnOther102", 27, 17, 28, 33 )
+UI_LoadButtonImage( btnOther102, "texture/ui2009/Keyboard2.tga", 27, 17, 108, 0, TRUE )
+btnOther103 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnOther103", 27, 17, 55, 33 )
+UI_LoadButtonImage( btnOther103, "texture/ui2009/Keyboard2.tga", 27, 17, 0, 85, TRUE )
+btnOther104 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnOther104", 27, 17, 82, 33 )
+UI_LoadButtonImage( btnOther104, "texture/ui2009/Keyboard2.tga", 27, 17, 108, 85, TRUE )
+btnOther105 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnOther105", 27, 17, 109, 33 )
+UI_LoadButtonImage( btnOther105, "texture/ui2009/Keyboard2.tga", 27, 17, 0, 170, TRUE )
+btnOther106 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnOther106", 27, 17, 136, 33 )
+UI_LoadButtonImage( btnOther106, "texture/ui2009/Keyboard2.tga", 27, 17, 108, 170, TRUE )
+btnOther107 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnOther107", 27, 17, 163, 33 )
+UI_LoadButtonImage( btnOther107, "texture/ui2009/Keyboard3.tga", 27, 17, 0, 0, TRUE )
+btnOther108 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnOther108", 27, 17, 190, 33 )
+UI_LoadButtonImage( btnOther108, "texture/ui2009/Keyboard3.tga", 27, 17, 108, 0, TRUE )
+btnOther109 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnOther109", 27, 17, 217, 33 )
+UI_LoadButtonImage( btnOther109, "texture/ui2009/Keyboard3.tga", 27, 17, 0, 85, TRUE )
+btnOther110 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnOther110", 27, 17, 244, 33 )
+UI_LoadButtonImage( btnOther110, "texture/ui2009/Keyboard3.tga", 27, 17, 108, 85, TRUE )
+btnOther111 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnOther111", 27, 17, 271, 33 )
+UI_LoadButtonImage( btnOther111, "texture/ui2009/Keyboard3.tga", 27, 17, 0, 170, TRUE )
+btnOther112 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnOther112", 27, 17, 298, 33 )
+UI_LoadButtonImage( btnOther112, "texture/ui2009/Keyboard3.tga", 27, 17, 108, 170, TRUE )
+btnOther113 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnOther113", 27, 17, 325, 33 )
+UI_LoadButtonImage( btnOther113, "texture/ui2009/Keyboard4.tga", 27, 17, 0, 0, TRUE )
+btnOther114 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnOther114", 27, 17, 352, 33 )
+UI_LoadButtonImage( btnOther114, "texture/ui2009/Keyboard4.tga", 27, 17, 108, 0, TRUE )
+
+btnOther201 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnOther201", 27, 17, 1, 50 )
+UI_LoadButtonImage( btnOther201, "texture/ui2009/Keyboard2.tga", 27, 17, 0, 17, TRUE )
+btnOther202 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnOther202", 27, 17, 298, 50 )
+UI_LoadButtonImage( btnOther202, "texture/ui2009/Keyboard3.tga", 27, 17, 108, 187, TRUE )
+btnOther203 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnOther203", 27, 17, 325, 50 )
+UI_LoadButtonImage( btnOther203, "texture/ui2009/Keyboard4.tga", 27, 17, 0, 17, TRUE )
+btnOther204 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnOther204", 27, 17, 352, 50 )
+UI_LoadButtonImage( btnOther204, "texture/ui2009/Keyboard4.tga", 27, 17, 108, 17, TRUE )
+
+btnOther301 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnOther301", 27, 17, 271, 67 )
+UI_LoadButtonImage( btnOther301, "texture/ui2009/Keyboard3.tga", 27, 17, 0, 204, TRUE )
+btnOther302 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnOther302", 27, 17, 298, 67 )
+UI_LoadButtonImage( btnOther302, "texture/ui2009/Keyboard3.tga", 27, 17, 108, 204, TRUE )
+btnOther303 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnOther303", 27, 17, 325, 67 )
+UI_LoadButtonImage( btnOther303, "texture/ui2009/Keyboard4.tga", 27, 17, 0, 34, TRUE )
+btnOther304 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnOther304", 27, 17, 352, 67 )
+UI_LoadButtonImage( btnOther304, "texture/ui2009/Keyboard4.tga", 27, 17, 108, 34, TRUE )
+
+btnOther401 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnOther401", 27, 17, 244, 84 )
+UI_LoadButtonImage( btnOther401, "texture/ui2009/Keyboard3.tga", 27, 17, 108, 136, TRUE )
+btnOther402 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnOther402", 27, 17, 271, 84 )
+UI_LoadButtonImage( btnOther402, "texture/ui2009/Keyboard3.tga", 27, 17, 0, 221, TRUE )
+btnOther403 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnOther403", 27, 17, 298, 84 )
+UI_LoadButtonImage( btnOther403, "texture/ui2009/Keyboard3.tga", 27, 17, 108, 221, TRUE )
+btnOther404 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnOther404", 27, 17, 325, 84 )
+UI_LoadButtonImage( btnOther404, "texture/ui2009/Keyboard4.tga", 27, 17, 0, 51, TRUE )
+
+btnOther501 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnOther501", 27, 17, 190, 101 )
+UI_LoadButtonImage( btnOther501, "texture/ui2009/Keyboard3.tga", 27, 17, 108, 68, TRUE )
+btnOther502 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnOther502", 27, 17, 217, 101 )
+UI_LoadButtonImage( btnOther502, "texture/ui2009/Keyboard3.tga", 27, 17, 0, 153, TRUE )
+btnOther503 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnOther503", 27, 17, 244, 101 )
+UI_LoadButtonImage( btnOther503, "texture/ui2009/Keyboard3.tga", 27, 17, 108, 153, TRUE )
+btnOther504 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnOther504", 27, 17, 271, 101 )
+UI_LoadButtonImage( btnOther504, "texture/ui2009/Keyboard3.tga", 27, 17, 0, 238, TRUE )
+btnOther505 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnOther505", 27, 17, 298, 101 )
+UI_LoadButtonImage( btnOther505, "texture/ui2009/Keyboard3.tga", 27, 17, 108, 238, TRUE )
+btnOther506 = UI_CreateCompent( frmKeyboard, BUTTON_TYPE, "btnOther506", 27, 17, 325, 101 )
+UI_LoadButtonImage( btnOther506, "texture/ui2009/Keyboard4.tga", 27, 17, 0, 68, TRUE )
+
+
+-----------------------------------------------------------------------
+-- 测试FORM1 -added by Arcol
+-----------------------------------------------------------------------	
+frmTest1 = UI_CreateForm( "frmTest1_Arcol", FALSE, 160, 120, 600, 200, FALSE, FALSE )
+UI_LoadFormImage( frmTest1, "texture/ui/Test1.bmp", 160, 120, 0, 0, "", 0, 0 )
+UI_AddFormToTemplete( frmTest1, FORM_LOGIN )
+UI_SetIsDrag( frmTest1, TRUE )
+
+-----------------------------------------------------------------------
+-- 测试FORM2 -added by Arcol
+-----------------------------------------------------------------------	
+frmTest2 = UI_CreateForm( "frmTest2_Arcol", FALSE, 160, 120, 600, 400, FALSE, FALSE )
+UI_LoadFormImage( frmTest2, "texture/ui/Test2.bmp", 160, 120, 0, 0, "", 0, 0 )
+UI_AddFormToTemplete( frmTest2, FORM_LOGIN )
+UI_SetIsDrag( frmTest2, TRUE )
+labTest = UI_CreateCompent( frmTest2, LABELEX_TYPE, "labTest", 24, 10, 20, 90 )
+UI_SetCaption( labTest, "Speed Test -by Arcol" )
+UI_SetTextColor( labTest, COLOR_BLACK )
+UI_SetLabelExFont( labTest, DEFAULT_FONT, TRUE, COLOR_BLACK )
+
+
+
+
+
+
+-----------------------------------------------------------------------
+-- 定义二次密码创建窗体  2006.07.13
+-----------------------------------------------------------------------	
+-- 创建 二次密码创建窗体
+frmDoublePwdCreate = UI_CreateForm("frmDoublePwdCreate", FALSE, 254, 144, 200, 200, FALSE, FALSE)
+UI_AddFormToTemplete( frmDoublePwdCreate, FORM_SELECT )
+--UI_SetFormStyle( frmDoublePwdCreate, 2 )
+UI_FormSetIsEscClose( frmDoublePwdCreate, FALSE)
+UI_SetIsDrag( frmDoublePwdCreate, FALSE)
+UI_ShowForm( frmDoublePwdCreate, FALSE)
+
+UI_FormSetEnterButton(frmDoublePwdCreate,btnYes)
+
+--UI_FormSetHotKey( frmDoublePwdCreate, ALT_KEY, HOTKEY_C ) 
+
+-- 加载背景图片
+imgDoublePwdCreate = UI_CreateCompent( frmDoublePwdCreate, IMAGE_TYPE,"imgDoublePwdCreate" ,254, 144, 0, 0)
+UI_LoadImage(imgDoublePwdCreate, "texture/ui2009/skeyc.tga", NORMAL , 254, 144, 1, 56)
+
+--加载确定按钮
+btnYes = UI_CreateCompent( frmDoublePwdCreate, BUTTON_TYPE, "btnYes", 47, 22, 132, 113 )
+UI_LoadButtonImage( btnYes, "texture/ui2009/button.tga", 47, 22, 0, 0, TRUE )
+
+--加载取消按钮
+btnClear = UI_CreateCompent( frmDoublePwdCreate, BUTTON_TYPE, "btnClear", 47, 22, 188, 113 )
+UI_LoadButtonImage( btnClear, "texture/ui2009/button.tga", 47, 22, 0, 22, TRUE )
+
+-- 加载密码显示框
+edtDoublePwdCreate = UI_CreateCompent(frmDoublePwdCreate, EDIT_TYPE,"edtDoublePwdCreate" ,66, 14, 149, 42)
+UI_SetEditMaxNum( edtDoublePwdCreate, 12 )
+UI_SetEditMaxNumVisible(edtDoublePwdCreate,12)
+
+edtDoublePwdCreateRetry = UI_CreateCompent(frmDoublePwdCreate, EDIT_TYPE,"edtDoublePwdCreateRetry", 66, 14, 149, 65)
+UI_SetEditMaxNum( edtDoublePwdCreateRetry, 12 )
+UI_SetEditMaxNumVisible(edtDoublePwdCreateRetry,12)
+
+--创建TITLE
+labID = UI_CreateCompent( frmDoublePwdCreate, LABELEX_TYPE, "labID", 210, 11, 20, 87)
+FORMS_LOGIN_CLU_000004 = GetResString("FORMS_LOGIN_CLU_000004")
+UI_SetCaption( labID, FORMS_LOGIN_CLU_000004 )
+UI_SetTextColor( labID,COLOR_RED )
+UI_SetLabelExFont( labID, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+
+-----------------------------------------------------------------------
+-- 定义二次密码修改窗体
+-----------------------------------------------------------------------	
+-- 创建 二次密码修改窗体
+frmDoublePwdAlter = UI_CreateForm("frmDoublePwdAlter", TRUE, 254, 144, 200, 200, TRUE, TRUE)
+UI_ShowForm(frmDoublePwdAlter, FALSE)
+--UI_SetFormStyle( frmDoublePwdAlter, 2 )
+UI_SetIsDrag(frmDoublePwdAlter, FALSE)
+UI_AddFormToTemplete(frmDoublePwdAlter, FORM_SELECT )
+UI_FormSetIsEscClose(frmDoublePwdAlter, TRUE)
+
+UI_FormSetEnterButton(frmDoublePwdAlter,btnYes)
+--UI_FormSetHotKey( frmDoublePwdAlter, ALT_KEY, HOTKEY_C )
+
+-- 加载背景图片
+imgDoublePwdAlter = UI_CreateCompent(frmDoublePwdAlter, IMAGE_TYPE,"imgDoublePwdAlter", 254, 144, 0, 0)
+UI_LoadImage( imgDoublePwdAlter, "texture/ui2009/skeyx.tga", NORMAL, 254, 144, 0, 56)
+
+-- 加载确定按钮
+btnYes = UI_CreateCompent( frmDoublePwdAlter, BUTTON_TYPE, "btnYes", 47, 22, 131, 112 )
+UI_LoadButtonImage( btnYes, "texture/ui2009/button.tga", 47, 22, 0, 0, TRUE )
+
+--加载取消按钮
+btnClear = UI_CreateCompent( frmDoublePwdAlter, BUTTON_TYPE, "btnClear", 47, 22, 187, 112 )
+UI_LoadButtonImage( btnClear, "texture/ui2009/button.tga", 47, 22, 0, 22, TRUE )
+
+-- 加载密码显示框
+edtDoublePwdAlterOld = UI_CreateCompent(frmDoublePwdAlter, EDIT_TYPE,"edtDoublePwdAlterOld", 66, 14, 151, 42)
+UI_SetEditMaxNum( edtDoublePwdAlterOld, 12 )
+UI_SetEditMaxNumVisible(edtDoublePwdAlterOld,12)
+
+edtDoublePwdAlterNew = UI_CreateCompent(frmDoublePwdAlter, EDIT_TYPE,"edtDoublePwdAlterNew", 66, 14, 151, 65)
+UI_SetEditMaxNum( edtDoublePwdAlterNew, 12 )
+UI_SetEditMaxNumVisible(edtDoublePwdAlterNew,12)
+
+edtDoublePwdAlterNewRetry = UI_CreateCompent(frmDoublePwdAlter, EDIT_TYPE,"edtDoublePwdAlterNewRetry" ,66, 14, 151, 88)
+UI_SetEditMaxNum( edtDoublePwdAlterNewRetry, 12 )
+UI_SetEditMaxNumVisible(edtDoublePwdAlterNewRetry,12)
+
+-----------------------------------------------------------------------
+-- 定义二次密码显示窗体
+-----------------------------------------------------------------------	
+-- 创建 二次密码显示窗体
+frmDoublePwd = UI_CreateForm("frmDoublePwd", TRUE, 254, 143, 200, 200, TRUE, TRUE)
+UI_ShowForm( frmDoublePwd, FALSE )
+UI_SetFormStyle( frmDoublePwd, 2 )
+UI_AddFormToTemplete( frmDoublePwd, FORM_SELECT )
+UI_SetIsDrag(frmDoublePwd, FALSE)
+UI_FormSetIsEscClose( frmDoublePwd, TRUE)
+
+UI_FormSetEnterButton(frmDoublePwd,btnYes)
+--UI_FormSetHotKey( frmDoublePwd, ALT_KEY, HOTKEY_Z )
+
+-- 加载背景图片
+imgDoublePwd = UI_CreateCompent(frmDoublePwd, IMAGE_TYPE,"imgDoublePwd", 254, 143, 0, 0)
+UI_LoadImage( imgDoublePwd, "texture/ui2009/skey1.tga", NORMAL, 254, 143, 0, 0)
+
+-- 加载密码显示框
+edtDoublePwd = UI_CreateCompent(frmDoublePwd, EDIT_TYPE,"edtDoublePwd", 66, 14, 142, 57)
+UI_SetIsKeyFocus(edtDoublePwd,FALSE)
+UI_SetEditMaxNum(edtDoublePwd, 12 )
+UI_SetEditMaxNumVisible(edtDoublePwd,12)
+
+lab= UI_CreateCompent( frmDoublePwd, LABELEX_TYPE, "lab", 12, 12, 26, 56 )
+--FORMS_LOGIN_CLU_000005 = GetResString("FORMS_LOGIN_CLU_000005")
+UI_SetCaption( lab, "Security code" )
+UI_SetTextColor( lab, COLOR_BLACK )
+UI_SetLabelExFont( lab, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+-- 加载确定按钮
+btnYes = UI_CreateCompent( frmDoublePwd, BUTTON_TYPE, "btnYes", 47, 22, 110, 108 )
+UI_LoadButtonImage( btnYes, "texture/ui2009/button.tga", 47, 22, 0, 0, TRUE )
+
+--加载取消按钮
+btnClear = UI_CreateCompent( frmDoublePwd, BUTTON_TYPE, "btnClear", 47, 22, 175, 108 )
+UI_LoadButtonImage( btnClear, "texture/ui2009/button.tga", 47, 22, 0, 22, TRUE )
+
+
+-----------------------------------------------------------------------
+-- 定义二次密码输入软键盘窗体
+-----------------------------------------------------------------------	
+-- 创建 二次密码输入软键盘界面
+frmDoublePwdInput = UI_CreateForm("frmDoublePwdInput", TRUE, 139, 143, 392, 300, TRUE,TRUE)
+UI_ShowForm(frmDoublePwdInput, FALSE )
+UI_AddAllFormTemplete( frmDoublePwdInput)
+UI_SetIsDrag(frmDoublePwdInput, FALSE)
+UI_FormSetIsEscClose(frmDoublePwdInput, TRUE)
+
+--UI_FormSetHotKey( frmDoublePwdInput, ALT_KEY, HOTKEY_X ) 
+
+-- 加载背景图片
+imgDoublePwdInput = UI_CreateCompent(frmDoublePwdInput, IMAGE_TYPE,"imgDoublePwdInput", 139, 143, 0, 0)
+UI_LoadImage( imgDoublePwdInput, "texture/ui2009/skey2.tga", NORMAL, 139,143, 0, 0)
+
+-- 加载数字按钮图片
+btnNum1 = UI_CreateCompent( frmDoublePwdInput, BUTTON_TYPE, "btnNum1", 27, 17, 18, 38 )
+UI_LoadButtonImage( btnNum1, "texture/ui2009/Keyboard2.tga", 27, 17, 108, 17, TRUE )
+btnNum2 = UI_CreateCompent( frmDoublePwdInput, BUTTON_TYPE, "btnNum2", 27, 17, 56, 38 )
+UI_LoadButtonImage( btnNum2, "texture/ui2009/Keyboard2.tga", 27, 17, 0, 102, TRUE )
+btnNum3 = UI_CreateCompent( frmDoublePwdInput, BUTTON_TYPE, "btnNum3", 27, 17, 94, 38 )
+UI_LoadButtonImage( btnNum3, "texture/ui2009/Keyboard2.tga", 27, 17, 108, 102, TRUE )
+btnNum4 = UI_CreateCompent( frmDoublePwdInput, BUTTON_TYPE, "btnNum4", 27, 17, 18, 63 )
+UI_LoadButtonImage( btnNum4, "texture/ui2009/Keyboard2.tga", 27, 17, 0, 187, TRUE )
+btnNum5 = UI_CreateCompent( frmDoublePwdInput, BUTTON_TYPE, "btnNum5", 27, 17, 56, 63 )
+UI_LoadButtonImage( btnNum5, "texture/ui2009/Keyboard2.tga", 27, 17, 108, 187, TRUE )
+btnNum6 = UI_CreateCompent( frmDoublePwdInput, BUTTON_TYPE, "btnNum6", 27, 17, 94, 63 )
+UI_LoadButtonImage( btnNum6, "texture/ui2009/Keyboard3.tga", 27, 17, 0, 17, TRUE )
+btnNum7 = UI_CreateCompent( frmDoublePwdInput, BUTTON_TYPE, "btnNum7", 27, 17, 18, 88 )
+UI_LoadButtonImage( btnNum7, "texture/ui2009/Keyboard3.tga", 27, 17, 108, 17, TRUE )
+btnNum8 = UI_CreateCompent( frmDoublePwdInput, BUTTON_TYPE, "btnNum8", 27, 17, 56, 88 )
+UI_LoadButtonImage( btnNum8, "texture/ui2009/Keyboard3.tga", 27, 17, 0, 102, TRUE )
+btnNum9 = UI_CreateCompent( frmDoublePwdInput, BUTTON_TYPE, "btnNum9", 27, 17, 94, 88 )
+UI_LoadButtonImage( btnNum9, "texture/ui2009/Keyboard3.tga", 27, 17, 108, 102, TRUE )
+btnNum0 = UI_CreateCompent( frmDoublePwdInput, BUTTON_TYPE, "btnNum0", 27, 17, 18, 114 )
+UI_LoadButtonImage( btnNum0, "texture/ui2009/Keyboard3.tga", 27, 17, 0, 187, TRUE )
+
+--加载清除按钮
+btnClear = UI_CreateCompent( frmDoublePwdInput, BUTTON_TYPE, "btnClear", 62, 18, 58, 113 )
+UI_LoadButtonImage( btnClear, "texture/ui2009/skey2.tga", 62, 18, 180, 19, FALSE )
+
+-----------------------------------------------------------------------
+-- 定义二次密码介绍窗体
+-----------------------------------------------------------------------	
+frmDoublePwdInfo =  UI_CreateForm("frmDoublePwdInfo", TRUE, 378, 129, 200, 329, TRUE,TRUE)
+UI_ShowForm(frmDoublePwdInfo, TRUE )
+UI_AddFormToTemplete( frmDoublePwdInfo, FORM_SELECT )
+UI_SetIsDrag(frmDoublePwdInfo, FALSE)
+
+--UI_FormSetHotKey( frmDoublePwdInfo, ALT_KEY, HOTKEY_Z ) 
+
+imgWelcomeNotice1 = UI_CreateCompent(frmDoublePwdInfo, IMAGE_TYPE,"imgWelcomeNotice1", 220, 128, 0, 0)
+UI_LoadImage( imgWelcomeNotice1, "texture/ui2009/Keyboard1.tga", NORMAL, 256,128, 0, 0)
+UI_SetImageAlpha(imgWelcomeNotice1,220)
+
+imgWelcomeNotice2 = UI_CreateCompent(frmDoublePwdInfo, IMAGE_TYPE,"imgWelcomeNotice2", 169, 128, 220, 0)
+UI_LoadImage( imgWelcomeNotice2, "texture/ui2009/Keyboard1.tga", NORMAL, 195,128, 0, 128)
+UI_SetImageAlpha(imgWelcomeNotice2,220)
+
+labText1  = UI_CreateCompent( frmDoublePwdInfo, LABELEX_TYPE, "labText1", 400, 150, 26, 9 )
+labText2  = UI_CreateCompent( frmDoublePwdInfo, LABELEX_TYPE, "labText2", 400, 150, 26, 29 )
+labText3  = UI_CreateCompent( frmDoublePwdInfo, LABELEX_TYPE, "labText3", 400, 150, 26, 49 )
+labText4  = UI_CreateCompent( frmDoublePwdInfo, LABELEX_TYPE, "labText4", 400, 150, 26, 69 )
+labText5  = UI_CreateCompent( frmDoublePwdInfo, LABELEX_TYPE, "labText5", 400, 150, 26, 89 )
+labText6  = UI_CreateCompent( frmDoublePwdInfo, LABELEX_TYPE, "labText6", 400, 150, 26, 109 )
+FORMS_LOGIN_CLU_000006 = GetResString("FORMS_LOGIN_CLU_000006")
+UI_SetCaption( labText1, FORMS_LOGIN_CLU_000006)
+FORMS_LOGIN_CLU_000007 = GetResString("FORMS_LOGIN_CLU_000007")
+UI_SetCaption( labText2, FORMS_LOGIN_CLU_000007)
+FORMS_LOGIN_CLU_000008 = GetResString("FORMS_LOGIN_CLU_000008")
+UI_SetCaption( labText3,FORMS_LOGIN_CLU_000008)
+FORMS_LOGIN_CLU_000009 = GetResString("FORMS_LOGIN_CLU_000009")
+UI_SetCaption( labText4,FORMS_LOGIN_CLU_000009)
+FORMS_LOGIN_CLU_000010 = GetResString("FORMS_LOGIN_CLU_000010")
+UI_SetCaption( labText5,FORMS_LOGIN_CLU_000010 )
+FORMS_LOGIN_CLU_000011 = GetResString("FORMS_LOGIN_CLU_000011")
+UI_SetCaption( labText6,FORMS_LOGIN_CLU_000011)
+UI_SetTextColor( labText1, COLOR_BLACK )
+UI_SetLabelExFont( labText1, DEFAULT_FONT, TRUE, COLOR_WHITE )
+UI_SetTextColor( labText2, COLOR_BLACK )
+UI_SetLabelExFont( labText2, DEFAULT_FONT, TRUE, COLOR_WHITE )
+UI_SetTextColor( labText3, COLOR_BLACK )
+UI_SetLabelExFont( labText3, DEFAULT_FONT, TRUE, COLOR_WHITE )
+UI_SetTextColor( labText4, COLOR_BLACK )
+UI_SetLabelExFont( labText4, DEFAULT_FONT, TRUE, COLOR_WHITE )
+UI_SetTextColor( labText5, COLOR_BLACK )
+UI_SetLabelExFont( labText5, DEFAULT_FONT, TRUE, COLOR_WHITE )
+UI_SetTextColor( labText6, COLOR_BLACK )
+UI_SetLabelExFont( labText6, DEFAULT_FONT, TRUE, COLOR_WHITE )
+-----------------------------------------------------------------------
+--								     --
+--		创建角色流程修改 2006.08.08 by Leo	             --
+--								     --
+-----------------------------------------------------------------------	
+
+-----------------------------------------------------------------------
+-- 定义欢迎界面   该界面仅在当前帐号内无角色时出现
+-----------------------------------------------------------------------	
+frmWelcomeNotice = UI_CreateForm("frmWelcomeNotice", TRUE, 500, 170, 0 , 0, TRUE,TRUE)
+UI_ShowForm(frmWelcomeNotice, FALSE )
+UI_SetIsDrag(frmWelcomeNotice, FALSE)
+UI_FormSetIsEscClose(frmWelcomeNotice, FALSE)
+UI_SetFormStyle(frmWelcomeNotice,1)
+UI_AddFormToTemplete( frmWelcomeNotice, FORM_SELECT )
+
+--UI_FormSetHotKey( frmWelcomeNotice, ALT_KEY, HOTKEY_X ) 
+
+imgWelcomeNotice1 = UI_CreateCompent(frmWelcomeNotice, IMAGE_TYPE,"imgWelcomeNotice1", 256, 170, 0, 0)
+UI_LoadImage( imgWelcomeNotice1, "texture/ui/newshelp/login_out_01.tga", NORMAL, 256,170, 0, 0)
+UI_SetImageAlpha(imgWelcomeNotice1,220)
+
+imgWelcomeNotice2 = UI_CreateCompent(frmWelcomeNotice, IMAGE_TYPE,"imgWelcomeNotice2", 244, 170, 256, 0)
+UI_LoadImage( imgWelcomeNotice2, "texture/ui/newshelp/login_out_02.tga", NORMAL, 244,170, 0, 0)
+UI_SetImageAlpha(imgWelcomeNotice2,220)
+
+labTitle = UI_CreateCompent( frmWelcomeNotice, LABELEX_TYPE, "labTitle", 400, 150, 10, 3 )
+FORMS_LOGIN_CLU_000012 = GetResString("FORMS_LOGIN_CLU_000012")
+UI_SetCaption( labTitle, FORMS_LOGIN_CLU_000012)
+UI_SetTextColor( labTitle, COLOR_BLACK )
+UI_SetLabelExFont( labTitle, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+labText1  = UI_CreateCompent( frmWelcomeNotice, LABELEX_TYPE, "labText1", 400, 16, 10, 25 )---修改坐标
+labText2  = UI_CreateCompent( frmWelcomeNotice, LABELEX_TYPE, "labText2", 400, 16, 10, 45 )
+labText3  = UI_CreateCompent( frmWelcomeNotice, LABELEX_TYPE, "labText3", 400, 16, 10, 65 )
+labText4  = UI_CreateCompent( frmWelcomeNotice, LABELEX_TYPE, "labText4", 400, 16, 10, 85 )
+labText5  = UI_CreateCompent( frmWelcomeNotice, LABELEX_TYPE, "labText5", 400, 16, 10, 105 )
+labText6  = UI_CreateCompent( frmWelcomeNotice, LABELEX_TYPE, "labText6", 400, 16, 10, 125 )
+--FORMS_LOGIN_CLU_000013 = GetResString("FORMS_LOGIN_CLU_000013")
+FORMS_LOGIN_CLU_000013 = "Hi, welcome to Tales of Pirate II. You are now entering the Goddess' Legend "
+UI_SetCaption( labText1, FORMS_LOGIN_CLU_000013)
+FORMS_LOGIN_CLU_000014 = GetResString("FORMS_LOGIN_CLU_000014")
+UI_SetCaption( labText2,FORMS_LOGIN_CLU_000014)
+FORMS_LOGIN_CLU_000015 = GetResString("FORMS_LOGIN_CLU_000015")
+UI_SetCaption( labText3,FORMS_LOGIN_CLU_000015)
+FORMS_LOGIN_CLU_000016 = GetResString("FORMS_LOGIN_CLU_000016")
+UI_SetCaption( labText4,FORMS_LOGIN_CLU_000016)
+FORMS_LOGIN_CLU_000017 = GetResString("FORMS_LOGIN_CLU_000017")
+UI_SetCaption( labText5,FORMS_LOGIN_CLU_000017 )
+FORMS_LOGIN_CLU_000018 = GetResString("FORMS_LOGIN_CLU_000018")
+UI_SetCaption( labText6,FORMS_LOGIN_CLU_000018)
+UI_SetTextColor( labText1, COLOR_BLACK )
+UI_SetLabelExFont( labText1, DEFAULT_FONT, TRUE, COLOR_WHITE )
+UI_SetTextColor( labText2, COLOR_BLACK )
+UI_SetLabelExFont( labText2, DEFAULT_FONT, TRUE, COLOR_WHITE )
+UI_SetTextColor( labText3, COLOR_BLACK )
+UI_SetLabelExFont( labText3, DEFAULT_FONT, TRUE, COLOR_WHITE )
+UI_SetTextColor( labText4, COLOR_BLACK )
+UI_SetLabelExFont( labText4, DEFAULT_FONT, TRUE, COLOR_WHITE )
+UI_SetTextColor( labText5, COLOR_BLACK )
+UI_SetLabelExFont( labText5, DEFAULT_FONT, TRUE, COLOR_WHITE )
+UI_SetTextColor( labText6, COLOR_BLACK )
+UI_SetLabelExFont( labText6, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+btnYes = UI_CreateCompent( frmWelcomeNotice, BUTTON_TYPE, "btnYes", 41, 19, 230, 145 )
+UI_LoadButtonImage( btnYes, "texture/ui/PublicC.tga", 41, 19, 0, 0, TRUE )
+
+-----------------------------------------------------------------------
+-- 定义首次创建角色成功提示界面   该界面仅在该帐号走完第一个角色的创建流程后显示
+-----------------------------------------------------------------------	
+frmCreateOKNotice = UI_CreateForm("frmCreateOKNotice", TRUE, 500, 170, 0 , 0, TRUE,TRUE)
+UI_ShowForm(frmCreateOKNotice, FALSE )
+UI_SetIsDrag(frmCreateOKNotice, FALSE)
+UI_FormSetIsEscClose(frmCreateOKNotice, FALSE)
+UI_SetFormStyle(frmCreateOKNotice,1)
+UI_AddFormToTemplete( frmCreateOKNotice, FORM_SELECT)
+
+--UI_FormSetHotKey( frmCreateOKNotice, ALT_KEY, HOTKEY_Z ) 
+
+imgCreateOKNotice1 = UI_CreateCompent(frmCreateOKNotice, IMAGE_TYPE,"imgCreateOKNotice1", 256, 150, 0, 0)
+UI_LoadImage( imgCreateOKNotice1, "texture/ui/newshelp/login_out_01.tga", NORMAL, 256,150, 0, 0)
+UI_SetImageAlpha(imgCreateOKNotice1,220)
+
+imgCreateOKNotice2 = UI_CreateCompent(frmCreateOKNotice, IMAGE_TYPE,"imgCreateOKNotice2", 244, 150, 256, 0)
+UI_LoadImage( imgCreateOKNotice2, "texture/ui/newshelp/login_out_02.tga", NORMAL, 244,150, 0, 0)
+UI_SetImageAlpha(imgCreateOKNotice2,220)
+
+labTitle = UI_CreateCompent( frmCreateOKNotice, LABELEX_TYPE, "labTitle", 400, 150, 10, 3 )
+FORMS_LOGIN_CLU_000019 = GetResString("FORMS_LOGIN_CLU_000019")
+UI_SetCaption( labTitle, FORMS_LOGIN_CLU_000019)
+UI_SetTextColor( labTitle, COLOR_BLACK )
+UI_SetLabelExFont( labTitle, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+labText1  = UI_CreateCompent( frmCreateOKNotice, LABELEX_TYPE, "labText1", 400, 150, 20, 30 )
+labText2  = UI_CreateCompent( frmCreateOKNotice, LABELEX_TYPE, "labText2", 400, 150, 20, 50 )
+labText3  = UI_CreateCompent( frmCreateOKNotice, LABELEX_TYPE, "labText3", 400, 150, 20, 70 )
+labText4  = UI_CreateCompent( frmCreateOKNotice, LABELEX_TYPE, "labText4", 400, 150, 20, 90 )
+FORMS_LOGIN_CLU_000020 = GetResString("FORMS_LOGIN_CLU_000020")
+UI_SetCaption( labText1, FORMS_LOGIN_CLU_000020)
+FORMS_LOGIN_CLU_000021 = GetResString("FORMS_LOGIN_CLU_000021")
+UI_SetCaption( labText2, FORMS_LOGIN_CLU_000021)
+FORMS_LOGIN_CLU_000022 = GetResString("FORMS_LOGIN_CLU_000022")
+UI_SetCaption( labText3, FORMS_LOGIN_CLU_000022)
+FORMS_LOGIN_CLU_000023 = GetResString("FORMS_LOGIN_CLU_000023")
+UI_SetCaption( labText4, FORMS_LOGIN_CLU_000023)
+UI_SetTextColor( labText1, COLOR_BLACK )
+UI_SetLabelExFont( labText1, DEFAULT_FONT, TRUE, COLOR_WHITE )
+UI_SetTextColor( labText2, COLOR_BLACK )
+UI_SetLabelExFont( labText2, DEFAULT_FONT, TRUE, COLOR_WHITE )
+UI_SetTextColor( labText3, COLOR_BLACK )
+UI_SetLabelExFont( labText3, DEFAULT_FONT, TRUE, COLOR_WHITE )
+UI_SetTextColor( labText4, COLOR_BLACK )
+UI_SetLabelExFont( labText4, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+btnYes = UI_CreateCompent( frmCreateOKNotice, BUTTON_TYPE, "btnYes", 41, 19, 230, 125 )
+UI_LoadButtonImage( btnYes, "texture/ui/PublicC.tga", 41, 19, 0, 0, TRUE )
+
+
+-----------------------------------------------------------------------
+-- 定义改名界面，该界面仅对台湾版本有效，请做好备份工作
+-----------------------------------------------------------------------	
+frmChaNameAlter = UI_CreateForm("frmChaNameAlter", TRUE, 500, 170, 0 , 0, TRUE,TRUE)
+UI_ShowForm(frmChaNameAlter, FALSE )
+UI_SetIsDrag(frmChaNameAlter, FALSE)
+UI_FormSetIsEscClose(frmChaNameAlter, FALSE)
+UI_SetFormStyle(frmChaNameAlter,1)
+UI_AddFormToTemplete( frmChaNameAlter, FORM_SELECT )
+
+--加载背景
+imgCreateOKNotice1 = UI_CreateCompent(frmChaNameAlter, IMAGE_TYPE,"imgCreateOKNotice1", 256, 150, 0, 0)
+UI_LoadImage( imgCreateOKNotice1, "texture/ui/newshelp/login_out_01.tga", NORMAL, 256,150, 0, 0)
+UI_SetImageAlpha(imgCreateOKNotice1,220)
+
+--加载标题
+labTitle = UI_CreateCompent( frmChaNameAlter, LABELEX_TYPE, "labTitle", 400, 150, 10, 3 )
+FORMS_LOGIN_CLU_000024 = GetResString("FORMS_LOGIN_CLU_000024")
+UI_SetCaption( labTitle, FORMS_LOGIN_CLU_000024)
+UI_SetTextColor( labTitle, COLOR_BLACK )
+UI_SetLabelExFont( labTitle, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--修改面板
+labText1 = UI_CreateCompent( frmChaNameAlter, LABELEX_TYPE, "labText1", 400, 150, 10, 20)
+FORMS_LOGIN_CLU_000025 = GetResString("FORMS_LOGIN_CLU_000025")
+UI_SetCaption( labText1, FORMS_LOGIN_CLU_000025)
+UI_SetTextColor( labText1, COLOR_BLACK )
+UI_SetLabelExFont( labText1, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+
+--新角色名
+labTitle = UI_CreateCompent( frmChaNameAlter, LABELEX_TYPE, "labTitle", 400, 150, 40, 30 )
+FORMS_LOGIN_CLU_000026 = GetResString("FORMS_LOGIN_CLU_000026")
+UI_SetCaption( labTitle, FORMS_LOGIN_CLU_000026)
+UI_SetTextColor( labTitle, COLOR_BLACK )
+UI_SetLabelExFont( labTitle, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--重新输入
+labTitle = UI_CreateCompent( frmChaNameAlter, LABELEX_TYPE, "labTitle", 400, 150, 40, 50 )
+FORMS_LOGIN_CLU_000024 = GetResString("FORMS_LOGIN_CLU_000024")
+UI_SetCaption( labTitle, FORMS_LOGIN_CLU_000024)
+UI_SetTextColor( labTitle, COLOR_BLACK )
+UI_SetLabelExFont( labTitle, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--修改框
+edtChaNameNew = UI_CreateCompent(frmChaNameAlter, EDIT_TYPE,"edtChaNameNew", 66, 14, 140, 30)
+UI_SetEditMaxNum( edtDoublePwdAlterNew, 12 )
+UI_SetEditMaxNumVisible(edtDoublePwdAlterNew,12)
+
+edtChaNameNewRetry = UI_CreateCompent(frmChaNameAlter, EDIT_TYPE,"edtChaNameNewRetry" ,66, 14, 140, 50)
+UI_SetEditMaxNum( edtDoublePwdAlterNewRetry, 12 )
+UI_SetEditMaxNumVisible(edtDoublePwdAlterNewRetry,12)
+
+--确定，取消按钮
+btnYes = UI_CreateCompent( frmChaNameAlter, BUTTON_TYPE, "btnYes", 47, 22, 50, 120 )
+UI_LoadButtonImage( btnYes, "texture/ui2009/button.tga", 47, 22, 0, 0, TRUE )
+
+btnClear = UI_CreateCompent( frmChaNameAlter, BUTTON_TYPE, "btnClear", 47, 22, 80, 120 )
+UI_LoadButtonImage( btnNo, "texture/ui2009/button.tga", 47, 22, 0, 22, TRUE )

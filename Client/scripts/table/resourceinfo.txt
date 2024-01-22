@@ -1,0 +1,7 @@
+//ID	Name	?
+1	sel1.tga	4
+2	whitesmoke.par	0
+3	RectPlane	3
+4	1.tga	4
+5	range.tga	4
+7	smoke1.tga	4

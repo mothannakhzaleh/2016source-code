@@ -1,0 +1,59 @@
+//ID	File	Name	1?	Coords	2?	RGB color
+1	garner	Ascaron 	1	2202,2782		255,255,255
+2	magicsea	Magical Ocean 	1	1350,550		255,255,255
+3	darkblue	Deep Blue	1	70,70		255,255,255
+4	lonetower	Lone Tower	0	50,50		255,255,255
+5	eastgoaf	Eastern Goaf	1	50,50		255,255,255
+6	secretgarden	Garden of Edel	0	50,50		255,255,255
+7	darkswamp	Dark Swamp	0	50,50		255,255,255
+8	abandonedcity	Forsaken City	0	50,50		255,255,255
+9	abandonedcity2	Forsaken City 2	0	150,150		255,255,255
+10	abandonedcity3	Forsaken City 3	0	150,150		255,255,255
+11	puzzleworld	Demonic World	0	0,0		255,255,255
+12	puzzleworld2	Demonic World 2	0	0,0		255,255,255
+13	teampk	Arena	0	0,0		255,255,255
+14	jialebi	Pirate Hideout	1	150,150		255,255,255
+15	garner2	Chaos Argent	1	150,150		255,255,255
+16	hell	Purgatory	1	150,150		255,255,255
+17	hell2	Drown	1	150,150		255,255,255
+18	hell3	Hades	1	150,150		255,255,255
+19	hell4	Gate of Despair	1	150,150		255,255,255
+20	hell5	Abaddon Eternal	1	150,150		255,255,255
+21	guildwar	Forbidden words	1	150,150		255,255,255
+22	leiting2	Thundoria Mirag	1	150,150		255,255,255
+23	shalan2	Shaitan Mirage	1	150,150		255,255,255
+24	binglang2	Icicle Mirage	1	150,150		255,255,255
+25	guildwar2	Mini Sacred War	1	150,150		255,255,255
+26	yschurch	Mosque	1	150,150		255,255,255
+27	07xmas	Xmas Village	1	150,150		255,255,255
+28	sdBoss	Xmas Arena	1	150,150		255,255,255
+29	07xmas2	Reverse Xmas Vi	1	150,150		255,255,255
+30	prisonisland	Island Prison	1	150,150		255,255,255
+31	PKmap	Outersea PK Isl	1	202,171		255,255,255
+32	darkhouse	Dark House	1	150,150		255,255,255
+33	PKmap	PKmap	1	50,50		255,255,255
+34	winterland	Winter Island 	1	202,171		255,255,255
+35	mjing1	1st Aurora Area	0	202,171		255,255,255
+36	mjing2	2nd Aurora Area	0	202,171		255,255,255
+37	mjing3	1st Dark Area	0	202,171		255,255,255
+38	mjing4	2nd Dark Area	0	202,171		255,255,255
+39	mingyun	Fortune Room	1	150,150		255,255,255
+40	starena13	Low Level 2p Ar	1	70,70		255,255,255
+41	starena14	Mid Level 2p Ar	1	70,70		255,255,255
+42	starena15	High Level 2p A	1	70,70		255,255,255
+43	starena23	Low Level 3p Ar	1	70,70		255,255,255
+44	starena24	Mid Level 3p Ar	1	70,70		255,255,255
+45	starena25	High Level 3p A	1	70,70		255,255,255
+46	starena33	Low Level 5p Ar	1	70,70		255,255,255
+47	starena34	Mid Level 5p Ar	1	70,70		255,255,255
+48	starena35	High Level 5p A	1	70,70		255,255,255
+49	heilong	Black Dragon La	1	50,50		255,255,255
+50	kyjj_1	Tribulation of 	1	70,70		255,255,255
+51	kyjj_2	Tribulation of 	1	70,70		255,255,255
+52	kyjj_3	Tribulation of 	1	70,70		255,255,255
+53	DreamIsland	DreamIsland	1	70,70		255,255,255
+54	starwalkway	Astral Isle	1	70,70		255,255,255
+55	puzzleworld3	Dimension 1	0	1,1		255,255,255
+56	puzzleworld4	Dimension 2	0	1,1		255,255,255
+57	L4MAP	Black Dragon La	1	70,70		255,255,255
+58	garner3	Nightmare Argent	1	150,150		255,255,255

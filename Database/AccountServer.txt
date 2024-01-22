@@ -1,0 +1,247 @@
+USE [master]
+GO
+CREATE DATABASE [AccountServer]
+GO
+USE [AccountServer]
+GO
+/****** Object:  Table [dbo].[account_charge]    Script Date: 16/10/2015 14:09:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[account_charge](
+	[id] [int] NOT NULL,
+	[charge_flag] [int] NULL,
+	[charge_begin_tick] [int] NULL,
+	[charge_end_tick] [int] NULL,
+	[saves] [int] NULL,
+ CONSTRAINT [PK_account_charge] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[account_login]    Script Date: 16/10/2015 14:09:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[account_login](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [varchar](50) NULL,
+	[password] [varchar](250) NULL,
+	[originalPassword] [varchar](50) NULL,
+	[sid] [int] NOT NULL,
+	[login_status] [int] NULL,
+	[enable_login_tick] [bigint] NULL,
+	[login_group] [varchar](50) NULL,
+	[last_login_time] [datetime] NULL,
+	[last_logout_time] [datetime] NULL,
+	[last_login_ip] [varchar](50) NULL,
+	[enable_login_time] [datetime] NULL,
+	[total_live_time] [bigint] NOT NULL,
+	[last_login_mac] [varchar](50) NULL,
+	[ban] [int] NULL,
+	[q1] [varchar](50) NULL,
+	[a1] [varchar](50) NULL,
+	[QQ] [varchar](50) NULL,
+	[tname] [varchar](50) NULL,
+	[card] [varchar](18) NULL,
+	[tel] [varchar](50) NULL,
+	[anquan] [varchar](50) NULL,
+	[email] [varchar](50) NULL,
+ CONSTRAINT [PK_account_login] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+ CONSTRAINT [IX_account_login] UNIQUE NONCLUSTERED 
+(
+	[name] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+ CONSTRAINT [IX_account_login_name] UNIQUE NONCLUSTERED 
+(
+	[name] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[account_pending]    Script Date: 16/10/2015 14:09:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[account_pending](
+	[acc_id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [varchar](50) NOT NULL,
+	[password] [varchar](250) NOT NULL,
+	[squestion] [varchar](100) NOT NULL,
+	[answer] [varchar](100) NOT NULL,
+	[email] [varchar](100) NOT NULL,
+	[gender] [int] NOT NULL,
+	[credit] [int] NULL,
+	[truename] [varchar](100) NOT NULL,
+	[birthday] [datetime] NOT NULL,
+	[contact] [varchar](50) NOT NULL,
+	[country] [varchar](50) NOT NULL,
+	[ipaddr] [varchar](50) NOT NULL,
+	[ip2country] [varchar](50) NOT NULL,
+	[actcode] [varchar](50) NULL,
+	[invtcode] [varchar](50) NULL,
+	[create_time] [varchar](50) NOT NULL
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[act_album]    Script Date: 16/10/2015 14:09:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[act_album](
+	[act_id] [int] IDENTITY(1,1) NOT NULL,
+	[act_name] [varchar](50) NULL,
+	[SessionKey] [varchar](50) NULL,
+	[create_time] [datetime] NULL,
+	[update_time] [datetime] NULL
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[GameDBServerList]    Script Date: 16/10/2015 14:09:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[GameDBServerList](
+	[server_section] [int] NOT NULL,
+	[server_ip] [nvarchar](128) NOT NULL,
+	[server_uid] [nvarchar](128) NOT NULL,
+	[server_pwd] [nvarchar](128) NOT NULL,
+	[server_db] [nvarchar](128) NOT NULL
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[LogRandomAccount]    Script Date: 16/10/2015 14:09:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[LogRandomAccount](
+	[accountName] [varchar](50) NOT NULL,
+	[addDate] [datetime] NULL,
+	[expireDate] [datetime] NULL,
+	[ip] [varchar](15) NULL,
+	[plainPassword] [varchar](32) NULL,
+ CONSTRAINT [PK_LogRandomAccount] PRIMARY KEY CLUSTERED 
+(
+	[accountName] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[safety]    Script Date: 16/10/2015 14:09:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[safety](
+	[aid] [bigint] IDENTITY(1,1) NOT NULL,
+	[allowIP] [varchar](32) NOT NULL
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[TradeRecord]    Script Date: 16/10/2015 14:09:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TradeRecord](
+	[record_id] [nvarchar](50) NOT NULL,
+	[record_message] [int] NOT NULL,
+	[record_section] [int] NOT NULL,
+	[record_info] [nvarchar](4000) NOT NULL,
+	[record_time] [datetime] NOT NULL,
+	[ret_info] [nvarchar](4000) NOT NULL,
+	[ret_time] [datetime] NOT NULL,
+	[state] [int] NOT NULL,
+	[flow_id] [nvarchar](50) NULL,
+	[production_id] [nvarchar](50) NULL,
+ CONSTRAINT [IX_TradeRecord] UNIQUE NONCLUSTERED 
+(
+	[record_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[user_log]    Script Date: 16/10/2015 14:09:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[user_log](
+	[log_id] [int] IDENTITY(1,1) NOT NULL,
+	[user_id] [int] NOT NULL,
+	[user_name] [varchar](50) NOT NULL,
+	[login_time] [datetime] NULL,
+	[logout_time] [datetime] NULL,
+	[login_ip] [varchar](20) NULL,
+ CONSTRAINT [PK_user_log] PRIMARY KEY CLUSTERED 
+(
+	[log_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[UserAccountLogin]    Script Date: 16/10/2015 14:09:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[UserAccountLogin](
+	[Date] [datetime] NULL,
+	[AllAccount] [int] NULL,
+	[ActionAccount] [int] NULL
+) ON [PRIMARY]
+
+GO
+ALTER TABLE [dbo].[account_login] ADD  CONSTRAINT [DF_account_login_sid]  DEFAULT ((0)) FOR [sid]
+GO
+ALTER TABLE [dbo].[account_login] ADD  CONSTRAINT [DF_account_login_login_status]  DEFAULT ((0)) FOR [login_status]
+GO
+ALTER TABLE [dbo].[account_login] ADD  CONSTRAINT [DF_account_login_enable_login_tick]  DEFAULT ((0)) FOR [enable_login_tick]
+GO
+ALTER TABLE [dbo].[account_login] ADD  CONSTRAINT [DF_account_login_last_login_time]  DEFAULT (getdate()) FOR [last_login_time]
+GO
+ALTER TABLE [dbo].[account_login] ADD  CONSTRAINT [DF_account_login_last_logout_time]  DEFAULT (getdate()) FOR [last_logout_time]
+GO
+ALTER TABLE [dbo].[account_login] ADD  CONSTRAINT [DF_account_login_enable_login_time]  DEFAULT ('2001-1-1 1:1:1') FOR [enable_login_time]
+GO
+ALTER TABLE [dbo].[account_login] ADD  CONSTRAINT [DF_account_login_total_live_time]  DEFAULT ((0)) FOR [total_live_time]
+GO
+ALTER TABLE [dbo].[act_album] ADD  DEFAULT (getdate()) FOR [create_time]
+GO
+ALTER TABLE [dbo].[act_album] ADD  DEFAULT (getdate()) FOR [update_time]
+GO

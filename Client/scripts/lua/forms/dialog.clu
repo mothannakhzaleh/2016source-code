@@ -1,0 +1,992 @@
+-----------------------------------------------------------------------
+-- 定义数量价格对话框
+-----------------------------------------------------------------------	
+-- 创建NPC对话表单
+frmTrade = UI_CreateForm( "frmTrade", FALSE, 224, 112, 240, 268, TRUE, FALSE )
+UI_LoadFormImage( frmTrade, "texture/ui2009/ty2.tga", 224, 112, 19, 3, "", 0, 0 )
+UI_ShowForm( frmTrade, FALSE )
+UI_AddFormToTemplete( frmTrade, FORM_DIALOG )
+UI_SetIsDrag( frmTrade, TRUE )
+UI_SetFormStyle( frmTrade, 2 )---左右居中
+UI_SetAlpha( frmTrade, 255 )
+
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmTrade, BUTTON_TYPE, "btnClose", 15, 15, 197, 10 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+--创建物品名称
+labName = UI_CreateCompent( frmTrade, LABELEX_TYPE, "labName", 95, 13, 16, 14 )
+FORMS_DIALOG_CLU_000001 = GetResString("FORMS_DIALOG_CLU_000001")
+UI_SetCaption( labName, FORMS_DIALOG_CLU_000001 )
+UI_SetTextColor( labName, COLOR_BLACK )
+UI_SetLabelExFont( labName, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建数量两个字
+labNumber = UI_CreateCompent( frmTrade, LABELEX_TYPE, "labNumber", 23, 11, 45, 43 )
+FORMS_DIALOG_CLU_000002 = GetResString("FORMS_DIALOG_CLU_000002")
+UI_SetCaption( labNumber, FORMS_DIALOG_CLU_000002 )
+UI_SetTextColor( labNumber, COLOR_BLACK )
+UI_SetLabelExFont( labNumber, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建总价两个字
+labSum = UI_CreateCompent( frmTrade, LABELEX_TYPE, "labSum", 23, 11, 45, 61 )
+FORMS_DIALOG_CLU_000003 = GetResString("FORMS_DIALOG_CLU_000003")
+UI_SetCaption( labSum, FORMS_DIALOG_CLU_000003 )
+UI_SetTextColor( labSum, COLOR_BLACK )
+UI_SetLabelExFont( labSum, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建数量和总价显示底纹
+imgNumber = UI_CreateCompent( frmTrade, IMAGE_TYPE, "imgNumber", 100, 17, 77, 40 )
+UI_LoadImage( imgNumber, "texture/ui2009/button.tga", NORMAL, 100, 19, 15, 217 )
+imgSum = UI_CreateCompent( frmTrade, IMAGE_TYPE, "imgSum", 100, 17, 77, 58 )
+UI_LoadImage( imgSum, "texture/ui2009/button.tga", NORMAL, 100, 19, 15, 217 )
+
+--加载数量输入框
+edtNumber = UI_CreateCompent( frmTrade, EDIT_TYPE, "edtNumber", 87, 11, 85, 44 )
+UI_SetTextColor( edtNumber, COLOR_BLACK )
+UI_SetEditMaxNum( edtNumber, 3 )
+UI_SetEditMaxNumVisible( edtNumber, 3 )
+
+--加载总价显示
+labPrice = UI_CreateCompent( frmTrade, LABELEX_TYPE, "labPrice", 87, 11, 85, 62 )
+UI_SetCaption( labPrice, "0" )
+UI_SetTextColor( labPrice, COLOR_BLACK )
+UI_SetLabelExFont( labPrice, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载交易
+btnYes = UI_CreateCompent( frmTrade, BUTTON_TYPE, "btnYes", 47, 22, 45, 81 )
+UI_LoadButtonImage( btnYes, "texture/ui2009/button.tga", 47, 22, 0, 44, TRUE )
+UI_SetButtonModalResult( btnYes, BUTTON_YES )
+UI_SetEditEnterButton( edtNumber, btnYes )
+
+--加载取消按钮
+btnNo = UI_CreateCompent( frmTrade, BUTTON_TYPE, "btnNo", 47, 22, 119, 81 )
+UI_LoadButtonImage( btnNo, "texture/ui2009/button.tga", 47, 22, 0, 22, TRUE )
+UI_SetButtonModalResult( btnNo, BUTTON_NO )
+
+-----------------------------------------------------------------------
+-- 定义选择是/否对话框
+-----------------------------------------------------------------------
+frmSelect = UI_CreateForm( "frmSelect",  FALSE, 224, 112, 397, 500, FALSE, FALSE )
+UI_LoadFormImage( frmSelect, "texture/ui2009/ty2.tga", 224, 112, 19, 3, "", 0, 0 )
+UI_ShowForm( frmSelect, FALSE )
+UI_AddFormToTemplete( frmSelect, FORM_DIALOG )
+UI_SetFormStyle( frmSelect, 0 )
+UI_SetIsDrag( frmSelect, TRUE )
+
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmSelect, BUTTON_TYPE, "btnClose", 15, 15, 197, 10 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+--创建询问者姓名
+labInfo = UI_CreateCompent( frmSelect, LABELEX_TYPE, "labInfo", 23, 11, 30, 40 )
+FORMS_DIALOG_CLU_000004 = GetResString("FORMS_DIALOG_CLU_000004")
+UI_SetCaption( labInfo, FORMS_DIALOG_CLU_000004 )
+UI_SetTextColor( labInfo, COLOR_BLACK )
+UI_SetLabelExFont( labInfo, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载接受按钮
+btnYes = UI_CreateCompent( frmSelect, BUTTON_TYPE, "btnYes", 48, 22, 45, 81 )
+UI_LoadButtonImage( btnYes, "texture/ui2009/mchat2.tga", 48, 22, 22, 168, FALSE )
+--UI_LoadButtonImage( btnYes, "texture/ui/SystemBotton3.tga", 41, 19, 0, 0, TRUE )
+UI_SetButtonModalResult( btnYes, BUTTON_YES )
+UI_FormSetEnterButton( frmSelect, btnYes )
+ 
+--加载取消按钮
+btnNo = UI_CreateCompent( frmSelect, BUTTON_TYPE, "btnNo", 47, 22, 119, 81 )
+UI_LoadButtonImage( btnNo, "texture/ui2009/button.tga", 47, 22, 0, 22, TRUE )
+UI_SetButtonModalResult( btnNo, BUTTON_NO )
+
+
+-----------------------------------------------------------------------
+-- 定义输入数量对话框
+-----------------------------------------------------------------------
+frmNumber = UI_CreateForm( "frmNumber",  FALSE, 224, 112, 397, 500, FALSE, FALSE )
+UI_LoadFormImage( frmNumber, "texture/ui2009/ty2.tga", 224, 112, 19, 3, "", 0, 0 )
+UI_ShowForm( frmNumber, FALSE )
+UI_AddFormToTemplete( frmNumber, FORM_DIALOG )
+UI_SetFormStyle( frmNumber, 0 )
+UI_SetIsDrag( frmNumber, TRUE )
+
+--创建请输入交易数量
+labInfo = UI_CreateCompent( frmNumber, LABELEX_TYPE, "labInfo", 23, 11, 61, 41 )
+FORMS_DIALOG_CLU_000005 = GetResString("FORMS_DIALOG_CLU_000005")
+UI_SetCaption( labInfo, FORMS_DIALOG_CLU_000005 )
+UI_SetTextColor( labInfo, COLOR_BLACK )
+UI_SetLabelExFont( labInfo, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+-- 加载输入区背景
+imgNumber = UI_CreateCompent( frmNumber, IMAGE_TYPE, "imgNumber", 100, 17, 56, 56 )
+UI_LoadImage( imgNumber, "texture/ui2009/button.tga", NORMAL, 100, 19, 15, 217 )
+
+--加载金币输入框
+edtNumber = UI_CreateCompent( frmNumber, EDIT_TYPE, "edtNumber", 71, 11, 61, 60 )
+UI_SetTextColor( edtNumber, COLOR_BLACK )
+UI_SetEditMaxNum( edtNumber, 8 )
+UI_SetEditMaxNumVisible( edtNumber, 8 )
+
+--加载确定按钮
+btnYes = UI_CreateCompent( frmNumber, BUTTON_TYPE, "btnYes", 47, 22, 45, 81 )
+UI_LoadButtonImage( btnYes, "texture/ui2009/button.tga", 47, 22, 0, 0, TRUE )
+UI_SetButtonModalResult( btnYes, BUTTON_YES )
+UI_SetEditEnterButton( edtNumber, btnYes )
+
+--加载取消按钮
+btnNo = UI_CreateCompent( frmNumber, BUTTON_TYPE, "btnNo", 47, 22, 119, 81 )
+UI_LoadButtonImage( btnNo, "texture/ui2009/button.tga", 47, 22, 0, 22, TRUE )
+UI_SetButtonModalResult( btnNo, BUTTON_NO )
+
+-----------------------------------------------------------------------
+-- 定义信息提示
+-----------------------------------------------------------------------
+frmError = UI_CreateForm( "frmError",  TRUE, 185, 101, 397, 500, FALSE, TRUE )
+UI_LoadFormImage( frmError, "texture/ui/system/error.tga", 32, 32, 64, 64, "texture/ui/system/error.tga", 32, 32 )
+
+UI_SetFormStyle( frmError, 1 )
+UI_ShowForm( frmError, FALSE )
+UI_AddFormToTemplete( frmError, FORM_DIALOG )
+UI_SetIsDrag( frmError, TRUE )
+
+--创建询问内容
+labError = UI_CreateCompent( frmError, LABELEX_TYPE, "labError", 59, 11, 35, 40 )
+UI_SetCaption( labError, "" )
+UI_SetTextColor( labError, COLOR_BLACK )
+UI_SetLabelExFont( labError, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载确定按钮
+btnYes = UI_CreateCompent( frmError, BUTTON_TYPE, "btnYes", 37, 17, 80, 78 )
+UI_LoadButtonImage( btnYes, "texture/ui2009/button.tga", 47, 22, 0, 0, TRUE )
+UI_SetButtonModalResult( btnYes, BUTTON_YES )
+UI_SetAlign( btnYes, caWidthCenter )
+UI_FormSetEnterButton( frmError, btnYes )
+
+-----------------------------------------------------------------------
+-- 定义密码输入表单
+-----------------------------------------------------------------------
+-- 创建密码输入
+frmPass = UI_CreateForm( "frmPass", FALSE, 224, 112, 310, 410, FALSE, FALSE )
+UI_AddFormToTemplete( frmPass, FORM_DIALOG )
+UI_SetFormStyle( frmPass, 2 )
+--UI_FormSetHotKey( frmPass, ALT_KEY, 75 ) 
+UI_FormSetIsEscClose( frmPass, FALSE )
+
+-- UI_FormSetHotKey( frmPass, ALT_KEY, HOTKEY_T )
+
+-- 加载背景图片
+imgAccout = UI_CreateCompent( frmPass, IMAGE_TYPE, "imgAccout", 224, 112, 0, 0 )
+UI_LoadImage( imgAccout, "texture/ui2009/ty2.tga", NORMAL, 224, 112, 19, 3 )
+
+--创建title
+labTitle = UI_CreateCompent( frmPass, LABELEX_TYPE, "labTitle", 49, 11, 10, 12 )
+FORMS_DIALOG_CLU_000006 = GetResString("FORMS_DIALOG_CLU_000006")
+UI_SetCaption( labTitle, FORMS_DIALOG_CLU_000006 )
+UI_SetTextColor( labTitle, COLOR_BLACK )
+UI_SetLabelExFont( labTitle, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建密码两个字
+labPass = UI_CreateCompent( frmPass, LABELEX_TYPE, "labPass", 23, 11, 30, 54 )
+FORMS_DIALOG_CLU_000007 = GetResString("FORMS_DIALOG_CLU_000007")
+UI_SetCaption( labPass, FORMS_DIALOG_CLU_000007 )
+UI_SetTextColor( labPass, COLOR_BLACK )
+UI_SetLabelExFont( labPass, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+
+--密码背景
+imgPass = UI_CreateCompent( frmPass, IMAGE_TYPE, "imgPass", 87, 18, 70, 50 )
+UI_LoadImage( imgPass, "texture/ui/PublicC.tga", NORMAL, 87, 18, 99, 235 )
+
+--加载确定，取消按钮
+btnYes = UI_CreateCompent( frmPass, BUTTON_TYPE, "btnYes", 47, 22, 45, 81 )
+UI_LoadButtonImage( btnYes, "texture/ui2009/button.tga", 47, 22, 0, 0, TRUE )
+
+btnNo = UI_CreateCompent( frmPass, BUTTON_TYPE, "btnNo", 47, 22, 119, 81 )
+UI_LoadButtonImage( btnNo, "texture/ui2009/button.tga", 47, 22, 0, 22, TRUE )
+
+
+--加载密码输入框
+edtPassword = UI_CreateCompent( frmPass, EDIT_TYPE, "edtPassword", 87, 12, 76, 54 )
+UI_SetTextColor( edtPassword, COLOR_BLACK )
+UI_SetEditMaxNum( edtPassword, 12 )
+UI_SetEditMaxNumVisible( edtPassword, 12 )
+UI_SetButtonModalResult( btnYes, BUTTON_YES )
+UI_SetButtonModalResult( btnNo, BUTTON_NO )
+
+UI_SetEditEnterButton( edtPassword, btnYes )
+
+
+-----------------------------------------------------------------------
+-- 定义防外挂答题框
+-----------------------------------------------------------------------
+frmWGAnswer = UI_CreateForm( "frmWGAnswer",  FALSE, 185, 101, 397, 500, TRUE, FALSE )
+UI_ShowForm( frmWGAnswer, FALSE )
+UI_SetIsDrag( frmWGAnswer, TRUE )
+UI_AddFormToTemplete( frmWGAnswer, FORM_MAIN )
+UI_FormSetIsEscClose( frmWGAnswer, FALSE )
+
+--UI_FormSetHotKey( frmWGAnswer, ALT_KEY, HOTKEY_Z) 
+
+-- 加载背景图片
+imgBackGround = UI_CreateCompent( frmWGAnswer, IMAGE_TYPE, "imgBackGround", 185, 101, 0, 0 )
+UI_LoadImage( imgBackGround, "texture/ui/sure.bmp", NORMAL, 185, 101, 0, 0 )
+
+--设置提示label
+	labNotice = UI_CreateCompent( frmWGAnswer, LABELEX_TYPE, "labNotice", 400, 150, 7, 3 )
+	FORMS_DIALOG_CLU_000008 = GetResString("FORMS_DIALOG_CLU_000008")
+	UI_SetCaption( labNotice, FORMS_DIALOG_CLU_000008)
+	UI_SetTextColor( labNotice, COLOR_BLUE)
+	UI_SetLabelExFont( labNotice, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载验证码
+ui3dCheckCode = UI_CreateCompent( frmWGAnswer, UI3D_COMPENT, "ui3dCheckCode", 110, 240, 73,24 )
+
+--加载输入框背景
+imgSum = UI_CreateCompent( frmWGAnswer, IMAGE_TYPE, "imgSum", 57, 18, 116, 54 )
+UI_LoadImage( imgSum, "texture/ui/PublicC.tga", NORMAL, 87, 18, 99, 235 )
+
+--加载输入框
+edtUserInput = UI_CreateCompent( frmWGAnswer, EDIT_TYPE, "edtUserInput", 87, 12, 120, 57 )
+UI_SetTextColor( edtUserInput, COLOR_BLACK )
+UI_SetEditMaxNum( edtUserInput, 4 )
+UI_SetEditMaxNumVisible( edtUserInput, 4 )
+UI_SetButtonModalResult( btnYes, BUTTON_YES )
+UI_SetButtonModalResult( btnNo, BUTTON_NO )
+
+UI_SetEditEnterButton( edtPassword, btnYes )
+
+--加载倒计时label
+labNotice = UI_CreateCompent( frmWGAnswer, LABELEX_TYPE, "labNotice", 23, 11, 12,57 )
+FORMS_DIALOG_CLU_000009 = GetResString("FORMS_DIALOG_CLU_000009")
+UI_SetCaption( labNotice, FORMS_DIALOG_CLU_000009 )
+UI_SetTextColor( labNotice, COLOR_BLACK )
+UI_SetLabelExFont( labNotice, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+labTimeLeft = UI_CreateCompent( frmWGAnswer, LABELEX_TYPE, "labTimeLeft", 23, 11, 88, 56 )
+FORMS_DIALOG_CLU_000007 = GetResString("FORMS_DIALOG_CLU_000007")
+UI_SetCaption( labTimeLeft, FORMS_DIALOG_CLU_000007 )
+UI_SetTextColor( labTimeLeft, COLOR_RED )
+UI_SetLabelExFont( labTimeLeft, FONT16, FALSE, COLOR_WHITE )
+
+--加载确定按钮
+btnYes = UI_CreateCompent( frmWGAnswer, BUTTON_TYPE, "btnYes", 47, 22, 74, 78 )
+UI_LoadButtonImage( btnYes, "texture/ui2009/button.tga", 47, 22, 0, 0, TRUE )
+UI_SetButtonModalResult( btnYes, BUTTON_YES )
+UI_SetEditEnterButton( edtUserInput, btnYes )
+
+--------------------------------------------
+------ 背后灵 By 小白 090310 ------
+--------------------------------------------
+--创建基本页面
+frmBakGhost = UI_CreateForm( "frmBakGhost", FALSE, 325, 300, 105, 90, TRUE, FALSE )
+UI_ShowForm( frmBakGhost, TRUE )
+UI_AddFormToTemplete( frmBakGhost, FORM_MAIN )
+-- UI_FormSetHotKey( frmBakGhost, ALT_KEY, HOTKEY_V )
+UI_SetIsDrag( frmBakGhost, TRUE )
+
+-- 加载背景图片
+imgBakLeft = UI_CreateCompent( frmBakGhost, IMAGE_TYPE, "imgBakLeft", 256, 256, 0, 0 )
+UI_LoadImage( imgBakLeft, "texture/ui2009/tongyongX1.tga", NORMAL, 256, 256, 0, 0 )
+
+imgBakRight = UI_CreateCompent( frmBakGhost, IMAGE_TYPE, "imgBakRight", 69, 256, 256, 0 )
+UI_LoadImage( imgBakRight, "texture/ui2009/tongyongX2.tga", NORMAL, 69, 256, 0, 0 )
+
+imgBakLeftD = UI_CreateCompent( frmBakGhost, IMAGE_TYPE, "imgBakLeftD", 256, 44, 0, 256 )
+UI_LoadImage( imgBakLeftD, "texture/ui2009/tongyongX3.tga", NORMAL, 256, 44, 0, 0 )
+
+imgBakRightD = UI_CreateCompent( frmBakGhost, IMAGE_TYPE, "imgBakRightD", 69, 44, 256, 256 )
+UI_LoadImage( imgBakRightD, "texture/ui2009/tongyongX3.tga", NORMAL, 69, 44, 0, 44 )
+
+--加载文字title
+labtitle = UI_CreateCompent( frmBakGhost, LABELEX_TYPE, "labtitle", 261, 12, 22, 12 )
+--FORMS_DIALOG_CLU_000010 = GetResString("FORMS_DIALOG_CLU_000010")
+UI_SetCaption( labtitle, "Comfirm")
+UI_SetTextColor( labtitle, COLOR_WHITE )
+UI_SetLabelExFont( labtitle, DEFAULT_FONT, TRUE, COLOR_BLACK )
+
+--加载说明文字框1
+labTxthelp1 = UI_CreateCompent( frmBakGhost, LABELEX_TYPE, "labTxthelp1", 400, 12, 33, 200 )
+--FORMS_DIALOG_CLU_000011 = GetResString("FORMS_DIALOG_CLU_000011")
+UI_SetCaption( labTxthelp1, "Enter a fairy and a liquid to create a Rear Fairy." )
+UI_SetTextColor( labTxthelp1, COLOR_BLACK )
+UI_SetLabelExFont( labTxthelp1, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--加载说明文字框2
+labTxthelp2 = UI_CreateCompent( frmBakGhost, LABELEX_TYPE, "labTxthelp2", 400, 12, 33, 220 )
+--FORMS_DIALOG_CLU_000012 = GetResString("FORMS_DIALOG_CLU_000012")
+UI_SetCaption( labTxthelp2, "Put the Rear Fairy in the 4th slot of your bag to obtain the blessing effect" )
+UI_SetTextColor( labTxthelp2, COLOR_BLACK )
+UI_SetLabelExFont( labTxthelp2, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--加载说明文字框3
+labTxthelp3 = UI_CreateCompent( frmBakGhost, LABELEX_TYPE, "labTxthelp3", 400, 12, 33, 240 )
+FORMS_DIALOG_CLU_000013 = GetResString("FORMS_DIALOG_CLU_000013")
+UI_SetCaption( labTxthelp3, FORMS_DIALOG_CLU_000013 )
+UI_SetTextColor( labTxthelp3, COLOR_BLACK )
+UI_SetLabelExFont( labTxthelp3, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmBakGhost, BUTTON_TYPE, "btnClose", 15, 15, 299, 10 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+--使用帮助按钮
+btnHelp = UI_CreateCompent( frmBakGhost, BUTTON_TYPE, "btnHelp", 70, 22, 128, 266 )
+UI_LoadButtonImage( btnHelp, "texture/ui2009/JewelryUp.tga", 70, 22, 0, 0, FALSE )
+
+txtHelp01 = UI_CreateCompent( frmBakGhost, LABELEX_TYPE, "txtHelp01", 50, 12, 140, 272 )
+FORMS_DIALOG_CLU_000014 = GetResString("FORMS_DIALOG_CLU_000014")
+UI_SetCaption( txtHelp01, FORMS_DIALOG_CLU_000014 )
+UI_SetTextColor( txtHelp01, COLOR_BLACK )
+UI_SetLabelExFont( txtHelp01, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--精灵槽位
+imgBakGhost0 = UI_CreateCompent( frmBakGhost, IMAGE_TYPE, "imgBakGhost0", 44, 45, 78, 64 )
+UI_LoadImage( imgBakGhost0, "texture/ui2009/pubick.tga", NORMAL, 44, 45, 138, 0 )
+
+cmdBakGhost0 = UI_CreateCompent( frmBakGhost, COMMAND_ONE_TYPE, "cmdBakGhost0", 32, 32, 84, 70 )	-- 精灵
+FORMS_DIALOG_CLU_000015 = GetResString("FORMS_DIALOG_CLU_000015")
+UI_SetHint( cmdBakGhost0, FORMS_DIALOG_CLU_000015 )
+
+-- 商城道具槽位
+imgBakGhost1 = UI_CreateCompent( frmBakGhost, IMAGE_TYPE, "imgBakGhost1", 44, 45, 205, 64 )
+UI_LoadImage( imgBakGhost1, "texture/ui2009/pubick.tga", NORMAL, 44, 45, 94, 0 )
+
+cmdBakGhost1 = UI_CreateCompent( frmBakGhost, COMMAND_ONE_TYPE, "cmdBakGhost1", 32, 32, 211, 70 )	-- 合成道具
+FORMS_DIALOG_CLU_000016 = GetResString("FORMS_DIALOG_CLU_000016")
+UI_SetHint( cmdBakGhost1, FORMS_DIALOG_CLU_000016 )
+
+--加载确定按钮
+btnComplete = UI_CreateCompent( frmBakGhost, BUTTON_TYPE, "btnComplete", 44, 22, 141, 141 )
+UI_LoadButtonImage( btnComplete, "texture/ui2009/JewelryUp.tga", 44, 22, 71, 0, FALSE )
+
+--加载确定按钮
+labTxtYes = UI_CreateCompent( frmBakGhost, LABELEX_TYPE, "labTxtYes", 44, 12, 152, 146 )
+FORMS_DIALOG_CLU_000017 = GetResString("FORMS_DIALOG_CLU_000017")
+UI_SetCaption( labTxtYes, FORMS_DIALOG_CLU_000017)
+UI_SetTextColor( labTxtYes, COLOR_BLACK )
+UI_SetLabelExFont( labTxtYes, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--------------------------------------------
+------ 精灵硬币提炼 By 小白 090316 ------
+--------------------------------------------
+--创建基本页面
+frmElfCoin = UI_CreateForm( "frmElfCoin", FALSE, 325, 300, 105, 90, TRUE, FALSE )
+UI_ShowForm( frmElfCoin, TRUE )
+UI_AddFormToTemplete( frmElfCoin, FORM_MAIN )
+-- UI_FormSetHotKey( frmElfCoin, ALT_KEY, HOTKEY_V )
+UI_SetIsDrag( frmElfCoin, TRUE )
+
+-- 加载背景图片
+imgBakLeft = UI_CreateCompent( frmElfCoin, IMAGE_TYPE, "imgBakLeft", 256, 256, 0, 0 )
+UI_LoadImage( imgBakLeft, "texture/ui2009/tongyongX1.tga", NORMAL, 256, 256, 0, 0 )
+
+imgBakRight = UI_CreateCompent( frmElfCoin, IMAGE_TYPE, "imgBakRight", 69, 256, 256, 0 )
+UI_LoadImage( imgBakRight, "texture/ui2009/tongyongX2.tga", NORMAL, 69, 256, 0, 0 )
+
+imgBakLeftD = UI_CreateCompent( frmElfCoin, IMAGE_TYPE, "imgBakLeftD", 256, 44, 0, 256 )
+UI_LoadImage( imgBakLeftD, "texture/ui2009/tongyongX3.tga", NORMAL, 256, 44, 0, 0 )
+
+imgBakRightD = UI_CreateCompent( frmElfCoin, IMAGE_TYPE, "imgBakRightD", 69, 44, 256, 256 )
+UI_LoadImage( imgBakRightD, "texture/ui2009/tongyongX3.tga", NORMAL, 69, 44, 0, 44 )
+
+--加载文字title
+labtitle = UI_CreateCompent( frmElfCoin, LABELEX_TYPE, "labtitle", 261, 12, 22, 12 )
+FORMS_DIALOG_CLU_000018 = GetResString("FORMS_DIALOG_CLU_000018")
+UI_SetCaption( labtitle, FORMS_DIALOG_CLU_000018 )
+UI_SetTextColor( labtitle, COLOR_WHITE )
+UI_SetLabelExFont( labtitle, DEFAULT_FONT, TRUE, COLOR_BLACK )
+
+--加载说明文字框1
+labTxthelp1 = UI_CreateCompent( frmElfCoin, LABELEX_TYPE, "labTxthelp1", 400, 12, 33, 200 )
+FORMS_DIALOG_CLU_000019 = GetResString("FORMS_DIALOG_CLU_000019")
+UI_SetCaption( labTxthelp1, FORMS_DIALOG_CLU_000019 )
+UI_SetTextColor( labTxthelp1, COLOR_BLACK )
+UI_SetLabelExFont( labTxthelp1, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--加载说明文字框2
+labTxthelp2 = UI_CreateCompent( frmElfCoin, LABELEX_TYPE, "labTxthelp2", 400, 12, 33, 220 )
+FORMS_DIALOG_CLU_000020 = GetResString("FORMS_DIALOG_CLU_000020")
+UI_SetCaption( labTxthelp2, FORMS_DIALOG_CLU_000020 )
+UI_SetTextColor( labTxthelp2, COLOR_BLACK )
+UI_SetLabelExFont( labTxthelp2, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--加载说明文字框3
+labTxthelp3 = UI_CreateCompent( frmElfCoin, LABELEX_TYPE, "labTxthelp3", 400, 12, 33, 240 )
+FORMS_DIALOG_CLU_000021 = GetResString("FORMS_DIALOG_CLU_000021")
+UI_SetCaption( labTxthelp3, FORMS_DIALOG_CLU_000021 )
+UI_SetTextColor( labTxthelp3, COLOR_BLACK )
+UI_SetLabelExFont( labTxthelp3, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmElfCoin, BUTTON_TYPE, "btnClose", 15, 15, 299, 10 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+--使用帮助按钮
+btnHelp = UI_CreateCompent( frmElfCoin, BUTTON_TYPE, "btnHelp", 70, 22, 128, 266 )
+UI_LoadButtonImage( btnHelp, "texture/ui2009/JewelryUp.tga", 70, 22, 0, 0, FALSE )
+
+txtHelp01 = UI_CreateCompent( frmElfCoin, LABELEX_TYPE, "txtHelp01", 50, 12, 140, 272 )
+FORMS_DIALOG_CLU_000014 = GetResString("FORMS_DIALOG_CLU_000014")
+UI_SetCaption( txtHelp01, FORMS_DIALOG_CLU_000014 )
+UI_SetTextColor( txtHelp01, COLOR_BLACK )
+UI_SetLabelExFont( txtHelp01, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--选择图片
+imgTxt01 = UI_CreateCompent( frmElfCoin, IMAGE_TYPE, "imgTxt01", 155, 30, 29, 45 )
+UI_LoadImage( imgTxt01, "texture/ui2009/CoinKey.tga", NORMAL, 155, 30, 0, 0 )
+
+LabTxt01 = UI_CreateCompent( frmElfCoin, LABELEX_TYPE, "LabTxt01", 130, 12, 46, 55 )
+--FORMS_DIALOG_CLU_000022 = GetResString("FORMS_DIALOG_CLU_000022")
+UI_SetCaption( LabTxt01, "Fairy Coins-Elven Signet")
+UI_SetTextColor( LabTxt01, COLOR_BLACK )
+UI_SetLabelExFont( LabTxt01, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+imgTxt02 = UI_CreateCompent( frmElfCoin, IMAGE_TYPE, "imgTxt02", 155, 30, 29, 96 )
+UI_LoadImage( imgTxt02, "texture/ui2009/CoinKey.tga", NORMAL, 155, 30, 0, 0 )
+
+LabTxt02 = UI_CreateCompent( frmElfCoin, LABELEX_TYPE, "LabTxt02", 100, 12, 46, 106 )
+--FORMS_DIALOG_CLU_000023 = GetResString("FORMS_DIALOG_CLU_000023")
+UI_SetCaption( LabTxt02, "Fairy Coins-Elven Royal Signet")
+UI_SetTextColor( LabTxt02, COLOR_BLACK )
+UI_SetLabelExFont( LabTxt02, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+imgTxt03 = UI_CreateCompent( frmElfCoin, IMAGE_TYPE, "imgTxt03", 155, 30, 29, 147 )
+UI_LoadImage( imgTxt03, "texture/ui2009/CoinKey.tga", NORMAL, 155, 30, 0, 0 )
+
+LabTxt03 = UI_CreateCompent( frmElfCoin, LABELEX_TYPE, "LabTxt03", 100, 12, 46, 157 )
+--FORMS_DIALOG_CLU_000024 = GetResString("FORMS_DIALOG_CLU_000024")
+UI_SetCaption( LabTxt03, "Elven Signet-Elven Royal Signet")
+UI_SetTextColor( LabTxt03, COLOR_BLACK )
+UI_SetLabelExFont( LabTxt03, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载数量选择区1
+imgelftxt1 = UI_CreateCompent( frmElfCoin, IMAGE_TYPE, "imgelftxt1", 46, 18, 194, 50 )
+UI_LoadImage( imgelftxt1, "texture/ui2009/elfafk02.tga", NORMAL, 72, 21, 64, 92 )
+
+--经验选择按钮1
+imgexpbtn1 = UI_CreateCompent( frmElfCoin, IMAGE_TYPE, "imgexpbtn1", 15, 15, 224, 51 )
+UI_LoadImage( imgexpbtn1, "texture/ui2009/button2.tga", NORMAL, 15, 15, 172, 21 )
+
+--加载数量选择区2
+imgelftxt2 = UI_CreateCompent( frmElfCoin, IMAGE_TYPE, "imgelftxt2", 46, 18, 194, 101 )
+UI_LoadImage( imgelftxt2, "texture/ui2009/elfafk02.tga", NORMAL, 72, 21, 64, 92 )
+
+--经验选择按钮2
+imgexpbtn2 = UI_CreateCompent( frmElfCoin, IMAGE_TYPE, "imgexpbtn2", 15, 15, 224, 102)
+UI_LoadImage( imgexpbtn2, "texture/ui2009/button2.tga", NORMAL, 15, 15, 172, 21 )
+
+--加载数量选择区3
+imgelftxt3 = UI_CreateCompent( frmElfCoin, IMAGE_TYPE, "imgelftxt3", 46, 18, 194, 152 )
+UI_LoadImage( imgelftxt3, "texture/ui2009/elfafk02.tga", NORMAL, 72, 21, 64, 92 )
+
+--经验选择按钮3
+imgexpbtn3 = UI_CreateCompent( frmElfCoin, IMAGE_TYPE, "imgexpbtn3", 15, 15, 224, 153 )
+UI_LoadImage( imgexpbtn3, "texture/ui2009/button2.tga", NORMAL, 15, 15, 172, 21 )
+
+--加载确定1按钮
+btnTxt01 = UI_CreateCompent( frmElfCoin, BUTTON_TYPE, "btnTxt01", 44, 22, 252, 49 )
+UI_LoadButtonImage( btnTxt01, "texture/ui2009/JewelryUp.tga", 44, 22, 71, 0, FALSE )
+
+--加载确定1按钮
+labTxtYes = UI_CreateCompent( frmElfCoin, LABELEX_TYPE, "labTxtYes", 44, 12, 263, 55 )
+FORMS_DIALOG_CLU_000025 = GetResString("FORMS_DIALOG_CLU_000025")
+UI_SetCaption( labTxtYes, "ok")
+UI_SetTextColor( labTxtYes, COLOR_BLACK )
+UI_SetLabelExFont( labTxtYes, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载确定2按钮
+btnTxt02 = UI_CreateCompent( frmElfCoin, BUTTON_TYPE, "btnTxt02", 44, 22, 252, 100 )
+UI_LoadButtonImage( btnTxt02, "texture/ui2009/JewelryUp.tga", 44, 22, 71, 0, FALSE )
+
+--加载确定2按钮
+labTxtYes = UI_CreateCompent( frmElfCoin, LABELEX_TYPE, "labTxtYes", 44, 12, 263, 106 )
+FORMS_DIALOG_CLU_000025 = GetResString("FORMS_DIALOG_CLU_000025")
+UI_SetCaption( labTxtYes, "ok")
+UI_SetTextColor( labTxtYes, COLOR_BLACK )
+UI_SetLabelExFont( labTxtYes, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载确定3按钮
+btnTxt03 = UI_CreateCompent( frmElfCoin, BUTTON_TYPE, "btnTxt03", 44, 22, 252, 151 )
+UI_LoadButtonImage( btnTxt03, "texture/ui2009/JewelryUp.tga", 44, 22, 71, 0, FALSE )
+
+--加载确定3按钮
+labTxtYes = UI_CreateCompent( frmElfCoin, LABELEX_TYPE, "labTxtYes", 44, 12, 263, 157 )
+FORMS_DIALOG_CLU_000025 = GetResString("FORMS_DIALOG_CLU_000025")
+UI_SetCaption( labTxtYes, "ok")
+UI_SetTextColor( labTxtYes, COLOR_BLACK )
+UI_SetLabelExFont( labTxtYes, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--精灵硬币兑换选择列表3
+cboCion3  = UI_CreateCompent( frmElfCoin, COMBO_TYPE, "cboCion3", 49, 20, 195, 153 )
+UI_ComboSetStyle( cboCion3, TRUE )
+UI_ComboSetTextColor( cboCion3, COLOR_BLACK )
+lstCion3 = UI_GetList( cboCion3 )
+UI_SetListFontColor( lstCion3, COLOR_BLACK, COLOR_BLACK )
+UI_SetSize( lstCion3, 44, 49 )
+UI_SetMargin( lstCion3, 9, 3, 9, 0 )
+UI_SetListRowHeight( lstCion3, 15 )
+UI_LoadImage( lstCion3, "texture/ui2009/elfafk02.tga", COMPENT_BACK, 49, 63, 64, 113 )
+FORMS_DIALOG_CLU_000026 = GetResString("FORMS_DIALOG_CLU_000026")
+UI_AddListText( lstCion3, FORMS_DIALOG_CLU_000026 )
+FORMS_DIALOG_CLU_000027 = GetResString("FORMS_DIALOG_CLU_000027")
+UI_AddListText( lstCion3, FORMS_DIALOG_CLU_000027 )
+FORMS_DIALOG_CLU_000028 = GetResString("FORMS_DIALOG_CLU_000028")
+UI_AddListText( lstCion3, FORMS_DIALOG_CLU_000028 )
+UI_SetListIsMouseFollow( lstCion3, TRUE)
+UI_ListLoadSelectImage( lstCion3, "texture/ui/SystemBotton3.tga", 79, 18, 0, 227  )
+UI_ComboSetTextColor( lstCion3, COLOR_WHITE )
+
+--精灵硬币兑换选择列表2
+cboCion2  = UI_CreateCompent( frmElfCoin, COMBO_TYPE, "cboCion2", 49, 20, 195, 102 )
+UI_ComboSetStyle( cboCion2, TRUE )
+UI_ComboSetTextColor( cboCion2, COLOR_BLACK )
+lstCion2 = UI_GetList( cboCion2 )
+UI_SetListFontColor( lstCion2, COLOR_BLACK, COLOR_BLACK )
+UI_SetSize( lstCion2, 44, 49 )
+UI_SetMargin( lstCion2, 9, 3, 9, 0 )
+UI_SetListRowHeight( lstCion2, 15 )
+UI_LoadImage( lstCion2, "texture/ui2009/elfafk02.tga", COMPENT_BACK, 49, 63, 64, 113 )
+FORMS_DIALOG_CLU_000026 = GetResString("FORMS_DIALOG_CLU_000026")
+UI_AddListText( lstCion2, FORMS_DIALOG_CLU_000026 )
+FORMS_DIALOG_CLU_000027 = GetResString("FORMS_DIALOG_CLU_000027")
+UI_AddListText( lstCion2, FORMS_DIALOG_CLU_000027 )
+FORMS_DIALOG_CLU_000028 = GetResString("FORMS_DIALOG_CLU_000028")
+UI_AddListText( lstCion2, FORMS_DIALOG_CLU_000028 )
+UI_SetListIsMouseFollow( lstCion2, TRUE)
+UI_ListLoadSelectImage( lstCion2, "texture/ui/SystemBotton3.tga", 79, 18, 0, 227  )
+UI_ComboSetTextColor( lstCion2, COLOR_WHITE )
+
+--精灵硬币兑换选择列表1
+cboCion1  = UI_CreateCompent( frmElfCoin, COMBO_TYPE, "cboCion1", 49, 20, 195, 51 )
+UI_ComboSetStyle( cboCion1, TRUE )
+UI_ComboSetTextColor( cboCion1, COLOR_BLACK )
+lstCion1 = UI_GetList( cboCion1 )
+UI_SetListFontColor( lstCion1, COLOR_BLACK, COLOR_BLACK )
+UI_SetSize( lstCion1, 44, 49 )
+UI_SetMargin( lstCion1, 9, 3, 9, 0 )
+UI_SetListRowHeight( lstCion1, 15 )
+UI_LoadImage( lstCion1, "texture/ui2009/elfafk02.tga", COMPENT_BACK, 49, 63, 64, 113 )
+FORMS_DIALOG_CLU_000026 = GetResString("FORMS_DIALOG_CLU_000026")
+UI_AddListText( lstCion1, FORMS_DIALOG_CLU_000026 )
+FORMS_DIALOG_CLU_000027 = GetResString("FORMS_DIALOG_CLU_000027")
+UI_AddListText( lstCion1, FORMS_DIALOG_CLU_000027 )
+FORMS_DIALOG_CLU_000028 = GetResString("FORMS_DIALOG_CLU_000028")
+UI_AddListText( lstCion1, FORMS_DIALOG_CLU_000028 )
+UI_SetListIsMouseFollow( lstCion1, TRUE)
+UI_ListLoadSelectImage( lstCion1, "texture/ui/SystemBotton3.tga", 79, 18, 0, 227  )
+UI_ComboSetTextColor( lstCion1, COLOR_WHITE )
+
+--------------------------------------------
+------ 装备属性重置 By 小白 090310 ------
+--------------------------------------------
+--创建基本页面
+frmItemRe = UI_CreateForm( "frmItemRe", FALSE, 325, 300, 105, 90, TRUE, FALSE )
+UI_ShowForm( frmItemRe, TRUE )
+UI_AddFormToTemplete( frmItemRe, FORM_MAIN )
+-- UI_FormSetHotKey( frmItemRe, ALT_KEY, HOTKEY_V )
+UI_SetIsDrag( frmItemRe, TRUE )
+
+-- 加载背景图片
+imgBakLeft = UI_CreateCompent( frmItemRe, IMAGE_TYPE, "imgBakLeft", 256, 256, 0, 0 )
+UI_LoadImage( imgBakLeft, "texture/ui2009/tongyongX1.tga", NORMAL, 256, 256, 0, 0 )
+
+imgBakRight = UI_CreateCompent( frmItemRe, IMAGE_TYPE, "imgBakRight", 69, 256, 256, 0 )
+UI_LoadImage( imgBakRight, "texture/ui2009/tongyongX2.tga", NORMAL, 69, 256, 0, 0 )
+
+imgBakLeftD = UI_CreateCompent( frmItemRe, IMAGE_TYPE, "imgBakLeftD", 256, 44, 0, 256 )
+UI_LoadImage( imgBakLeftD, "texture/ui2009/tongyongX3.tga", NORMAL, 256, 44, 0, 0 )
+
+imgBakRightD = UI_CreateCompent( frmItemRe, IMAGE_TYPE, "imgBakRightD", 69, 44, 256, 256 )
+UI_LoadImage( imgBakRightD, "texture/ui2009/tongyongX3.tga", NORMAL, 69, 44, 0, 44 )
+
+--加载文字title
+labtitle = UI_CreateCompent( frmItemRe, LABELEX_TYPE, "labtitle", 261, 12, 22, 12 )
+FORMS_DIALOG_CLU_000029 = GetResString("FORMS_DIALOG_CLU_000029")
+UI_SetCaption( labtitle, FORMS_DIALOG_CLU_000029 )
+UI_SetTextColor( labtitle, COLOR_WHITE )
+UI_SetLabelExFont( labtitle, DEFAULT_FONT, TRUE, COLOR_BLACK )
+
+--加载说明文字框1
+labTxthelp1 = UI_CreateCompent( frmItemRe, LABELEX_TYPE, "labTxthelp1", 400, 12, 30, 200 )
+FORMS_DIALOG_CLU_000030 = GetResString("FORMS_DIALOG_CLU_000030")
+UI_SetCaption( labTxthelp1, FORMS_DIALOG_CLU_000030 )
+UI_SetTextColor( labTxthelp1, COLOR_BLACK )
+UI_SetLabelExFont( labTxthelp1, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--加载说明文字框2
+labTxthelp2 = UI_CreateCompent( frmItemRe, LABELEX_TYPE, "labTxthelp2", 400, 12, 30, 220 )
+FORMS_DIALOG_CLU_000031 = GetResString("FORMS_DIALOG_CLU_000031")
+UI_SetCaption( labTxthelp2, FORMS_DIALOG_CLU_000031 )
+UI_SetTextColor( labTxthelp2, COLOR_BLACK )
+UI_SetLabelExFont( labTxthelp2, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--加载说明文字框3
+labTxthelp3 = UI_CreateCompent( frmItemRe, LABELEX_TYPE, "labTxthelp3", 400, 12, 30, 240 )
+FORMS_DIALOG_CLU_000032 = GetResString("FORMS_DIALOG_CLU_000032")
+UI_SetCaption( labTxthelp3, FORMS_DIALOG_CLU_000032 )
+UI_SetTextColor( labTxthelp3, COLOR_BLACK )
+UI_SetLabelExFont( labTxthelp3, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmItemRe, BUTTON_TYPE, "btnClose", 15, 15, 299, 10 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+--使用帮助按钮
+btnHelp = UI_CreateCompent( frmItemRe, BUTTON_TYPE, "btnHelp", 70, 22, 128, 266 )
+UI_LoadButtonImage( btnHelp, "texture/ui2009/JewelryUp.tga", 70, 22, 0, 0, FALSE )
+
+txtHelp01 = UI_CreateCompent( frmItemRe, LABELEX_TYPE, "txtHelp01", 50, 12, 140, 272 )
+FORMS_DIALOG_CLU_000014 = GetResString("FORMS_DIALOG_CLU_000014")
+UI_SetCaption( txtHelp01, FORMS_DIALOG_CLU_000014 )
+UI_SetTextColor( txtHelp01, COLOR_BLACK )
+UI_SetLabelExFont( txtHelp01, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--精灵槽位
+imgElf0 = UI_CreateCompent( frmItemRe, IMAGE_TYPE, "imgElf0", 44, 45, 140, 48 )
+UI_LoadImage( imgElf0, "texture/ui2009/pubick.tga", NORMAL, 44, 45, 138, 0 )
+
+cmdElf0 = UI_CreateCompent( frmItemRe, COMMAND_ONE_TYPE, "cmdElf0", 32, 32, 146, 54 )	-- 精灵
+FORMS_DIALOG_CLU_000015 = GetResString("FORMS_DIALOG_CLU_000015")
+UI_SetHint( cmdElf0, FORMS_DIALOG_CLU_000015 )
+
+-- 装备槽位
+imgStore1 = UI_CreateCompent( frmItemRe, IMAGE_TYPE, "imgStore1", 44, 45, 49, 123 )
+UI_LoadImage( imgStore1, "texture/ui2009/pubick.tga", NORMAL, 44, 45, 50, 0 )
+
+cmdStore1 = UI_CreateCompent( frmItemRe, COMMAND_ONE_TYPE, "cmdStore1", 32, 32, 55, 129 )	-- 合成道具
+FORMS_DIALOG_CLU_000033 = GetResString("FORMS_DIALOG_CLU_000033")
+UI_SetHint( cmdStore1, FORMS_DIALOG_CLU_000033 )
+
+-- 属性石槽位
+imgEquip2 = UI_CreateCompent( frmItemRe, IMAGE_TYPE, "imgEquip2", 44, 45, 230, 123 )
+UI_LoadImage( imgEquip2, "texture/ui2009/pubick.tga", NORMAL, 44, 45, 94, 0 )
+
+cmdEquip2 = UI_CreateCompent( frmItemRe, COMMAND_ONE_TYPE, "cmdEquip2", 32, 32, 236, 129 )	-- 合成道具
+FORMS_DIALOG_CLU_000034 = GetResString("FORMS_DIALOG_CLU_000034")
+UI_SetHint( cmdEquip2, FORMS_DIALOG_CLU_000034 )
+
+--加载确定按钮
+btnYes = UI_CreateCompent( frmItemRe, BUTTON_TYPE, "btnYes", 44, 22, 140, 125 )
+UI_LoadButtonImage( btnYes, "texture/ui2009/JewelryUp.tga", 44, 22, 71, 0, FALSE )
+
+--加载确定按钮
+labTxtYes = UI_CreateCompent( frmItemRe, LABELEX_TYPE, "labTxtYes", 44, 12, 151, 130 )
+--FORMS_DIALOG_CLU_000035 = GetResString("FORMS_DIALOG_CLU_000035")
+UI_SetCaption( labTxtYes, "OK")
+UI_SetTextColor( labTxtYes, COLOR_BLACK )
+UI_SetLabelExFont( labTxtYes, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--------------------------------------------
+------ 精炼属性转移 By 小白 090310 ------
+--------------------------------------------
+--创建基本页面
+frmforgeMove = UI_CreateForm( "frmforgeMove", FALSE, 325, 300, 105, 90, TRUE, FALSE )
+UI_ShowForm( frmforgeMove, TRUE )
+UI_AddFormToTemplete( frmforgeMove, FORM_MAIN )
+-- UI_FormSetHotKey( frmforgeMove, ALT_KEY, HOTKEY_V )
+UI_SetIsDrag( frmforgeMove, TRUE )
+
+-- 加载背景图片
+imgBakLeft = UI_CreateCompent( frmforgeMove, IMAGE_TYPE, "imgBakLeft", 256, 256, 0, 0 )
+UI_LoadImage( imgBakLeft, "texture/ui2009/tongyongX1.tga", NORMAL, 256, 256, 0, 0 )
+
+imgBakRight = UI_CreateCompent( frmforgeMove, IMAGE_TYPE, "imgBakRight", 69, 256, 256, 0 )
+UI_LoadImage( imgBakRight, "texture/ui2009/tongyongX2.tga", NORMAL, 69, 256, 0, 0 )
+
+imgBakLeftD = UI_CreateCompent( frmforgeMove, IMAGE_TYPE, "imgBakLeftD", 256, 44, 0, 256 )
+UI_LoadImage( imgBakLeftD, "texture/ui2009/tongyongX3.tga", NORMAL, 256, 44, 0, 0 )
+
+imgBakRightD = UI_CreateCompent( frmforgeMove, IMAGE_TYPE, "imgBakRightD", 69, 44, 256, 256 )
+UI_LoadImage( imgBakRightD, "texture/ui2009/tongyongX3.tga", NORMAL, 69, 44, 0, 44 )
+
+--加载文字title
+labtitle = UI_CreateCompent( frmforgeMove, LABELEX_TYPE, "labtitle", 261, 12, 22, 12 )
+FORMS_DIALOG_CLU_000036 = GetResString("FORMS_DIALOG_CLU_000036")
+UI_SetCaption( labtitle, FORMS_DIALOG_CLU_000036 )
+UI_SetTextColor( labtitle, COLOR_WHITE )
+UI_SetLabelExFont( labtitle, DEFAULT_FONT, TRUE, COLOR_BLACK )
+
+--加载说明文字框1
+labTxthelp1 = UI_CreateCompent( frmforgeMove, LABELEX_TYPE, "labTxthelp1", 400, 12, 33, 200 )
+FORMS_DIALOG_CLU_000037 = GetResString("FORMS_DIALOG_CLU_000037")
+UI_SetCaption( labTxthelp1, FORMS_DIALOG_CLU_000037 )
+UI_SetTextColor( labTxthelp1, COLOR_BLACK )
+UI_SetLabelExFont( labTxthelp1, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--加载说明文字框2
+labTxthelp2 = UI_CreateCompent( frmforgeMove, LABELEX_TYPE, "labTxthelp2", 400, 12, 33, 220 )
+FORMS_DIALOG_CLU_000038 = GetResString("FORMS_DIALOG_CLU_000038")
+UI_SetCaption( labTxthelp2, FORMS_DIALOG_CLU_000038 )
+UI_SetTextColor( labTxthelp2, COLOR_BLACK )
+UI_SetLabelExFont( labTxthelp2, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--加载说明文字框3
+labTxthelp3 = UI_CreateCompent( frmforgeMove, LABELEX_TYPE, "labTxthelp3", 400, 12, 33, 240 )
+FORMS_DIALOG_CLU_000039 = GetResString("FORMS_DIALOG_CLU_000039")
+UI_SetCaption( labTxthelp3, FORMS_DIALOG_CLU_000039 )
+UI_SetTextColor( labTxthelp3, COLOR_BLACK )
+UI_SetLabelExFont( labTxthelp3, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmforgeMove, BUTTON_TYPE, "btnClose", 15, 15, 299, 10 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+--使用帮助按钮
+btnHelp = UI_CreateCompent( frmforgeMove, BUTTON_TYPE, "btnHelp", 70, 22, 128, 266 )
+UI_LoadButtonImage( btnHelp, "texture/ui2009/JewelryUp.tga", 70, 22, 0, 0, FALSE )
+
+txtHelp01 = UI_CreateCompent( frmforgeMove, LABELEX_TYPE, "txtHelp01", 50, 12, 140, 272 )
+FORMS_DIALOG_CLU_000014 = GetResString("FORMS_DIALOG_CLU_000014")
+UI_SetCaption( txtHelp01, FORMS_DIALOG_CLU_000014 )
+UI_SetTextColor( txtHelp01, COLOR_BLACK )
+UI_SetLabelExFont( txtHelp01, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--道具槽位
+imgElf0 = UI_CreateCompent( frmforgeMove, IMAGE_TYPE, "imgElf0", 44, 45, 59, 123 )
+UI_LoadImage( imgElf0, "texture/ui2009/pubick.tga", NORMAL, 44, 45, 94, 0 )
+
+cmdStore1 = UI_CreateCompent( frmforgeMove, COMMAND_ONE_TYPE, "cmdStore1", 32, 32, 65, 129 )	-- 精灵
+FORMS_DIALOG_CLU_000040 = GetResString("FORMS_DIALOG_CLU_000040")
+UI_SetHint( cmdStore1, FORMS_DIALOG_CLU_000040 )
+
+-- 装备1槽位
+imgStore1 = UI_CreateCompent( frmforgeMove, IMAGE_TYPE, "imgStore1", 44, 45, 59, 48 )
+UI_LoadImage( imgStore1, "texture/ui2009/pubick.tga", NORMAL, 44, 45, 50, 0 )
+
+cmdElf0 = UI_CreateCompent( frmforgeMove, COMMAND_ONE_TYPE, "cmdElf0", 32, 32, 65, 54 )	-- 合成道具
+FORMS_DIALOG_CLU_000041 = GetResString("FORMS_DIALOG_CLU_000041")
+UI_SetHint( cmdElf0, FORMS_DIALOG_CLU_000041 )
+
+-- 装备2槽位
+imgEquip2 = UI_CreateCompent( frmforgeMove, IMAGE_TYPE, "imgEquip2", 44, 45, 232, 86 )
+UI_LoadImage( imgEquip2, "texture/ui2009/pubick.tga", NORMAL, 44, 45, 50, 0 )
+
+cmdEquip2 = UI_CreateCompent( frmforgeMove, COMMAND_ONE_TYPE, "cmdEquip2", 32, 32, 238, 92 )	-- 合成道具
+FORMS_DIALOG_CLU_000042 = GetResString("FORMS_DIALOG_CLU_000042")
+UI_SetHint( cmdEquip2, FORMS_DIALOG_CLU_000042 )
+
+--加载确定按钮
+btnYes = UI_CreateCompent( frmforgeMove, BUTTON_TYPE, "btnYes", 44, 22, 147, 98 )
+UI_LoadButtonImage( btnYes, "texture/ui2009/JewelryUp.tga", 44, 22, 71, 0, FALSE )
+
+--加载确定按钮
+labTxtYes = UI_CreateCompent( frmforgeMove, LABELEX_TYPE, "labTxtYes", 44, 12, 158, 103 )
+--FORMS_DIALOG_CLU_000043 = GetResString("FORMS_DIALOG_CLU_000043")
+UI_SetCaption( labTxtYes, "ok")
+UI_SetTextColor( labTxtYes, COLOR_BLACK )
+UI_SetLabelExFont( labTxtYes, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+-----------------------------------------------------
+------ 宝石升级界面 By 小白 090316 ------
+-----------------------------------------------------
+--创建基本页面
+frmJewelryUp = UI_CreateForm( "frmJewelryUp", FALSE, 395, 339, 240, 70, TRUE, FALSE )
+UI_ShowForm( frmJewelryUp, TRUE )
+UI_AddFormToTemplete( frmJewelryUp, FORM_MAIN )
+-- UI_FormSetHotKey( frmJewelryUp, ALT_KEY, HOTKEY_V )
+UI_SetIsDrag( frmJewelryUp, TRUE )
+
+-- 加载背景图片
+imgBakLeft = UI_CreateCompent( frmJewelryUp, IMAGE_TYPE, "imgBakLeft", 256, 256, 0, 0 )
+UI_LoadImage( imgBakLeft, "texture/ui2009/tongyongD1.tga", NORMAL, 256, 256, 0, 0 )
+
+imgBakRight = UI_CreateCompent( frmJewelryUp, IMAGE_TYPE, "imgBakRight", 138, 255, 256, 1 )
+UI_LoadImage( imgBakRight, "texture/ui2009/tongyongD2.tga", NORMAL, 138, 255, 0, 0 )
+
+imgBakLeftD = UI_CreateCompent( frmJewelryUp, IMAGE_TYPE, "imgBakLeftD", 117, 83, 0, 256 )
+UI_LoadImage( imgBakLeftD, "texture/ui2009/tongyongD2.tga", NORMAL, 117, 83, 139, 0 )
+
+imgBakRightD = UI_CreateCompent( frmJewelryUp, IMAGE_TYPE, "imgBakRightD", 117, 80, 117, 257 )
+UI_LoadImage( imgBakRightD, "texture/ui2009/tongyongD2.tga", NORMAL, 117, 80, 139, 83 )
+
+imgBakRightE = UI_CreateCompent( frmJewelryUp, IMAGE_TYPE, "imgBakRightE", 117, 80, 234, 257 )
+UI_LoadImage( imgBakRightE, "texture/ui2009/tongyongD2.tga", NORMAL, 117, 80, 139, 163 )
+
+imgBakRightF = UI_CreateCompent( frmJewelryUp, IMAGE_TYPE, "imgBakRightF", 44, 83, 351, 256 )
+UI_LoadImage( imgBakRightF, "texture/ui2009/tongyongD3.tga", NORMAL, 44, 83, 0, 0 )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmJewelryUp, BUTTON_TYPE, "btnClose", 15, 15, 366, 12 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+--加载文字title
+labtitle = UI_CreateCompent( frmJewelryUp, LABELEX_TYPE, "labtitle", 261, 12, 22, 12 )
+FORMS_DIALOG_CLU_000044 = GetResString("FORMS_DIALOG_CLU_000044")
+UI_SetCaption( labtitle, FORMS_DIALOG_CLU_000044 )
+UI_SetTextColor( labtitle, COLOR_WHITE )
+UI_SetLabelExFont( labtitle, DEFAULT_FONT, TRUE, COLOR_BLACK )
+
+--加载说明文字背景框
+imgTxtHelp1 = UI_CreateCompent( frmJewelryUp, IMAGE_TYPE, "imgTxtHelp1", 212, 74, 21, 228 )
+UI_LoadImage( imgTxtHelp1, "texture/ui2009/tongyongD3.tga", NORMAL, 212, 74, 44, 0 )
+
+imgTxtHelp2 = UI_CreateCompent( frmJewelryUp, IMAGE_TYPE, "imgTxtHelp2", 140, 74, 233, 228 )
+UI_LoadImage( imgTxtHelp2, "texture/ui2009/tongyongD3.tga", NORMAL, 140, 74, 0, 84 )
+
+--加载说明文字框1
+labTxthelp1 = UI_CreateCompent( frmJewelryUp, LABELEX_TYPE, "labTxthelp1", 338, 12, 28, 237 )
+FORMS_DIALOG_CLU_000045 = GetResString("FORMS_DIALOG_CLU_000045")
+UI_SetCaption( labTxthelp1, FORMS_DIALOG_CLU_000045 )
+UI_SetTextColor( labTxthelp1, COLOR_BLACK )
+UI_SetLabelExFont( labTxthelp1, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--加载说明文字框2
+labTxthelp2 = UI_CreateCompent( frmJewelryUp, LABELEX_TYPE, "labTxthelp2", 338, 12, 28, 252 )
+FORMS_DIALOG_CLU_000046 = GetResString("FORMS_DIALOG_CLU_000046")
+UI_SetCaption( labTxthelp2, FORMS_DIALOG_CLU_000046 )
+UI_SetTextColor( labTxthelp2, COLOR_BLACK )
+UI_SetLabelExFont( labTxthelp2, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--加载说明文字框3
+labTxthelp3 = UI_CreateCompent( frmJewelryUp, LABELEX_TYPE, "labTxthelp3", 338, 12, 28, 267 )
+FORMS_DIALOG_CLU_000047 = GetResString("FORMS_DIALOG_CLU_000047")
+UI_SetCaption( labTxthelp3, FORMS_DIALOG_CLU_000047 )
+UI_SetTextColor( labTxthelp3, COLOR_BLACK )
+UI_SetLabelExFont( labTxthelp3, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--加载说明文字框4
+labTxthelp4 = UI_CreateCompent( frmJewelryUp, LABELEX_TYPE, "labTxthelp4", 338, 12, 28, 282 )
+FORMS_DIALOG_CLU_000048 = GetResString("FORMS_DIALOG_CLU_000048")
+UI_SetCaption( labTxthelp4, FORMS_DIALOG_CLU_000048 )
+UI_SetTextColor( labTxthelp4, COLOR_BLACK )
+UI_SetLabelExFont( labTxthelp4, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--道具槽位
+imgElf0 = UI_CreateCompent( frmJewelryUp, IMAGE_TYPE, "imgElf0", 47, 47, 19, 93 )
+UI_LoadImage( imgElf0, "texture/ui2009/BakGhost3.tga", NORMAL, 47, 47, 86, 135 )
+cmdElf0 = UI_CreateCompent( frmJewelryUp, COMMAND_ONE_TYPE, "cmdElf0", 32, 32, 27, 101)
+FORMS_DIALOG_CLU_000049 = GetResString("FORMS_DIALOG_CLU_000049")
+UI_SetHint( cmdElf0, FORMS_DIALOG_CLU_000049 )
+
+--加载宝石属性文字背景框1
+imgJewelryUp1 = UI_CreateCompent( frmJewelryUp, IMAGE_TYPE, "imgJewelryUp1", 204, 22, 80, 52 )
+UI_LoadImage( imgJewelryUp1, "texture/ui2009/JewelryUp.tga", NORMAL, 246, 22, 0, 88 )
+
+txtJewelryUp1 = UI_CreateCompent( frmJewelryUp, LABELEX_TYPE, "txtJewelryUp1", 261, 12, 100, 58 )
+FORMS_DIALOG_CLU_000050 = GetResString("FORMS_DIALOG_CLU_000050")
+UI_SetCaption( txtJewelryUp1, FORMS_DIALOG_CLU_000050 )
+UI_SetTextColor( txtJewelryUp1, COLOR_BLACK )
+UI_SetLabelExFont( txtJewelryUp1, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--槽位一触发按钮
+BtnJewelryUp1 = UI_CreateCompent( frmJewelryUp, BUTTON_TYPE, "BtnJewelryUp1", 70, 22, 303, 52  )
+UI_LoadButtonImage( BtnJewelryUp1, "texture/ui2009/JewelryUp.tga", 70, 22, 0, 0, FALSE )
+
+BtnJewelryUpTxt1 = UI_CreateCompent( frmJewelryUp, LABELEX_TYPE, "BtnJewelryUpTxt1", 50, 12, 315, 57 )
+FORMS_DIALOG_CLU_000051 = GetResString("FORMS_DIALOG_CLU_000051")
+UI_SetCaption( BtnJewelryUpTxt1, FORMS_DIALOG_CLU_000051 )
+UI_SetTextColor( BtnJewelryUpTxt1, COLOR_BLACK )
+UI_SetLabelExFont( BtnJewelryUpTxt1, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载宝石属性文字背景框2
+imgJewelryUp2 = UI_CreateCompent( frmJewelryUp, IMAGE_TYPE, "imgJewelryUp2", 204, 22, 80, 107 )
+UI_LoadImage( imgJewelryUp2, "texture/ui2009/JewelryUp.tga", NORMAL, 246, 22, 0, 88 )
+
+txtJewelryUp2 = UI_CreateCompent( frmJewelryUp, LABELEX_TYPE, "txtJewelryUp2", 261, 12, 100, 113 )
+FORMS_DIALOG_CLU_000052 = GetResString("FORMS_DIALOG_CLU_000052")
+UI_SetCaption( txtJewelryUp2, FORMS_DIALOG_CLU_000052 )
+UI_SetTextColor( txtJewelryUp2, COLOR_BLACK )
+UI_SetLabelExFont( txtJewelryUp2, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--槽位二触发按钮
+BtnJewelryUp2 = UI_CreateCompent( frmJewelryUp, BUTTON_TYPE, "BtnJewelryUp2", 70, 22, 303, 107  )
+UI_LoadButtonImage( BtnJewelryUp2, "texture/ui2009/JewelryUp.tga", 70, 22, 0, 0, FALSE )
+
+BtnJewelryUpTxt2 = UI_CreateCompent( frmJewelryUp, LABELEX_TYPE, "BtnJewelryUpTxt2", 50, 12, 315, 112 )
+FORMS_DIALOG_CLU_000051 = GetResString("FORMS_DIALOG_CLU_000051")
+UI_SetCaption( BtnJewelryUpTxt2, FORMS_DIALOG_CLU_000051 )
+UI_SetTextColor( BtnJewelryUpTxt2, COLOR_BLACK )
+UI_SetLabelExFont( BtnJewelryUpTxt2, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载宝石属性文字背景框3
+imgJewelryUp3 = UI_CreateCompent( frmJewelryUp, IMAGE_TYPE, "imgJewelryUp3", 204, 22, 80, 162 )
+UI_LoadImage( imgJewelryUp3, "texture/ui2009/JewelryUp.tga", NORMAL, 246, 22, 0, 88 )
+
+txtJewelryUp3 = UI_CreateCompent( frmJewelryUp, LABELEX_TYPE, "txtJewelryUp3", 261, 12, 100, 168 )
+FORMS_DIALOG_CLU_000053 = GetResString("FORMS_DIALOG_CLU_000053")
+UI_SetCaption( txtJewelryUp3, FORMS_DIALOG_CLU_000053 )
+UI_SetTextColor( txtJewelryUp3, COLOR_BLACK )
+UI_SetLabelExFont( txtJewelryUp3, DEFAULT_FONT, FALSE, COLOR_WHITE )
+
+--槽位三触发按钮
+BtnJewelryUp3 = UI_CreateCompent( frmJewelryUp, BUTTON_TYPE, "BtnJewelryUp3", 70, 22, 303, 162  )
+UI_LoadButtonImage( BtnJewelryUp3, "texture/ui2009/JewelryUp.tga", 70, 22, 0, 0, FALSE )
+
+BtnJewelryUpTxt3 = UI_CreateCompent( frmJewelryUp, LABELEX_TYPE, "BtnJewelryUpTxt3", 50, 12, 315, 167 )
+FORMS_DIALOG_CLU_000051 = GetResString("FORMS_DIALOG_CLU_000051")
+UI_SetCaption( BtnJewelryUpTxt3, FORMS_DIALOG_CLU_000051 )
+UI_SetTextColor( BtnJewelryUpTxt3, COLOR_BLACK )
+UI_SetLabelExFont( BtnJewelryUpTxt3, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建金币栏
+imggold = UI_CreateCompent( frmJewelryUp, IMAGE_TYPE, "imggold", 100, 19, 253, 196 )
+UI_LoadImage( imggold, "texture/ui2009/button2.tga", NORMAL, 154, 19, 86, 224 )
+
+--加载金币显示框
+labGold = UI_CreateCompent( frmJewelryUp, LABELEX_TYPE, "labGold", 47, 11, 360, 201 )
+UI_SetCaption( labGold, "0" )
+UI_SetTextColor( labGold, COLOR_WHITE )
+UI_SetLabelExFont( labGold, DEFAULT_FONT, TRUE, COLOR_BLACK )
+
+-----------------------------------------------------
+------ 通用帮助界面 By 小白 090422 ------
+-----------------------------------------------------
+--- 创建表单
+frmHelpchat = UI_CreateForm( "frmHelpchat", FALSE, 325, 300, 105, 390, TRUE, FALSE )
+UI_ShowForm( frmHelpchat, TRUE )
+UI_AddFormToTemplete( frmHelpchat, FORM_MAIN )
+--UI_FormSetHotKey( frmHelpchat, ALT_KEY, HOTKEY_V )
+UI_SetIsDrag( frmHelpchat, TRUE )
+
+-- 加载背景图片
+imgBakLeft = UI_CreateCompent( frmHelpchat, IMAGE_TYPE, "imgBakLeft", 256, 256, 0, 0 )
+UI_LoadImage( imgBakLeft, "texture/ui2009/helplist1.tga", NORMAL, 256, 256, 0, 0 )
+
+imgBakRight = UI_CreateCompent( frmHelpchat, IMAGE_TYPE, "imgBakRight", 69, 256, 256, 0 )
+UI_LoadImage( imgBakRight, "texture/ui2009/helplist2.tga", NORMAL, 69, 256, 0, 0 )
+
+imgBakLeftD = UI_CreateCompent( frmHelpchat, IMAGE_TYPE, "imgBakLeftD", 256, 44, 0, 256 )
+UI_LoadImage( imgBakLeftD, "texture/ui2009/helplist3.tga", NORMAL, 256, 44, 0, 0 )
+
+imgBakRightD = UI_CreateCompent( frmHelpchat, IMAGE_TYPE, "imgBakRightD", 69, 44, 256, 256 )
+UI_LoadImage( imgBakRightD, "texture/ui2009/helplist3.tga", NORMAL, 69, 44, 0, 44 )
+
+--加载对话内容
+memCtrl = UI_CreateCompent( frmHelpchat, MEMOEX_TYPE, "memCtrl", 289, 230, 30, 32 )
+UI_SetTextColor( memCtrl, COLOR_BLACK )
+UI_SetCaption( memCtrl, "" ) 
+UI_SetLabelExFont( memCtrl, DEFAULT_FONT, TRUE, COLOR_WHITE )
+UI_SetMemoMaxNumPerRow(memCtrl, 42 )
+UI_SetMemoPageShowNum(memCtrl, 10 )
+UI_SetMemoRowHeight( memCtrl , 22 )
+
+--加载关闭按钮
+btnClose = UI_CreateCompent( frmHelpchat, BUTTON_TYPE, "btnClose", 15, 15, 304, 9 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+--获得滚动条
+scrollid = UI_GetScroll( memCtrl )
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/ui2009/item1.tga", COMPENT_BACK, 11, 1, 232, 190 )
+
+--加载向上按钮
+id = UI_GetScrollObj( scrollid, SCROLL_UP )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--加载滚动条
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/ui2009/item1.tga", COMPENT_BACK, 8, 33, 203, 0 )
+UI_SetSize( id, 8, 33 )
+
+--加载向下按钮
+id = UI_GetScrollObj( scrollid, SCROLL_DOWN )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )

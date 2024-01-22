@@ -1,0 +1,34 @@
+C_NORMAL    = 0  --正常模式   
+C_NEAR      = 1  --偏近模式  距离比正常模式偏近
+C_HIGHSPEED = 2  --高速模式  固定镜头, 不可旋转
+C_SHIP      = 3  --海上模式  在船上, 距离很远
+
+CLU_Call("CameraRangeXY", C_NORMAL, 38, 39.5)
+CLU_Call("CameraRangeZ", C_NORMAL, 10.5, 36)
+CLU_Call("CameraRangeFOV", C_NORMAL, 17, 20)
+CLU_Call("CameraEnableRotate", C_NORMAL, 1)
+CLU_Call("CameraShowSize1024", C_NORMAL, 63, 63)
+
+CLU_Call("CameraRangeXY", C_NEAR, 28, 39.5)
+CLU_Call("CameraRangeZ", C_NEAR, 10.5, 36)
+CLU_Call("CameraRangeFOV", C_NEAR, 17, 20)
+CLU_Call("CameraEnableRotate", C_NEAR, 0)
+CLU_Call("CameraShowSize1024", C_NEAR, 51, 51)
+
+CLU_Call("CameraRangeXY", C_HIGHSPEED, 40, 45)
+CLU_Call("CameraRangeZ", C_HIGHSPEED, 25, 43)
+CLU_Call("CameraRangeFOV", C_HIGHSPEED, 6, 26)
+CLU_Call("CameraEnableRotate", C_HIGHSPEED, 0)
+CLU_Call("CameraShowSize1024", C_HIGHSPEED, 63, 63)
+
+CLU_Call("CameraRangeXY", C_SHIP, 40, 45)
+CLU_Call("CameraRangeZ", C_SHIP, 25, 43)
+CLU_Call("CameraRangeFOV", C_SHIP, 6, 26)
+CLU_Call("CameraEnableRotate", C_SHIP, 1)
+CLU_Call("CameraShowSize1024", C_SHIP, 81, 81)
+
+--重新读取镜头参数配置文件
+function LoadCameraConfig()
+  
+end
+

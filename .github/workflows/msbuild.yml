@@ -1,0 +1,105 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: Full Project Compilation
+
+on:
+  push:
+    branches: [ "master" ]
+    paths-ignore:
+      -- '**.md'  # Ignore markdown updates
+
+env:
+  # Path to the solution file relative to the root of the project.
+  SOLUTION_FILE_PATH: ./TOP.sln
+
+  # Configuration type to build.
+  # You can convert this to a build matrix if you need coverage of multiple configuration types.
+  # https://docs.github.com/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
+  BUILD_CONFIGURATION: Release
+  PLATFORM_CONFIGURATION_x86: x86
+  PLATFORM_CONFIGURATION_x64: x64
+
+permissions: write-all
+
+
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Clone repository
+      uses: actions/checkout@v4
+      with: 
+        fetch-depth: 0
+        
+    - name: 'Get Previous tag'
+      id: previoustag
+      uses: "WyriHaximus/github-action-get-previous-tag@v1"
+      with:
+        fallback: 1.0.0 # Optional fallback tag to use when no tag can be found
+        
+    - name: Add MSBuild to PATH
+      uses: microsoft/setup-msbuild@v1.3.1
+
+    
+    - name: Build x86
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      # Add additional options to the MSBuild command line here (like platform or verbosity level).
+      # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
+      run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} /p:Platform=${{env.PLATFORM_CONFIGURATION_x86}} ${{env.SOLUTION_FILE_PATH}}
+    
+    - name: Build x64
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      # Add additional options to the MSBuild command line here (like platform or verbosity level).
+      # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
+      run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} /p:Platform=${{env.PLATFORM_CONFIGURATION_x64}} ${{env.SOLUTION_FILE_PATH}}
+      
+    - name: Setup Ruby for release changelog
+      uses: ruby/setup-ruby@v1.161.0
+      with:
+        ruby-version: 3.2.2
+
+    - name: Zip binaries
+      run: |
+          Compress-Archive -Path Client/system/Client_x86_Release.exe,Client/system/Client_x86_Release.pdb,Client/system/Engine_x86_Release.dll,Client/system/Engine_x86_Release.pdb,Client/system/CaLua.dll,Client/system/CaLua.pdb,Server/AccountServer_x86_Release.exe,Server/AccountServer_x86_Release.pdb,Server/GameServer_x86_Release.exe,Server/GameServer_x86_Release.pdb,Server/GroupServer_x86_Release.exe,Server/GroupServer_x86_Release.pdb,Server/GateServer_x86_Release.exe,Server/GateServer_x86_Release.pdb -DestinationPath Yatops_x86.zip
+          Compress-Archive -Path Client/system/Client_x86_Release.exe,Client/system/Client_x86_Release.pdb,Client/system/Engine_x86_Release.dll,Client/system/Engine_x86_Release.pdb,Client/system/CaLua.dll,Client/system/CaLua.pdb,Server/AccountServer_x64_Release.exe,Server/AccountServer_x64_Release.pdb,Server/GameServer_x64_Release.exe,Server/GameServer_x64_Release.pdb,Server/GroupServer_x64_Release.exe,Server/GroupServer_x64_Release.pdb,Server/GateServer_x64_Release.exe,Server/GateServer_x64_Release.pdb -DestinationPath Yatops_x64.zip
+
+    - name: Get next version
+      id: get_next_version
+      run: .\get-next-version-windows-amd64.exe --target github-action
+    
+    - name: "✏️ Generate release changelog"
+      id: create_changelog
+      run: |
+        gem install github_changelog_generator
+        github_changelog_generator -u YOUR_GITHUB_USERNAME -p YOUR_GITHUB_REPO --since-tag ${{ steps.previoustag.outputs.tag }} --future-release ${{ steps.get_next_version.outputs.version }} --token YOUR_TOKEN
+     
+    - name: Create tag
+      uses: actions/github-script@v6
+      with:
+        script: |
+          github.rest.git.createRef({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            ref: 'refs/tags/v${{ steps.get_next_version.outputs.version}}',
+            sha: context.sha
+          })   
+  
+
+    - name: Create release
+      id: create_release
+      uses: softprops/action-gh-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        files: |
+            Yatops_x86.zip
+            Yatops_x64.zip
+        tag_name: v${{ steps.get_next_version.outputs.version}}
+        name: Release v${{ steps.get_next_version.outputs.version }}
+        body_path: CHANGELOG.md
+            

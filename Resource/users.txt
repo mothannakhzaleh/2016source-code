@@ -1,0 +1,10 @@
+Admin = users\admin\ss.ini
+Maxcirty = users\maxcirty\ss.ini
+Dean.dai = users\dean_dai\ss.ini
+Eric.tang = users\eric_tan\ss.ini
+Gaochao10 = users\gaochao1\ss.ini
+Xuliguo = users\xuliguo\ss.ini
+Liuhaipeng = users\liuhaipe\ss.ini
+Huangdongsheng = users\huangdon\ss.ini
+Rdtest01 = users\rdtest01\ss.ini
+Wumingjie = users\wumingji\ss.ini

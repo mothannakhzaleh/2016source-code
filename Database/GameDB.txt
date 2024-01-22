@@ -1,0 +1,1016 @@
+USE [master]
+GO
+CREATE DATABASE [gamedb]
+GO
+USE [GameDB]
+GO
+/****** Object:  Table [dbo].[account]    Script Date: 16/10/2015 14:10:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[account](
+	[act_id] [int] NOT NULL,
+	[act_name] [varchar](50) NOT NULL,
+	[gm] [tinyint] NOT NULL,
+	[cha_ids] [varchar](80) NOT NULL,
+	[last_ip] [varchar](16) NOT NULL,
+	[disc_reason] [varchar](128) NOT NULL,
+	[last_leave] [datetime] NOT NULL,
+	[password] [varchar](50) NULL,
+	[merge_state] [int] NOT NULL,
+ CONSTRAINT [PK_account] PRIMARY KEY CLUSTERED 
+(
+	[act_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+/****** Object:  Table [dbo].[birth_tab]    Script Date: 16/10/2015 14:10:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[birth_tab](
+	[birth_name] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_birth_tab] PRIMARY KEY CLUSTERED 
+(
+	[birth_name] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[boat]    Script Date: 16/10/2015 14:10:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[boat](
+	[boat_id] [int] IDENTITY(1,1) NOT NULL,
+	[boat_berth] [smallint] NOT NULL,
+	[boat_name] [char](17) NOT NULL,
+	[boat_boatid] [int] NOT NULL,
+	[boat_header] [int] NOT NULL,
+	[boat_body] [int] NOT NULL,
+	[boat_engine] [int] NOT NULL,
+	[boat_cannon] [int] NOT NULL,
+	[boat_equipment] [int] NOT NULL,
+	[boat_bagsize] [smallint] NOT NULL,
+	[boat_bag] [char](7000) NOT NULL,
+	[boat_diecount] [smallint] NOT NULL,
+	[boat_isdead] [char](1) NOT NULL,
+	[cur_endure] [int] NOT NULL,
+	[mx_endure] [int] NOT NULL,
+	[cur_supply] [int] NOT NULL,
+	[mx_supply] [int] NOT NULL,
+	[skill_state] [char](400) NOT NULL,
+	[boat_ownerid] [int] NOT NULL,
+	[boat_createtime] [char](50) NOT NULL,
+	[boat_isdeleted] [char](1) NOT NULL,
+	[map] [char](50) NOT NULL,
+	[map_x] [int] NOT NULL,
+	[map_y] [int] NOT NULL,
+	[angle] [int] NOT NULL,
+	[degree] [smallint] NOT NULL,
+	[exp] [int] NOT NULL,
+	[version] [smallint] NOT NULL,
+ CONSTRAINT [PK_boat] PRIMARY KEY CLUSTERED 
+(
+	[boat_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[ChaGD]    Script Date: 16/10/2015 14:10:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[ChaGD](
+	[Date] [datetime] NULL,
+	[AllGd] [bigint] NULL,
+	[Name] [varchar](32) NULL,
+	[ChaGd] [int] NULL
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[character]    Script Date: 16/10/2015 14:10:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[character](
+	[cha_id] [int] IDENTITY(1,1) NOT NULL,
+	[cha_name] [varchar](50) NOT NULL,
+	[motto] [varchar](50) NOT NULL,
+	[icon] [smallint] NOT NULL,
+	[version] [smallint] NOT NULL,
+	[pk_ctrl] [tinyint] NOT NULL,
+	[mem_addr] [bigint] NOT NULL,
+	[act_id] [int] NOT NULL,
+	[guild_id] [int] NOT NULL,
+	[guild_stat] [tinyint] NOT NULL,
+	[guild_permission] [smallint] NOT NULL,
+	[job] [varchar](50) NOT NULL,
+	[degree] [smallint] NOT NULL,
+	[exp] [bigint] NOT NULL,
+	[hp] [int] NOT NULL,
+	[sp] [int] NOT NULL,
+	[ap] [int] NOT NULL,
+	[tp] [int] NOT NULL,
+	[gd] [int] NOT NULL,
+	[str] [int] NOT NULL,
+	[dex] [int] NOT NULL,
+	[agi] [int] NOT NULL,
+	[con] [int] NOT NULL,
+	[sta] [int] NOT NULL,
+	[luk] [int] NOT NULL,
+	[sail_lv] [int] NOT NULL,
+	[sail_exp] [int] NOT NULL,
+	[sail_left_exp] [int] NOT NULL,
+	[live_lv] [int] NOT NULL,
+	[live_exp] [int] NOT NULL,
+	[map] [varchar](50) NOT NULL,
+	[map_x] [int] NOT NULL,
+	[map_y] [int] NOT NULL,
+	[radius] [int] NOT NULL,
+	[angle] [int] NOT NULL,
+	[look] [varchar](2000) NOT NULL,
+	[kb_capacity] [int] NOT NULL,
+	[kitbag] [varchar](7000) NOT NULL,
+	[skillbag] [varchar](1200) NOT NULL,
+	[shortcut] [varchar](1200) NOT NULL,
+	[mission] [varchar](2048) NOT NULL,
+	[misrecord] [varchar](2048) NOT NULL,
+	[mistrigger] [varchar](2048) NOT NULL,
+	[miscount] [varchar](512) NOT NULL,
+	[birth] [varchar](50) NOT NULL,
+	[login_cha] [varchar](50) NOT NULL,
+	[live_tp] [int] NOT NULL,
+	[map_mask] [varchar](8000) NOT NULL,
+	[delflag] [tinyint] NOT NULL,
+	[operdate] [datetime] NOT NULL,
+	[deldate] [datetime] NULL,
+	[main_map] [varchar](50) NOT NULL,
+	[skill_state] [varchar](1024) NOT NULL,
+	[bank] [varchar](50) NOT NULL,
+	[estop] [datetime] NOT NULL,
+	[estoptime] [int] NOT NULL,
+	[kb_locked] [int] NOT NULL,
+	[kitbag_tmp] [int] NOT NULL,
+	[credit] [int] NOT NULL,
+	[store_item] [int] NOT NULL,
+	[extend] [varchar](2048) NULL,
+ CONSTRAINT [PK_character] PRIMARY KEY CLUSTERED 
+(
+	[cha_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+ CONSTRAINT [IX_character] UNIQUE NONCLUSTERED 
+(
+	[cha_name] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[character_log]    Script Date: 16/10/2015 14:10:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[character_log](
+	[cha_id] [int] NOT NULL,
+	[cha_name] [varchar](50) NOT NULL,
+	[act_id] [int] NOT NULL,
+	[guild_id] [int] NOT NULL,
+	[job] [varchar](50) NOT NULL,
+	[degree] [smallint] NOT NULL,
+	[exp] [int] NOT NULL,
+	[hp] [int] NOT NULL,
+	[sp] [int] NOT NULL,
+	[ap] [int] NOT NULL,
+	[tp] [int] NOT NULL,
+	[gd] [int] NOT NULL,
+	[str] [int] NOT NULL,
+	[dex] [int] NOT NULL,
+	[agi] [int] NOT NULL,
+	[con] [int] NOT NULL,
+	[sta] [int] NOT NULL,
+	[luk] [int] NOT NULL,
+	[map] [varchar](50) NOT NULL,
+	[map_x] [int] NOT NULL,
+	[map_y] [int] NOT NULL,
+	[radius] [int] NOT NULL,
+	[look] [varchar](80) NOT NULL,
+	[del_date] [datetime] NOT NULL
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[dtproperties]    Script Date: 16/10/2015 14:10:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[dtproperties](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[objectid] [int] NULL,
+	[property] [varchar](64) NOT NULL,
+	[value] [varchar](255) NULL,
+	[uvalue] [nvarchar](255) NULL,
+	[lvalue] [image] NULL,
+	[version] [int] NOT NULL,
+ CONSTRAINT [pk_dtproperties] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC,
+	[property] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[friends]    Script Date: 16/10/2015 14:10:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[friends](
+	[cha_id1] [int] NOT NULL,
+	[cha_id2] [int] NOT NULL,
+	[relation] [varchar](50) NOT NULL,
+	[createtime] [datetime] NULL
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[guild]    Script Date: 16/10/2015 14:10:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[guild](
+	[guild_id] [int] NOT NULL,
+	[guild_name] [varchar](16) NOT NULL,
+	[motto] [varchar](50) NOT NULL,
+	[passwd] [varchar](20) NOT NULL,
+	[leader_id] [int] NOT NULL,
+	[type] [tinyint] NOT NULL,
+	[stat] [tinyint] NOT NULL,
+	[money] [bigint] NOT NULL,
+	[exp] [bigint] NOT NULL,
+	[member_total] [smallint] NOT NULL,
+	[try_total] [smallint] NOT NULL,
+	[disband_date] [datetime] NOT NULL,
+	[challlevel] [smallint] NOT NULL,
+	[challid] [int] NOT NULL,
+	[challmoney] [bigint] NOT NULL,
+	[challstart] [smallint] NOT NULL,
+ CONSTRAINT [PK_guild] PRIMARY KEY CLUSTERED 
+(
+	[guild_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+ CONSTRAINT [IX_guild_name] UNIQUE NONCLUSTERED 
+(
+	[guild_name] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[IPAddress]    Script Date: 16/10/2015 14:10:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[IPAddress](
+	[ip1] [float] NOT NULL,
+	[ip2] [float] NOT NULL,
+	[country] [nvarchar](70) NULL,
+	[city] [nvarchar](70) NULL,
+ CONSTRAINT [PK_IPAddress] PRIMARY KEY CLUSTERED 
+(
+	[ip1] ASC,
+	[ip2] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[item]    Script Date: 16/10/2015 14:10:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[item](
+	[db_id] [int] IDENTITY(1,1) NOT NULL,
+	[cha_id] [int] NOT NULL,
+	[type] [smallint] NOT NULL,
+	[item_type_id] [smallint] NOT NULL,
+	[attr] [varchar](255) NOT NULL,
+ CONSTRAINT [PK_item] PRIMARY KEY CLUSTERED 
+(
+	[db_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Kop_MonthReport]    Script Date: 16/10/2015 14:10:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Kop_MonthReport](
+	[act_name] [varchar](50) NULL,
+	[degree] [int] NULL,
+	[ip] [varchar](20) NULL,
+	[createdate] [datetime] NULL,
+	[logouttime] [datetime] NULL,
+	[playtime] [int] NULL,
+	[Guild_Name] [varchar](16) NULL
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[map_mask]    Script Date: 16/10/2015 14:10:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[map_mask](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[cha_id] [int] NOT NULL,
+	[content1] [char](600) NOT NULL,
+	[content2] [char](600) NOT NULL,
+	[content3] [char](600) NOT NULL,
+	[content4] [char](600) NOT NULL,
+	[content5] [char](600) NOT NULL,
+ CONSTRAINT [PK_map_mask] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+ CONSTRAINT [IX_map_mask] UNIQUE NONCLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[master]    Script Date: 16/10/2015 14:10:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[master](
+	[cha_id1] [int] NOT NULL,
+	[cha_id2] [int] NOT NULL,
+	[finish] [int] NOT NULL,
+	[relation] [varchar](50) NOT NULL
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[param]    Script Date: 16/10/2015 14:10:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[param](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[param1] [int] NULL,
+	[param2] [int] NULL,
+	[param3] [int] NULL,
+	[param4] [int] NULL,
+	[param5] [int] NULL,
+	[param6] [int] NULL,
+	[param7] [int] NULL,
+	[param8] [int] NULL,
+	[param9] [int] NULL,
+	[param10] [int] NULL,
+ CONSTRAINT [PK_param] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[personavatar]    Script Date: 16/10/2015 14:10:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[personavatar](
+	[cha_id] [int] NOT NULL,
+	[avatar] [image] NULL,
+ CONSTRAINT [PK_psersonavatar] PRIMARY KEY CLUSTERED 
+(
+	[cha_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[personinfo]    Script Date: 16/10/2015 14:10:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[personinfo](
+	[cha_id] [int] NOT NULL,
+	[motto] [nvarchar](40) NULL,
+	[showmotto] [bit] NULL,
+	[sex] [nvarchar](50) NULL,
+	[age] [int] NULL,
+	[name] [nvarchar](50) NULL,
+	[animal_zodiac] [nvarchar](50) NULL,
+	[blood_type] [nvarchar](50) NULL,
+	[birthday] [int] NULL,
+	[state] [nvarchar](50) NULL,
+	[city] [nvarchar](50) NULL,
+	[constellation] [nvarchar](50) NULL,
+	[career] [nvarchar](50) NULL,
+	[avatarsize] [int] NULL,
+	[prevent] [bit] NULL,
+	[support] [int] NULL,
+	[oppose] [int] NULL,
+ CONSTRAINT [PK_personinfo] PRIMARY KEY CLUSTERED 
+(
+	[cha_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[property]    Script Date: 16/10/2015 14:10:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[property](
+	[id] [bigint] NOT NULL,
+	[cha_id] [bigint] NOT NULL,
+	[context] [nvarchar](255) NOT NULL,
+	[sum] [bigint] NOT NULL,
+	[time] [datetime] NOT NULL,
+ CONSTRAINT [PK_property] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Resource]    Script Date: 16/10/2015 14:10:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Resource](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[cha_id] [int] NOT NULL,
+	[type_id] [smallint] NOT NULL,
+	[content] [char](8000) NOT NULL,
+ CONSTRAINT [PK_Resource] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[stat_log]    Script Date: 16/10/2015 14:10:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[stat_log](
+	[track_date] [datetime] NOT NULL,
+	[login_num] [int] NOT NULL,
+	[play_num] [int] NOT NULL,
+	[wgplay_num] [int] NULL,
+ CONSTRAINT [PK_stat_log] PRIMARY KEY CLUSTERED 
+(
+	[track_date] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[stat_log_hh]    Script Date: 16/10/2015 14:10:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[stat_log_hh](
+	[track_date] [datetime] NOT NULL,
+	[login_num] [int] NOT NULL,
+	[play_num] [int] NOT NULL,
+	[wgplay_num] [int] NULL
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[StatDegree]    Script Date: 16/10/2015 14:10:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[StatDegree](
+	[statDate] [datetime] NOT NULL,
+	[degree] [smallint] NOT NULL,
+	[characterCount] [bigint] NULL,
+ CONSTRAINT [PK_StatDegree] PRIMARY KEY CLUSTERED 
+(
+	[statDate] ASC,
+	[degree] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[StatGender]    Script Date: 16/10/2015 14:10:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[StatGender](
+	[statDate] [datetime] NOT NULL,
+	[gender] [varchar](8) NOT NULL,
+	[genderCount] [bigint] NULL,
+ CONSTRAINT [PK_StatGender] PRIMARY KEY CLUSTERED 
+(
+	[statDate] ASC,
+	[gender] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[StatJob]    Script Date: 16/10/2015 14:10:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[StatJob](
+	[statDate] [datetime] NOT NULL,
+	[job] [varchar](50) NOT NULL,
+	[characterCount] [bigint] NULL,
+ CONSTRAINT [PK_StatJob] PRIMARY KEY CLUSTERED 
+(
+	[statDate] ASC,
+	[job] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[StatLogin]    Script Date: 16/10/2015 14:10:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[StatLogin](
+	[statDate] [datetime] NOT NULL,
+	[loginCount] [bigint] NULL,
+ CONSTRAINT [PK_StatLogin] PRIMARY KEY CLUSTERED 
+(
+	[statDate] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[StatMap]    Script Date: 16/10/2015 14:10:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[StatMap](
+	[statDate] [datetime] NOT NULL,
+	[map] [varchar](50) NOT NULL,
+	[playCount] [bigint] NULL,
+ CONSTRAINT [PK_StatMap] PRIMARY KEY CLUSTERED 
+(
+	[statDate] ASC,
+	[map] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Trade_Log]    Script Date: 16/10/2015 14:10:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Trade_Log](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[ExecuteTime] [datetime] NOT NULL,
+	[GameServer] [nvarchar](50) NOT NULL,
+	[Action] [nvarchar](50) NOT NULL,
+	[From] [nvarchar](50) NOT NULL,
+	[To] [nvarchar](50) NULL,
+	[Memo] [nvarchar](1000) NULL
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[weekreport]    Script Date: 16/10/2015 14:10:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[weekreport](
+	[act_name] [varchar](50) NULL,
+	[cha_name] [varchar](50) NULL,
+	[degree] [int] NULL,
+	[ip] [varchar](20) NULL,
+	[createdate] [datetime] NULL,
+	[logouttime] [datetime] NULL,
+	[playtime] [int] NULL,
+	[Guild_Name] [varchar](16) NULL
+) ON [PRIMARY]
+
+GO
+ALTER TABLE [dbo].[account] ADD  CONSTRAINT [DF_account_act_name]  DEFAULT ('') FOR [act_name]
+GO
+ALTER TABLE [dbo].[account] ADD  CONSTRAINT [DF_account_gm]  DEFAULT ((0)) FOR [gm]
+GO
+ALTER TABLE [dbo].[account] ADD  CONSTRAINT [DF_account_cha_ids]  DEFAULT ('') FOR [cha_ids]
+GO
+ALTER TABLE [dbo].[account] ADD  CONSTRAINT [DF_account_last_ip]  DEFAULT ('') FOR [last_ip]
+GO
+ALTER TABLE [dbo].[account] ADD  CONSTRAINT [DF_account_disc_reson]  DEFAULT ('') FOR [disc_reason]
+GO
+ALTER TABLE [dbo].[account] ADD  CONSTRAINT [DF_account_last_leave]  DEFAULT ('2001-01-01') FOR [last_leave]
+GO
+ALTER TABLE [dbo].[account] ADD  CONSTRAINT [DF_account_merge_state]  DEFAULT ((0)) FOR [merge_state]
+GO
+ALTER TABLE [dbo].[boat] ADD  CONSTRAINT [DF_boat_boat_berth]  DEFAULT ((0)) FOR [boat_berth]
+GO
+ALTER TABLE [dbo].[boat] ADD  CONSTRAINT [DF_boat_boat_name]  DEFAULT ('') FOR [boat_name]
+GO
+ALTER TABLE [dbo].[boat] ADD  CONSTRAINT [DF_boat_boat_boat]  DEFAULT ((0)) FOR [boat_boatid]
+GO
+ALTER TABLE [dbo].[boat] ADD  CONSTRAINT [DF_boat_boat_header]  DEFAULT ((0)) FOR [boat_header]
+GO
+ALTER TABLE [dbo].[boat] ADD  CONSTRAINT [DF_boat_boat_body]  DEFAULT ((0)) FOR [boat_body]
+GO
+ALTER TABLE [dbo].[boat] ADD  CONSTRAINT [DF_boat_boat_engine]  DEFAULT ((0)) FOR [boat_engine]
+GO
+ALTER TABLE [dbo].[boat] ADD  CONSTRAINT [DF_boat_boat_cannon]  DEFAULT ((0)) FOR [boat_cannon]
+GO
+ALTER TABLE [dbo].[boat] ADD  CONSTRAINT [DF_boat_boat_part]  DEFAULT ((0)) FOR [boat_equipment]
+GO
+ALTER TABLE [dbo].[boat] ADD  CONSTRAINT [DF_boat_boat_bagsize]  DEFAULT ((0)) FOR [boat_bagsize]
+GO
+ALTER TABLE [dbo].[boat] ADD  CONSTRAINT [DF_boat_boat_bag]  DEFAULT ('') FOR [boat_bag]
+GO
+ALTER TABLE [dbo].[boat] ADD  CONSTRAINT [DF_boat_boat_diecount]  DEFAULT ((0)) FOR [boat_diecount]
+GO
+ALTER TABLE [dbo].[boat] ADD  CONSTRAINT [DF_boat_boat_isdie]  DEFAULT ((0)) FOR [boat_isdead]
+GO
+ALTER TABLE [dbo].[boat] ADD  CONSTRAINT [DF_boat_cur_endure]  DEFAULT ((0)) FOR [cur_endure]
+GO
+ALTER TABLE [dbo].[boat] ADD  CONSTRAINT [DF_boat_mx_endure]  DEFAULT ((0)) FOR [mx_endure]
+GO
+ALTER TABLE [dbo].[boat] ADD  CONSTRAINT [DF_boat_cur_supply]  DEFAULT ((0)) FOR [cur_supply]
+GO
+ALTER TABLE [dbo].[boat] ADD  CONSTRAINT [DF_boat_mx_supply]  DEFAULT ((0)) FOR [mx_supply]
+GO
+ALTER TABLE [dbo].[boat] ADD  CONSTRAINT [DF_boat_skill_state]  DEFAULT ('') FOR [skill_state]
+GO
+ALTER TABLE [dbo].[boat] ADD  CONSTRAINT [DF_boat_boat_ownerid]  DEFAULT ((0)) FOR [boat_ownerid]
+GO
+ALTER TABLE [dbo].[boat] ADD  CONSTRAINT [DF_boat_boat_createtime]  DEFAULT ('') FOR [boat_createtime]
+GO
+ALTER TABLE [dbo].[boat] ADD  CONSTRAINT [DF_boat_boat_isdeleted]  DEFAULT ((0)) FOR [boat_isdeleted]
+GO
+ALTER TABLE [dbo].[boat] ADD  CONSTRAINT [DF_boat_map]  DEFAULT ('') FOR [map]
+GO
+ALTER TABLE [dbo].[boat] ADD  CONSTRAINT [DF_boat_map_x]  DEFAULT ((-1)) FOR [map_x]
+GO
+ALTER TABLE [dbo].[boat] ADD  CONSTRAINT [DF_boat_map_y]  DEFAULT ((-1)) FOR [map_y]
+GO
+ALTER TABLE [dbo].[boat] ADD  CONSTRAINT [DF_boat_angle]  DEFAULT ((0)) FOR [angle]
+GO
+ALTER TABLE [dbo].[boat] ADD  CONSTRAINT [DF_boat_degree]  DEFAULT ((1)) FOR [degree]
+GO
+ALTER TABLE [dbo].[boat] ADD  CONSTRAINT [DF_boat_exp]  DEFAULT ((0)) FOR [exp]
+GO
+ALTER TABLE [dbo].[boat] ADD  CONSTRAINT [DF_boat_version]  DEFAULT ((1)) FOR [version]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_motto]  DEFAULT ('') FOR [motto]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_icon]  DEFAULT ((1)) FOR [icon]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_version]  DEFAULT ((1)) FOR [version]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_pk_ctrl_1]  DEFAULT ((0)) FOR [pk_ctrl]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_mem_addr]  DEFAULT ((0)) FOR [mem_addr]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_guild_id]  DEFAULT ((0)) FOR [guild_id]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_guild_stat]  DEFAULT ((0)) FOR [guild_stat]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_guild_permission]  DEFAULT ((0)) FOR [guild_permission]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_job]  DEFAULT ('??') FOR [job]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_degree]  DEFAULT ((0)) FOR [degree]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_exp]  DEFAULT ((0)) FOR [exp]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_hp]  DEFAULT ((-1)) FOR [hp]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_sp]  DEFAULT ((-1)) FOR [sp]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_ap]  DEFAULT ((0)) FOR [ap]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_tp]  DEFAULT ((0)) FOR [tp]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_gd]  DEFAULT ((10000)) FOR [gd]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_str]  DEFAULT ((0)) FOR [str]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_dex]  DEFAULT ((0)) FOR [dex]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_agi]  DEFAULT ((0)) FOR [agi]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_con]  DEFAULT ((0)) FOR [con]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_sta]  DEFAULT ((0)) FOR [sta]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_luk]  DEFAULT ((0)) FOR [luk]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_sail_lv]  DEFAULT ((1)) FOR [sail_lv]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_sail_exp]  DEFAULT ((0)) FOR [sail_exp]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_sail_left_exp]  DEFAULT ((0)) FOR [sail_left_exp]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_live_lv]  DEFAULT ((1)) FOR [live_lv]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_live_exp]  DEFAULT ((0)) FOR [live_exp]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_map]  DEFAULT ('') FOR [map]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_map_x]  DEFAULT ((-1)) FOR [map_x]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_map_y]  DEFAULT ((-1)) FOR [map_y]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_radius]  DEFAULT ((0)) FOR [radius]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_angle]  DEFAULT ((0)) FOR [angle]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_look]  DEFAULT ('') FOR [look]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_kb_capacity]  DEFAULT ((24)) FOR [kb_capacity]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_kitbag]  DEFAULT ('') FOR [kitbag]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_skillbag]  DEFAULT ('') FOR [skillbag]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_shortcut_1]  DEFAULT ('') FOR [shortcut]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_mission]  DEFAULT ('') FOR [mission]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_misrecord]  DEFAULT ('') FOR [misrecord]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_trigger]  DEFAULT ('') FOR [mistrigger]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_miscount]  DEFAULT ('') FOR [miscount]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_birth]  DEFAULT ('???') FOR [birth]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_login_cha]  DEFAULT ((0)) FOR [login_cha]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_live_tp]  DEFAULT ((0)) FOR [live_tp]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_map_mask]  DEFAULT ((0)) FOR [map_mask]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_delflag]  DEFAULT ((0)) FOR [delflag]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_operdate]  DEFAULT (getdate()) FOR [operdate]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_main_map]  DEFAULT ('') FOR [main_map]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_skill_state]  DEFAULT ('') FOR [skill_state]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_bank]  DEFAULT ('') FOR [bank]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_estop]  DEFAULT (getdate()) FOR [estop]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_estoptime]  DEFAULT ((0)) FOR [estoptime]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_kb_locked]  DEFAULT ((0)) FOR [kb_locked]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_kitbag_tmp]  DEFAULT ((0)) FOR [kitbag_tmp]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_credit]  DEFAULT ((0)) FOR [credit]
+GO
+ALTER TABLE [dbo].[character] ADD  CONSTRAINT [DF_character_store_item]  DEFAULT ((0)) FOR [store_item]
+GO
+ALTER TABLE [dbo].[character_log] ADD  CONSTRAINT [DF_character_log_guild_id]  DEFAULT ((0)) FOR [guild_id]
+GO
+ALTER TABLE [dbo].[character_log] ADD  CONSTRAINT [DF_character_log_job]  DEFAULT ((0)) FOR [job]
+GO
+ALTER TABLE [dbo].[character_log] ADD  CONSTRAINT [DF_character_log_degree]  DEFAULT ((1)) FOR [degree]
+GO
+ALTER TABLE [dbo].[character_log] ADD  CONSTRAINT [DF_character_log_exp]  DEFAULT ((0)) FOR [exp]
+GO
+ALTER TABLE [dbo].[character_log] ADD  CONSTRAINT [DF_character_log_hp]  DEFAULT ((-1)) FOR [hp]
+GO
+ALTER TABLE [dbo].[character_log] ADD  CONSTRAINT [DF_character_log_sp]  DEFAULT ((-1)) FOR [sp]
+GO
+ALTER TABLE [dbo].[character_log] ADD  CONSTRAINT [DF_character_log_ap]  DEFAULT ((0)) FOR [ap]
+GO
+ALTER TABLE [dbo].[character_log] ADD  CONSTRAINT [DF_character_log_tp]  DEFAULT ((0)) FOR [tp]
+GO
+ALTER TABLE [dbo].[character_log] ADD  CONSTRAINT [DF_character_log_gd]  DEFAULT ((0)) FOR [gd]
+GO
+ALTER TABLE [dbo].[character_log] ADD  CONSTRAINT [DF_character_log_str]  DEFAULT ((0)) FOR [str]
+GO
+ALTER TABLE [dbo].[character_log] ADD  CONSTRAINT [DF_character_log_dex]  DEFAULT ((0)) FOR [dex]
+GO
+ALTER TABLE [dbo].[character_log] ADD  CONSTRAINT [DF_character_log_agi]  DEFAULT ((0)) FOR [agi]
+GO
+ALTER TABLE [dbo].[character_log] ADD  CONSTRAINT [DF_character_log_con]  DEFAULT ((0)) FOR [con]
+GO
+ALTER TABLE [dbo].[character_log] ADD  CONSTRAINT [DF_character_log_sta]  DEFAULT ((0)) FOR [sta]
+GO
+ALTER TABLE [dbo].[character_log] ADD  CONSTRAINT [DF_character_log_luk]  DEFAULT ((0)) FOR [luk]
+GO
+ALTER TABLE [dbo].[character_log] ADD  CONSTRAINT [DF_character_log_map]  DEFAULT ('') FOR [map]
+GO
+ALTER TABLE [dbo].[character_log] ADD  CONSTRAINT [DF_character_log_map_x]  DEFAULT ((-1)) FOR [map_x]
+GO
+ALTER TABLE [dbo].[character_log] ADD  CONSTRAINT [DF_character_log_map_y]  DEFAULT ((-1)) FOR [map_y]
+GO
+ALTER TABLE [dbo].[character_log] ADD  CONSTRAINT [DF_character_log_radius]  DEFAULT ((0)) FOR [radius]
+GO
+ALTER TABLE [dbo].[character_log] ADD  CONSTRAINT [DF_character_log_look]  DEFAULT ('') FOR [look]
+GO
+ALTER TABLE [dbo].[character_log] ADD  CONSTRAINT [DF_character_log_del_date]  DEFAULT (getdate()) FOR [del_date]
+GO
+ALTER TABLE [dbo].[dtproperties] ADD  DEFAULT ((0)) FOR [version]
+GO
+ALTER TABLE [dbo].[guild] ADD  CONSTRAINT [DF_guild_guild_name]  DEFAULT ('') FOR [guild_name]
+GO
+ALTER TABLE [dbo].[guild] ADD  CONSTRAINT [DF_guild_motto]  DEFAULT ('') FOR [motto]
+GO
+ALTER TABLE [dbo].[guild] ADD  CONSTRAINT [DF_guild_passwd]  DEFAULT ('') FOR [passwd]
+GO
+ALTER TABLE [dbo].[guild] ADD  CONSTRAINT [DF_guild_leader_id]  DEFAULT ((0)) FOR [leader_id]
+GO
+ALTER TABLE [dbo].[guild] ADD  CONSTRAINT [DF_guild_type]  DEFAULT ((0)) FOR [type]
+GO
+ALTER TABLE [dbo].[guild] ADD  CONSTRAINT [DF_guild_stat]  DEFAULT ((0)) FOR [stat]
+GO
+ALTER TABLE [dbo].[guild] ADD  CONSTRAINT [DF_guild_money]  DEFAULT ((0)) FOR [money]
+GO
+ALTER TABLE [dbo].[guild] ADD  CONSTRAINT [DF_guild_exp]  DEFAULT ((0)) FOR [exp]
+GO
+ALTER TABLE [dbo].[guild] ADD  CONSTRAINT [DF_guild_total]  DEFAULT ((0)) FOR [member_total]
+GO
+ALTER TABLE [dbo].[guild] ADD  CONSTRAINT [DF_guild_pending_total]  DEFAULT ((0)) FOR [try_total]
+GO
+ALTER TABLE [dbo].[guild] ADD  CONSTRAINT [DF_guild_disband_date]  DEFAULT (getdate()) FOR [disband_date]
+GO
+ALTER TABLE [dbo].[guild] ADD  CONSTRAINT [DF_guild_challlevel]  DEFAULT ((0)) FOR [challlevel]
+GO
+ALTER TABLE [dbo].[guild] ADD  CONSTRAINT [DF_guild_challid]  DEFAULT ((0)) FOR [challid]
+GO
+ALTER TABLE [dbo].[guild] ADD  CONSTRAINT [DF_guild_challmoney]  DEFAULT ((0)) FOR [challmoney]
+GO
+ALTER TABLE [dbo].[guild] ADD  CONSTRAINT [DF_guild_challstart]  DEFAULT ((0)) FOR [challstart]
+GO
+ALTER TABLE [dbo].[map_mask] ADD  CONSTRAINT [DF_map_mask_content]  DEFAULT ((0)) FOR [content1]
+GO
+ALTER TABLE [dbo].[map_mask] ADD  CONSTRAINT [DF_map_mask_content4]  DEFAULT ((0)) FOR [content2]
+GO
+ALTER TABLE [dbo].[map_mask] ADD  CONSTRAINT [DF_map_mask_content3]  DEFAULT ((0)) FOR [content3]
+GO
+ALTER TABLE [dbo].[map_mask] ADD  CONSTRAINT [DF_map_mask_content2]  DEFAULT ((0)) FOR [content4]
+GO
+ALTER TABLE [dbo].[map_mask] ADD  CONSTRAINT [DF_map_mask_content1]  DEFAULT ((0)) FOR [content5]
+GO
+ALTER TABLE [dbo].[master] ADD  CONSTRAINT [DF_master_cha_id1]  DEFAULT ((0)) FOR [cha_id1]
+GO
+ALTER TABLE [dbo].[master] ADD  CONSTRAINT [DF_master_cha_id2]  DEFAULT ((0)) FOR [cha_id2]
+GO
+ALTER TABLE [dbo].[master] ADD  CONSTRAINT [DF_master_finish]  DEFAULT ((0)) FOR [finish]
+GO
+ALTER TABLE [dbo].[master] ADD  CONSTRAINT [DF_master_relation]  DEFAULT ('teacher') FOR [relation]
+GO
+ALTER TABLE [dbo].[param] ADD  CONSTRAINT [DF_param_param1]  DEFAULT ((0)) FOR [param1]
+GO
+ALTER TABLE [dbo].[param] ADD  CONSTRAINT [DF_param_param2]  DEFAULT ((0)) FOR [param2]
+GO
+ALTER TABLE [dbo].[param] ADD  CONSTRAINT [DF_param_param3]  DEFAULT ((0)) FOR [param3]
+GO
+ALTER TABLE [dbo].[param] ADD  CONSTRAINT [DF_param_param4]  DEFAULT ((0)) FOR [param4]
+GO
+ALTER TABLE [dbo].[param] ADD  CONSTRAINT [DF_param_param5]  DEFAULT ((0)) FOR [param5]
+GO
+ALTER TABLE [dbo].[param] ADD  CONSTRAINT [DF_param_param6]  DEFAULT ((0)) FOR [param6]
+GO
+ALTER TABLE [dbo].[param] ADD  CONSTRAINT [DF_param_param7]  DEFAULT ((0)) FOR [param7]
+GO
+ALTER TABLE [dbo].[param] ADD  CONSTRAINT [DF_param_param8]  DEFAULT ((0)) FOR [param8]
+GO
+ALTER TABLE [dbo].[param] ADD  CONSTRAINT [DF_param_param9]  DEFAULT ((0)) FOR [param9]
+GO
+ALTER TABLE [dbo].[param] ADD  CONSTRAINT [DF_param_param10]  DEFAULT ((0)) FOR [param10]
+GO
+ALTER TABLE [dbo].[Resource] ADD  CONSTRAINT [DF_Recource_type_id]  DEFAULT ((1)) FOR [type_id]
+GO
+ALTER TABLE [dbo].[Resource] ADD  CONSTRAINT [DF_Recource_content]  DEFAULT ('') FOR [content]
+GO
+ALTER TABLE [dbo].[stat_log] ADD  CONSTRAINT [DF_stat_log_track_date]  DEFAULT (getdate()) FOR [track_date]
+GO
+ALTER TABLE [dbo].[stat_log] ADD  CONSTRAINT [DF_stat_log_login_num]  DEFAULT ((0)) FOR [login_num]
+GO
+ALTER TABLE [dbo].[stat_log] ADD  CONSTRAINT [DF_stat_log_play_num]  DEFAULT ((0)) FOR [play_num]
+GO
+ALTER TABLE [dbo].[character]  WITH NOCHECK ADD  CONSTRAINT [FK_character_account] FOREIGN KEY([act_id])
+REFERENCES [dbo].[account] ([act_id])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[character] CHECK CONSTRAINT [FK_character_account]
+GO
+ALTER TABLE [dbo].[item]  WITH NOCHECK ADD  CONSTRAINT [FK_item_character] FOREIGN KEY([cha_id])
+REFERENCES [dbo].[character] ([cha_id])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[item] CHECK CONSTRAINT [FK_item_character]
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'性别' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'personinfo', @level2type=N'COLUMN',@level2name=N'sex'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'年龄' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'personinfo', @level2type=N'COLUMN',@level2name=N'age'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'名字' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'personinfo', @level2type=N'COLUMN',@level2name=N'name'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'属相' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'personinfo', @level2type=N'COLUMN',@level2name=N'animal_zodiac'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'血型' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'personinfo', @level2type=N'COLUMN',@level2name=N'blood_type'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'生日' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'personinfo', @level2type=N'COLUMN',@level2name=N'birthday'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'地区' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'personinfo', @level2type=N'COLUMN',@level2name=N'state'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'城市' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'personinfo', @level2type=N'COLUMN',@level2name=N'city'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'星座' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'personinfo', @level2type=N'COLUMN',@level2name=N'constellation'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'职业' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'personinfo', @level2type=N'COLUMN',@level2name=N'career'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'免骚扰' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'personinfo', @level2type=N'COLUMN',@level2name=N'prevent'
+GO

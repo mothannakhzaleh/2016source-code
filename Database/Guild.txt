@@ -1,0 +1,41 @@
+USE [GameDB]
+
+update character SET guild_id =0,guild_stat =0,guild_permission =0
+delete guild
+insert into guild (guild_id,guild_name,type) values(0,'Navy HQ',0)
+insert into guild (guild_id,guild_name,type) values(1,'Navy Division 1',0)
+insert into guild (guild_id,guild_name,type) values(2,'Navy Division 2',0)
+insert into guild (guild_id,guild_name,type) values(3,'Navy Division 3',0)
+insert into guild (guild_id,guild_name,type) values(4,'Navy Division 4',0)
+insert into guild (guild_id,guild_name,type) values(5,'Navy Division 5',0)
+insert into guild (guild_id,guild_name,type) values(6,'Navy Division 6',0)
+insert into guild (guild_id,guild_name,type) values(7,'Navy Division 7',0)
+insert into guild (guild_id,guild_name,type) values(8,'Navy Division 8',0)
+insert into guild (guild_id,guild_name,type) values(9,'Navy Division 9',0)
+insert into guild (guild_id,guild_name,type) values(10,'Navy Division 10',0)
+
+declare @id int
+select @id =11
+while @id <100
+begin
+    insert into guild (guild_id,guild_name,type) values(@id,'Navy Division '+convert(varchar(2),@id),0)
+    select @id =@id +1
+end
+
+insert into guild (guild_id,guild_name,type) values(101,'Pirate1Guild',1)
+insert into guild (guild_id,guild_name,type) values(102,'Pirate2Guild',1)
+insert into guild (guild_id,guild_name,type) values(103,'Pirate3Guild',1)
+insert into guild (guild_id,guild_name,type) values(104,'Pirate4Guild',1)
+insert into guild (guild_id,guild_name,type) values(105,'Pirate5Guild',1)
+insert into guild (guild_id,guild_name,type) values(106,'Pirate6Guild',1)
+insert into guild (guild_id,guild_name,type) values(107,'Pirate7Guild',1)
+insert into guild (guild_id,guild_name,type) values(108,'Pirate8Guild',1)
+insert into guild (guild_id,guild_name,type) values(109,'Pirate9Guild',1)
+insert into guild (guild_id,guild_name,type) values(110,'Pirate10Guild',1)
+
+select @id =111
+while @id <200
+begin
+    insert into guild (guild_id,guild_name,type) values(@id,'Pirate'+convert(varchar(2),@id-100)+'Guild',1)
+    select @id =@id +1
+end

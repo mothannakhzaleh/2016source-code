@@ -1,0 +1,1894 @@
+-----------------------------------------------------------------------
+-- 定义QQ
+-----------------------------------------------------------------------
+-- 创建QQ最小化表单
+frmQQMin = UI_CreateForm( "frmQQMin", FALSE, 146, 20, 0, 160, TRUE, FALSE )
+--UI_FormSetHotKey( frmQQMin, ALT_KEY, HOTKEY_N )
+UI_ShowForm( frmQQMin, FALSE )
+UI_AddFormToTemplete( frmQQMin, 1 )
+UI_SetIsDrag( frmQQMin, TRUE )
+
+-- 加载背景图片
+imgQQMin = UI_CreateCompent( frmQQMin, IMAGE_TYPE, "imgQQMin", 146, 20, 0, 0 )
+UI_LoadImage( imgQQMin, "texture/ui/Word.dds", NORMAL, 146, 20, 1, 157 )
+
+--创建最大化按钮
+btnQQMinMax = UI_CreateCompent( frmQQMin, BUTTON_TYPE, "btnQQMinMax", 14, 14, 115, 3 )
+UI_LoadButtonImage( btnQQMinMax, "texture/ui/PublicC.tga", 14, 14, 161, 175, TRUE )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmQQMin, BUTTON_TYPE, "btnClose", 14, 14, 130, 3 )
+UI_LoadButtonImage( btnClose, "texture/ui/PublicC.tga", 14, 14, 116, 175, TRUE )
+
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+
+-- 加载界面title
+imgQQMinTitle = UI_CreateCompent( frmQQMin, IMAGE_TYPE, "imgQQMinTitle", 25, 13, 6, 3 )
+UI_LoadImage( imgQQMinTitle, "texture/ui/Word.dds", NORMAL, 25, 13, 60, 0 )
+
+
+--创建QQ面板
+frmQQ = UI_CreateForm( "frmQQ", FALSE, 158, 361, 652, 230, TRUE, FALSE )
+UI_FormSetHotKey( frmQQ, ALT_KEY, HOTKEY_F )
+UI_ShowForm( frmQQ, FALSE )
+UI_AddFormToTemplete( frmQQ, 1 )
+UI_SetIsDrag( frmQQ, TRUE )
+UI_SetFormStyleEx( frmQQ, FORM_RIGHT, 0, 280)
+
+
+-- 加载背景图片
+imgQQTop = UI_CreateCompent( frmQQ, IMAGE_TYPE, "imgQQTop", 158, 256, 0, 0 )
+UI_LoadImage( imgQQTop, "texture/ui2009/QQspeak.tga", NORMAL, 158, 256, 0, 0 )
+
+imgQQDownL = UI_CreateCompent( frmQQ, IMAGE_TYPE, "imgQQDownL", 98, 105, 0, 256 )
+UI_LoadImage( imgQQDownL, "texture/ui2009/QQspeak.tga", NORMAL, 98, 105, 158, 0 )
+
+imgQQDownR = UI_CreateCompent( frmQQ, IMAGE_TYPE, "imgQQDownR", 60, 105, 98, 256 )
+UI_LoadImage( imgQQDownR, "texture/ui2009/QQspeak.tga", NORMAL, 60, 105, 158, 105 )
+
+
+-- 加载界面title
+-- imgQQTitle = UI_CreateCompent( frmQQ, IMAGE_TYPE, "imgQQTitle", 25, 13, 10, 4 )
+-- UI_LoadImage( imgQQTitle, "texture/ui/Word.dds", NORMAL, 25, 13, 60, 0 )
+
+--创建角色名称
+labMineName = UI_CreateCompent( frmQQ, LABELEX_TYPE, "labMineName", 96, 12, 45, 37 )
+FORMS_CHAT_CLU_000001 = GetResString("FORMS_CHAT_CLU_000001")
+UI_SetCaption( labMineName, FORMS_CHAT_CLU_000001 )
+UI_SetTextColor( labMineName, COLOR_BLACK )
+UI_SetLabelExFont( labMineName, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+-- 加载角色头像
+imgHead = UI_CreateCompent( frmQQ, IMAGE_TYPE, "imgHead", 32, 32, 6, 27 )
+UI_LoadImage( imgHead, "texture/ui/main800.tga", NORMAL, 32, 32, 37, 201 )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmQQ, BUTTON_TYPE, "btnClose", 15, 15, 131, 8 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+
+--创建添加按钮
+btnAdd = UI_CreateCompent( frmQQ, BUTTON_TYPE, "btnAdd", 16, 16, 41, 333 )
+UI_LoadButtonImage( btnAdd, "texture/ui/SysBotton2.dds", 16, 16, 127, 84, TRUE )
+FORMS_CHAT_CLU_000002 = GetResString("FORMS_CHAT_CLU_000002")
+UI_SetHint( btnAdd, FORMS_CHAT_CLU_000002 )
+
+
+--创建编辑按钮
+btnEdit = UI_CreateCompent( frmQQ, BUTTON_TYPE, "btnEdit", 14, 14, 71, 334 )
+UI_LoadButtonImage( btnEdit, "texture/ui/SystemBotton3.tga", 14, 14, 167, 19, TRUE )
+FORMS_CHAT_CLU_000003 = GetResString("FORMS_CHAT_CLU_000003")
+UI_SetHint( btnEdit, FORMS_CHAT_CLU_000003 )
+
+--创建搜索按钮
+btnscr = UI_CreateCompent( frmQQ, BUTTON_TYPE, "btnscr", 18, 18, 101, 331 )
+UI_LoadButtonImage( btnscr, "texture/ui2009/QQspeak.tga", 18, 18, 218, 107, FALSE )
+FORMS_CHAT_CLU_000004 = GetResString("FORMS_CHAT_CLU_000004")
+UI_SetHint( btnscr, FORMS_CHAT_CLU_000004 )
+
+--创建树型结构
+trvEditor = UI_CreateCompent( frmQQ, TREE_TYPE, "trvEditor", 135, 256, 18, 74 )
+FORMS_CHAT_CLU_000005 = GetResString("FORMS_CHAT_CLU_000005")
+itemid = UI_CreateNoteGraphItem( "texture/ui/QQ2.tga", 87,16,105,222, 0, FORMS_CHAT_CLU_000005, 5,2 )
+gridid = UI_CreateGridNode( trvEditor, itemid, 1, 32, 32, -1 )
+	
+FORMS_CHAT_CLU_000006 = GetResString("FORMS_CHAT_CLU_000006")
+itemid = UI_CreateNoteGraphItem( "texture/ui/QQ2.tga", 87,16,105,222, 0, FORMS_CHAT_CLU_000006, 5,2 )
+gridid = UI_CreateGridNode( trvEditor, itemid, 1, 32, 32, -1 )
+	
+FORMS_CHAT_CLU_000007 = GetResString("FORMS_CHAT_CLU_000007")
+itemid = UI_CreateNoteGraphItem( "texture/ui/QQ2.tga", 87,16,105,222, 0, FORMS_CHAT_CLU_000007, 5,2 )
+gridid = UI_CreateGridNode( trvEditor, itemid, 1, 32, 32, -1 )
+	
+FORMS_CHAT_CLU_000008 = GetResString("FORMS_CHAT_CLU_000008")
+itemid = UI_CreateNoteGraphItem( "texture/ui/QQ2.tga", 87,16,105,222, 0, FORMS_CHAT_CLU_000008, 5,2 )
+gridid = UI_CreateGridNode( trvEditor, itemid, 1, 32, 32, -1 )
+
+--itemid = UI_CreateNoteGraphItem( "texture/ui/QQ2.tga", 87,16,105,222, 0, "路人", 5,2 )
+--gridid = UI_CreateGridNode( trvEditor, itemid, 1, 32, 32, -1 )
+
+FORMS_CHAT_CLU_000009 = GetResString("FORMS_CHAT_CLU_000009")
+itemid = UI_CreateNoteGraphItem( "texture/ui/QQ2.tga", 87,16,105,222, 0, FORMS_CHAT_CLU_000009, 5,2 )
+gridid = UI_CreateGridNode( trvEditor, itemid, 1, 32, 32, -1 )
+
+FORMS_CHAT_CLU_000010 = GetResString("FORMS_CHAT_CLU_000010")
+itemid = UI_CreateNoteGraphItem( "texture/ui/QQ2.tga", 87,16,105,222, 0, FORMS_CHAT_CLU_000010, 5,2 )
+gridid = UI_CreateGridNode( trvEditor, itemid, 1, 32, 32, -1 )
+
+UI_SetIsDrag( trvEditor, FALSE )
+
+UI_TreeLoadImage( trvEditor, enumTreeAddImage, "texture/ui/QQ2.tga", 20,16,85,222, 20, 16)
+UI_TreeLoadImage( trvEditor, enumTreeSubImage, "texture/ui/QQ2.tga", 20,16,85,240, 20, 16)
+
+--获得滚动条
+scrollid = UI_GetScroll( trvEditor )
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/ui2009/item1.tga", COMPENT_BACK, 11, 1, 232, 190 )
+
+--加载向上按钮
+id = UI_GetScrollObj( scrollid, SCROLL_UP )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--加载滚动条
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/ui2009/item1.tga", COMPENT_BACK, 8, 33, 203, 0 )
+UI_SetSize( id, 8, 33 )
+
+--加载向下按钮
+id = UI_GetScrollObj( scrollid, SCROLL_DOWN )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+
+-----------------------------------------------------------------------
+-- 定义右键菜单
+-----------------------------------------------------------------------
+---创建好友右键表单
+frndMouseRight = UI_CreateCompent( frmQQ, MENU_TYPE, "frndMouseRight", 68, 97, 240, 468 )
+UI_MenuLoadImage( frndMouseRight, TRUE, FALSE, "texture/ui/right.tga", 5, 5, 10, 10, "texture/ui/right.tga", 5, 5 )
+UI_SetMargin( frndMouseRight, 10, 5, 5, 5 )
+
+-- 装载菜单选择条的图片
+UI_MenuLoadSelect( frndMouseRight, "texture/ui/SystemBotton3.tga", 79, 13, 25, 227  )
+
+-- 增加菜单
+FORMS_CHAT_CLU_000011 = GetResString("FORMS_CHAT_CLU_000011")
+UI_MenuAddText( frndMouseRight, FORMS_CHAT_CLU_000011 )
+FORMS_CHAT_CLU_000012 = GetResString("FORMS_CHAT_CLU_000012")
+UI_MenuAddText( frndMouseRight, FORMS_CHAT_CLU_000012 )
+FORMS_CHAT_CLU_000013 = GetResString("FORMS_CHAT_CLU_000013")
+UI_MenuAddText( frndMouseRight, FORMS_CHAT_CLU_000013 )
+FORMS_CHAT_CLU_000014 = GetResString("FORMS_CHAT_CLU_000014")
+UI_MenuAddText( frndMouseRight, FORMS_CHAT_CLU_000014 )
+
+---创建自定义栏位右键表单
+frndGroupRight = UI_CreateCompent( frmQQ, MENU_TYPE, "frndGroupRight", 68, 97, 240, 468 )
+UI_MenuLoadImage( frndGroupRight, TRUE, FALSE, "texture/ui/right.tga", 5, 5, 10, 10, "texture/ui/right.tga", 5, 5 )
+UI_SetMargin( frndGroupRight, 10, 5, 5, 5 )
+
+-- 装载菜单选择条的图片
+UI_MenuLoadSelect( frndGroupRight, "texture/ui/SystemBotton3.tga", 79, 13, 25, 227  )
+
+-- 增加菜单
+FORMS_CHAT_CLU_000015 = GetResString("FORMS_CHAT_CLU_000015")
+UI_MenuAddText( frndGroupRight, FORMS_CHAT_CLU_000015 )
+FORMS_CHAT_CLU_000016 = GetResString("FORMS_CHAT_CLU_000016")
+UI_MenuAddText( frndGroupRight, FORMS_CHAT_CLU_000016 )
+FORMS_CHAT_CLU_000017 = GetResString("FORMS_CHAT_CLU_000017")
+UI_MenuAddText( frndGroupRight, FORMS_CHAT_CLU_000017 )
+
+--创建空白未知右键表单
+hitNothingRight = UI_CreateCompent( frmQQ, MENU_TYPE, "hitNothingRight", 68, 97, 240, 468 )
+UI_MenuLoadImage( hitNothingRight, TRUE, FALSE, "texture/ui/right.tga", 5, 5, 10, 10, "texture/ui/right.tga", 5, 5 )
+UI_SetMargin( hitNothingRight, 10, 5, 5, 5 )
+
+-- 装载菜单选择条的图片
+UI_MenuLoadSelect( hitNothingRight, "texture/ui/SystemBotton3.tga", 79, 13, 25, 227  )
+
+-- 增加菜单
+FORMS_CHAT_CLU_000017 = GetResString("FORMS_CHAT_CLU_000017")
+UI_MenuAddText( hitNothingRight, FORMS_CHAT_CLU_000017 )
+
+---创建队伍右键表单
+groupMouseRight = UI_CreateCompent( frmQQ, MENU_TYPE, "groupMouseRight", 68, 97, 240, 468 )
+UI_MenuLoadImage( groupMouseRight, TRUE, FALSE, "texture/ui/right.tga", 5, 5, 10, 10, "texture/ui/right.tga", 5, 5 )
+UI_SetMargin( groupMouseRight, 10, 5, 5, 5 )
+
+
+-- 装载菜单选择条的图片
+UI_MenuLoadSelect( groupMouseRight, "texture/ui/SystemBotton3.tga", 79, 13, 25, 227  )
+
+-- 增加菜单
+FORMS_CHAT_CLU_000018 = GetResString("FORMS_CHAT_CLU_000018")
+UI_MenuAddText( groupMouseRight, FORMS_CHAT_CLU_000018 )
+FORMS_CHAT_CLU_000012 = GetResString("FORMS_CHAT_CLU_000012")
+UI_MenuAddText( groupMouseRight, FORMS_CHAT_CLU_000012 )
+FORMS_CHAT_CLU_000014 = GetResString("FORMS_CHAT_CLU_000014")
+UI_MenuAddText( groupMouseRight, FORMS_CHAT_CLU_000014 )
+FORMS_CHAT_CLU_000019 = GetResString("FORMS_CHAT_CLU_000019")
+UI_MenuAddText( groupMouseRight, FORMS_CHAT_CLU_000019 )
+
+---创建路人右键表单
+roadMouseRight = UI_CreateCompent( frmQQ, MENU_TYPE, "roadMouseRight", 68, 97, 240, 468 )
+UI_MenuLoadImage( roadMouseRight, TRUE, FALSE, "texture/ui/right.tga", 5, 5, 10, 10, "texture/ui/right.tga", 5, 5 )
+UI_SetMargin( roadMouseRight, 10, 5, 5, 5 )
+
+-- 装载菜单选择条的图片
+UI_MenuLoadSelect( roadMouseRight, "texture/ui/SystemBotton3.tga", 79, 13, 25, 227  )
+
+-- 增加菜单
+FORMS_CHAT_CLU_000018 = GetResString("FORMS_CHAT_CLU_000018")
+UI_MenuAddText( roadMouseRight, FORMS_CHAT_CLU_000018 )
+FORMS_CHAT_CLU_000020 = GetResString("FORMS_CHAT_CLU_000020")
+UI_MenuAddText( roadMouseRight, FORMS_CHAT_CLU_000020 )
+FORMS_CHAT_CLU_000012 = GetResString("FORMS_CHAT_CLU_000012")
+UI_MenuAddText( roadMouseRight, FORMS_CHAT_CLU_000012 )
+FORMS_CHAT_CLU_000014 = GetResString("FORMS_CHAT_CLU_000014")
+UI_MenuAddText( roadMouseRight, FORMS_CHAT_CLU_000014 )
+
+---创建当前会话右键表单
+ChatMouseRight = UI_CreateCompent( frmQQ, MENU_TYPE, "ChatMouseRight", 68, 97, 240, 468 )
+UI_MenuLoadImage( ChatMouseRight, TRUE, FALSE, "texture/ui/right.tga", 5, 5, 10, 10, "texture/ui/right.tga", 5, 5 )
+UI_SetMargin( ChatMouseRight, 10, 5, 5, 5 )
+
+-- 装载菜单选择条的图片
+UI_MenuLoadSelect( ChatMouseRight, "texture/ui/SystemBotton3.tga", 79, 13, 25, 227  )
+
+-- 增加菜单
+FORMS_CHAT_CLU_000021 = GetResString("FORMS_CHAT_CLU_000021")
+UI_MenuAddText( ChatMouseRight, FORMS_CHAT_CLU_000021 )
+
+--创建导师的右键菜单
+MasterRight = UI_CreateCompent( frmQQ, MENU_TYPE, "MasterRight", 68, 97, 240, 468 )
+UI_MenuLoadImage( MasterRight, TRUE, FALSE, "texture/ui/right.tga", 5, 5, 10, 10, "texture/ui/right.tga", 5, 5 )
+UI_SetMargin( MasterRight, 10, 5, 5, 5 )
+
+--装载菜单选择条的图片
+UI_MenuLoadSelect( MasterRight, "texture/ui/SystemBotton3.tga", 79, 13, 25, 227  )
+
+-- 增加菜单
+FORMS_CHAT_CLU_000018 = GetResString("FORMS_CHAT_CLU_000018")
+UI_MenuAddText( MasterRight, FORMS_CHAT_CLU_000018 )
+FORMS_CHAT_CLU_000020 = GetResString("FORMS_CHAT_CLU_000020")
+UI_MenuAddText( MasterRight, FORMS_CHAT_CLU_000020 )
+FORMS_CHAT_CLU_000012 = GetResString("FORMS_CHAT_CLU_000012")
+UI_MenuAddText( MasterRight, FORMS_CHAT_CLU_000012 )
+FORMS_CHAT_CLU_000014 = GetResString("FORMS_CHAT_CLU_000014")
+UI_MenuAddText( MasterRight, FORMS_CHAT_CLU_000014 )
+FORMS_CHAT_CLU_000022 = GetResString("FORMS_CHAT_CLU_000022")
+UI_MenuAddText( MasterRight, FORMS_CHAT_CLU_000022 )
+
+--创建学徒的右键菜单
+StudentRight = UI_CreateCompent( frmQQ, MENU_TYPE, "StudentRight", 68, 97, 240, 468 )
+UI_MenuLoadImage( StudentRight, TRUE, FALSE, "texture/ui/right.tga", 5, 5, 10, 10, "texture/ui/right.tga", 5, 5 )
+UI_SetMargin( StudentRight, 10, 5, 5, 5 )
+
+--装载菜单选择条的图片
+UI_MenuLoadSelect( StudentRight, "texture/ui/SystemBotton3.tga", 79, 13, 25, 227  )
+
+-- 增加菜单
+FORMS_CHAT_CLU_000018 = GetResString("FORMS_CHAT_CLU_000018")
+UI_MenuAddText( StudentRight, FORMS_CHAT_CLU_000018 )
+FORMS_CHAT_CLU_000020 = GetResString("FORMS_CHAT_CLU_000020")
+UI_MenuAddText( StudentRight, FORMS_CHAT_CLU_000020 )
+FORMS_CHAT_CLU_000012 = GetResString("FORMS_CHAT_CLU_000012")
+UI_MenuAddText( StudentRight, FORMS_CHAT_CLU_000012 )
+FORMS_CHAT_CLU_000014 = GetResString("FORMS_CHAT_CLU_000014")
+UI_MenuAddText( StudentRight, FORMS_CHAT_CLU_000014 )
+FORMS_CHAT_CLU_000022 = GetResString("FORMS_CHAT_CLU_000022")
+UI_MenuAddText( StudentRight, FORMS_CHAT_CLU_000022 )
+
+---创建查询右键表单
+chaxunMouseRight = UI_CreateCompent( frmchaxun, MENU_TYPE, "groupMouseRight", 68, 97, 240, 468 )
+UI_MenuLoadImage( chaxunMouseRight, TRUE, FALSE, "texture/ui/right.tga", 5, 5, 10, 10, "texture/ui/right.tga", 5, 5 )
+UI_SetMargin( chaxunMouseRight, 10, 5, 5, 5 )
+
+-- 装载菜单选择条的图片
+UI_MenuLoadSelect( chaxunMouseRight, "texture/ui/SystemBotton3.tga", 79, 13, 25, 227  )
+
+-- 增加菜单
+FORMS_CHAT_CLU_000011 = GetResString("FORMS_CHAT_CLU_000011")
+UI_MenuAddText( chaxunMouseRight, FORMS_CHAT_CLU_000011 )
+FORMS_CHAT_CLU_000018 = GetResString("FORMS_CHAT_CLU_000018")
+UI_MenuAddText( chaxunMouseRight, FORMS_CHAT_CLU_000018 )
+FORMS_CHAT_CLU_000012 = GetResString("FORMS_CHAT_CLU_000012")
+UI_MenuAddText( chaxunMouseRight, FORMS_CHAT_CLU_000012 )
+FORMS_CHAT_CLU_000014 = GetResString("FORMS_CHAT_CLU_000014")
+UI_MenuAddText( chaxunMouseRight, FORMS_CHAT_CLU_000014 )
+FORMS_CHAT_CLU_000019 = GetResString("FORMS_CHAT_CLU_000019")
+UI_MenuAddText( chaxunMouseRight, FORMS_CHAT_CLU_000019 )
+
+-----------------------------------------------------------------------
+-- 定义对话框
+-----------------------------------------------------------------------
+-- 创建对话框表单
+frmChat = UI_CreateForm( "frmChat", FALSE, 383, 287, 232, 163, TRUE, FALSE )
+--UI_FormSetHotKey( frmChat, ALT_KEY, HOTKEY_C )
+UI_ShowForm( frmChat, FALSE )
+UI_AddFormToTemplete( frmChat, 1 )
+UI_SetIsDrag( frmChat, TRUE )
+--UI_FormSetIsEscClose( frmChat, FALSE )
+
+-- 加载背景图片
+imgChatTL = UI_CreateCompent( frmChat, IMAGE_TYPE, "imgChatTL", 256, 256, 0, 0 )
+UI_LoadImage( imgChatTL, "texture/ui2009/QQchat1.tga", NORMAL, 256, 256, 0, 0 )
+
+imgChatTR = UI_CreateCompent( frmChat, IMAGE_TYPE, "imgChatTR", 127, 256, 256, 0 )
+UI_LoadImage( imgChatTR, "texture/ui2009/QQchat2.tga", NORMAL, 127, 256, 0, 0 )
+
+imgChatDL = UI_CreateCompent( frmChat, IMAGE_TYPE, "imgChatDL", 256, 31, 0, 256 )
+UI_LoadImage( imgChatDL, "texture/ui2009/QQchat3.tga", NORMAL, 256, 31, 0, 0 )
+
+imgChatDR = UI_CreateCompent( frmChat, IMAGE_TYPE, "imgChatDR", 127, 31, 256, 256 )
+UI_LoadImage( imgChatDR, "texture/ui2009/QQchat3.tga", NORMAL, 127, 31, 0, 31 )
+
+--创建对方名字
+--labName = UI_CreateCompent( frmChat, LABELEX_TYPE, "labName", 96, 11, 7, 4 )
+--UI_SetCaption( labName, "012345678901234567890123456789" )
+--UI_SetTextColor( labName, COLOR_BLACK )
+--UI_SetLabelExFont( labName, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载会话名称及人数
+labName1 = UI_CreateCompent( frmChat, LABELEX_TYPE, "labName1", 96, 11, 22, 38 )
+UI_SetCaption( labName1, "012345678901234567890123456789" )
+UI_SetTextColor( labName1, COLOR_WHITE )
+UI_SetLabelExFont( labName1, DEFAULT_FONT, TRUE, COLOR_BLACK )
+
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmChat, BUTTON_TYPE, "btnClose", 15, 15, 352, 10 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+
+
+--创建最小化按钮
+btnMin = UI_CreateCompent( frmChat, BUTTON_TYPE, "btnMin", 15, 15, 332, 10 )
+UI_LoadButtonImage( btnMin, "texture/ui2009/button.tga", 15, 15, 115, 221, TRUE )
+
+--创建发送按钮
+btnSend = UI_CreateCompent( frmChat, BUTTON_TYPE, "btnSend", 62, 23, 202, 181 )
+UI_LoadButtonImage( btnSend, "texture/ui2009/QQchat3.tga", 62, 23, 0, 129, FALSE )
+FORMS_CHAT_CLU_000023 = GetResString("FORMS_CHAT_CLU_000023")
+UI_SetHint( btnSend, FORMS_CHAT_CLU_000023 )
+
+
+--加载对话输入框
+edtChat = UI_CreateCompent( frmChat, EDIT_TYPE, "edtChat", 246, 51, 17, 226 )
+UI_SetTextColor( edtChat, COLOR_BLACK )
+UI_SetEditMaxNum( edtChat, 64 )
+UI_SetEditMaxNumVisible( edtChat, 64 )
+UI_SetEditCursorColor( edtChat, COLOR_BLACK )
+
+UI_SetEditEnterButton( edtChat,btnSend )
+
+-- 聊天显示区
+memChat = UI_CreateCompent( frmChat, RICHMEMO_TYPE, "memChat", 255, 118, 16, 57 )
+--memList = UI_GetList( memChat )
+--UI_SetListRowHeight( memList, 18 )
+--UI_SetMargin( memChat, 2, 2, 2, 2 )
+--UI_SetIsShow( memChat , TRUE)
+--UI_SetTextColor( memChat, COLOR_BLACK )
+--UI_SetCaption( memChat, "" ) 
+--UI_SetMemoMaxNumPerRow( memChat, 42 )
+--UI_SetMemoPageShowNum( memChat, 6 )
+--UI_SetMemoRowHeight( memChat , 21 )
+
+--获得滚动条
+scrollid = UI_GetScroll( memChat )
+UI_SetSize( scrollid, 8, 1 )
+UI_LoadImage( scrollid, "texture/ui2009/item1.tga", COMPENT_BACK, 8, 1, 232, 117 )
+
+--加载向上按钮
+id = UI_GetScrollObj( scrollid, SCROLL_UP )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--加载滚动条
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/ui2009/item1.tga", COMPENT_BACK, 8, 33, 203, 0 )
+UI_SetSize( id, 8, 33 )
+
+--加载向下按钮
+id = UI_GetScrollObj( scrollid, SCROLL_DOWN )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--加载多人对话list
+lstChat = UI_CreateCompent( frmChat, LIST_TYPE, "lstChat", 97, 191, 279, 66 )
+UI_SetMargin( lstChat, 1, 4, 3, 5 )
+UI_SetListRowHeight( lstChat, 38 )
+
+--获得滚动条
+scrollid = UI_GetScroll( lstChat )
+UI_SetSize( scrollid, 8, 1 )
+UI_LoadImage( scrollid, "texture/ui2009/item1.tga", COMPENT_BACK, 8, 1, 232, 117 )
+
+--加载向上按钮
+id = UI_GetScrollObj( scrollid, SCROLL_UP )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--加载滚动条
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/ui2009/item1.tga", COMPENT_BACK, 8, 33, 203, 0 )
+UI_SetSize( id, 8, 33 )
+
+--加载向下按钮
+id = UI_GetScrollObj( scrollid, SCROLL_DOWN )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--创建参与者
+labParty = UI_CreateCompent( frmChat, LABELEX_TYPE, "labParty", 96, 11, 281, 49 )
+FORMS_CHAT_CLU_000024 = GetResString("FORMS_CHAT_CLU_000024")
+UI_SetCaption( labParty, FORMS_CHAT_CLU_000024 )
+UI_SetTextColor( labParty, COLOR_BLACK )
+UI_SetLabelExFont( labParty, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建表情按钮
+btnBrow = UI_CreateCompent( frmChat, BUTTON_TYPE, "btnBrow", 17, 16, 58, 184 )
+UI_LoadButtonImage( btnBrow, "texture/ui2009/QQchat3.tga", 17, 16, 0, 79, TRUE )
+FORMS_CHAT_CLU_000025 = GetResString("FORMS_CHAT_CLU_000025")
+UI_SetHint( btnBrow, FORMS_CHAT_CLU_000025 )
+
+--创建清屏按钮
+btnClean = UI_CreateCompent( frmChat, BUTTON_TYPE, "btnClean", 20, 17, 25, 184 )
+UI_LoadButtonImage( btnClean, "texture/ui2009/QQchat3.tga", 20, 17, 0, 95, TRUE )
+FORMS_CHAT_CLU_000026 = GetResString("FORMS_CHAT_CLU_000026")
+UI_SetHint( btnClean, FORMS_CHAT_CLU_000026 )
+
+--创建对话记录按钮
+btnChat = UI_CreateCompent( frmChat, BUTTON_TYPE, "btnChat", 15, 17, 90, 184 )
+UI_LoadButtonImage( btnChat, "texture/ui2009/QQchat3.tga", 15, 17, 0, 112, TRUE )
+FORMS_CHAT_CLU_000027 = GetResString("FORMS_CHAT_CLU_000027")
+UI_SetHint( btnChat, FORMS_CHAT_CLU_000027 )
+
+--创建退出当前会话按钮
+btnQuit = UI_CreateCompent( frmChat, BUTTON_TYPE, "btnQuit", 15, 17, 120, 184 )
+UI_LoadButtonImage( btnQuit, "texture/ui2009/QQchat3.tga", 15, 17, 0, 62, TRUE )
+FORMS_CHAT_CLU_000028 = GetResString("FORMS_CHAT_CLU_000028")
+UI_SetHint( btnQuit, FORMS_CHAT_CLU_000028 )
+
+--表情表格
+grdFace = UI_CreateCompent( frmChat, GRID_TYPE, "grdFace", 142, 170, 293, -170 ) 
+UI_LoadImage( grdFace,  "texture/ui/QQ.dds", NORMAL, 142, 170, 0, 0 )
+UI_SetGridUnitSize( grdFace, 20, 20 )
+UI_SetIsShow( grdFace, FALSE )
+UI_SetMargin( grdFace, 11, 5, 5, 5 )
+UI_SetGridSpace( grdFace, 4, 4 )
+UI_SetGridIsDragSize( grdFace, FALSE )
+UI_GridLoadSelectImage( grdFace, "texture/ui/StartF.dds", 32, 32, 123, 99 )
+n=0
+while 1 do
+	name = "texture/ui/face/"..(n+1)..".tga"   	
+    	UI_AddFaceToGrid( grdFace, name, 16, 16, 0, 0, 1, 0 )	
+	UI_SetTextParse( n , name, 16, 16 , 0 , 0 ,1  )
+	n = n + 1    	
+    	if n>=21 then break end
+end
+
+---创建列表右键表单
+ListMouseRight = UI_CreateCompent( frmChat, MENU_TYPE, "ListMouseRight", 68, 97, 240, 468 )
+UI_MenuLoadImage( ListMouseRight, TRUE, FALSE, "texture/ui/right.tga", 5, 5, 10, 10, "texture/ui/right.tga", 5, 5 )
+UI_SetMargin( ListMouseRight, 10, 5, 5, 5 )
+
+-- 装载菜单选择条的图片
+UI_MenuLoadSelect( ListMouseRight, "texture/ui/SystemBotton3.tga", 79, 13, 25, 227  )
+
+-- 增加菜单
+FORMS_CHAT_CLU_000018 = GetResString("FORMS_CHAT_CLU_000018")
+UI_MenuAddText( ListMouseRight, FORMS_CHAT_CLU_000018 )
+
+-----------------------------------------------------------------------
+-- 定义对话框(中)
+-----------------------------------------------------------------------
+-- 创建对话框表单
+frmChatMd = UI_CreateForm( "frmChatMd", FALSE, 224, 112, 232, 163, TRUE, FALSE )
+--UI_FormSetHotKey( frmChatMd, ALT_KEY, HOTKEY_C )
+UI_ShowForm( frmChatMd, FALSE )
+UI_AddFormToTemplete( frmChatMd, 1 )
+UI_SetIsDrag( frmChatMd, TRUE )
+UI_FormSetIsEscClose( frmChatMd, FALSE )
+
+-- 加载背景图片
+imgChatA = UI_CreateCompent( frmChatMd, IMAGE_TYPE, "imgChatA", 224, 112, 0, 0 )
+UI_LoadImage( imgChatA, "texture/ui2009/ty2.tga", NORMAL,  224, 112, 19, 3 )
+
+--创建对方名字
+labName = UI_CreateCompent( frmChatMd, LABELEX_TYPE, "labName", 96, 11, 9, 11 )
+--UI_SetCaption( labName, "012345678901234567890123456789" )
+UI_SetTextColor( labName, COLOR_BLACK )
+UI_SetLabelExFont( labName, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmChatMd, BUTTON_TYPE, "btnClose", 15, 15, 197, 10 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+
+--创建最小化按钮
+btnMin = UI_CreateCompent( frmChatMd, BUTTON_TYPE, "btnMin", 15, 15, 174, 10 )
+UI_LoadButtonImage( btnMin, "texture/ui2009/button.tga", 15, 15, 115, 221, TRUE )
+
+--创建还原按钮
+btnReturn = UI_CreateCompent( frmChatMd, BUTTON_TYPE, "btnReturn", 15, 15, 174, 10 )
+UI_LoadButtonImage( btnReturn, "texture/ui2009/button.tga", 15, 15, 115, 206, TRUE )
+
+--创建发送按钮
+btnSend = UI_CreateCompent( frmChatMd, BUTTON_TYPE, "btnSend", 16, 13, 185, 117 )
+UI_LoadButtonImage( btnSend, "texture/ui/PublicC.tga", 16, 13, 49, 89, TRUE )
+
+--加载对话输入框
+edtTradeGold = UI_CreateCompent( frmChatMd, EDIT_TYPE, "edtTradeGold", 171, 25, 17, 112 )
+UI_SetTextColor( edtTradeGold, COLOR_BLACK )
+UI_SetEditMaxNum( edtTradeGold, 29 )
+UI_SetEditMaxNumVisible( edtTradeGold, 29 )
+
+--加载聊天对话
+--memCtrl = UI_CreateCompent( frmChatMd, MEMO_TYPE, "memCtrl", 183, 79, 13, 23 )
+--UI_SetTextColor( memCtrl, COLOR_BLACK )
+--UI_SetCaption( memCtrl, "" ) 
+--UI_SetMemoMaxNumPerRow(memCtrl, 42 )
+--UI_SetMemoPageShowNum(memCtrl, 6 )
+--UI_SetMemoRowHeight( memCtrl , 21 )
+
+--加载聊天对话
+memCtrl = UI_CreateCompent( frmChatMd, LIST_TYPE, "memCtrl", 183, 79, 13, 23 )
+listid1 = UI_GetList( memCtrl )
+UI_SetListRowHeight( listid1, 18 )
+UI_SetMargin( memChat, 2, 2, 2, 2 )
+UI_SetIsShow( memChat , TRUE)
+
+
+UI_SetEditEnterButton( edtTradeGold,btnSend )
+
+--获得滚动条
+scrollid = UI_GetScroll( memCtrl )
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/ui/PublicC.tga", COMPENT_BACK, 11, 1, 194, 13 )
+
+--加载向上按钮
+id = UI_GetScrollObj( scrollid, SCROLL_UP )
+UI_LoadButtonImage( id, "texture/ui/PublicC.tga", 11, 9, 166, 0, TRUE )
+UI_SetSize( id, 11, 9 )
+
+--加载滚动条
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/ui/PublicC.tga", COMPENT_BACK, 11, 43, 166, 10 )
+UI_SetSize( id, 11, 20 )
+
+--加载向下按钮
+id = UI_GetScrollObj( scrollid, SCROLL_DOWN )
+UI_LoadButtonImage( id, "texture/ui/PublicC.tga", 11, 9, 166, 0, TRUE )
+UI_SetSize( id, 11, 9 )
+
+-----------------------------------------------------------------------
+-- 定义对话框(小)
+-----------------------------------------------------------------------
+
+-- 创建对话框最小化表单
+frmChatMin = UI_CreateForm( "frmChatMin", FALSE, 185, 20, 150, 150, TRUE, FALSE )
+--UI_FormSetHotKey( frmChatMin, ALT_KEY, HOTKEY_N)
+UI_ShowForm( frmChatMin, FALSE )
+UI_AddFormToTemplete( frmChatMin, 1 )
+UI_SetIsDrag( frmChatMin, TRUE )
+UI_FormSetIsEscClose( frmChatMin, FALSE )
+--UI_SetFormStyle( frmChatMin, 0 )
+--UI_SetAlpha( frmChatMin, 200 )
+
+-- 加载背景图片
+imgItemMin = UI_CreateCompent( frmChatMin, IMAGE_TYPE, "imgItemMin", 185, 20, 0, 0 )
+UI_LoadImage( imgItemMin, "texture/ui/QQ.dds", NORMAL, 185, 20, 0, 197 )
+
+--创建最大化按钮
+btnMax = UI_CreateCompent( frmChatMin, BUTTON_TYPE, "btnMax", 15, 15, 148, 2 )
+UI_LoadButtonImage( btnMax, "texture/ui2009/button.tga", 15, 15, 115, 206, TRUE )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmChatMin, BUTTON_TYPE, "btnClose", 15, 15, 164, 2 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+
+--创建对方名字
+labName = UI_CreateCompent( frmChatMin, LABELEX_TYPE, "labName", 150, 11, 7, 4 )
+UI_SetCaption( labName, "012345678901234567890123456789" )
+UI_SetTextColor( labName, COLOR_BLACK )
+UI_SetLabelExFont( labName, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+
+-----------------------------------------------------------------------
+-- 定义添加好友
+-----------------------------------------------------------------------
+frmAddFriend = UI_CreateForm( "frmAddFriend",  FALSE, 224, 112, 397, 500, FALSE, FALSE )
+UI_LoadFormImage( frmAddFriend, "texture/ui2009/ty4.tga", 224, 112, 19, 3, "", 0, 0 )
+UI_ShowForm( frmAddFriend, FALSE )
+UI_AddFormToTemplete( frmAddFriend, FORM_MAIN )
+UI_SetFormStyle( frmAddFriend, 0 )
+UI_SetIsDrag( frmAddFriend, TRUE )
+--UI_SetAlpha( frmAddFriend, 200 )
+--UI_FormSetHotKey( frmAddFriend, ALT_KEY, HOTKEY_K ) 
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmAddFriend, BUTTON_TYPE, "btnClose", 15, 15, 197, 10 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+--创建Title
+--imgAddFTitle = UI_CreateCompent( frmAddFriend, IMAGE_TYPE, "imgAddFTitle", 49, 13, 16, 11 )
+--UI_LoadImage( imgAddFTitle, "texture/ui/Word.dds", NORMAL, 49, 13, 206, 28 )
+
+
+--创建添加好友
+labTradeGold = UI_CreateCompent( frmAddFriend, LABELEX_TYPE, "labTradeGold", 23, 11, 67, 41 )
+FORMS_CHAT_CLU_000029 = GetResString("FORMS_CHAT_CLU_000029")
+UI_SetCaption( labTradeGold, FORMS_CHAT_CLU_000029 )
+UI_SetTextColor( labTradeGold, COLOR_BLACK )
+UI_SetLabelExFont( labTradeGold, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+-- 加载输入区背景
+imgTradeGoldBak = UI_CreateCompent( frmAddFriend, IMAGE_TYPE, "imgTradeGoldBak",  100, 17, 62, 56 )
+UI_LoadImage( imgTradeGoldBak, "texture/ui2009/button.tga", NORMAL, 100, 19, 15, 217 )
+
+--加载格言输入框
+edtTradeGold = UI_CreateCompent( frmAddFriend, EDIT_TYPE, "edtTradeGold", 96, 11, 67, 60 )
+UI_SetTextColor( edtTradeGold, COLOR_BLACK )
+UI_SetEditMaxNum( edtTradeGold, 17 )
+UI_SetEditMaxNumVisible( edtTradeGold, 17 )
+
+--加载确定按钮
+btnYes = UI_CreateCompent( frmAddFriend, BUTTON_TYPE, "btnYes",47, 22, 45, 81 )
+UI_LoadButtonImage( btnYes, "texture/ui2009/button.tga", 47, 22, 0, 0, TRUE )
+
+--加载取消按钮
+btnNo = UI_CreateCompent( frmAddFriend, BUTTON_TYPE, "btnNo", 47, 22, 130, 81 )
+UI_LoadButtonImage( btnNo, "texture/ui2009/button.tga", 47, 22, 0, 22, TRUE )
+UI_SetButtonModalResult( btnNo, BUTTON_CLOSE )
+
+-----------------------------------------------------------------------
+-- 定义添加分类
+-----------------------------------------------------------------------
+frmAddFrndGroup = UI_CreateForm( "frmAddFrndGroup",  FALSE, 224, 112, 397, 500, FALSE, FALSE )
+UI_LoadFormImage( frmAddFrndGroup, "texture/ui2009/ty2.tga", 224, 112, 19, 3, "", 0, 0 )
+UI_ShowForm( frmAddFrndGroup, FALSE )
+UI_AddFormToTemplete( frmAddFrndGroup, FORM_MAIN )
+UI_SetFormStyle( frmAddFrndGroup, 0 )
+UI_SetIsDrag( frmAddFrndGroup, TRUE )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmAddFrndGroup, BUTTON_TYPE, "btnClose", 15, 15, 197, 10 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+--创建Title
+-- imgAddFTitle = UI_CreateCompent( frmAddFrndGroup, IMAGE_TYPE, "imgAddFTitle", 49, 13, 16, 14 )
+-- UI_LoadImage( imgAddFTitle, "texture/ui/Word.dds", NORMAL, 49, 13, 206, 28 )
+
+
+--创建添加好友
+labGroupName = UI_CreateCompent( frmAddFrndGroup, LABELEX_TYPE, "labGroupName", 23, 11, 67, 41 )
+FORMS_CHAT_CLU_000030 = GetResString("FORMS_CHAT_CLU_000030")
+UI_SetCaption( labGroupName, FORMS_CHAT_CLU_000030 )
+UI_SetTextColor( labGroupName, COLOR_BLACK )
+UI_SetLabelExFont( labGroupName, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+-- 加载输入区背景
+imgGroupBak = UI_CreateCompent( frmAddFrndGroup, IMAGE_TYPE, "imgGroupBak", 100, 17, 62, 56 )
+UI_LoadImage( imgGroupBak, "texture/ui2009/button.tga", NORMAL, 100, 19, 15, 217 )
+
+--加载输入框
+edtGroupName = UI_CreateCompent( frmAddFrndGroup, EDIT_TYPE, "edtGroupName", 96, 11, 67, 60 )
+UI_SetTextColor( edtGroupName, COLOR_BLACK )
+UI_SetEditMaxNum( edtGroupName, 8 )
+UI_SetEditMaxNumVisible( edtGroupName, 8 )
+
+--加载确定按钮
+btnYes = UI_CreateCompent( frmAddFrndGroup, BUTTON_TYPE, "btnYes", 47, 22, 45, 81 )
+UI_LoadButtonImage( btnYes, "texture/ui2009/button.tga", 47, 22, 0, 0, TRUE )
+
+--加载取消按钮
+btnNo = UI_CreateCompent( frmAddFrndGroup, BUTTON_TYPE, "btnNo", 47, 22, 130, 81 )
+UI_LoadButtonImage( btnNo, "texture/ui2009/button.tga", 47, 22, 0, 22, TRUE )
+UI_SetButtonModalResult( btnNo, BUTTON_CLOSE )
+-----------------------------------------------------------------------
+-- 定义修改分类
+-----------------------------------------------------------------------
+frmEditFrndGroup = UI_CreateForm( "frmEditFrndGroup",  FALSE, 224, 112, 397, 500, FALSE, FALSE )
+UI_LoadFormImage( frmEditFrndGroup, "texture/ui2009/ty2.tga", 224, 112, 19, 3, "", 0, 0 )
+UI_ShowForm( frmEditFrndGroup, FALSE )
+UI_AddFormToTemplete( frmEditFrndGroup, FORM_MAIN )
+UI_SetFormStyle( frmEditFrndGroup, 0 )
+UI_SetIsDrag( frmEditFrndGroup, TRUE )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmEditFrndGroup, BUTTON_TYPE, "btnClose", 15, 15, 197, 10 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+--创建Title
+imgAddFTitle = UI_CreateCompent( frmEditFrndGroup, IMAGE_TYPE, "imgAddFTitle", 49, 13, 16, 14 )
+UI_LoadImage( imgAddFTitle, "texture/ui/Word.dds", NORMAL, 49, 13, 206, 28 )
+
+
+--创建添加好友
+labGroupName = UI_CreateCompent( frmEditFrndGroup, LABELEX_TYPE, "labGroupName", 23, 11, 67, 41 )
+FORMS_CHAT_CLU_000031 = GetResString("FORMS_CHAT_CLU_000031")
+UI_SetCaption( labGroupName, FORMS_CHAT_CLU_000031 )
+UI_SetTextColor( labGroupName, COLOR_BLACK )
+UI_SetLabelExFont( labGroupName, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+-- 加载输入区背景
+imgGroupBak = UI_CreateCompent( frmEditFrndGroup, IMAGE_TYPE, "imgGroupBak", 100, 17, 62, 56 )
+UI_LoadImage( imgGroupBak, "texture/ui2009/button.tga", NORMAL, 100, 19, 15, 217 )
+
+--加载输入框
+edtGroupName = UI_CreateCompent( frmEditFrndGroup, EDIT_TYPE, "edtGroupName", 96, 11, 67, 60 )
+UI_SetTextColor( edtGroupName, COLOR_BLACK )
+UI_SetEditMaxNum( edtGroupName, 8 )
+UI_SetEditMaxNumVisible( edtGroupName, 8 )
+
+--加载确定按钮
+btnYes = UI_CreateCompent( frmEditFrndGroup, BUTTON_TYPE, "btnYes", 47, 22, 45, 81 )
+UI_LoadButtonImage( btnYes, "texture/ui2009/button.tga", 47, 22, 0, 0, TRUE )
+
+--加载取消按钮
+btnNo = UI_CreateCompent( frmEditFrndGroup, BUTTON_TYPE, "btnNo", 47, 22, 130, 81 )
+UI_LoadButtonImage( btnNo, "texture/ui2009/button.tga", 47, 22, 0, 22, TRUE )
+UI_SetButtonModalResult( btnNo, BUTTON_CLOSE )
+
+
+---创建好友右键表单
+styMenu = UI_CreateCompent( frmQQ, MENU_TYPE, "styMenu", 68, 97, 240, 468 )
+UI_MenuLoadImage( styMenu, TRUE, FALSE, "texture/ui/right.tga", 5, 5, 10, 10, "texture/ui/right.tga", 5, 5 )
+UI_SetMargin( styMenu, 10, 5, 5, 5 )
+
+-- 装载菜单选择条的图片
+UI_MenuLoadSelect( styMenu, "texture/ui/SystemBotton3.tga", 79, 13, 25, 227  )
+
+-----------------------------------------------------------------------
+-- 定义自定义栏目名称输入栏
+-----------------------------------------------------------------------
+frmAddgrid = UI_CreateForm( "frmAddgrid",  FALSE, 224, 112, 397, 500, FALSE, FALSE )
+UI_LoadFormImage( frmAddgrid, "texture/ui2009/ty2.tga", 224, 112, 19, 3, "", 0, 0 )
+UI_ShowForm( frmAddgrid, FALSE )
+UI_AddFormToTemplete( frmAddgrid, FORM_MAIN )
+UI_SetFormStyle( frmAddgrid, 0 )
+UI_SetIsDrag( frmAddgrid, TRUE )
+--UI_SetAlpha( frmAddgrid, 200 )
+-- UI_FormSetHotKey( frmAddgrid, ALT_KEY, HOTKEY_K ) 
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmAddgrid, BUTTON_TYPE, "btnClose", 15, 15, 197, 10 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+--创建Title
+-- imgAddFTitle = UI_CreateCompent( frmAddgrid, IMAGE_TYPE, "imgAddFTitle", 49, 13, 16, 14 )
+-- UI_LoadImage( imgAddFTitle, "texture/ui/Word.dds", NORMAL, 49, 13, 206, 28 )
+
+
+--创建添加好友
+labTradeGold = UI_CreateCompent( frmAddgrid, LABELEX_TYPE, "labTradeGold", 23, 11, 67, 41 )
+FORMS_CHAT_CLU_000032 = GetResString("FORMS_CHAT_CLU_000032")
+UI_SetCaption( labTradeGold, FORMS_CHAT_CLU_000032 )
+UI_SetTextColor( labTradeGold, COLOR_BLACK )
+UI_SetLabelExFont( labTradeGold, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+-- 加载输入区背景
+imgTradeGoldBak = UI_CreateCompent( frmAddgrid, IMAGE_TYPE, "imgTradeGoldBak",  100, 17, 62, 56 )
+UI_LoadImage( imgTradeGoldBak, "texture/ui2009/button.tga", NORMAL, 100, 19, 15, 217 )
+
+-----------------------------------------------------------------------
+-- 查询其他个人信息
+-----------------------------------------------------------------------
+frmOhterInfo = UI_CreateForm( "frmOtherInfo",  FALSE, 404, 483, 1, 86, FALSE, FALSE )
+UI_ShowForm( frmOhterInfo, TRUE )
+UI_AddFormToTemplete( frmOhterInfo, FORM_MAIN )
+-- UI_SetFormStyle( frmOhterInfo, 0 )
+UI_SetIsDrag( frmOhterInfo, TRUE )
+--UI_SetAlpha( frmEdit, 200 )
+-- UI_FormSetHotKey( frmOhterInfo, ALT_KEY, HOTKEY_X ) 
+
+-- UI_LoadFormImage( frmEdit, "texture/ui/date.tga", 221, 157, 0, 0, "", 0, 0 )
+
+imgBakLeft = UI_CreateCompent( frmOhterInfo, IMAGE_TYPE, "imgBakLeft", 256, 256, 0, 0 )
+UI_LoadImage( imgBakLeft, "texture/ui2009/QQinfo1.tga", NORMAL, 256, 256, 0, 0 )
+
+imgBakRight = UI_CreateCompent( frmOhterInfo, IMAGE_TYPE, "imgBakRight", 148, 256, 256, -1 )
+UI_LoadImage( imgBakRight, "texture/ui2009/QQinfo2.tga", NORMAL, 148, 256, 0, 0 )
+
+imgBakLeftD = UI_CreateCompent( frmOhterInfo, IMAGE_TYPE, "imgBakLeftD", 256, 227, 1, 256 )
+UI_LoadImage( imgBakLeftD, "texture/ui2009/QQinfo3.tga", NORMAL, 256, 227, 0, 0 )
+
+imgBakRightD = UI_CreateCompent( frmOhterInfo, IMAGE_TYPE, "imgBakRightD", 148, 227, 257, 255 )
+UI_LoadImage( imgBakRightD, "texture/ui2009/QQinfo4.tga", NORMAL, 148, 227, 0, 0 )
+
+imgPath = UI_CreateCompent( frmOhterInfo, IMAGE_TYPE, "imgPath", 53, 13, 17, 424 )
+UI_LoadImage( imgPath, "texture/ui2009/QQinfo3.tga", NORMAL, 53, 13, 76, 168 )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmOhterInfo, BUTTON_TYPE, "btnClose", 15, 15, 374, 11 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+--加载格言框
+edtTradeGold = UI_CreateCompent( frmOhterInfo, LABELEX_TYPE, "edtTradeGold", 100, 12, 102, 225 )
+FORMS_CHAT_CLU_000001 = GetResString("FORMS_CHAT_CLU_000001")
+UI_SetCaption( edtTradeGold, FORMS_CHAT_CLU_000001 )
+UI_SetTextColor( edtTradeGold, COLOR_BLACK )
+UI_SetLabelExFont( edtTradeGold, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建角色名称
+labName = UI_CreateCompent( frmOhterInfo, LABELEX_TYPE, "labName", 72, 12, 92, 57 )
+FORMS_CHAT_CLU_000001 = GetResString("FORMS_CHAT_CLU_000001")
+UI_SetCaption( labName, FORMS_CHAT_CLU_000001 )
+UI_SetTextColor( labName, COLOR_BLACK )
+UI_SetLabelExFont( labName, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建角色公会名称
+chaguild = UI_CreateCompent( frmOhterInfo, LABELEX_TYPE, "chaguild", 72, 12, 92, 87 )
+FORMS_CHAT_CLU_000033 = GetResString("FORMS_CHAT_CLU_000033")
+UI_SetCaption( chaguild, FORMS_CHAT_CLU_000033 )
+UI_SetTextColor( chaguild, COLOR_BLACK )
+UI_SetLabelExFont( chaguild, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建角色职业
+chazhiye = UI_CreateCompent( frmOhterInfo, LABELEX_TYPE, "chazhiye", 36, 12, 90, 116 )
+FORMS_CHAT_CLU_000034 = GetResString("FORMS_CHAT_CLU_000034")
+UI_SetCaption( chazhiye, FORMS_CHAT_CLU_000034 )
+UI_SetTextColor( chazhiye, COLOR_BLACK )
+UI_SetLabelExFont( chazhiye, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建角色等级
+chaLv = UI_CreateCompent( frmOhterInfo, LABELEX_TYPE, "chaLv", 32, 12, 190, 116 )
+UI_SetCaption( chaLv, "99" )
+UI_SetTextColor( chaLv, COLOR_BLACK )
+UI_SetLabelExFont( chaLv, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建角色声望
+chashengwang = UI_CreateCompent( frmOhterInfo, LABELEX_TYPE, "chashengwang", 53, 12, 81, 145 )
+UI_SetCaption( chashengwang, "" )
+UI_SetTextColor( chashengwang, COLOR_BLACK )
+UI_SetLabelExFont( chashengwang, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建角色称号
+chachenghao = UI_CreateCompent( frmOhterInfo, LABELEX_TYPE, "chachenghao", 32, 12, 190, 145 )
+UI_SetCaption( chachenghao, "" )
+UI_SetTextColor( chachenghao, COLOR_BLACK )
+UI_SetLabelExFont( chachenghao, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建鲜花数
+chaxianhua = UI_CreateCompent( frmOhterInfo, LABELEX_TYPE, "chaxianhua", 29, 12, 84, 173 )
+UI_SetCaption( chaxianhua, "" )
+UI_SetTextColor( chaxianhua, COLOR_BLACK )
+UI_SetLabelExFont( chaxianhua, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建鸡蛋数
+chajidan = UI_CreateCompent( frmOhterInfo, LABELEX_TYPE, "chajidan", 29, 12, 84, 199 )
+UI_SetCaption( chajidan, "" )
+UI_SetTextColor( chajidan, COLOR_BLACK )
+UI_SetLabelExFont( chajidan, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--鲜花按钮
+btnFlower = UI_CreateCompent( frmOhterInfo, BUTTON_TYPE, "btnFlower", 18, 18, 125, 170 )
+UI_LoadButtonImage( btnFlower, "texture/ui2009/queenbtn.tga", 20, 20, 0, 0, TRUE )
+
+--鸡蛋按钮
+btnEgg = UI_CreateCompent( frmOhterInfo, BUTTON_TYPE, "btnEgg", 16, 18, 125, 196 )
+UI_LoadButtonImage( btnEgg, "texture/ui2009/queenbtn.tga", 16, 18, 0, 20, TRUE )
+
+-- 相册1
+btnxiangce01 = UI_CreateCompent( frmOhterInfo, BUTTON_TYPE, "btnxiangce01", 114, 21, 265, 180 )
+UI_LoadButtonImage( btnxiangce01, "texture/ui2009/QQinfo5.tga", 114, 21, 0, 0, FALSE )
+
+--相册2
+btnxiangce02 = UI_CreateCompent( frmOhterInfo, BUTTON_TYPE, "btnxiangce02", 114, 21, 265, 202 )
+UI_LoadButtonImage( btnxiangce02, "texture/ui2009/QQinfo5.tga", 114, 21, 114, 0, FALSE )
+
+--创建关注度
+chaguanzhu = UI_CreateCompent( frmOhterInfo, LABELEX_TYPE, "chaguanzhu", 36, 12, 196, 171 )
+UI_SetCaption( chaguanzhu, "" )
+UI_SetTextColor( chaguanzhu, COLOR_BLACK )
+UI_SetLabelExFont( chaguanzhu, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建性别框
+chaxingbie = UI_CreateCompent( frmOhterInfo, LABELEX_TYPE, "chaxingbie", 32, 12, 88, 272 )
+FORMS_CHAT_CLU_000035 = GetResString("FORMS_CHAT_CLU_000035")
+UI_SetCaption( chaxingbie, FORMS_CHAT_CLU_000035 )
+UI_SetTextColor( chaxingbie, COLOR_BLACK )
+UI_SetLabelExFont( chaxingbie, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建年龄框
+chanianling = UI_CreateCompent( frmOhterInfo, LABELEX_TYPE, "chanianling", 36, 12, 181, 272 )
+FORMS_CHAT_CLU_000035 = GetResString("FORMS_CHAT_CLU_000035")
+UI_SetCaption( chanianling, FORMS_CHAT_CLU_000035 )
+UI_SetTextColor( chanianling, COLOR_BLACK )
+UI_SetLabelExFont( chanianling, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建姓名框
+chaxingming = UI_CreateCompent( frmOhterInfo, LABELEX_TYPE, "chaxingming", 96, 12, 283, 272 )
+FORMS_CHAT_CLU_000035 = GetResString("FORMS_CHAT_CLU_000035")
+UI_SetCaption( chaxingming, FORMS_CHAT_CLU_000035 )
+UI_SetTextColor( chaxingming, COLOR_BLACK )
+UI_SetLabelExFont( chaxingming, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建生肖框
+chashengxiao = UI_CreateCompent( frmOhterInfo, LABELEX_TYPE, "chashengxiao", 32, 12, 88, 296 )
+FORMS_CHAT_CLU_000035 = GetResString("FORMS_CHAT_CLU_000035")
+UI_SetCaption( chashengxiao, FORMS_CHAT_CLU_000035 )
+UI_SetTextColor( chashengxiao, COLOR_BLACK )
+UI_SetLabelExFont( chashengxiao, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建血型框
+chaxuexing = UI_CreateCompent( frmOhterInfo, LABELEX_TYPE, "chaxuexing", 32, 12, 181, 296 )
+FORMS_CHAT_CLU_000035 = GetResString("FORMS_CHAT_CLU_000035")
+UI_SetCaption( chaxuexing, FORMS_CHAT_CLU_000035 )
+UI_SetTextColor( chaxuexing, COLOR_BLACK )
+UI_SetLabelExFont( chaxuexing, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建生日(月)框
+chashengriyue = UI_CreateCompent( frmOhterInfo, LABELEX_TYPE, "chashengriyue", 24, 12, 292, 296 )
+FORMS_CHAT_CLU_000035 = GetResString("FORMS_CHAT_CLU_000035")
+UI_SetCaption( chashengriyue, FORMS_CHAT_CLU_000035 )
+UI_SetTextColor( chashengriyue, COLOR_BLACK )
+UI_SetLabelExFont( chashengriyue, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建生日(日)输入框
+chashengriri = UI_CreateCompent( frmOhterInfo, LABELEX_TYPE, "chashengriri", 24, 12, 338, 296 )
+FORMS_CHAT_CLU_000035 = GetResString("FORMS_CHAT_CLU_000035")
+UI_SetCaption( chashengriri, FORMS_CHAT_CLU_000035 )
+UI_SetTextColor( chashengriri, COLOR_BLACK )
+UI_SetLabelExFont( chashengriri, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建所在省份框
+chashengfen = UI_CreateCompent( frmOhterInfo, LABELEX_TYPE, "chashengfen", 92, 12, 92, 321 )
+FORMS_CHAT_CLU_000035 = GetResString("FORMS_CHAT_CLU_000035")
+UI_SetCaption( chashengfen, FORMS_CHAT_CLU_000035 )
+UI_SetTextColor( chashengfen, COLOR_BLACK )
+UI_SetLabelExFont( chashengfen, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建所在星座框
+chaxingzuo = UI_CreateCompent( frmOhterInfo, LABELEX_TYPE, "chaxingzuo", 72, 12, 293, 321 )
+FORMS_CHAT_CLU_000035 = GetResString("FORMS_CHAT_CLU_000035")
+UI_SetCaption( chaxingzuo, FORMS_CHAT_CLU_000035 )
+UI_SetTextColor( chaxingzuo, COLOR_BLACK )
+UI_SetLabelExFont( chaxingzuo, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建所在区框
+chaquyu = UI_CreateCompent( frmOhterInfo, LABELEX_TYPE, "chaquyu", 92, 12, 92, 346 )
+FORMS_CHAT_CLU_000035 = GetResString("FORMS_CHAT_CLU_000035")
+UI_SetCaption( chaquyu, FORMS_CHAT_CLU_000035 )
+UI_SetTextColor( chaquyu, COLOR_BLACK )
+UI_SetLabelExFont( chaquyu, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建职业框
+chajob = UI_CreateCompent( frmOhterInfo, LABELEX_TYPE, "chajob", 72, 12, 293, 346 )
+FORMS_CHAT_CLU_000035 = GetResString("FORMS_CHAT_CLU_000035")
+UI_SetCaption( chajob, FORMS_CHAT_CLU_000035 )
+UI_SetTextColor( chajob, COLOR_BLACK )
+UI_SetLabelExFont( chajob, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建个性签名框
+chaqianming = UI_CreateCompent( frmOhterInfo, LABELEX_TYPE, "chaqianming", 284, 35, 91, 375 )
+FORMS_CHAT_CLU_000035 = GetResString("FORMS_CHAT_CLU_000035")
+UI_SetCaption( chaqianming, FORMS_CHAT_CLU_000035 )
+UI_SetTextColor( chaqianming, COLOR_BLACK )
+UI_SetLabelExFont( chaqianming, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--更改头像按钮
+btntouxian = UI_CreateCompent( frmOhterInfo, BUTTON_TYPE, "btntouxiang", 0, 0, 290, 186 )
+UI_LoadButtonImage( btntouxiang, "", 65, 19, 0, 141, FALSE )
+
+--加载确定按钮
+btnYes = UI_CreateCompent( frmOhterInfo, BUTTON_TYPE, "btnYes", 47, 21, 99, 444 )
+UI_LoadButtonImage( btnYes, "texture/ui2009/button.tga", 47, 21, 0, 1, TRUE )
+UI_SetEditEnterButton( edtTradeGold, btnYes )
+
+--加载取消按钮
+btnNo = UI_CreateCompent( frmOhterInfo, BUTTON_TYPE, "btnNo", 47, 21, 300, 444 )
+UI_LoadButtonImage( btnNo, "texture/ui2009/button.tga", 47, 21, 0, 23, TRUE )
+UI_SetButtonModalResult( btnNo, BUTTON_CLOSE )
+
+-- 加载角色头像
+imgMhead = UI_CreateCompent( frmOhterInfo, IMAGE_TYPE, "imgMhead", 121, 121, 262, 54 )
+UI_LoadImage( imgMhead, "", NORMAL, 0, 0, 0, 0 )
+
+-----------------------------------------------------------------------
+-- 定义其他人个人相册界面
+-----------------------------------------------------------------------
+
+frmotherPhoto = UI_CreateForm( "frmotherPhoto",  FALSE, 404, 479, 406, 90, FALSE, FALSE )
+UI_ShowForm( frmotherPhoto, TRUE )
+UI_AddFormToTemplete( frmotherPhoto, FORM_MAIN )
+-- UI_SetFormStyle( frmotherPhoto, 0 )
+UI_SetIsDrag( frmotherPhoto, TRUE )
+--UI_FormSetHotKey( frmotherPhoto, ALT_KEY, HOTKEY_I )
+
+imgBakLeft = UI_CreateCompent( frmotherPhoto, IMAGE_TYPE, "imgBakLeft", 256, 256, 0, 0 )
+UI_LoadImage( imgBakLeft, "texture/ui2009/grxc1.tga", NORMAL, 256, 256, 0, 0 )
+
+imgBakRight = UI_CreateCompent( frmotherPhoto, IMAGE_TYPE, "imgBakRight", 148, 256, 255, 0 )
+UI_LoadImage( imgBakRight, "texture/ui2009/grxc2.tga", NORMAL, 148, 256, 0, 0 )
+
+imgBakLeftD = UI_CreateCompent( frmotherPhoto, IMAGE_TYPE, "imgBakLeftD", 256, 222, 0, 256 )
+UI_LoadImage( imgBakLeftD, "texture/ui2009/grxc3.tga", NORMAL, 256, 222, 0, 0 )
+
+imgBakRightD = UI_CreateCompent( frmotherPhoto, IMAGE_TYPE, "imgBakRightD", 147, 223, 256, 256 )
+UI_LoadImage( imgBakRightD, "texture/ui2009/grxc4.tga", NORMAL, 147, 223, 0, 0 )
+
+--大图片显示(需要程序处理)
+imgPhotoX = UI_CreateCompent( frmotherPhoto, IMAGE_TYPE, "imgPhotoX", 256, 256, 75, 74 )
+UI_LoadImage( imgPhotoX, "texture/ui2009/grxc1.tga", NORMAL, 0, 0, 0, 0 )
+
+--小图片显示(需要程序处理)
+imgPhotoS1 = UI_CreateCompent( frmotherPhoto, IMAGE_TYPE, "imgPhotoS1", 80, 80, 72, 374 )
+UI_LoadImage( imgPhotoS1, "texture/ui2009/grxc1.tga", NORMAL, 0, 0, 0, 0 )
+
+imgPhotoS2 = UI_CreateCompent( frmotherPhoto, IMAGE_TYPE, "imgPhotoS2", 80, 80, 162, 374 )
+UI_LoadImage( imgPhotoS2, "texture/ui2009/grxc1.tga", NORMAL, 0, 0, 0, 0 )
+
+imgPhotoS3 = UI_CreateCompent( frmotherPhoto, IMAGE_TYPE, "imgPhotoS3", 80, 80, 252, 374 )
+UI_LoadImage( imgPhotoS3, "texture/ui2009/grxc1.tga", NORMAL, 0, 0, 0, 0 )
+
+--左按钮
+btnLeft = UI_CreateCompent( frmotherPhoto, BUTTON_TYPE, "btnLeft", 41, 48, 20, 392 )
+UI_LoadButtonImage( btnLeft, "texture/ui2009/grxc4.tga", 41, 48, 151, 0, FALSE )
+
+--右按钮
+btnRight = UI_CreateCompent( frmotherPhoto, BUTTON_TYPE, "btnRight", 41, 48, 342, 392 )
+UI_LoadButtonImage( btnRight, "texture/ui2009/grxc4.tga", 41, 48, 195, 0, FALSE )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmotherPhoto, BUTTON_TYPE, "btnClose", 15, 15, 374, 11 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+-----------------------------------------------------------------------
+-- 定义编辑个人信息
+-----------------------------------------------------------------------
+frmEdit = UI_CreateForm( "frmEdit",  FALSE, 404, 483, 1, 86, FALSE, FALSE )
+UI_ShowForm( frmEdit, TRUE )
+UI_AddFormToTemplete( frmEdit, FORM_MAIN )
+-- UI_SetFormStyle( frmEdit, 0 )
+UI_SetIsDrag( frmEdit, TRUE )
+--UI_SetAlpha( frmEdit, 200 )
+UI_FormSetHotKey( frmEdit, ALT_KEY, HOTKEY_X ) 
+
+-- UI_LoadFormImage( frmEdit, "texture/ui/date.tga", 221, 157, 0, 0, "", 0, 0 )
+
+imgBakLeft = UI_CreateCompent( frmEdit, IMAGE_TYPE, "imgBakLeft", 256, 256, 0, 0 )
+UI_LoadImage( imgBakLeft, "texture/ui2009/QQinfo1.tga", NORMAL, 256, 256, 0, 0 )
+
+imgBakRight = UI_CreateCompent( frmEdit, IMAGE_TYPE, "imgBakRight", 148, 256, 256, -1 )
+UI_LoadImage( imgBakRight, "texture/ui2009/QQinfo2.tga", NORMAL, 148, 256, 0, 0 )
+
+imgBakLeftD = UI_CreateCompent( frmEdit, IMAGE_TYPE, "imgBakLeftD", 256, 227, 1, 256 )
+UI_LoadImage( imgBakLeftD, "texture/ui2009/QQinfo3.tga", NORMAL, 256, 227, 0, 0 )
+
+imgBakRightD = UI_CreateCompent( frmEdit, IMAGE_TYPE, "imgBakRightD", 148, 227, 257, 255 )
+UI_LoadImage( imgBakRightD, "texture/ui2009/QQinfo4.tga", NORMAL, 148, 227, 0, 0 )
+
+imgBakPath01 = UI_CreateCompent( frmEdit, IMAGE_TYPE, "imgBakPath01", 44, 21, 121, 398 )
+UI_LoadImage( imgBakPath01, "texture/ui2009/QQinfo3.tga", NORMAL, 44, 21, 121, 142 )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmEdit, BUTTON_TYPE, "btnClose", 15, 15, 374, 11 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+--加载格言输入框
+edtTradeGold = UI_CreateCompent( frmEdit, EDIT_TYPE, "edtTradeGold", 100, 12, 102, 225 )
+UI_SetTextColor( edtTradeGold, COLOR_BLACK )
+UI_SetEditMaxNum( edtTradeGold, 16 )
+UI_SetEditMaxNumVisible( edtTradeGold, 16 )
+
+--创建角色名称
+labName = UI_CreateCompent( frmEdit, LABELEX_TYPE, "labName", 72, 12, 92, 57 )
+FORMS_CHAT_CLU_000001 = GetResString("FORMS_CHAT_CLU_000001")
+UI_SetCaption( labName, FORMS_CHAT_CLU_000001 )
+UI_SetTextColor( labName, COLOR_BLACK )
+UI_SetLabelExFont( labName, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建角色公会名称
+chaguild = UI_CreateCompent( frmEdit, LABELEX_TYPE, "chaguild", 72, 12, 92, 87 )
+FORMS_CHAT_CLU_000033 = GetResString("FORMS_CHAT_CLU_000033")
+UI_SetCaption( chaguild, FORMS_CHAT_CLU_000033 )
+UI_SetTextColor( chaguild, COLOR_BLACK )
+UI_SetLabelExFont( chaguild, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建角色职业
+chazhiye = UI_CreateCompent( frmEdit, LABELEX_TYPE, "chazhiye", 36, 12, 90, 116 )
+FORMS_CHAT_CLU_000034 = GetResString("FORMS_CHAT_CLU_000034")
+UI_SetCaption( chazhiye, FORMS_CHAT_CLU_000034 )
+UI_SetTextColor( chazhiye, COLOR_BLACK )
+UI_SetLabelExFont( chazhiye, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建角色等级
+chaLv = UI_CreateCompent( frmEdit, LABELEX_TYPE, "chaLv", 32, 12, 190, 116 )
+UI_SetCaption( chaLv, "" )
+UI_SetTextColor( chaLv, COLOR_BLACK )
+UI_SetLabelExFont( chaLv, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建角色声望
+chashengwang = UI_CreateCompent( frmEdit, LABELEX_TYPE, "chashengwang", 53, 12, 81, 145 )
+UI_SetCaption( chashengwang, "" )
+UI_SetTextColor( chashengwang, COLOR_BLACK )
+UI_SetLabelExFont( chashengwang, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建角色称号
+chachenghao = UI_CreateCompent( frmEdit, LABELEX_TYPE, "chachenghao", 32, 12, 190, 145 )
+UI_SetCaption( chachenghao, "" )
+UI_SetTextColor( chachenghao, COLOR_BLACK )
+UI_SetLabelExFont( chachenghao, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建鲜花数
+chaxianhua = UI_CreateCompent( frmEdit, LABELEX_TYPE, "chaxianhua", 29, 12, 84, 173 )
+UI_SetCaption( chaxianhua, "0" )
+UI_SetTextColor( chaxianhua, COLOR_BLACK )
+UI_SetLabelExFont( chaxianhua, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建鸡蛋数
+chajidan = UI_CreateCompent( frmEdit, LABELEX_TYPE, "chajidan", 29, 12, 84, 199 )
+UI_SetCaption( chajidan, "0" )
+UI_SetTextColor( chajidan, COLOR_BLACK )
+UI_SetLabelExFont( chajidan, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建关注度
+chaguanzhu = UI_CreateCompent( frmEdit, LABELEX_TYPE, "chaguanzhu", 36, 12, 196, 171 )
+UI_SetCaption( chaguanzhu, "0" )
+UI_SetTextColor( chaguanzhu, COLOR_BLACK )
+UI_SetLabelExFont( chaguanzhu, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建性别输入框
+chaxingbie = UI_CreateCompent( frmEdit, EDIT_TYPE, "chaxingbie", 32, 12, 88, 272 )
+UI_SetCaption( chaxingbie, "" )
+UI_SetTextColor( chaxingbie, COLOR_BLACK )
+UI_SetEditMaxNum( chaxingbie, 4 )
+UI_SetEditMaxNumVisible( chaxingbie, 4 )
+
+--创建年龄输入框
+chanianling = UI_CreateCompent( frmEdit, EDIT_TYPE, "chanianling", 36, 12, 181, 272 )
+UI_SetCaption( chanianling, "" )
+UI_SetTextColor( chanianling, COLOR_BLACK )
+UI_SetEditMaxNum( chanianling, 4 )
+UI_SetEditMaxNumVisible( chanianling, 4 )
+
+--创建姓名输入框
+chaxingming = UI_CreateCompent( frmEdit, EDIT_TYPE, "chaxingming", 96, 12, 283, 272 )
+UI_SetCaption( chaxingming, "" )
+UI_SetTextColor( chaxingming, COLOR_BLACK )
+UI_SetEditMaxNum( chaxingming, 16 )
+UI_SetEditMaxNumVisible( chaxingming, 16 )
+
+--创建生肖输入框
+chashengxiao = UI_CreateCompent( frmEdit, EDIT_TYPE, "chashengxiao", 32, 12, 88, 296 )
+UI_SetCaption( chashengxiao, "" )
+UI_SetTextColor( chashengxiao, COLOR_BLACK )
+UI_SetEditMaxNum( chashengxiao, 4 )
+UI_SetEditMaxNumVisible( chashengxiao, 4 )
+
+--创建血型输入框
+chaxuexing = UI_CreateCompent( frmEdit, EDIT_TYPE, "chaxuexing", 32, 12, 181, 296 )
+UI_SetCaption( chaxuexing, "" )
+UI_SetTextColor( chaxuexing, COLOR_BLACK )
+UI_SetEditMaxNum( chaxuexing, 2 )
+UI_SetEditMaxNumVisible( chaxuexing, 2 )
+
+--创建生日(月)输入框
+chashengriyue = UI_CreateCompent( frmEdit, EDIT_TYPE, "chashengriyue", 24, 12, 292, 296 )
+UI_SetCaption( chashengriyue, "" )
+UI_SetTextColor( chashengriyue, COLOR_BLACK )
+UI_SetEditMaxNum( chashengriyue, 2 )
+UI_SetEditMaxNumVisible( chashengriyue, 2 )
+
+--创建生日(日)输入框
+chashengriri = UI_CreateCompent( frmEdit, EDIT_TYPE, "chashengriri", 24, 12, 338, 296 )
+UI_SetCaption( chashengriri, "" )
+UI_SetTextColor( chashengriri, COLOR_BLACK )
+UI_SetEditMaxNum( chashengriri, 2 )
+UI_SetEditMaxNumVisible( chashengriri, 2 )
+
+--创建所在省份输入框
+chashengfen = UI_CreateCompent( frmEdit, EDIT_TYPE, "chashengfen", 100, 12, 92, 321 )
+UI_SetCaption( chashengfen, "" )
+UI_SetTextColor( chashengfen, COLOR_BLACK )
+UI_SetEditMaxNum( chashengfen, 16 )
+UI_SetEditMaxNumVisible( chashengfen, 16 )
+
+--创建所在星座输入框
+chaxingzuo = UI_CreateCompent( frmEdit, EDIT_TYPE, "chaxingzuo", 72, 12, 293, 321 )
+UI_SetCaption( chaxingzuo, "" )
+UI_SetTextColor( chaxingzuo, COLOR_BLACK )
+UI_SetEditMaxNum( chaxingzuo, 8 )
+UI_SetEditMaxNumVisible( chaxingzuo, 8 )
+
+--创建所在区输入框
+chaquyu = UI_CreateCompent( frmEdit, EDIT_TYPE, "chaquyu", 100, 12, 92, 346 )
+UI_SetCaption( chaquyu, "" )
+UI_SetTextColor( chaquyu, COLOR_BLACK )
+UI_SetEditMaxNum( chaquyu, 16 )
+UI_SetEditMaxNumVisible( chaquyu, 16 )
+
+--创建职业输入框
+chajob = UI_CreateCompent( frmEdit, EDIT_TYPE, "chajob", 72, 12, 293, 346 )
+UI_SetCaption( chajob, "" )
+UI_SetTextColor( chajob, COLOR_BLACK )
+UI_SetEditMaxNum( chajob, 16 )
+UI_SetEditMaxNumVisible( chajob, 16 )
+
+--创建个性签名输入框
+chaqianming = UI_CreateCompent( frmEdit, EDIT_TYPE, "chaqianming", 288, 30, 89, 375 )
+UI_SetCaption( chaqianming, "" )
+UI_SetTextColor( chaqianming, COLOR_BLACK )
+UI_SetEditMaxNum( chaqianming, 38 )
+UI_SetEditMaxNumVisible( chaqianming, 38 )
+
+--鲜花按钮
+btnFlower = UI_CreateCompent( frmEdit, BUTTON_TYPE, "btnFlower", 18, 18, 125, 170 )
+UI_LoadButtonImage( btnFlower, "texture/ui2009/queenbtn.tga", 20, 20, 0, 0, TRUE )
+
+--鸡蛋按钮
+btnEgg = UI_CreateCompent( frmEdit, BUTTON_TYPE, "btnEgg", 16, 18, 125, 196 )
+UI_LoadButtonImage( btnEgg, "texture/ui2009/queenbtn.tga", 16, 18, 0, 20, TRUE )
+
+-- 加载角色头像
+imgMhead = UI_CreateCompent( frmEdit, IMAGE_TYPE, "imgMhead", 121, 121, 263, 55 )
+UI_LoadImage( imgMhead, "", NORMAL, 0, 0, 0, 0 )
+
+--更改头像按钮
+btntouxiang = UI_CreateCompent( frmEdit, BUTTON_TYPE, "btntouxiang", 65, 19, 320, 160 )
+UI_LoadButtonImage( btntouxiang, "texture/ui2009/radar.tga", 65, 19, 0, 141, FALSE )
+
+-- 相册1
+btnxiangce01 = UI_CreateCompent( frmEdit, BUTTON_TYPE, "btnxiangce01", 114, 21, 265, 180 )
+UI_LoadButtonImage( btnxiangce01, "texture/ui2009/QQinfo5.tga", 114, 21, 0, 0, FALSE )
+
+--相册2
+btnxiangce02 = UI_CreateCompent( frmEdit, BUTTON_TYPE, "btnxiangce02", 114, 21, 265, 202 )
+UI_LoadButtonImage( btnxiangce02, "texture/ui2009/QQinfo5.tga", 114, 21, 114, 0, FALSE )
+
+--增加相册
+btnxiangce03 = UI_CreateCompent( frmEdit, BUTTON_TYPE, "btnxiangce03", 114, 21, 265, 224 )
+UI_LoadButtonImage( btnxiangce03, "texture/ui2009/QQinfo5.tga", 114, 21, 0, 84, FALSE )
+
+--加载禁止会话选框
+chkChat = UI_CreateCompent( frmEdit, CHECK_TYPE, "chkChat", 10, 10, 83, 426 )
+UI_LoadImage( chkChat, "texture/ui/QQ2.tga", UNCHECKED, 10, 10, 40, 231 )
+UI_LoadImage( chkChat, "texture/ui/QQ2.tga", CHECKED, 10, 10, 52, 231 )
+
+--加载确定按钮
+btnYes = UI_CreateCompent( frmEdit, BUTTON_TYPE, "btnYes", 47, 21, 99, 444 )
+UI_LoadButtonImage( btnYes, "texture/ui2009/button.tga", 47, 21, 0, 1, TRUE )
+UI_SetEditEnterButton( edtTradeGold, btnYes )
+
+--加载取消按钮
+btnNo = UI_CreateCompent( frmEdit, BUTTON_TYPE, "btnNo", 47, 21, 300, 444 )
+UI_LoadButtonImage( btnNo, "texture/ui2009/button.tga", 47, 21, 0, 23, TRUE )
+UI_SetButtonModalResult( btnNo, BUTTON_CLOSE )
+
+-----------------------------------------------------------------------
+-- 定义个人相册界面
+-----------------------------------------------------------------------
+
+frmPhoto = UI_CreateForm( "frmPhoto",  FALSE, 404, 479, 406, 90, FALSE, FALSE )
+UI_ShowForm( frmPhoto, TRUE )
+UI_AddFormToTemplete( frmPhoto, FORM_MAIN )
+-- UI_SetFormStyle( frmPhoto, 0 )
+UI_SetIsDrag( frmPhoto, TRUE )
+--UI_FormSetHotKey( frmPhoto, ALT_KEY, HOTKEY_I )
+
+imgBakLeft = UI_CreateCompent( frmPhoto, IMAGE_TYPE, "imgBakLeft", 256, 256, 0, 0 )
+UI_LoadImage( imgBakLeft, "texture/ui2009/grxc1.tga", NORMAL, 256, 256, 0, 0 )
+
+imgBakRight = UI_CreateCompent( frmPhoto, IMAGE_TYPE, "imgBakRight", 148, 256, 255, 0 )
+UI_LoadImage( imgBakRight, "texture/ui2009/grxc2.tga", NORMAL, 148, 256, 0, 0 )
+
+imgBakLeftD = UI_CreateCompent( frmPhoto, IMAGE_TYPE, "imgBakLeftD", 256, 222, 0, 256 )
+UI_LoadImage( imgBakLeftD, "texture/ui2009/grxc3.tga", NORMAL, 256, 222, 0, 0 )
+
+imgBakRightD = UI_CreateCompent( frmPhoto, IMAGE_TYPE, "imgBakRightD", 147, 223, 256, 256 )
+UI_LoadImage( imgBakRightD, "texture/ui2009/grxc4.tga", NORMAL, 147, 223, 0, 0 )
+
+--大图片显示(需要程序处理)
+imgPhotoX = UI_CreateCompent( frmPhoto, IMAGE_TYPE, "imgPhotoX", 256, 256, 75, 74 )
+UI_LoadImage( imgPhotoX, "texture/ui2009/grxc1.tga", NORMAL, 0, 0, 0, 0 )
+
+--小图片显示(需要程序处理)
+imgPhotoS1 = UI_CreateCompent( frmPhoto, IMAGE_TYPE, "imgPhotoS1", 80, 80, 72, 374 )
+UI_LoadImage( imgPhotoS1, "texture/ui2009/grxc1.tga", NORMAL, 0, 0, 0, 0 )
+
+imgPhotoS2 = UI_CreateCompent( frmPhoto, IMAGE_TYPE, "imgPhotoS2", 80, 80, 162, 374 )
+UI_LoadImage( imgPhotoS2, "texture/ui2009/grxc1.tga", NORMAL, 0, 0, 0, 0 )
+
+imgPhotoS3 = UI_CreateCompent( frmPhoto, IMAGE_TYPE, "imgPhotoS3", 80, 80, 252, 374 )
+UI_LoadImage( imgPhotoS3, "texture/ui2009/grxc1.tga", NORMAL, 0, 0, 0, 0 )
+
+--左按钮
+btnLeft = UI_CreateCompent( frmPhoto, BUTTON_TYPE, "btnLeft", 41, 48, 20, 392 )
+UI_LoadButtonImage( btnLeft, "texture/ui2009/grxc4.tga", 41, 48, 151, 0, FALSE )
+
+--右按钮
+btnRight = UI_CreateCompent( frmPhoto, BUTTON_TYPE, "btnRight", 41, 48, 342, 392 )
+UI_LoadButtonImage( btnRight, "texture/ui2009/grxc4.tga", 41, 48, 195, 0, FALSE )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmPhoto, BUTTON_TYPE, "btnClose", 15, 15, 374, 11 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+-----------------------------------------------------------------------
+-- 定义搜索界面
+-----------------------------------------------------------------------
+
+--创建搜索页面
+frmsousuo = UI_CreateForm( "frmsousuo",  FALSE, 450, 234, 420, 595, FALSE, FALSE )
+UI_ShowForm( frmsousuo, TRUE )
+UI_AddFormToTemplete( frmsousuo, FORM_MAIN )
+UI_SetFormStyle( frmsousuo, 0 )
+UI_SetIsDrag( frmsousuo, TRUE )
+--UI_FormSetHotKey( frmsousuo, ALT_KEY, HOTKEY_U ) 
+
+--加载背景图片
+imgBakLeft = UI_CreateCompent( frmsousuo, IMAGE_TYPE, "imgBakLeft", 256, 234, 0, 0 )
+UI_LoadImage( imgBakLeft, "texture/ui2009/QQsousuo1.tga", NORMAL, 256, 234, 0, 0 )
+
+imgBakRight = UI_CreateCompent( frmsousuo, IMAGE_TYPE, "imgBakRight", 190, 234, 256, 0 )
+UI_LoadImage( imgBakRight, "texture/ui2009/QQsousuo2.tga", NORMAL, 190, 234, 0, 0 )
+
+--角色名称
+chaname = UI_CreateCompent( frmsousuo, EDIT_TYPE, "chaname", 92, 12, 115, 56 )
+UI_SetCaption( chaname, "" )
+UI_SetTextColor( chaname, COLOR_BLACK )
+UI_SetEditMaxNum( chaname, 16 )
+UI_SetEditMaxNumVisible( chaname, 16 )
+
+--是否有照片
+chaphoto = UI_CreateCompent( frmsousuo, EDIT_TYPE, "chaphoto", 12, 12, 375, 56 )
+UI_SetCaption( chaphoto, "" )
+UI_SetTextColor( chaphoto, COLOR_BLACK )
+UI_SetEditMaxNum( chaphoto, 2 )
+UI_SetEditMaxNumVisible( chaphoto, 2 )
+
+--性别
+chaxingbie = UI_CreateCompent( frmsousuo, EDIT_TYPE, "chaxingbie", 12, 12, 114, 90 )
+UI_SetCaption( chaxingbie, "" )
+UI_SetTextColor( chaxingbie, COLOR_BLACK )
+UI_SetEditMaxNum( chaxingbie, 2 )
+UI_SetEditMaxNumVisible( chaxingbie, 2 )
+
+--年龄(小)
+chaage1 = UI_CreateCompent( frmsousuo, EDIT_TYPE, "chaage1", 12, 12, 213, 90 )
+UI_SetCaption( chaage1, "" )
+UI_SetTextColor( chaage1, COLOR_BLACK )
+UI_SetEditMaxNum( chaage1, 2 )
+UI_SetEditMaxNumVisible( chaage1, 2 )
+
+--年龄(大)
+chaage2 = UI_CreateCompent( frmsousuo, EDIT_TYPE, "chaage2", 12, 12, 351, 90 )
+UI_SetCaption( chaage2, "" )
+UI_SetTextColor( chaage2, COLOR_BLACK )
+UI_SetEditMaxNum( chaage2, 2 )
+UI_SetEditMaxNumVisible( chaage2, 2 )
+
+--生肖
+chashengxiao = UI_CreateCompent( frmsousuo, EDIT_TYPE, "chashengxiao", 12, 12, 114, 115 )
+UI_SetCaption( chashengxiao, "" )
+UI_SetTextColor( chashengxiao, COLOR_BLACK )
+UI_SetEditMaxNum( chashengxiao, 2 )
+UI_SetEditMaxNumVisible( chashengxiao, 2 )
+
+--生日-1月
+chashengri1 = UI_CreateCompent( frmsousuo, EDIT_TYPE, "chashengri1", 12, 12, 210, 115 )
+UI_SetCaption( chashengri1, "" )
+UI_SetTextColor( chashengri1, COLOR_BLACK )
+UI_SetEditMaxNum( chashengri1, 2 )
+UI_SetEditMaxNumVisible( chashengri1, 2 )
+
+--生日-2日
+chashengri2 = UI_CreateCompent( frmsousuo, EDIT_TYPE, "chashengri2", 12, 12, 260, 115 )
+UI_SetCaption( chashengri2, "" )
+UI_SetTextColor( chashengri2, COLOR_BLACK )
+UI_SetEditMaxNum( chashengri2, 2 )
+UI_SetEditMaxNumVisible( chashengri2, 2 )
+
+--生日-3月
+chashengri3 = UI_CreateCompent( frmsousuo, EDIT_TYPE, "chashengri3", 12, 12, 335, 115 )
+UI_SetCaption( chashengri3, "" )
+UI_SetTextColor( chashengri3, COLOR_BLACK )
+UI_SetEditMaxNum( chashengri3, 2 )
+UI_SetEditMaxNumVisible( chashengri3, 2 )
+
+--生日-4日
+chashengri4 = UI_CreateCompent( frmsousuo, EDIT_TYPE, "chashengri4", 12, 12, 386, 115 )
+UI_SetCaption( chashengri4, "" )
+UI_SetTextColor( chashengri4, COLOR_BLACK )
+UI_SetEditMaxNum( chashengri4, 2 )
+UI_SetEditMaxNumVisible( chashengri4, 2 )
+
+--所在省份
+chashengfen = UI_CreateCompent( frmsousuo, EDIT_TYPE, "chashengfen", 92, 12, 115, 140 )
+UI_SetCaption( chashengfen, "" )
+UI_SetTextColor( chashengfen, COLOR_BLACK )
+UI_SetEditMaxNum( chashengfen, 16 )
+UI_SetEditMaxNumVisible( chashengfen, 16 )
+
+--星座
+chaxingzuo = UI_CreateCompent( frmsousuo, EDIT_TYPE, "chaxingzuo", 70, 12, 328, 140 )
+UI_SetCaption( chaxingzuo, "" )
+UI_SetTextColor( chaxingzuo, COLOR_BLACK )
+UI_SetEditMaxNum( chaxingzuo, 6 )
+UI_SetEditMaxNumVisible( chaxingzuo, 6 )
+
+--所在区
+chaquyu = UI_CreateCompent( frmsousuo, EDIT_TYPE, "chaquyu", 92, 12, 115, 166 )
+UI_SetCaption( chaquyu, "" )
+UI_SetTextColor( chaquyu, COLOR_BLACK )
+UI_SetEditMaxNum( chaquyu, 16 )
+UI_SetEditMaxNumVisible( chaquyu, 16 )
+
+--职业
+chazhiye = UI_CreateCompent( frmsousuo, EDIT_TYPE, "chazhiye", 92, 12, 328, 166 )
+UI_SetCaption( chazhiye, "" )
+UI_SetTextColor( chazhiye, COLOR_BLACK )
+UI_SetEditMaxNum( chazhiye, 16 )
+UI_SetEditMaxNumVisible( chazhiye, 16 )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmsousuo, BUTTON_TYPE, "btnClose", 15, 15, 416, 11 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+--加载确定按钮
+btnYes = UI_CreateCompent( frmsousuo, BUTTON_TYPE, "btnYes", 47, 21, 98, 195 )
+UI_LoadButtonImage( btnYes, "texture/ui2009/button.tga", 47, 21, 0, 1, TRUE )
+UI_SetEditEnterButton( edtTradeGold, btnYes )
+
+--加载取消按钮
+btnNo = UI_CreateCompent( frmsousuo, BUTTON_TYPE, "btnNo", 47, 21, 294, 195 )
+UI_LoadButtonImage( btnNo, "texture/ui2009/button.tga", 47, 21, 0, 23, TRUE )
+UI_SetButtonModalResult( btnNo, BUTTON_CLOSE )
+
+-----------------------------------------------------------------------
+-- 定义搜索结果显示界面
+-----------------------------------------------------------------------
+
+--创建搜索结果页面
+frmchaxun = UI_CreateForm( "frmchaxun",  FALSE, 357, 314, 420, 595, FALSE, FALSE )
+UI_ShowForm( frmchaxun, TRUE )
+UI_AddFormToTemplete( frmchaxun, FORM_MAIN )
+UI_SetFormStyle( frmchaxun, 0 )
+UI_SetIsDrag( frmchaxun, TRUE )
+--UI_FormSetHotKey( frmchaxun, ALT_KEY, HOTKEY_Y ) 
+
+--加载背景图片
+imgTopLeft = UI_CreateCompent( frmchaxun, IMAGE_TYPE, "imgTopLeft", 256, 256, 0, 0 )
+UI_LoadImage( imgTopLeft, "texture/ui2009/QQjieguo1.tga", NORMAL, 256, 256, 0, 0 )
+
+imgTopRight = UI_CreateCompent( frmchaxun, IMAGE_TYPE, "imgTopRight", 101, 256, 256, 0 )
+UI_LoadImage( imgTopRight, "texture/ui2009/QQjieguo2.tga", NORMAL, 101, 256, 0, 0 )
+
+imgBakLeft = UI_CreateCompent( frmchaxun, IMAGE_TYPE, "imgBakLeft", 256, 58, 0, 256 )
+UI_LoadImage( imgBakLeft, "texture/ui2009/QQjieguo3.tga", NORMAL, 256, 58, 0, 0 )
+
+imgBakRight = UI_CreateCompent( frmchaxun, IMAGE_TYPE, "imgBakRight", 101, 58, 256, 256 )
+UI_LoadImage( imgBakRight, "texture/ui2009/QQjieguo3.tga", NORMAL, 101, 58, 0, 58 )
+
+imgPath1 = UI_CreateCompent( frmchaxun, IMAGE_TYPE, "imgPath1", 241, 11, 15, 236 )
+UI_LoadImage( imgPath1, "texture/ui2009/QQjieguo1.tga", NORMAL, 241, 11, 15, 205 )
+
+imgPath2 = UI_CreateCompent( frmchaxun, IMAGE_TYPE, "imgPath2", 85, 11, 256, 236 )
+UI_LoadImage( imgPath2, "texture/ui2009/QQjieguo2.tga", NORMAL, 85, 11, 0, 205 )
+
+--创建显示空间
+lstforQueryInfo = UI_CreateCompent( frmchaxun, LIST_TYPE, "lstforQueryInfo", 316, 179, 35, 94 )
+UI_SetListRowHeight( lstforQueryInfo, 17 )
+UI_SetListFontColor( lstforQueryInfo, COLOR_BLACK, COLOR_BLACK )
+UI_SetMargin( lstforQueryInfo, 8,3,6,0 )
+UI_SetIsShow( lstforQueryInfo, TRUE )
+
+--创建空间中的文字
+labchaname = UI_CreateCompent( frmchaxun, LABELEX_TYPE, "labchaname", 72, 12, 42, 70 )
+FORMS_CHAT_CLU_000036 = GetResString("FORMS_CHAT_CLU_000036")
+UI_SetCaption( labchaname, FORMS_CHAT_CLU_000036 )
+UI_SetTextColor( labchaname, COLOR_BLACK )
+UI_SetLabelExFont( labchaname, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+labchanianling = UI_CreateCompent( frmchaxun, LABELEX_TYPE, "labchanianling", 72, 12, 95, 70 )
+FORMS_CHAT_CLU_000037 = GetResString("FORMS_CHAT_CLU_000037")
+UI_SetCaption( labchanianling, FORMS_CHAT_CLU_000037 )
+UI_SetTextColor( labchanianling, COLOR_BLACK )
+UI_SetLabelExFont( labchanianling, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+labchaxingbie = UI_CreateCompent( frmchaxun, LABELEX_TYPE, "labchaxingbie", 72, 12, 137, 70 )
+FORMS_CHAT_CLU_000038 = GetResString("FORMS_CHAT_CLU_000038")
+UI_SetCaption( labchaxingbie, FORMS_CHAT_CLU_000038 )
+UI_SetTextColor( labchaxingbie, COLOR_BLACK )
+UI_SetLabelExFont( labchaxingbie, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+labchashengfen = UI_CreateCompent( frmchaxun, LABELEX_TYPE, "labchashengfen", 72, 12, 179, 70 )
+FORMS_CHAT_CLU_000039 = GetResString("FORMS_CHAT_CLU_000039")
+UI_SetCaption( labchashengfen, FORMS_CHAT_CLU_000039 )
+UI_SetTextColor( labchashengfen, COLOR_BLACK )
+UI_SetLabelExFont( labchashengfen, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+labchadiqu = UI_CreateCompent( frmchaxun, LABELEX_TYPE, "labchadiqu", 72, 12, 245, 70 )
+FORMS_CHAT_CLU_000040 = GetResString("FORMS_CHAT_CLU_000040")
+UI_SetCaption( labchadiqu, FORMS_CHAT_CLU_000040 )
+UI_SetTextColor( labchadiqu, COLOR_BLACK )
+UI_SetLabelExFont( labchadiqu, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--获得滚动条
+scrollid = UI_GetScroll( lstforQueryInfo )
+UI_SetSize( scrollid, 8, 1 )
+UI_LoadImage( scrollid, "texture/ui2009/item1.tga", COMPENT_BACK, 8, 1, 232, 117 )
+
+--加载向上按钮
+id = UI_GetScrollObj( scrollid, SCROLL_UP )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--加载滚动条
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/ui2009/item1.tga", COMPENT_BACK, 8, 33, 203, 0 )
+UI_SetSize( id, 8, 33 )
+
+--加载向下按钮
+id = UI_GetScrollObj( scrollid, SCROLL_DOWN )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmchaxun, BUTTON_TYPE, "btnClose", 15, 15, 334, 11 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+--加载下关闭按钮
+btnNo = UI_CreateCompent( frmchaxun, BUTTON_TYPE, "btnNo", 47, 21, 156, 281 )
+UI_LoadButtonImage( btnNo, "texture/ui2009/button.tga", 47, 21, 0, 67, TRUE )
+UI_SetButtonModalResult( btnNo, BUTTON_CLOSE )
+
+
+-----------------------------------------------------------------------
+-- 定义搜索结果显示界面(new)
+-----------------------------------------------------------------------
+frmjieguo2 = UI_CreateForm( "frmjieguo2",  FALSE, 310, 529, 95, 40, FALSE, FALSE )
+UI_ShowForm( frmjieguo2, TRUE )
+UI_AddFormToTemplete( frmjieguo2, FORM_MAIN )
+-- UI_SetFormStyle( frmjieguo2, 0 )
+UI_SetIsDrag( frmjieguo2, TRUE )
+--UI_FormSetHotKey( frmjieguo2, ALT_KEY, HOTKEY_Y ) 
+
+imgTop = UI_CreateCompent( frmjieguo2, IMAGE_TYPE, "imgTop", 256, 256, 0, 0 )
+UI_LoadImage( imgTop, "texture/ui2009/cxjg1.tga", NORMAL, 256, 256, 0, 0 )
+
+imgDown = UI_CreateCompent( frmjieguo2, IMAGE_TYPE, "imgDown", 256, 256, 15, 256 )
+UI_LoadImage( imgDown, "texture/ui2009/cxjg2.tga", NORMAL, 256, 256, 0, 0 )
+
+imgDown2 = UI_CreateCompent( frmjieguo2, IMAGE_TYPE, "imgDown2", 249, 17, 22, 512 )
+UI_LoadImage( imgDown2, "texture/ui2009/cxjg4.tga", NORMAL, 249, 17, 7, 0 )
+
+imgRight1 = UI_CreateCompent( frmjieguo2, IMAGE_TYPE, "imgRight1", 54, 256, 256, 0 )
+UI_LoadImage( imgRight1, "texture/ui2009/cxjg3.tga", NORMAL, 54, 256, 0, 0 )
+
+imgRight2 = UI_CreateCompent( frmjieguo2, IMAGE_TYPE, "imgRight2", 16, 146, 271, 256 )
+UI_LoadImage( imgRight2, "texture/ui2009/cxjg4.tga", NORMAL, 16, 146, 0, 110 )
+
+imgRight3 = UI_CreateCompent( frmjieguo2, IMAGE_TYPE, "imgRight3", 18, 127, 271, 402 )
+UI_LoadImage( imgRight3, "texture/ui2009/cxjg4.tga", NORMAL, 18, 127, 37, 129 )
+
+--搜索结果显示
+
+imgView01 = UI_CreateCompent( frmjieguo2, IMAGE_TYPE, "imgView01", 44, 43, 56, 329 )
+UI_LoadImage( imgView01, "texture/ui2009/cxjg4.tga", NORMAL, 44, 43, 68, 135 )
+
+imgView02 = UI_CreateCompent( frmjieguo2, IMAGE_TYPE, "imgView02", 44, 43, 105, 329 )
+UI_LoadImage( imgView02, "texture/ui2009/cxjg4.tga", NORMAL, 44, 43, 68, 135 )
+
+imgView03 = UI_CreateCompent( frmjieguo2, IMAGE_TYPE, "imgView03", 44, 43, 154, 329 )
+UI_LoadImage( imgView03, "texture/ui2009/cxjg4.tga", NORMAL, 44, 43, 68, 135 )
+
+imgView04 = UI_CreateCompent( frmjieguo2, IMAGE_TYPE, "imgView04", 44, 43, 203, 329 )
+UI_LoadImage( imgView04, "texture/ui2009/cxjg4.tga", NORMAL, 44, 43, 68, 135 )
+
+imgView05 = UI_CreateCompent( frmjieguo2, IMAGE_TYPE, "imgView05", 44, 43, 56, 377 )
+UI_LoadImage( imgView05, "texture/ui2009/cxjg4.tga", NORMAL, 44, 43, 68, 135 )
+
+imgView06 = UI_CreateCompent( frmjieguo2, IMAGE_TYPE, "imgView06", 44, 43, 105, 377 )
+UI_LoadImage( imgView06, "texture/ui2009/cxjg4.tga", NORMAL, 44, 43, 68, 135 )
+
+imgView07 = UI_CreateCompent( frmjieguo2, IMAGE_TYPE, "imgView07", 44, 43, 154, 377 )
+UI_LoadImage( imgView07, "texture/ui2009/cxjg4.tga", NORMAL, 44, 43, 68, 135 )
+
+imgView08 = UI_CreateCompent( frmjieguo2, IMAGE_TYPE, "imgView08", 44, 43, 203, 377 )
+UI_LoadImage( imgView08, "texture/ui2009/cxjg4.tga", NORMAL, 44, 43, 68, 135 )
+
+imgView09 = UI_CreateCompent( frmjieguo2, IMAGE_TYPE, "imgView09", 44, 43, 56, 425 )
+UI_LoadImage( imgView09, "texture/ui2009/cxjg4.tga", NORMAL, 44, 43, 68, 135 )
+
+imgView10 = UI_CreateCompent( frmjieguo2, IMAGE_TYPE, "imgView10", 44, 43, 105, 425 )
+UI_LoadImage( imgView10, "texture/ui2009/cxjg4.tga", NORMAL, 44, 43, 68, 135 )
+
+imgView11 = UI_CreateCompent( frmjieguo2, IMAGE_TYPE, "imgView11", 44, 43, 154, 425 )
+UI_LoadImage( imgView11, "texture/ui2009/cxjg4.tga", NORMAL, 44, 43, 68, 135 )
+
+imgView12 = UI_CreateCompent( frmjieguo2, IMAGE_TYPE, "imgView12", 44, 43, 203, 425 )
+UI_LoadImage( imgView12, "texture/ui2009/cxjg4.tga", NORMAL, 44, 43, 68, 135 )
+
+--搜索结果女神显示空间
+
+--第一排中间
+imgView01 = UI_CreateCompent( frmjieguo2, IMAGE_TYPE, "imgView01", 52, 52, 129, 95 )
+UI_LoadImage( imgView01, "texture/ui2009/cxjg4.tga", NORMAL, 52, 52, 64, 22 )
+
+--第一排左边
+imgView02 = UI_CreateCompent( frmjieguo2, IMAGE_TYPE, "imgView02", 47, 47, 69, 108 )
+UI_LoadImage( imgView02, "texture/ui2009/cxjg4.tga", NORMAL, 47, 47, 67, 82 )
+
+--第一排右边
+imgView03 = UI_CreateCompent( frmjieguo2, IMAGE_TYPE, "imgView03", 47, 47, 195, 108 )
+UI_LoadImage( imgView03, "texture/ui2009/cxjg4.tga", NORMAL, 47, 47, 67, 82 )
+
+--左边一组
+imgView04 = UI_CreateCompent( frmjieguo2, IMAGE_TYPE, "imgView04", 44, 43, 41, 163 )
+UI_LoadImage( imgView04, "texture/ui2009/cxjg4.tga", NORMAL, 44, 43, 68, 135 )
+
+imgView05 = UI_CreateCompent( frmjieguo2, IMAGE_TYPE, "imgView05", 44, 43, 100, 163 )
+UI_LoadImage( imgView05, "texture/ui2009/cxjg4.tga", NORMAL, 44, 43, 68, 135 )
+
+imgView06 = UI_CreateCompent( frmjieguo2, IMAGE_TYPE, "imgView06", 44, 43, 41, 219 )
+UI_LoadImage( imgView06, "texture/ui2009/cxjg4.tga", NORMAL, 44, 43, 68, 135 )
+
+imgView07 = UI_CreateCompent( frmjieguo2, IMAGE_TYPE, "imgView07", 44, 43, 100, 219 )
+UI_LoadImage( imgView07, "texture/ui2009/cxjg4.tga", NORMAL, 44, 43, 68, 135 )
+
+--右边一组
+imgView08 = UI_CreateCompent( frmjieguo2, IMAGE_TYPE, "imgView08", 44, 43, 168, 163 )
+UI_LoadImage( imgView08, "texture/ui2009/cxjg4.tga", NORMAL, 44, 43, 68, 135 )
+
+imgView09 = UI_CreateCompent( frmjieguo2, IMAGE_TYPE, "imgView09", 44, 43, 227, 163 )
+UI_LoadImage( imgView09, "texture/ui2009/cxjg4.tga", NORMAL, 44, 43, 68, 135 )
+
+imgView10 = UI_CreateCompent( frmjieguo2, IMAGE_TYPE, "imgView10", 44, 43, 168, 219 )
+UI_LoadImage( imgView10, "texture/ui2009/cxjg4.tga", NORMAL, 44, 43, 68, 135 )
+
+imgView11 = UI_CreateCompent( frmjieguo2, IMAGE_TYPE, "imgView11", 44, 43, 227, 219 )
+UI_LoadImage( imgView11, "texture/ui2009/cxjg4.tga", NORMAL, 44, 43, 68, 135 )
+
+--搜索输入窗体
+SeachTxt = UI_CreateCompent( frmjieguo2, EDIT_TYPE, "SeachTxt", 95, 12, 112, 284 )
+UI_SetCaption( SeachTxt, "" )
+UI_SetTextColor( SeachTxt, COLOR_BLACK )
+UI_SetEditMaxNum( SeachTxt, 16 )
+UI_SetEditMaxNumVisible( SeachTxt, 16 )
+
+--搜索按钮
+btnSeach = UI_CreateCompent( frmjieguo2, BUTTON_TYPE, "btnSeach", 28, 21, 219, 280 )
+UI_LoadButtonImage( btnSeach, "texture/ui2009/minimap2.tga", 28, 21, 47, 134, FALSE )
+
+--鲜花按钮
+btnFlower = UI_CreateCompent( frmjieguo2, BUTTON_TYPE, "btnFlower", 48, 22, 41, 486 )
+UI_LoadButtonImage( btnFlower, "texture/ui2009/cxjg4.tga", 48, 22, 132, 118, FALSE )
+
+--鸡蛋按钮
+btnEgg = UI_CreateCompent( frmjieguo2, BUTTON_TYPE, "btnEgg", 48, 22, 92, 486 )
+UI_LoadButtonImage( btnEgg, "texture/ui2009/cxjg4.tga", 48, 22, 197, 118, FALSE )
+
+--加为好友按钮
+btnAddFriend = UI_CreateCompent( frmjieguo2, BUTTON_TYPE, "btnAddFriend", 65, 22, 143, 486 )
+UI_LoadButtonImage( btnAddFriend, "texture/ui2009/cxjg4.tga", 65, 22, 123, 23, FALSE )
+
+--查看好友信息按钮
+btnViewFriend = UI_CreateCompent( frmjieguo2, BUTTON_TYPE, "btnViewFriend", 52, 22, 211, 486 )
+UI_LoadButtonImage( btnViewFriend, "texture/ui2009/cxjg4.tga", 52, 22, 197, 23, FALSE )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmjieguo2, BUTTON_TYPE, "btnClose", 15, 15, 274, 62 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+-----------------------------------------------------------------------
+-- 定义简单资料
+-----------------------------------------------------------------------
+
+frmchainfo2 = UI_CreateForm( "frmchainfo2",  FALSE, 268, 201, 387, 368, FALSE, FALSE )
+UI_ShowForm( frmchainfo2, TRUE )
+UI_AddFormToTemplete( frmchainfo2, FORM_MAIN )
+-- UI_SetFormStyle( frmchainfo2, 0 )
+UI_SetIsDrag( frmchainfo2, TRUE )
+--UI_FormSetHotKey( frmchainfo2, ALT_KEY, HOTKEY_U ) 
+
+imginfo1 = UI_CreateCompent( frmchainfo2, IMAGE_TYPE, "imginfo1", 256, 201, 0, 0 )
+UI_LoadImage( imginfo1, "texture/ui2009/xxzl1.tga", NORMAL, 256, 201, 0, 0 )
+
+imginfo2 = UI_CreateCompent( frmchainfo2, IMAGE_TYPE, "imginfo2", 12, 200, 256, 0 )
+UI_LoadImage( imginfo2, "texture/ui2009/xxzl2.tga", NORMAL, 12, 200, 0, 0 )
+
+--角色名称显示空间
+labName = UI_CreateCompent( frmchainfo2, LABELEX_TYPE, "labName", 140, 12, 94, 48 )
+FORMS_CHAT_CLU_000001 = GetResString("FORMS_CHAT_CLU_000001")
+UI_SetCaption( labName, FORMS_CHAT_CLU_000001 )
+UI_SetTextColor( labName, COLOR_BLACK )
+UI_SetLabelExFont( labName, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建角色公会名称
+chaguild = UI_CreateCompent( frmchainfo2, LABELEX_TYPE, "chaguild", 74, 12, 186, 77 )
+FORMS_CHAT_CLU_000033 = GetResString("FORMS_CHAT_CLU_000033")
+UI_SetCaption( chaguild, FORMS_CHAT_CLU_000033 )
+UI_SetTextColor( chaguild, COLOR_BLACK )
+UI_SetLabelExFont( chaguild, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建角色职业
+chazhiye = UI_CreateCompent( frmchainfo2, LABELEX_TYPE, "chazhiye", 48, 12, 66, 77 )
+FORMS_CHAT_CLU_000034 = GetResString("FORMS_CHAT_CLU_000034")
+UI_SetCaption( chazhiye, FORMS_CHAT_CLU_000034 )
+UI_SetTextColor( chazhiye, COLOR_BLACK )
+UI_SetLabelExFont( chazhiye, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载座右铭
+edtTradeGold = UI_CreateCompent( frmchainfo2, LABELEX_TYPE, "edtTradeGold", 140, 12, 87, 108 )
+FORMS_CHAT_CLU_000001 = GetResString("FORMS_CHAT_CLU_000001")
+UI_SetCaption( edtTradeGold, FORMS_CHAT_CLU_000001 )
+UI_SetTextColor( edtTradeGold, COLOR_BLACK )
+UI_SetLabelExFont( edtTradeGold, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建鲜花数
+chaxianhua = UI_CreateCompent( frmchainfo2, LABELEX_TYPE, "chaxianhua", 32, 12, 70, 138 )
+UI_SetCaption( chaxianhua, "" )
+UI_SetTextColor( chaxianhua, COLOR_BLACK )
+UI_SetLabelExFont( chaxianhua, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建鸡蛋数
+chajidan = UI_CreateCompent( frmchainfo2, LABELEX_TYPE, "chajidan", 32, 12, 191, 138 )
+UI_SetCaption( chajidan, "" )
+UI_SetTextColor( chajidan, COLOR_BLACK )
+UI_SetLabelExFont( chajidan, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--鲜花按钮
+btnFlower = UI_CreateCompent( frmchainfo2, BUTTON_TYPE, "btnFlower", 48, 22, 35, 166 )
+UI_LoadButtonImage( btnFlower, "texture/ui2009/cxjg4.tga", 48, 22, 132, 118, FALSE )
+
+--鸡蛋按钮
+btnEgg = UI_CreateCompent( frmchainfo2, BUTTON_TYPE, "btnEgg", 48, 22, 92, 166 )
+UI_LoadButtonImage( btnEgg, "texture/ui2009/cxjg4.tga", 48, 22, 197, 118, FALSE )
+
+--详细资料按钮
+btnInfo = UI_CreateCompent( frmchainfo2, BUTTON_TYPE, "btnInfo", 74, 22, 167, 166 )
+UI_LoadButtonImage( btnInfo, "texture/ui2009/xxzl2.tga", 74, 22, 26, 0, FALSE)
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmchainfo2, BUTTON_TYPE, "btnClose", 15, 15, 236, 11 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+
+-----------------------------------------------------------------------
+-- 定义详细资料
+-----------------------------------------------------------------------
+frmdetails = UI_CreateForm( "frmdetails",  FALSE, 212, 229, 397, 500, TRUE, FALSE )
+UI_LoadFormImage( frmdetails, "texture/ui/Friend.dds", 212, 229, 0, 0, "", 0, 0 )
+UI_ShowForm( frmdetails, FALSE )
+UI_AddFormToTemplete( frmdetails, FORM_MAIN )
+UI_SetFormStyle( frmdetails, 0 )
+UI_SetIsDrag( frmdetails, TRUE )
+--UI_SetAlpha( frmdetails, 200 )
+--UI_FormSetHotKey( frmdetails, ALT_KEY, HOTKEY_I ) 
+
+--加载刷新按钮
+btnRefurbish = UI_CreateCompent( frmdetails, BUTTON_TYPE, "btnRefurbish", 41, 19, 70, 200 )
+UI_LoadButtonImage( btnRefurbish, "texture/ui/SystemBotton3.tga", 41, 19, 215, 39, FALSE )
+
+--加载取消按钮
+btnNo = UI_CreateCompent( frmdetails, BUTTON_TYPE, "btnNo", 41, 19, 122, 200 )
+UI_LoadButtonImage( btnNo, "texture/ui/PublicC.tga", 41, 19, 0, 20, TRUE )
+
+UI_SetButtonModalResult( btnNo, BUTTON_CLOSE )
+
+--创建Title
+imgDeTitle = UI_CreateCompent( frmdetails, IMAGE_TYPE, "imgDeTitle", 49, 13, 8, 3 )
+UI_LoadImage( imgDeTitle, "texture/ui/Word.dds", NORMAL, 49, 13, 120, 58 )
+
+--创建角色名称
+labDeName = UI_CreateCompent( frmdetails, LABELEX_TYPE, "labDeName", 96, 11, 40, 40 )
+--UI_SetCaption( labDeName, "恶魔之子那个什么" )
+UI_SetTextColor( labDeName, COLOR_BLACK )
+UI_SetLabelExFont( labDeName, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+-- 加载角色头像
+imgDeHead = UI_CreateCompent( frmdetails, IMAGE_TYPE, "imgDeHead", 32, 32, 4, 24 )
+UI_LoadImage( imgDeHead, "texture/ui/main800.tga", NORMAL, 32, 32, 37, 201 )
+
+--创建职业
+labJob = UI_CreateCompent( frmdetails, LABELEX_TYPE, "labJob", 96, 11, 82, 68 )
+--UI_SetCaption( labJob, "剑士" )
+UI_SetTextColor( labJob, COLOR_BLACK )
+UI_SetLabelExFont( labJob, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建等级
+labLv = UI_CreateCompent( frmdetails, LABELEX_TYPE, "labLv", 96, 11, 82, 86 )
+--UI_SetCaption( labLv, "100" )
+UI_SetTextColor( labLv, COLOR_BLACK )
+UI_SetLabelExFont( labLv, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建公会
+labConsortia = UI_CreateCompent( frmdetails, LABELEX_TYPE, "labConsortia", 96, 11, 82, 104 )
+--UI_SetCaption( labConsortia, "阿阿阿" )
+UI_SetTextColor( labConsortia, COLOR_BLACK )
+UI_SetLabelExFont( labConsortia, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建名声
+labRepute = UI_CreateCompent( frmdetails, LABELEX_TYPE, "labRepute", 96, 11, 82, 122 )
+--UI_SetCaption( labRepute, "200" )
+UI_SetTextColor( labRepute, COLOR_BLACK )
+UI_SetLabelExFont( labRepute, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建称号
+labName = UI_CreateCompent( frmdetails, LABELEX_TYPE, "labName", 96, 11, 82, 140 )
+--UI_SetCaption( labName, "200" )
+UI_SetTextColor( labName, COLOR_BLACK )
+UI_SetLabelExFont( labName, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建船只名称
+labShip = UI_CreateCompent( frmdetails, LABELEX_TYPE, "labShip", 96, 11, 82, 158 )
+--UI_SetCaption( labShip, "了了了" )
+UI_SetTextColor( labShip, COLOR_BLACK )
+UI_SetLabelExFont( labShip, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--创建船只等级
+labShiplv = UI_CreateCompent( frmdetails, LABELEX_TYPE, "labShiplv", 96, 11, 82, 176 )
+--UI_SetCaption( labShiplv, "100" )
+UI_SetTextColor( labShiplv, COLOR_BLACK )
+UI_SetLabelExFont( labShiplv, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+-----------------------------------------------------------------------
+-- 定义上下线提示界面
+-----------------------------------------------------------------------
+frmRemind = UI_CreateForm( "frmRemind",  TRUE, 224, 112, 397, 500, FALSE, FALSE )
+UI_LoadFormImage( frmRemind, "texture/ui2009/ty2.tga", 224, 112, 19, 3, "", 0, 0 )
+UI_SetFormStyle( frmRemind, 1 )
+UI_ShowForm( frmRemind, FALSE )
+--UI_AddFormToTemplete( frmRemind, FORM_LOGIN )
+UI_AddFormToTemplete( frmRemind, FORM_MAIN )
+--UI_AddFormToTemplete( frmRemind, FORM_SELECT_CHA )
+--UI_AddFormToTemplete( frmRemind, FORM_EDITOR )
+--UI_AddFormToTemplete( frmRemind, FORM_SWITCH_SCENE )
+--UI_FormSetHotKey( frmRemind, ALT_KEY, HOTKEY_I ) 
+UI_SetIsDrag( frmRemind, TRUE )
+UI_SetAlpha( frmRemind, 220 )
+
+--创建提示内容
+btnCheck = UI_CreateCompent( frmRemind, BUTTON_TYPE, "btnCheck", 121, 11, 62, 40 )
+UI_SetCaption( labCheck, "012345678901234567890123456789" )
+UI_SetTextColor( labCheck, COLOR_BLACK )
+--UI_SetLabelExFont( labCheck, DEFAULT_FONT, TRUE, COLOR_WHITE )
+
+--加载按钮
+labTitle = UI_CreateCompent( frmRemind, LABELEX_TYPE, "labTitle", 170, 18, 16, 14 )
+UI_SetTextColor( labTitle, COLOR_BLACK )
+
+--加载接受按钮
+btnYes = UI_CreateCompent( frmRemind, BUTTON_TYPE, "btnYes",  48, 22, 45, 81 )
+UI_LoadButtonImage( btnYes, "texture/ui2009/mchat2.tga", 48, 22, 22, 168, FALSE )
+
+--加载取消按钮
+btnNo = UI_CreateCompent( frmRemind, BUTTON_TYPE, "btnNo", 47, 22, 119, 81 )
+UI_LoadButtonImage( btnNo, "texture/ui2009/button.tga", 47, 22, 0, 22, TRUE )
+
+-----------------------------------------------------------------------
+-- 定义聊天管理界面(2005.4.11-Arcol:确认此界面没有被程序调用)
+-----------------------------------------------------------------------
+frmChatManage = UI_CreateForm( "frmChatManage",  FALSE, 130, 200, 397, 500, FALSE, FALSE )
+UI_LoadFormImage( frmChatManage, "texture/ui/check.dds", 185, 101, 0, 0, "", 0, 0 )
+UI_ShowForm( frmChatManage, FALSE )
+UI_AddFormToTemplete( frmChatManage, FORM_MAIN )
+--UI_FormSetHotKey( frmChatManage, ALT_KEY, HOTKEY_G ) --'Z'
+UI_SetFormStyle( frmChatManage, 0 )
+--UI_SetAlpha( frmChatManage, 200 )
+UI_FormSetIsEscClose( frmChatManage, FALSE )
+
+trvChatManage = UI_CreateCompent( frmChatManage, TREE_TYPE, "trvChatManage", 120, 160, 5, 40 )
+-- UI_LoadImage( trvChatManage,  "texture/ui/editor/frame.dds", NORMAL, 1, 1, 0, 0 )
+scrollid = UI_GetScroll( trvChatManage )
+UI_SetSize( scrollid, 15, 15 )
+-- UI_LoadImage( scrollid, "texture/ui/editor/chat.dds", COMPENT_BACK, 9, 9, 0, 51 )
+scrollid = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( scrollid, "texture/ui/editor/scroll.dds", COMPENT_BACK, 16, 32, 0, 0 )
+UI_SetSize( scrollid, 10, 32 )
+-- UI_SetAlpha( trvChatManage, 100 )

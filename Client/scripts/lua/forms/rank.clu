@@ -1,0 +1,226 @@
+-----------------------------------------------------------------------
+-- 定义排行榜
+-----------------------------------------------------------------------
+--创建排行榜面板
+frmRank = UI_CreateForm( "frmRank", FALSE, 399, 304, 100, 100, TRUE, FALSE )
+--UI_FormSetHotKey( frmRank, ALT_KEY, HOTKEY_C )
+UI_ShowForm( frmRank, FALSE ) 
+UI_AddFormToTemplete( frmRank, 1 )
+UI_SetIsDrag( frmRank, TRUE )
+UI_SetFormStyle( frmRank, FORM_NONE )
+
+-- 加载背景图片
+imgTradeTop = UI_CreateCompent( frmRank, IMAGE_TYPE, "imgTradeTop", 399, 304, 0, 0 )
+UI_LoadImage( imgTradeTop, "texture/ui2011/bangDan.tga", NORMAL, 399, 304, 0, 0 )
+
+--创建关闭按钮
+btnClose = UI_CreateCompent( frmRank, BUTTON_TYPE, "btnClose", 15, 15, 373, 15 )
+UI_LoadButtonImage( btnClose, "texture/ui2009/button.tga", 15, 15, 165, 129, TRUE )
+UI_SetButtonModalResult( btnClose, BUTTON_CLOSE )
+
+
+-------------------创建等级排行列表
+levelRank = UI_CreateListView( frmRank, "levelRank", 320, 150, 26, 55, 5, 1 )
+UI_ListViewSetTitle( levelRank, 0, 17, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( levelRank, 1, 24, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( levelRank, 2, 101, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( levelRank, 3, 92, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( levelRank, 4, 90, "", 0, 0, 0, 0 )
+UI_SetListRowHeight( levelRank, 27 )
+UI_ListViewSetTitleHeight( levelRank, 2)
+
+--获得滚动条
+scrollid = UI_GetScroll( levelRank )
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/ui2009/item1.tga", COMPENT_BACK, 11, 1, 232, 190 )
+
+--加载向上按钮
+id = UI_GetScrollObj( scrollid, SCROLL_UP )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--加载滚动条
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/ui2009/item1.tga", COMPENT_BACK, 8, 33, 203, 0 )
+UI_SetSize( id, 8, 33 )
+
+--加载向下按钮
+id = UI_GetScrollObj( scrollid, SCROLL_DOWN )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+
+-------------------创建金钱排行列表
+moneyRank = UI_CreateListView( frmRank, "moneyRank", 320, 150, 26, 55, 5, 1 )
+UI_ListViewSetTitle( moneyRank, 0, 17, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( moneyRank, 1, 24, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( moneyRank, 2, 101, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( moneyRank, 3, 84, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( moneyRank, 4, 91, "", 0, 0, 0, 0 )
+UI_SetListRowHeight( moneyRank, 26 )
+UI_ListViewSetTitleHeight( moneyRank, 4)
+
+--获得滚动条
+scrollid = UI_GetScroll( moneyRank )
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/ui2009/item1.tga", COMPENT_BACK, 11, 1, 232, 190 )
+
+--加载向上按钮
+id = UI_GetScrollObj( scrollid, SCROLL_UP )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--加载滚动条
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/ui2009/item1.tga", COMPENT_BACK, 8, 33, 203, 0 )
+UI_SetSize( id, 8, 33 )
+
+--加载向下按钮
+id = UI_GetScrollObj( scrollid, SCROLL_DOWN )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+
+-------------------创建乱斗排行列表
+chaosRank = UI_CreateListView( frmRank, "chaosRank", 320, 150, 26, 55, 5, 1 )
+UI_ListViewSetTitle( chaosRank, 0, 17, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( chaosRank, 1, 24, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( chaosRank, 2, 101, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( chaosRank, 3, 90, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( chaosRank, 4, 91, "", 0, 0, 0, 0 )
+UI_SetListRowHeight( chaosRank, 26 )
+UI_ListViewSetTitleHeight( chaosRank, 4)
+
+--获得滚动条
+scrollid = UI_GetScroll( chaosRank )
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/ui2009/item1.tga", COMPENT_BACK, 11, 1, 232, 190 )
+
+--加载向上按钮
+id = UI_GetScrollObj( scrollid, SCROLL_UP )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--加载滚动条
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/ui2009/item1.tga", COMPENT_BACK, 8, 33, 203, 0 )
+UI_SetSize( id, 8, 33 )
+
+--加载向下按钮
+id = UI_GetScrollObj( scrollid, SCROLL_DOWN )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+
+-------------------创建噩梦排行列表
+nightmareRank = UI_CreateListView( frmRank, "nightmareRank", 320, 150, 26, 55, 5, 1 )
+UI_ListViewSetTitle( nightmareRank, 0, 17, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( nightmareRank, 1, 24, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( nightmareRank, 2, 101, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( nightmareRank, 3, 90, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( nightmareRank, 4, 91, "", 0, 0, 0, 0 )
+UI_SetListRowHeight( nightmareRank, 26 )
+UI_ListViewSetTitleHeight( nightmareRank, 4)
+
+--获得滚动条
+scrollid = UI_GetScroll( nightmareRank )
+UI_SetSize( scrollid, 11, 1 )
+UI_LoadImage( scrollid, "texture/ui2009/item1.tga", COMPENT_BACK, 11, 1, 232, 190 )
+
+--加载向上按钮
+id = UI_GetScrollObj( scrollid, SCROLL_UP )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+--加载滚动条
+id = UI_GetScrollObj( scrollid, SCROLL_SCROLL )
+UI_LoadImage( id, "texture/ui2009/item1.tga", COMPENT_BACK, 8, 33, 203, 0 )
+UI_SetSize( id, 8, 33 )
+
+--加载向下按钮
+id = UI_GetScrollObj( scrollid, SCROLL_DOWN )
+UI_LoadButtonImage( id, "texture/ui2009/item1.tga", 8, 7, 235, 0, FALSE )
+UI_SetSize( id, 8, 7 )
+
+
+-------------------创建公会排行列表
+guildRank = UI_CreateListView( frmRank, "guildRank", 320, 204, 26, 55, 4, 1 )
+UI_ListViewSetTitle( guildRank, 0, 15, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( guildRank, 1, 114, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( guildRank, 2, 120, "", 0, 0, 0, 0 )
+UI_ListViewSetTitle( guildRank, 3, 85, "", 0, 0, 0, 0 )
+UI_SetListRowHeight( guildRank, 46 )
+UI_ListViewSetTitleHeight( guildRank, 11)
+
+
+
+-------------------创建排行页面
+pgePublic = UI_CreateCompent( frmRank, PAGE_TYPE, "pgePublic", 399, 267, 0, 37 )
+UI_SetPageButton( pgePublic, PAGE_BUTTON_CUSTOM, 49, 25 )
+
+--等级排行
+rankPage = UI_CreatePageItem( pgePublic )
+rankBk = UI_CreateCompent( frmRank, IMAGE_TYPE, "rankBk", 320, 204, 26, 25)
+UI_LoadImage( rankBk, "texture/ui2011/level.tga", NORMAL, 320, 204, 26, 62 )
+UI_AddCompent( rankPage, rankBk )
+
+rankTitle = UI_GetPageItemObj( rankPage, PAGE_ITEM_TITLE )
+UI_LoadImage( rankTitle, "texture/ui2011/bangDanBtn.tga", PAGE_ITEM_TITLE_NORMAL, 49, 25, 0, 339 )
+UI_LoadImage( rankTitle, "texture/ui2011/bangDanBtn.tga", PAGE_ITEM_TITLE_ACTIVE, 49, 25, 0, 305 )
+UI_SetPos( rankTitle, 42, 1 )
+UI_SetSize( rankTitle, 49, 25 )
+UI_AddCompent( rankPage, levelRank )
+
+
+--金钱排行
+rankPage = UI_CreatePageItem( pgePublic )
+rankBk = UI_CreateCompent( frmRank, IMAGE_TYPE, "rankBk", 320, 204, 26, 25)
+UI_LoadImage( rankBk, "texture/ui2011/money.tga", NORMAL, 320, 204, 26, 62 )
+UI_AddCompent( rankPage, rankBk )
+
+rankTitle = UI_GetPageItemObj( rankPage, PAGE_ITEM_TITLE )
+UI_LoadImage( rankTitle, "texture/ui2011/bangDanBtn.tga", PAGE_ITEM_TITLE_NORMAL, 49, 25, 49, 339 )
+UI_LoadImage( rankTitle, "texture/ui2011/bangDanBtn.tga", PAGE_ITEM_TITLE_ACTIVE, 49, 25, 49, 305 )
+UI_SetPos( rankTitle, 101, 1)
+UI_SetSize( rankTitle, 49, 25 )
+UI_AddCompent( rankPage, moneyRank )
+
+--噩梦排行
+rankPage = UI_CreatePageItem( pgePublic )
+rankBk = UI_CreateCompent( frmRank, IMAGE_TYPE, "rankBk", 320, 204, 26, 25)
+UI_LoadImage( rankBk, "texture/ui2011/nightmarePt.tga", NORMAL, 320, 204, 26, 62)
+UI_AddCompent( rankPage, rankBk )
+
+rankTitle = UI_GetPageItemObj( rankPage, PAGE_ITEM_TITLE )
+UI_LoadImage( rankTitle, "texture/ui2011/bangDanBtn.tga", PAGE_ITEM_TITLE_NORMAL, 49, 25, 98, 339 )
+UI_LoadImage( rankTitle, "texture/ui2011/bangDanBtn.tga", PAGE_ITEM_TITLE_ACTIVE, 49, 25, 98, 305 )
+UI_SetPos( rankTitle, 160, 1)
+UI_SetSize( rankTitle, 49, 25 )
+UI_AddCompent( rankPage, nightmareRank )
+
+--乱斗排行
+rankPage = UI_CreatePageItem( pgePublic )
+rankBk = UI_CreateCompent( frmRank, IMAGE_TYPE, "rankBk", 320, 204, 26, 25)
+UI_LoadImage( rankBk, "texture/ui2011/chaosPt.tga", NORMAL, 320, 204, 26, 62 )
+UI_AddCompent( rankPage, rankBk )
+
+rankTitle = UI_GetPageItemObj( rankPage, PAGE_ITEM_TITLE )
+UI_LoadImage( rankTitle, "texture/ui2011/bangDanBtn.tga", PAGE_ITEM_TITLE_NORMAL, 49, 25, 147, 339 )
+UI_LoadImage( rankTitle, "texture/ui2011/bangDanBtn.tga", PAGE_ITEM_TITLE_ACTIVE, 49, 25, 147, 305 )
+UI_SetPos( rankTitle, 221, 1)
+UI_SetSize( rankTitle, 49, 25 )
+UI_AddCompent( rankPage, chaosRank )
+
+
+--公会排行
+rankPage = UI_CreatePageItem( pgePublic )
+rankBk = UI_CreateCompent( frmRank, IMAGE_TYPE, "rankBk", 347, 204, 16, 25)
+UI_LoadImage( rankBk, "texture/ui2011/guild.tga", NORMAL, 347, 204, 16, 62 )
+UI_AddCompent( rankPage, rankBk )
+
+rankTitle = UI_GetPageItemObj( rankPage, PAGE_ITEM_TITLE )
+UI_LoadImage( rankTitle , "texture/ui2011/bangDanBtn.tga", PAGE_ITEM_TITLE_NORMAL, 49, 25, 196, 339 )
+UI_LoadImage( rankTitle , "texture/ui2011/bangDanBtn.tga", PAGE_ITEM_TITLE_ACTIVE, 49, 25, 196, 305 )
+UI_SetPos( rankTitle , 281, 1)
+UI_SetSize( rankTitle, 49, 25 )
+UI_AddCompent( rankPage, guildRank )

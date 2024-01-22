@@ -1,0 +1,11 @@
+//序号	NPC名字	NPC类型	Chr索引ID	小地图显示	坐标起点	坐标终点	NPC面向	区域	区域编号	NPC脚本	消息處理	检测状态
+0	Sky Gate	1	866	7	9400,46800	9400,46800	90	Starry Sky Alley	159	0	stway_move	0
+1	Travel Agent - Miku	1	425	15	9700,44600	9700,44600	45	Starry Sky Alley	159	0	stway_talk01	0
+2	Skill Card Researcher - Yang Yang	1	421	15	9300,48300	9300,48300	80	Starry Sky Alley	159	0	stway_talk02	0
+3	Card Master - Xun	1	430	0	11200,45000	11200,45000	225	Starry Sky Alley	159	0	stway_talk03	0
+4	Card Material Merchant - Ling	1	30	12	11200,46700	11200,46700	270	Starry Sky Alley	159	0	stway_talk04	0
+5	Black Market - Yuu	1	418	4	20600,20200	20600,20200	180	Starry Sky Alley	159	0	stway_talk05	0
+6	Tool Master - Yao	1	10	1	11100,48000	11100,48000	310	Starry Sky Alley	159	0	stway_talk06	0
+7	Grandpa Atlas	1	420	11	9200,44600	9200,44600	0	Starry Sky Alley	159	0	stway_talk07	0
+8	Star Core	1	402	11	7800,47100	7800,47100	180	Starry Sky Alley	159	0	stway_talk08	0
+9	Abigail	1	27	11	11700,49000	11700,49000	180	Starry Sky Alley	159	0	stway_talk09	0
