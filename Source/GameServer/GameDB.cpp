@@ -170,7 +170,7 @@ bool CTableCha::ReadAllData(CPlayer *pPlayer, DWORD cha_id)
 	int r = _get_row_stored_procedure(g_buf, g_cnCol, procedure, "dbo", "ReadAllData", NULL, 1, &cha_id);
 	int	r1 = get_affected_rows();
 	//LG("enter_map", "�����ݿ�ɹ���_get_row.\n");
-	LG("enter_map", "Loading database succeed��_get_row.\n");
+	LG("enter_map", "Loading database succeed_get_row.\n");
 	if (DBOK(r) && r1 > 0)
 	{
 		pPlayer->SetDBActId(Str2Int(g_buf[nIndex++]));
@@ -242,7 +242,7 @@ bool CTableCha::ReadAllData(CPlayer *pPlayer, DWORD cha_id)
 				//LG("enter_map", "�������У��ʹ���.\n");
 				LG("enter_map", "Appearance data check sum error.\n");
 				//LG("У��ʹ���", "��ɫ��dbid %u��name %s��resid %u���ĸĹ�����У��ʹ���.\n", cha_id, pCha->GetLogName(), pCha->GetKitbagRecDBID());
-				LG("Check sum error", "the character (dbid %u��name %s��resid %u)'s change appearance data check sum error.\n", cha_id, pCha->GetLogName(), pCha->GetKitbagRecDBID());
+				LG("Check sum error", "the character (dbid %u name %s resid %u)'s change appearance data check sum error.\n", cha_id, pCha->GetLogName(), pCha->GetKitbagRecDBID());
 				return false;
 			}
 			pCha->SetCat(pCha->m_SChaPart.sTypeID);
@@ -5002,7 +5002,7 @@ BOOL CGameDB::Init()
 	m_bInitOK = FALSE;
 
 
-	printf("Connecting to database [%s : GameDB]\n", g_Config.m_szDBIP);
+	printf("Connecting to database [%s : %s]\n", g_Config.m_szDBIP, g_Config.m_szdb_name);
 	
 
 	string err_info;
@@ -5011,11 +5011,11 @@ BOOL CGameDB::Init()
 	//	LG("gamedb", "Database  Password Error!");
 	//	return FALSE;
 	//}
-	bool r = _connect.connect(g_Config.m_szDBIP, "GameDB", g_Config.m_szDBUsr, g_Config.m_szDBPass, err_info);
+	bool r = _connect.connect(g_Config.m_szDBIP, g_Config.m_szdb_name, g_Config.m_szDBUsr, g_Config.m_szDBPass, err_info);
     if(!r)
     {
 		char msg[256];
-		_snprintf_s(msg, _countof(msg), _TRUNCATE, "Database [GameDB] Connect Failed!, ERROR REPORT[%s]", err_info.c_str() );
+		_snprintf_s(msg, _countof(msg), _TRUNCATE, "Database [%s] Connect Failed!, ERROR REPORT[%s]", g_Config.m_szdb_name,err_info.c_str());
 		MessageBox(NULL, msg, "error" , MB_ICONERROR | MB_OK);
         return FALSE;
     }

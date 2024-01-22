@@ -86,7 +86,7 @@
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>NOMINMAX;WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
-      <AdditionalIncludeDirectories>..\Common\;..\LIBDBC\;..\CaLua\include\;..\Utility\;..\ICUHelper\;..\ICU\include\;..\Botan\$(LibrariesArchitecture)\$(ConfigurationName)\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Common\;..\LIBDBC\;..\CaLua\include\;..\Utility\;..\ICUHelper\;..\ICU\include\$(PlatformName);..\Botan\$(LibrariesArchitecture)\$(ConfigurationName)\include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <ForceConformanceInForLoopScope>false</ForceConformanceInForLoopScope>
     </ClCompile>

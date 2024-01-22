@@ -20,7 +20,7 @@ void CGameConfig::SetDefault()
 	strncpy_s( m_szDBIP, sizeof(m_szDBIP), "", _TRUNCATE );
 	strncpy_s( m_szDBUsr, sizeof(m_szDBUsr), "", _TRUNCATE );
 	strncpy_s( m_szDBPass, sizeof(m_szDBPass), "", _TRUNCATE );
-
+	strncpy_s(m_szdb_name, sizeof(m_szdb_name), "", _TRUNCATE);
 	// Add by lark.li 20080321 begin
 	memset(m_szTradeLogDBIP, 0, sizeof(m_szTradeLogDBIP));
 	memset(m_szTradeLogDBName, 0, sizeof(m_szTradeLogDBName));
@@ -199,6 +199,11 @@ bool CGameConfig::Load(char *pszFileName)
 		{
 			//strcpy(m_szDBUsr, strValue.c_str());
 			strncpy_s( m_szDBUsr, sizeof(m_szDBUsr), strValue.c_str(), _TRUNCATE );
+
+		}
+		else if(strKey == "m_szdb_name")
+		{
+			strncpy_s(m_szdb_name, sizeof(m_szdb_name), strValue.c_str(), _TRUNCATE);
 
 		}
 		else if(strKey=="db_pass")

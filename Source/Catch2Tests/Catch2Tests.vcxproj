@@ -76,7 +76,7 @@
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
-      <AdditionalIncludeDirectories>..\catch2\;..\Common\;..\Utility\;..\ICUHelper\;..\icu\include\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\catch2\;..\Common\;..\Utility\;..\ICUHelper\;..\ICU\include\$(PlatformName)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

@@ -35,6 +35,7 @@ public:
 	char	m_szDBIP[64];			   // DB IP
 	char	m_szDBUsr[32];			   // DB ”√ªß√˚
 	char	m_szDBPass[32];			   // DB √‹¬Î
+	char	m_szdb_name[32];		//db name @mothannakh
 
 	// Add by lark.li 20080321 begin
 	char	m_szTradeLogDBIP[64];			   // DB IP
