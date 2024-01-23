@@ -17,10 +17,10 @@ void CGameConfig::SetDefault()
     m_nMapCnt  = 0;
 	m_lSocketAlive = 1;
 	memset(m_btMapOK, 0, MAX_MAP);
-	strncpy_s( m_szDBIP, sizeof(m_szDBIP), "", _TRUNCATE );
-	strncpy_s( m_szDBUsr, sizeof(m_szDBUsr), "", _TRUNCATE );
-	strncpy_s( m_szDBPass, sizeof(m_szDBPass), "", _TRUNCATE );
-	strncpy_s(m_szdb_name, sizeof(m_szdb_name), "", _TRUNCATE);
+	strncpy_s( m_szDBIP, sizeof(m_szDBIP), "127.0.0.1", _TRUNCATE );
+	strncpy_s( m_szDBUsr, sizeof(m_szDBUsr), "mothannakh", _TRUNCATE );
+	strncpy_s( m_szDBPass, sizeof(m_szDBPass), "EZCpyYOZVofugqDFBZrLKw==", _TRUNCATE );
+	strncpy_s(m_szdb_name, sizeof(m_szdb_name), "GameDb", _TRUNCATE);
 	// Add by lark.li 20080321 begin
 	memset(m_szTradeLogDBIP, 0, sizeof(m_szTradeLogDBIP));
 	memset(m_szTradeLogDBName, 0, sizeof(m_szTradeLogDBName));
@@ -201,7 +201,7 @@ bool CGameConfig::Load(char *pszFileName)
 			strncpy_s( m_szDBUsr, sizeof(m_szDBUsr), strValue.c_str(), _TRUNCATE );
 
 		}
-		else if(strKey == "m_szdb_name")
+		else if(strKey =="db_name")
 		{
 			strncpy_s(m_szdb_name, sizeof(m_szdb_name), strValue.c_str(), _TRUNCATE);
 

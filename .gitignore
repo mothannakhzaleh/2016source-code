@@ -198,3 +198,5 @@ bld/
 *.vsidx
 *.db-shm
 *.db-wal
+Client/system/Chat/YATOPS/
+Server/dumps/

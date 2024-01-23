@@ -14,7 +14,7 @@
 #include "GuildData.h"
 #include "uiboatform.h"
 
-using namespace GUI;
+//using namespace GUI;
 //---------------------------------------------------------------------------
 // class CStateMgr
 //---------------------------------------------------------------------------
@@ -208,20 +208,20 @@ void CStateMgr::RefreshStateFrm()
   //玩家等级
   if(labStateLevel)
   {
-	_snprintf_s(pszCha, _countof(pszCha), _TRUNCATE, "%d", pCChaAttr->get(ATTR_LV)); //显示角色等级
+	_snprintf_s(pszCha, _countof(pszCha), _TRUNCATE, "%ld", pCChaAttr->get(ATTR_LV)); //显示角色等级
 	labStateLevel->SetCaption((const char*)pszCha);
   }
 
   //玩家属性点
   if(labStatePoint)
   {
-	_snprintf_s(pszCha, _countof(pszCha), _TRUNCATE, "%d", pCChaAttr->get(ATTR_AP)); //显示角色的属性点
+	_snprintf_s(pszCha, _countof(pszCha), _TRUNCATE, "%ld", pCChaAttr->get(ATTR_AP)); //显示角色的属性点
 	labStatePoint->SetCaption((const char*)pszCha);
   }
 
   if(labSkillPoint)
   {
-	_snprintf_s(pszCha, _countof(pszCha), _TRUNCATE, "%d", pCChaAttr->get(ATTR_TP)); //显示角色的技能点
+	_snprintf_s(pszCha, _countof(pszCha), _TRUNCATE, "%ld", pCChaAttr->get(ATTR_TP)); //显示角色的技能点
 	labSkillPoint->SetCaption((const char*)pszCha);
   }
 
@@ -246,43 +246,43 @@ void CStateMgr::RefreshStateFrm()
   //6个基本属性
   if(labStrshow)
   {
-	_snprintf_s(pszCha, _countof(pszCha), _TRUNCATE, "%d", pCChaAttr->get(ATTR_STR));
+	_snprintf_s(pszCha, _countof(pszCha), _TRUNCATE, "%ld", pCChaAttr->get(ATTR_STR));
 	labStrshow->SetCaption((const char*)pszCha);
   }
 
   if(labDexshow)
   {
-	//_snprintf_s( pszCha, _countof( pszCha ), _TRUNCATE , "%d" , pCChaAttr->get(ATTR_DEX));
-	//labDexshow->SetCaption( (const char* ) pszCha);
+	_snprintf_s( pszCha, _countof( pszCha ), _TRUNCATE , "%ld" , pCChaAttr->get(ATTR_DEX));
+	labDexshow->SetCaption( (const char* ) pszCha);
   }
 
   if(labAgishow)
   {
-	_snprintf_s(pszCha, _countof(pszCha), _TRUNCATE, "%d", pCChaAttr->get(ATTR_AGI));
+	_snprintf_s(pszCha, _countof(pszCha), _TRUNCATE, "%ld", pCChaAttr->get(ATTR_AGI));
 	labAgishow->SetCaption((const char*)pszCha);
   }
 
   if(labConshow)
   {
-	_snprintf_s(pszCha, _countof(pszCha), _TRUNCATE, "%d", pCChaAttr->get(ATTR_CON));
+	_snprintf_s(pszCha, _countof(pszCha), _TRUNCATE, "%ld", pCChaAttr->get(ATTR_CON));
 	labConshow->SetCaption((const char*)pszCha);
   }
 
   if(labStashow)
   {
-	_snprintf_s(pszCha, _countof(pszCha), _TRUNCATE, "%d", pCChaAttr->get(ATTR_STA));
+	_snprintf_s(pszCha, _countof(pszCha), _TRUNCATE, "%ld", pCChaAttr->get(ATTR_STA));
 	labStashow->SetCaption((const char*)pszCha);
   }
 
   if(labSailLevel)
   {
-	//_snprintf_s( pszCha, _countof( pszCha ), _TRUNCATE, "%d" , pCChaAttr->get(ATTR_SAILLV));
-	//labSailLevel->SetCaption( (const char* ) pszCha);
+	_snprintf_s( pszCha, _countof( pszCha ), _TRUNCATE, "%ld" , pCChaAttr->get(ATTR_SAILLV));
+	labSailLevel->SetCaption( (const char* ) pszCha);
   }
 
   if(labSailEXP)
   {
-	_snprintf_s(pszCha, _countof(pszCha), _TRUNCATE, "%d", pCChaAttr->get(ATTR_CSAILEXP));
+	_snprintf_s(pszCha, _countof(pszCha), _TRUNCATE, "%ld", pCChaAttr->get(ATTR_CSAILEXP));
 	labSailEXP->SetCaption((const char*)pszCha);
   }
 
@@ -292,19 +292,19 @@ void CStateMgr::RefreshStateFrm()
   //8个附加属性
   if(labMinAtackShow)
   {
-	_snprintf_s(pszCha, _countof(pszCha), _TRUNCATE, "%d", pCChaAttr->get(ATTR_MNATK)); // 最小攻击力
+	_snprintf_s(pszCha, _countof(pszCha), _TRUNCATE, "%ld", pCChaAttr->get(ATTR_MNATK)); // 最小攻击力
 	labMinAtackShow->SetCaption((const char*)pszCha);
   }
 
   if(labMaxAtackShow)
   {
-	_snprintf_s(pszCha, _countof(pszCha), _TRUNCATE, "%d", pCChaAttr->get(ATTR_MXATK)); // 最大攻击力
+	_snprintf_s(pszCha, _countof(pszCha), _TRUNCATE, "%ld", pCChaAttr->get(ATTR_MXATK)); // 最大攻击力
 	labMaxAtackShow->SetCaption((const char*)pszCha);
   }
 
   if(labFleeShow)
   {
-	_snprintf_s(pszCha, _countof(pszCha), _TRUNCATE, "%d", pCChaAttr->get(ATTR_FLEE)); // 闪避率
+	_snprintf_s(pszCha, _countof(pszCha), _TRUNCATE, "%ld", pCChaAttr->get(ATTR_FLEE)); // 闪避率
 	labFleeShow->SetCaption((const char*)pszCha);
   }
 
@@ -321,13 +321,13 @@ void CStateMgr::RefreshStateFrm()
 
   if(labHitShow)
   {
-	_snprintf_s(pszCha, _countof(pszCha), _TRUNCATE, "%d", pCChaAttr->get(ATTR_HIT)); // 命中率
+	_snprintf_s(pszCha, _countof(pszCha), _TRUNCATE, "%ld", pCChaAttr->get(ATTR_HIT)); // 命中率
 	labHitShow->SetCaption((const char*)pszCha);
   }
 
   if(labDefenceShow)
   {
-	_snprintf_s(pszCha, _countof(pszCha), _TRUNCATE, "%d", pCChaAttr->get(ATTR_DEF)); // 防御力
+	_snprintf_s(pszCha, _countof(pszCha), _TRUNCATE, "%ld", pCChaAttr->get(ATTR_DEF)); // 防御力
 	labDefenceShow->SetCaption((const char*)pszCha);
   }
 
@@ -345,13 +345,13 @@ void CStateMgr::RefreshStateFrm()
 
   if(labPhysDefineShow)
   {
-	//_snprintf_s( pszCha, _countof( pszCha ), _TRUNCATE , "%d" , pCChaAttr->get(ATTR_PDEF)); // 物理抵抗
-	//labPhysDefineShow->SetCaption( (const char* ) pszCha);
+	_snprintf_s( pszCha, _countof( pszCha ), _TRUNCATE , "%ld" , pCChaAttr->get(ATTR_PDEF)); // 物理抵抗
+	labPhysDefineShow->SetCaption( (const char* ) pszCha);
   }
 
   if(labFameShow)
   {
-	_snprintf_s(pszCha, _countof(pszCha), _TRUNCATE, "%d", pCChaAttr->get(ATTR_FAME)); // 声望
+	_snprintf_s(pszCha, _countof(pszCha), _TRUNCATE, "%ld", pCChaAttr->get(ATTR_FAME)); // 声望
 	labFameShow->SetCaption((const char*)pszCha);
   }
 }
