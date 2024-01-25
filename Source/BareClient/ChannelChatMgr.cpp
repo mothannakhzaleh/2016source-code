@@ -145,7 +145,7 @@ void CChannelChatMgr::AddInfo(eChannel channel,CString strName,CString strInfo)
 			strPathName+=CChannelChatMgr::GetChannelName(channel)+"\\";
 			CreateDirectory(strPathName,NULL);
 			strPathName+=m_pPlayer->GetLoginData()->GetServiceName();
-			strPathName+=CTime::GetCurrentTime().Format(" %Y-%m-%d %Hµã%M·Ö.txt");
+			strPathName+=CTime::GetCurrentTime().Format(" %Y-%m-%d %H:%M.txt");
 			m_pFile[channel]=new CStdioFile();
 			if (!m_pFile[channel]->Open(strPathName,CFile::modeCreate|CFile::modeNoTruncate|CFile::shareDenyWrite|CFile::modeWrite|CFile::typeText))
 			{

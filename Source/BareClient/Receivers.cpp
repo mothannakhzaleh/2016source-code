@@ -452,16 +452,16 @@ void CReceiver::OnEnterMap(dbc::RPacket& pk)
 
 
 	//CSystemInfo::AddDebugInfo(m_pPlayer->GetIndex(),"ÊÀ½çID£º0x%X(%d)",pSelfObject->GetWorldID(),pSelfObject->GetWorldID());
-	m_pPlayer->GetPlayerMessages().AddDebugMsg("world network IDID£º0x%X(%d)",pSelfObject->GetWorldID(),pSelfObject->GetWorldID());
+	m_pPlayer->GetPlayerMessages().AddDebugMsg("world network :(%lu)",pSelfObject->GetWorldID());
 	//CSystemInfo::AddDebugInfo(m_pPlayer->GetIndex(),"½ÇÉ«ID£º0x%X(%d)",pSelfObject->GetCharID(),pSelfObject->GetCharID());
-	m_pPlayer->GetPlayerMessages().AddDebugMsg("character ID£º0x%X(%d)",pSelfObject->GetCharID(),pSelfObject->GetCharID());
+	m_pPlayer->GetPlayerMessages().AddDebugMsg("character ID (%d)",pSelfObject->GetCharID());
 	//CSystemInfo::AddDebugInfo(m_pPlayer->GetIndex(),"ÍøÂçID£º0x%X(%d)",pSelfObject->GetCommID(),pSelfObject->GetCommID());
-	m_pPlayer->GetPlayerMessages().AddDebugMsg("network ID£º0x%X(%d)",pSelfObject->GetCommID(),pSelfObject->GetCommID());
+	m_pPlayer->GetPlayerMessages().AddDebugMsg("network ID:(%d)",pSelfObject->GetCommID());
 	//CSystemInfo::AddDebugInfo(m_pPlayer->GetIndex(),"ÍøÂç¾ä±ú£º0x%X(%d)",pSelfObject->GetHandle(),pSelfObject->GetHandle());
-	m_pPlayer->GetPlayerMessages().AddDebugMsg("network handle£º0x%X(%d)",pSelfObject->GetHandle(),pSelfObject->GetHandle());
+	m_pPlayer->GetPlayerMessages().AddDebugMsg("network handle:(%lu)",pSelfObject->GetHandle());
 
 	//CSystemInfo::Add(m_pPlayer->GetIndex(),"µÇÂ½½ÇÉ«Ãû×Ö£º%s",pSelfObject->GetName());
-	m_pPlayer->GetPlayerMessages().AddDebugMsg("Login role name£º%s",pSelfObject->GetName());
+	m_pPlayer->GetPlayerMessages().AddDebugMsg("Login role name: %s",pSelfObject->GetName());
 	if (pSelfObject->GetMottoName()=="")
 	{
 		//CSystemInfo::Add(m_pPlayer->GetIndex(),"µÇÂ½½ÇÉ«×ùÓÒÃú£¨¿Õ£©");
@@ -470,7 +470,7 @@ void CReceiver::OnEnterMap(dbc::RPacket& pk)
 	else
 	{
 		//CSystemInfo::Add(m_pPlayer->GetIndex(),"µÇÂ½½ÇÉ«×ùÓÒÃú£º%s",pSelfObject->GetMottoName());
-		m_pPlayer->GetPlayerMessages().AddMsg("Login character motto£º%s",pSelfObject->GetMottoName());
+		m_pPlayer->GetPlayerMessages().AddMsg("Login character motto %s",pSelfObject->GetMottoName());
 	}
 	if (pSelfObject->GetGMLv())
 	{

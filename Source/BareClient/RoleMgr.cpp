@@ -76,24 +76,24 @@ CRoleObject* CRoleMgr::AddRoleObject(CRoleObject* role)
 			if (monsterObject==NULL)
 			{
 				//CSystemInfo::Add(0,"错误：发现不相符的角色类型！");
-				m_pPlayer->GetPlayerMessages().AddMsg("错误:发现不相符的角色类型！");
+				m_pPlayer->GetPlayerMessages().AddMsg("CRoleObject::eMonster monsterObject==NULL");
 				return NULL;
 			}
 			if (FindInMonsterList(monsterObject->GetWorldID()))
 			{
 				//CSystemInfo::Add(0,"错误：发现重复的怪物出现！WorldID=%d,Name=%s",monsterObject->GetWorldID(),monsterObject->GetName());
-				m_pPlayer->GetPlayerMessages().AddMsg("错误:发现重复的怪物出现！WorldID=%d,Name=%s",monsterObject->GetWorldID(),monsterObject->GetName());
+				m_pPlayer->GetPlayerMessages().AddMsg("磂Monster:WorldID=%d,Name=%s",monsterObject->GetWorldID(),monsterObject->GetName());
 				return NULL;
 			}
 			AddMonsterObject(monsterObject);
 			//CSystemInfo::AddInfo(m_pPlayer->GetIndex(),"怪物出现：%s<%d>(%.2f,%.2f) WorldID=%u",monsterObject->GetName(),monsterObject->GetMonsterIndex(),monsterObject->GetPositionFloatX(),monsterObject->GetPositionFloatY(),monsterObject->GetWorldID());
-			m_pPlayer->GetPlayerMessages().AddMsg("怪物出现:%s<%d>(%.2f,%.2f) WorldID=%u",monsterObject->GetName(),monsterObject->GetMonsterIndex(),monsterObject->GetPositionFloatX(),monsterObject->GetPositionFloatY(),monsterObject->GetWorldID());
+			m_pPlayer->GetPlayerMessages().AddMsg("Messages:%s<%d>(%.2f,%.2f) WorldID=%u",monsterObject->GetName(),monsterObject->GetMonsterIndex(),monsterObject->GetPositionFloatX(),monsterObject->GetPositionFloatY(),monsterObject->GetWorldID());
 			//m_MonsterRolesList.AddTail(monsterObject);
 			break;
 		}
 	default:
 		//CSystemInfo::Add(0,"错误：发现一个未知类型的角色！");
-		m_pPlayer->GetPlayerMessages().AddMsg("错误:发现一个未知类型的角色！");
+		m_pPlayer->GetPlayerMessages().AddMsg("no message there ");
 	}
 	return role;
 }
@@ -127,7 +127,7 @@ bool CRoleMgr::DeleteObject(DWORD worldID)
 		if (playerObject->GetWorldID()==worldID)
 		{
 			//CSystemInfo::AddInfo(m_pPlayer->GetIndex(),"玩家【%s】从视野中消失",playerObject->GetName());
-			m_pPlayer->GetPlayerMessages().AddMsg("玩家【%s】从视野中消失",playerObject->GetName());
+			m_pPlayer->GetPlayerMessages().AddMsg("delete object : %s",playerObject->GetName());
 			m_PlayerRolesList.RemoveAt(pos);
 			delete playerObject;
 			return true;
@@ -141,7 +141,7 @@ bool CRoleMgr::DeleteObject(DWORD worldID)
 		if (npcObject->GetWorldID()==worldID)
 		{
 			//CSystemInfo::AddInfo(m_pPlayer->GetIndex(),"NPC【%s】从视野中消失",npcObject->GetName());
-			m_pPlayer->GetPlayerMessages().AddMsg("NPC【%s】从视野中消失",npcObject->GetName());
+			m_pPlayer->GetPlayerMessages().AddMsg("NPC:%s deleted",npcObject->GetName());
 			m_NPCRolesList.RemoveAt(pos);
 			delete npcObject;
 			return true;
@@ -168,12 +168,12 @@ bool CRoleMgr::DeleteObject(DWORD worldID)
 	if (m_pSelfObject && m_pSelfObject->GetWorldID()==worldID)
 	{
 		//CSystemInfo::AddInfo(m_pPlayer->GetIndex(),"自己在游戏里消失",m_pSelfObject->GetName());
-		m_pPlayer->GetPlayerMessages().AddMsg("自己在游戏里消失",m_pSelfObject->GetName());
+		m_pPlayer->GetPlayerMessages().AddMsg("m_pSelfObject %d deleted ",m_pSelfObject->GetName());
 		SAFE_DELETE(m_pSelfObject);
 		return true;
 	}
 	//CSystemInfo::AddInfo(m_pPlayer->GetIndex(),"未知的东西在游戏里消失");
-	m_pPlayer->GetPlayerMessages().AddMsg("未知的东西在游戏里消失");
+	m_pPlayer->GetPlayerMessages().AddMsg("nothing deleted return false");
 	return false;
 }
 
@@ -322,7 +322,7 @@ bool CRoleMgr::DeleteMonsterObject(DWORD worldID)
 		if (pMonsterObject)
 		{
 			//CSystemInfo::AddInfo(m_pPlayer->GetIndex(),"怪物【%s<%d>】从视野中消失",pMonsterObject->GetName(),pMonsterObject->GetMonsterIndex());
-			m_pPlayer->GetPlayerMessages().AddMsg("怪物【%s<%d>】从视野中消失",pMonsterObject->GetName(),pMonsterObject->GetMonsterIndex());
+			m_pPlayer->GetPlayerMessages().AddMsg("DeleteMonsterObject:%s index<%d> ",pMonsterObject->GetName(),pMonsterObject->GetMonsterIndex());
 			if (pMonsterType->DeleteObject(worldID))
 			{
 				if (pMonsterType->GetObjectCount()==0)
