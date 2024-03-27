@@ -1230,21 +1230,22 @@ void CFightAble::SynLookEnergy(void)
 	pCMainCha->ReflectINFof(this,WtPk);//通告
 }
 
-void CFightAble::WriteSkillState(WPACKET &pk)
-{
+void CFightAble::WriteSkillState(WPACKET& pk) {
+	WRITE_LONG(pk, GetTickCount()); // current time
 	WRITE_CHAR(pk, m_CSkillState.GetStateNum());
-	SSkillStateUnit	*pSStateUnit;
-#ifdef COMPACT_MEM_2
-	for(map<unsigned char, SSkillStateUnit>::iterator it = m_CSkillState.m_SStateMap.begin(); it != m_CSkillState.m_SStateMap.end(); it++)
-	{
-		pSStateUnit = &it->second;
-#else
+	SSkillStateUnit* pSStateUnit;
 	m_CSkillState.BeginGetState();
-	while (pSStateUnit = m_CSkillState.GetNextState())
-	{
-#endif
+	while (pSStateUnit = m_CSkillState.GetNextState()) {
 		WRITE_CHAR(pk, pSStateUnit->GetStateID());
 		WRITE_CHAR(pk, pSStateUnit->GetStateLv());
+		// end time = pSStateUnit->lOnTick + pSStateUnit->ulStartTick
+		if (pSStateUnit->lOnTick < 1) {
+			WRITE_LONG(pk, 0); // current time
+			WRITE_LONG(pk, 0); // current time
+		} else {
+			WRITE_LONG(pk, pSStateUnit->lOnTick);     // duration
+			WRITE_LONG(pk, pSStateUnit->ulStartTick); // start time
+		}
 	}
 }
 //技能ID，等级，时间

@@ -440,7 +440,7 @@ void CItemCommand::AddHint(int x, int y, int index)
 	  PushHint(buf, COLOR_WHITE, 5, 1, index);
 	}
 
-	//_PushValue( RES_STRING(CL_LANGUAGE_MATCH_630), ITEMATTR_VAL_PDEF, item, COLOR_WHITE, index );
+	_PushValue( RES_STRING(CL_LANGUAGE_MATCH_630), ITEMATTR_VAL_PDEF, item, COLOR_WHITE, index );
 
 	if(CItemRecord::IsVaildFusionID(_pItem) && _ItemData.GetFusionItemID() > 0) // modify by ning.yan  20080821
 	{
@@ -916,7 +916,7 @@ void CItemCommand::AddHint(int x, int y, int index)
 
 	_ShowWork(_pItem, pAttr, index);
 
-	// _snprintf_s( buf, _countof( buf ), _TRUNCATE, RES_STRING(CL_LANGUAGE_MATCH_644), _ItemData.sEnergy[0], _ItemData.sEnergy[1] );
+	_snprintf_s( buf, _countof( buf ), _TRUNCATE, RES_STRING(CL_LANGUAGE_MATCH_644), _ItemData.sEnergy[0], _ItemData.sEnergy[1] );
 	PushHint(buf, COLOR_WHITE, 5, 1, index);
 
 	_AddDescriptor(index);
@@ -926,9 +926,9 @@ void CItemCommand::AddHint(int x, int y, int index)
 	if(index != -1)
 	  PushHint(RES_STRING(CL_LANGUAGE_MATCH_1041), COLOR_WHITE, 5, 1, index);
 
-	//PUSH_HINT( RES_STRING(CL_LANGUAGE_MATCH_634), _ItemData.sEnergy[0], COLOR_WHITE, index );
+	PUSH_HINT( RES_STRING(CL_LANGUAGE_MATCH_634), _ItemData.sEnergy[0], COLOR_WHITE, index );
 
-	/*float fB320 = (float)_ItemData.sEnergy[1];
+	float fB320 = (float)_ItemData.sEnergy[1];
 		float fRate = 0.0f;
 		if( _ItemData.sEnergy[1]==0 )
 		{
@@ -942,7 +942,7 @@ void CItemCommand::AddHint(int x, int y, int index)
 			if( fRate < 0.0f ) fRate = 0.0f;
 		}
 		_snprintf_s( buf, _countof( buf ), _TRUNCATE, RES_STRING(CL_LANGUAGE_MATCH_645), fRate );
-		PushHint( buf, COLOR_WHITE, 5, 1, index );*/
+		PushHint( buf, COLOR_WHITE, 5, 1, index );
 
   } else if(_pItem->sType == 34) // 技能书
   {
@@ -1013,25 +1013,25 @@ void CItemCommand::AddHint(int x, int y, int index)
 	if(index != -1)
 	  PushHint(RES_STRING(CL_LANGUAGE_MATCH_1041), COLOR_WHITE, 5, 1, index);
 
-	//int show_attr[] = { ITEMATTR_VAL_STR, ITEMATTR_VAL_AGI, ITEMATTR_VAL_DEX, ITEMATTR_VAL_CON, ITEMATTR_VAL_STA };
-	//string show_text[] = { RES_STRING(CL_LANGUAGE_MATCH_650), RES_STRING(CL_LANGUAGE_MATCH_651), RES_STRING(CL_LANGUAGE_MATCH_652), RES_STRING(CL_LANGUAGE_MATCH_653), RES_STRING(CL_LANGUAGE_MATCH_654) };
-	//int value = 0;
-	//const int count = sizeof(show_attr)/sizeof(show_attr[0]);
-	//for( int i=0; i<count; i++ )
-	//{
-	//	value = item.sInstAttr[show_attr[i]];
-	//	item.sInstAttr[show_attr[i]] = 0;
-	//	_snprintf_s( buf, _countof( buf ), _TRUNCATE, "%s:%d", show_text[i].c_str(), value );
-	//	PushHint( buf, GENERIC_COLOR, 5, 1, index );
-	//}
+	int show_attr[] = { ITEMATTR_VAL_STR, ITEMATTR_VAL_AGI, ITEMATTR_VAL_DEX, ITEMATTR_VAL_CON, ITEMATTR_VAL_STA };
+	string show_text[] = { RES_STRING(CL_LANGUAGE_MATCH_650), RES_STRING(CL_LANGUAGE_MATCH_651), RES_STRING(CL_LANGUAGE_MATCH_652), RES_STRING(CL_LANGUAGE_MATCH_653), RES_STRING(CL_LANGUAGE_MATCH_654) };
+	int value = 0;
+	const int count = sizeof(show_attr)/sizeof(show_attr[0]);
+	for( int i=0; i<count; i++ )
+	{
+		value = item.sInstAttr[show_attr[i]];
+		item.sInstAttr[show_attr[i]] = 0;
+		_snprintf_s( buf, _countof( buf ), _TRUNCATE, "%s:%d", show_text[i].c_str(), value );
+		PushHint( buf, GENERIC_COLOR, 5, 1, index );
+	}
 
-	//_snprintf_s( buf, _countof( buf ), _TRUNCATE, RES_STRING(CL_LANGUAGE_MATCH_655), _ItemData.sEndure[1] );
-	//PushHint( buf, GENERIC_COLOR, 5, 1, index );
+	_snprintf_s( buf, _countof( buf ), _TRUNCATE, RES_STRING(CL_LANGUAGE_MATCH_655), _ItemData.sEndure[1] );
+	PushHint( buf, GENERIC_COLOR, 5, 1, index );
 
-	////_snprintf_s( buf, _countof( buf ), _TRUNCATE, "%s:%d", RES_STRING(CL_LANGUAGE_MATCH_848), _ItemData.sEnergy[1] );	// 乱斗点数
-	//PushHint( buf, GENERIC_COLOR, 5, 1, index );
+	_snprintf_s( buf, _countof( buf ), _TRUNCATE, "%s:%d", RES_STRING(CL_LANGUAGE_MATCH_848), _ItemData.sEnergy[1] );	// 乱斗点数
+	PushHint( buf, GENERIC_COLOR, 5, 1, index );
 
-	//_AddDescriptor( index );
+	_AddDescriptor( index );
   } else if(_pItem->sType == 49)
   {
 	_snprintf_s(buf, _countof(buf), _TRUNCATE, RES_STRING(CL_LANGUAGE_MATCH_656), std::to_string(item.sEnergy[1]).c_str(), _pItem->szName);
@@ -1049,11 +1049,11 @@ void CItemCommand::AddHint(int x, int y, int index)
 	_AddDescriptor(index);
   } else if(_pItem->sType == 59 || _pItem->sType == 67) // 59 = 精灵，67 = 精灵蛋
   {
-	int nLevel = 0; /*item.sInstAttr[ITEMATTR_VAL_STR]
+	int nLevel =  item.sInstAttr[ITEMATTR_VAL_STR]
 					+ item.sInstAttr[ITEMATTR_VAL_AGI] 
 					+ item.sInstAttr[ITEMATTR_VAL_DEX] 
 					+ item.sInstAttr[ITEMATTR_VAL_CON] 
-					+ item.sInstAttr[ITEMATTR_VAL_STA];*/
+					+ item.sInstAttr[ITEMATTR_VAL_STA];
 
 	_snprintf_s(buf, _countof(buf), _TRUNCATE, "Lv%d %s", nLevel, GetName());
 	if(index != -1)
@@ -1065,7 +1065,7 @@ void CItemCommand::AddHint(int x, int y, int index)
 	PUSH_HINT(RES_STRING(CL_LANGUAGE_MATCH_657), item.sInstAttr[ITEMATTR_VAL_STR], COLOR_WHITE, index);
 	PUSH_HINT(RES_STRING(CL_LANGUAGE_MATCH_658), item.sInstAttr[ITEMATTR_VAL_AGI], COLOR_WHITE, index);
 	PUSH_HINT(RES_STRING(CL_LANGUAGE_MATCH_659), item.sInstAttr[ITEMATTR_VAL_CON], COLOR_WHITE, index);
-	//		PUSH_HINT( RES_STRING(CL_LANGUAGE_MATCH_660), item.sInstAttr[ITEMATTR_VAL_DEX], COLOR_WHITE, index );
+	PUSH_HINT( RES_STRING(CL_LANGUAGE_MATCH_660), item.sInstAttr[ITEMATTR_VAL_DEX], COLOR_WHITE, index );
 	PUSH_HINT(RES_STRING(CL_LANGUAGE_MATCH_661), item.sInstAttr[ITEMATTR_VAL_STA], COLOR_WHITE, index);
 
 	/*item.sInstAttr[ITEMATTR_VAL_STR] = 0;
@@ -1081,8 +1081,8 @@ void CItemCommand::AddHint(int x, int y, int index)
 	  _snprintf_s(buf, _countof(buf), _TRUNCATE, RES_STRING(CL_LANGUAGE_MATCH_662), _ItemData.sEndure[0] / 50, _ItemData.sEndure[1] / 50);
 	  PushHint(buf, COLOR_WHITE, 5, 1, index);
 
-	  //_snprintf_s( buf, _countof( buf ), _TRUNCATE, RES_STRING(CL_LANGUAGE_MATCH_663), _ItemData.sEnergy[0], _ItemData.sEnergy[1] );
-	  //PushHint( buf, COLOR_WHITE, 5, 1, index );
+	  _snprintf_s( buf, _countof( buf ), _TRUNCATE, RES_STRING(CL_LANGUAGE_MATCH_663), _ItemData.sEnergy[0], _ItemData.sEnergy[1] );
+	  PushHint( buf, COLOR_WHITE, 5, 1, index );
 	}
 
 	AddHintHeight(6, index);
@@ -1136,7 +1136,7 @@ void CItemCommand::AddHint(int x, int y, int index)
 	  PushHint(buf, GENERIC_COLOR, 5, 1, index);
 	  _snprintf_s(buf, _countof(buf), _TRUNCATE, "%s:%d", RES_STRING(CL_UIITEMCOMMAND_CPP_00003), item.sInstAttr[ITEMATTR_VAL_AGI]);
 	  PushHint(buf, GENERIC_COLOR, 5, 1, index);
-	  //			_snprintf_s( buf, _countof( buf ), _TRUNCATE, "%s:%d",RES_STRING(CL_UIITEMCOMMAND_CPP_00004),item.sInstAttr[ITEMATTR_VAL_DEX]);
+	 _snprintf_s( buf, _countof( buf ), _TRUNCATE, "%s:%d",RES_STRING(CL_UIITEMCOMMAND_CPP_00004),item.sInstAttr[ITEMATTR_VAL_DEX]);
 	  PushHint(buf, GENERIC_COLOR, 5, 1, index);
 	  return;
 	}
@@ -1173,7 +1173,7 @@ void CItemCommand::AddHint(int x, int y, int index)
 	  int nMinute = 0;
 	  int nSecond = 0;
 
-	  /*for(int i = 0; i < 5; ++i)
+	  for(int i = 0; i < 5; ++i)
 			{
 				switch(GetData().sInstAttr[i][0])
 				{
@@ -1193,7 +1193,7 @@ void CItemCommand::AddHint(int x, int y, int index)
 					nSecond = GetData().sInstAttr[i][1];
 					break;
 				}
-			}*/
+			}
 
 	  if(_pItem->lID == 2911 || _pItem->lID == 2952 || _pItem->lID == 3066 || _pItem->lID == 3078)
 	  {
@@ -1284,7 +1284,7 @@ void CItemCommand::AddHint(int x, int y, int index)
 	_snprintf_s(buf, _countof(buf), _TRUNCATE, RES_STRING(CL_LANGUAGE_MATCH_665), 5 - item.sInstAttr[ITEMATTR_VAL_STR]);
 	PushHint(buf, COLOR_WHITE, 5, 1, index);
 
-	//		_snprintf_s( buf, _countof( buf ), _TRUNCATE, RES_STRING(CL_LANGUAGE_MATCH_666), 5 - item.sInstAttr[ITEMATTR_VAL_DEX] );
+	_snprintf_s( buf, _countof( buf ), _TRUNCATE, RES_STRING(CL_LANGUAGE_MATCH_666), 5 - item.sInstAttr[ITEMATTR_VAL_DEX] );
 	PushHint(buf, COLOR_WHITE, 5, 1, index);
 
 	_snprintf_s(buf, _countof(buf), _TRUNCATE, RES_STRING(CL_LANGUAGE_MATCH_667), 5 - item.sInstAttr[ITEMATTR_VAL_CON]);
@@ -1313,8 +1313,8 @@ void CItemCommand::AddHint(int x, int y, int index)
 
 	AddHintHeight(6, index);
 
-	//_snprintf_s( buf, _countof( buf ), _TRUNCATE, RES_STRING(CL_LANGUAGE_MATCH_672), _ItemData.sEnergy[0]);
-	//PushHint( buf, COLOR_WHITE, 5, 1, index );
+	_snprintf_s( buf, _countof( buf ), _TRUNCATE, RES_STRING(CL_LANGUAGE_MATCH_672), _ItemData.sEnergy[0]);
+	PushHint( buf, COLOR_WHITE, 5, 1, index );
 
 	return;
   } else if(_pItem->sType == 69) // XXX图纸
@@ -1341,8 +1341,8 @@ void CItemCommand::AddHint(int x, int y, int index)
 	  }
 	}
 
-	//_snprintf_s( buf, _countof( buf ), _TRUNCATE,  RES_STRING(CL_LANGUAGE_MATCH_871), _ItemData.sEnergy[1] - 100);
-	//PushHint(buf, GENERIC_COLOR, 5, 1, index );
+	_snprintf_s( buf, _countof( buf ), _TRUNCATE,  RES_STRING(CL_LANGUAGE_MATCH_871), _ItemData.sEnergy[1] - 100);
+	PushHint(buf, GENERIC_COLOR, 5, 1, index );
 
 	AddHintHeight(6, index);
 
@@ -1402,8 +1402,6 @@ void CItemCommand::AddHint(int x, int y, int index)
 	  _snprintf_s(buf, _countof(buf), _TRUNCATE, RES_STRING(CL_LANGUAGE_MATCH_674), StringSplitNum(isMain ? _nPrice / 2 : _nPrice));
 	  PushHint(buf, COLOR_WHITE, 5, 1, index);
 
-	  _snprintf_s(buf, _countof(buf), _TRUNCATE, "%s", std::to_string(isMain ? _nPrice / 2 : _nPrice).c_str());
-	  PushHint(buf, COLOR_WHITE, 5, 1, index);
 	}
 
 	return;
@@ -1433,8 +1431,8 @@ void CItemCommand::AddHint(int x, int y, int index)
 	  _snprintf_s(buf, _countof(buf), _TRUNCATE, RES_STRING(CL_LANGUAGE_MATCH_878), _ItemData.sEndure[0] / 50);
 	  PushHint(buf, GENERIC_COLOR, 5, 1, index);
 
-	  //_snprintf_s( buf, _countof( buf ), _TRUNCATE,  RES_STRING(CL_LANGUAGE_MATCH_897), _ItemData.sEnergy[0]); // "工具经验：%i"
-	  //PushHint(buf, GENERIC_COLOR, 5, 1, index );
+	  _snprintf_s( buf, _countof( buf ), _TRUNCATE,  RES_STRING(CL_LANGUAGE_MATCH_897), _ItemData.sEnergy[0]); // "工具经验：%i"
+	  PushHint(buf, GENERIC_COLOR, 5, 1, index );
 	}
 
 	AddHintHeight(6, index);
@@ -1449,8 +1447,6 @@ void CItemCommand::AddHint(int x, int y, int index)
 	  _snprintf_s(buf, _countof(buf), _TRUNCATE, RES_STRING(CL_LANGUAGE_MATCH_674), StringSplitNum(isMain ? _nPrice / 2 : _nPrice));
 	  PushHint(buf, COLOR_WHITE, 5, 1, index);
 
-	  _snprintf_s(buf, _countof(buf), _TRUNCATE, "%s", std::to_string(isMain ? _nPrice / 2 : _nPrice).c_str());
-	  PushHint(buf, COLOR_WHITE, 5, 1, index);
 	}
 
 	return;
@@ -1460,8 +1456,8 @@ void CItemCommand::AddHint(int x, int y, int index)
 	if(index != -1)
 	  PushHint(RES_STRING(CL_LANGUAGE_MATCH_1041), COLOR_WHITE, 5, 1, index);
 
-	//_snprintf_s( buf, _countof( buf ), _TRUNCATE, RES_STRING(CL_LANGUAGE_MATCH_644), _ItemData.sEnergy[0], _ItemData.sEnergy[1] );
-	//PushHint( buf, COLOR_WHITE, 5, 1, index );
+	_snprintf_s( buf, _countof( buf ), _TRUNCATE, RES_STRING(CL_LANGUAGE_MATCH_644), _ItemData.sEnergy[0], _ItemData.sEnergy[1] );
+	PushHint( buf, COLOR_WHITE, 5, 1, index );
 
 	SetHintIsCenter(true);
 	_AddDescriptor(index);
@@ -1562,7 +1558,7 @@ void CItemCommand::AddHint(int x, int y, int index)
 	  PushHint(buf, GENERIC_COLOR, 5, 1, index);
 	  _snprintf_s(buf, _countof(buf), _TRUNCATE, "%s:%d", RES_STRING(CL_UIITEMCOMMAND_CPP_00003), item.sInstAttr[ITEMATTR_VAL_AGI]);
 	  PushHint(buf, GENERIC_COLOR, 5, 1, index);
-	  //			_snprintf_s( buf, _countof( buf ), _TRUNCATE, "%s:%d",RES_STRING(CL_UIITEMCOMMAND_CPP_00004),item.sInstAttr[ITEMATTR_VAL_DEX]);
+	 _snprintf_s( buf, _countof( buf ), _TRUNCATE, "%s:%d",RES_STRING(CL_UIITEMCOMMAND_CPP_00004),item.sInstAttr[ITEMATTR_VAL_DEX]);
 	  PushHint(buf, GENERIC_COLOR, 5, 1, index);
 	  return;
 	}
@@ -1624,18 +1620,18 @@ void CItemCommand::AddHint(int x, int y, int index)
 	  _snprintf_s(buf, _countof(buf), _TRUNCATE, RES_STRING(CL_UIITEMCOMMAND_CPP_00007), (short)floor((float)item.sInstAttr[ITEMATTR_VAL_AGI] / 100), item.sInstAttr[ITEMATTR_VAL_AGI] % 100);
 	  PushHint(buf, GENERIC_COLOR, 5, 1, index);
 
-	  //short c1 = (short)floor( (float)item.sInstAttr[ITEMATTR_VAL_DEX] / 100);
-	  //short c2 = item.sInstAttr[ITEMATTR_VAL_DEX] % 100;
+	  short c1 = (short)floor( (float)item.sInstAttr[ITEMATTR_VAL_DEX] / 100);
+	  short c2 = item.sInstAttr[ITEMATTR_VAL_DEX] % 100;
 
-	  //short c3 = (short)floor( (float)item.sInstAttr[ITEMATTR_VAL_CON] / 100);
-	  //short c4 = item.sInstAttr[ITEMATTR_VAL_CON] % 100;
+	  short c3 = (short)floor( (float)item.sInstAttr[ITEMATTR_VAL_CON] / 100);
+	  short c4 = item.sInstAttr[ITEMATTR_VAL_CON] % 100;
 
-	  //short c5 = (short)floor( (float)item.sInstAttr[ITEMATTR_VAL_STA] / 100);
-	  //short c6 = item.sInstAttr[ITEMATTR_VAL_STA] % 100;
+	  short c5 = (short)floor( (float)item.sInstAttr[ITEMATTR_VAL_STA] / 100);
+	  short c6 = item.sInstAttr[ITEMATTR_VAL_STA] % 100;
 
 	  ////_snprintf_s( buf, _countof( buf ), _TRUNCATE, "彩球号：%c %c %c %c %c %c", c1, c2, c3, c4, c5, c6);
-	  //_snprintf_s( buf, _countof( buf ), _TRUNCATE, RES_STRING(CL_UIITEMCOMMAND_CPP_00008), c1, c2, c3, c4, c5, c6);
-	  //PushHint( buf, GENERIC_COLOR, 5, 1, index );
+	  _snprintf_s( buf, _countof( buf ), _TRUNCATE, RES_STRING(CL_UIITEMCOMMAND_CPP_00008), c1, c2, c3, c4, c5, c6);
+	  PushHint( buf, GENERIC_COLOR, 5, 1, index );
 	} else
 	  PushHint(RES_STRING(CL_UIITEMCOMMAND_CPP_00009), GENERIC_COLOR, 5, 1, index);
 
@@ -1659,7 +1655,7 @@ void CItemCommand::AddHint(int x, int y, int index)
   }
   if(_pItem->sType == 80)
   {
-	/*int isZero = _ItemData.GetFusionItemID();
+	int isZero = _ItemData.GetFusionItemID();
 		int color = _ItemData.sEnergy[1];
 		DWORD showcolor;
 		if ( color>=0&&color<1000)
@@ -1689,7 +1685,7 @@ void CItemCommand::AddHint(int x, int y, int index)
 			_snprintf_s( buf, _countof(buf), _TRUNCATE,"装备：%s",sNameInfo->szName);
 			PushHint( buf, showcolor, 5, 1, index );
 		}
-		SetHintIsCenter(true);*/
+		SetHintIsCenter(true);
   }
 
   if(_pItem->sType != 75 && _pItem->lID != 6959) //
@@ -1709,7 +1705,7 @@ void CItemCommand::AddHint(int x, int y, int index)
   {
 	// 能量最大值的百位代表颜色,十位及以下代表名字前缀
 	char szBuf[16] = {0};
-	//_snprintf_s( szBuf, _countof( szBuf ), _TRUNCATE, "%09d", _ItemData.sEnergy[1]/10 );		// 除十是因为服务器的数值为4位数,等待以后改为三位
+	_snprintf_s( szBuf, _countof( szBuf ), _TRUNCATE, "%09d", _ItemData.sEnergy[1]/10 );		// 除十是因为服务器的数值为4位数,等待以后改为三位
 	char szHundred[2] = {szBuf[6], 0};
 	int	 nHundred	  = atoi(szHundred);
 	int	 nTen		  = atoi(&szBuf[7]);
@@ -1848,8 +1844,6 @@ void CItemCommand::AddHint(int x, int y, int index)
 	_snprintf_s(buf, _countof(buf), _TRUNCATE, RES_STRING(CL_LANGUAGE_MATCH_674), StringSplitNum(isMain ? _nPrice / 2 : _nPrice));
 	PushHint(buf, COLOR_WHITE, 5, 1, index);
 
-	_snprintf_s(buf, _countof(buf), _TRUNCATE, "%s", std::to_string(isMain ? _nPrice / 2 : _nPrice).c_str());
-	PushHint(buf, COLOR_WHITE, 5, 1, index);
   }
 
   //	yangyinyu	add!
@@ -2245,7 +2239,7 @@ void CItemCommand::_PushItemAttr(int attr, SItemHint& item, DWORD color, int ind
   if(item.sInstAttr[attr] == 0)
 	return;
 
-  /*if( attr <= ITEMATTR_COE_PDEF )
+  if( attr <= ITEMATTR_COE_PDEF )
 	{
 		if( !(item.sInstAttr[attr] % 10) )
 		{						
@@ -2261,7 +2255,7 @@ void CItemCommand::_PushItemAttr(int attr, SItemHint& item, DWORD color, int ind
 	{
 		_snprintf_s( buf, _countof( buf ), _TRUNCATE, "%s:%+d", g_GetItemAttrExplain( attr ), item.sInstAttr[attr] );
 	}
-	PushHint( buf, color, 5, 0, index );*/
+	PushHint( buf, color, 5, 0, index );
 
   item.sInstAttr[attr] = 0;
 }
@@ -2477,13 +2471,13 @@ bool CItemCommand::MouseDown()
 
 void CItemCommand::RenderEnergy(int x, int y)
 {
-  /*if( _pItem->sType==29 && _ItemData.sEnergy[1]!=0 )
+  if( _pItem->sType==29 && _ItemData.sEnergy[1]!=0 )
 	{
 		float fLen = (float)_ItemData.sEnergy[0] / (float)_ItemData.sEnergy[1] * (float)ITEM_HEIGHT;
 		int yb = y+ITEM_HEIGHT;
 		GetRender().FillFrame( x, y, x+2, yb, COLOR_BLUE );
 		GetRender().FillFrame( x, yb-(int)fLen, x+2, yb, COLOR_RED );
-	}*/
+	}
 }
 
 void CItemCommand::_AddDescriptor(int index)

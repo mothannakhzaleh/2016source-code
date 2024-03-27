@@ -257,7 +257,7 @@ void* CLU_CallScriptFunction(char* funcName, char* retArgs, char* args, ...)
 	char* tok;							//Current token we're processing
 
 	//Parse args string and push arguments onto the stack accordingly, if there are any
-	va_start(par, args);
+	va_start(par,args);
 
 	//Push the function to call on the stack
 	lua_pushstring(virtualMachine, funcName);

@@ -3865,17 +3865,29 @@ BOOL ReadChaSkillBagPacket(LPRPACKET pk, stNetSkillBag& SCurSkill)
 void ReadChaSkillStatePacket(LPRPACKET pk, stNetSkillState& SCurSState)
 {
   T_B
+	const unsigned long currentClient = GetTickCount();
+	const unsigned long currentServer = pk.ReadLong()/1000;//current server time
 	  memset(&SCurSState, 0, sizeof(SCurSState));
   SCurSState.chType = 0;
   short sNum		= pk.ReadChar();
   if(sNum > 0)
   {
-	SCurSState.SState.Resize(sNum);
-	for(int nNum = 0; nNum < sNum; nNum++)
-	{
-	  SCurSState.SState[nNum].chID = pk.ReadChar();
-	  SCurSState.SState[nNum].chLv = pk.ReadChar();
-	}
+		SCurSState.SState.Resize( sNum );
+		for (int nNum = 0; nNum < sNum; nNum++)
+		{
+			SCurSState.SState[nNum].chID = pk.ReadChar();
+			SCurSState.SState[nNum].chLv = pk.ReadChar();
+
+
+			const unsigned long duration = pk.ReadLong();//duration
+			const unsigned long start = pk.ReadLong()/1000;//start time
+
+
+			const unsigned long dif = currentServer - currentClient;
+			const unsigned long end = start - dif + duration;
+			
+			SCurSState.SState[nNum].lTimeRemaining = duration==0?0:end-currentClient; //end time, corrected for client
+		}
   }
 
   // log

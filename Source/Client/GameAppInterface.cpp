@@ -1295,7 +1295,7 @@ void CGameApp::ResetCaption()
   char szCaption[350];
   //_snprintf_s(szCaption, _countof( szCaption ), _TRUNCATE, RES_STRING(CL_LANGUAGE_MATCH_77), (float)(g_sClientVer % 1000) / 100, szSpace ); // , curr_ver.c_str());
   _snprintf_s(szCaption, _countof(szCaption), _TRUNCATE, RES_STRING(CL_LANGUAGE_MATCH_77), szSpace); // , curr_ver.c_str());
-  SetCaption("YATOPS Online");
+  SetCaption("Tales of Pirates II");
 }
 
 void CGameApp::Loading(int nFrame)
@@ -1991,4 +1991,223 @@ void CGameApp::LG_Config(const LGInfo& info)
   ::LG_SetDir(in.dir);
   ::LG_EnableAll(in.bEnableAll);
   ::LG_EnableMsgBox(in.bMsgBox);
+}
+
+void CGameApp::ShowStateHint( int x, int y, CChaStateMgr::stChaState stateData){
+	char szTitle[32];
+		switch (stateData.pInfo->chID)
+		{
+		case 48: {
+			if (stateData.chStateLv == 8)
+				sprintf(szTitle, "%s", "Amplifier of Strive");
+			else if (stateData.chStateLv == 10)
+				sprintf(szTitle, "%s", "Hi-Amplifier of Strive");
+			else
+				sprintf(szTitle, "Lv%d %s", stateData.chStateLv, stateData.pInfo->szName);
+			break;
+		}
+		case 49: {
+			if(stateData.chStateLv ==3)
+				sprintf(szTitle,"%s", "Amplifier of Luck");
+			else if (stateData.chStateLv == 5)
+				sprintf(szTitle, "%s", "Hi-Amplifier of Luck");
+			break;
+		}
+		case -91: {
+			if (stateData.chStateLv == 1)
+				sprintf(szTitle, "%s", "Codfish Steamboat");
+			else if (stateData.chStateLv == 2)
+				sprintf(szTitle, "%s", "Sturgeon Fish with Bamboo");
+			else if (stateData.chStateLv == 3)
+				sprintf(szTitle, "%s", "Savory Bubble fish");
+			else if (stateData.chStateLv == 4)
+				sprintf(szTitle, "%s", "Sturgeon soup");
+			else if (stateData.chStateLv == 5)
+				sprintf(szTitle, "%s", "Fried Oyster Soup");
+			else if (stateData.chStateLv == 6)
+				sprintf(szTitle, "%s", "Prawn Dumpling");
+			else if (stateData.chStateLv == 7)
+				sprintf(szTitle, "%s", "Tigerfish Bone Crisp");
+			else if (stateData.chStateLv == 8)
+				sprintf(szTitle, "%s", "Ratfish Rice");
+			else if (stateData.chStateLv == 9)
+				sprintf(szTitle, "%s", "China Clay");
+			else if (stateData.chStateLv == 10)
+				sprintf(szTitle, "%s", "BBQ Shark Fin");
+			else
+				sprintf(szTitle, "Lv%d %s", stateData.chStateLv, stateData.pInfo->szName);
+			break;
+		}
+		case -90: {
+			if (stateData.chStateLv == 1)
+				sprintf(szTitle, "%s", "Steam Bun");
+			else if (stateData.chStateLv == 2)
+				sprintf(szTitle, "%s", "Bun");
+			else if (stateData.chStateLv == 3)
+				sprintf(szTitle, "%s", "Biscuit");
+			else if (stateData.chStateLv == 4)
+				sprintf(szTitle, "%s", "Fried Dough");
+			else if (stateData.chStateLv == 5)
+				sprintf(szTitle, "%s", "Spring Roll");
+			else
+				sprintf(szTitle, "Lv%d %s", stateData.chStateLv, stateData.pInfo->szName);
+			break;
+		}
+		case -89: {
+			if (stateData.chStateLv == 1)
+				sprintf(szTitle, "%s", "Maiden wine");
+			else if (stateData.chStateLv == 2)
+				sprintf(szTitle, "%s", "Scholar Wine");
+			else if (stateData.chStateLv == 3)
+				sprintf(szTitle, "%s", "Mao Wine");
+			else if (stateData.chStateLv == 4)
+				sprintf(szTitle, "%s", "Dukan Wine");
+			else if (stateData.chStateLv == 5)
+				sprintf(szTitle, "%s", "Ginseng Wine");
+			else if (stateData.chStateLv == 5)
+				sprintf(szTitle, "%s", "Tiger Bone Tonic");
+			break;
+		}
+		default:
+			sprintf(szTitle, "Lv%d %s", stateData.chStateLv, stateData.pInfo->szName);
+			break;
+		}
+	_pNotify->SetFixWidth( 0 );
+	_dwNotifyTime = GetCurTick() + 100;
+	_pNotify->Clear();
+	_pNotify->PushHint(szTitle, COLOR_WHITE);
+
+
+	if (strcmp(stateData.pInfo->szDesc, "0") != 0)
+	{
+		//start //  a lame way to load hardcoded description and names @moth-- just add cases for other states here and ^ above 
+		switch (stateData.pInfo->chID)
+		{
+		case 48: {
+			if (stateData.chStateLv == 3)
+				_pNotify->PushHint("Increases EXP Rate x2", 0xFF000000 | stateData.pInfo->lColour);
+			else if (stateData.chStateLv == 4)
+				_pNotify->PushHint("Increases EXP Rate x2.5", 0xFF000000 | stateData.pInfo->lColour);
+			else
+				_pNotify->PushHint(stateData.pInfo->szDesc, 0xFF000000 | stateData.pInfo->lColour);
+
+			break;
+		}
+		case 49: {
+			if (stateData.chStateLv == 3)
+				_pNotify->PushHint("Increases Drop Rate x2", 0xFF000000 | stateData.pInfo->lColour);
+			else if (stateData.chStateLv == 5)
+				_pNotify->PushHint("Increases Drop Rate x3", 0xFF000000 | stateData.pInfo->lColour);
+			else
+				_pNotify->PushHint(stateData.pInfo->szDesc, 0xFF000000 | stateData.pInfo->lColour);
+			break;
+		}
+		case -91: {
+			if (stateData.chStateLv == 1)
+				_pNotify->PushHint("Gives you HP +100 and Physical Resist +1 for a duration of 15 minutes", 0xFF000000 | stateData.pInfo->lColour);
+			else if (stateData.chStateLv == 2)
+				_pNotify->PushHint("Gives you HP +400 and Physical Resist +2 for a duration of 10 minutes", 0xFF000000 | stateData.pInfo->lColour);
+			else if (stateData.chStateLv == 3)
+				_pNotify->PushHint("Gives you HP +900 and Physical Resist +2 for a duration of 10 minutes", 0xFF000000 | stateData.pInfo->lColour);
+			else if (stateData.chStateLv == 4)
+				_pNotify->PushHint("Gives you HP +1600 and Physical Resist +3 for a duration of 8 minutes", 0xFF000000 | stateData.pInfo->lColour);
+			else if (stateData.chStateLv == 5)
+				_pNotify->PushHint("Gives you HP +2500 and Physical Resist +8 for a duration of 8 minutes", 0xFF000000 | stateData.pInfo->lColour);
+			else if (stateData.chStateLv == 6)
+				_pNotify->PushHint("Gives you HP +3600 and Physical Resist +4 for a duration of 6 minutes", 0xFF000000 | stateData.pInfo->lColour);
+			else if (stateData.chStateLv == 7)
+				_pNotify->PushHint("Gives you HP +4700 and Physical Resist +5 for a duration of 5 minutes", 0xFF000000 | stateData.pInfo->lColour);
+			else if (stateData.chStateLv == 8)
+				_pNotify->PushHint("Gives you HP +6700 and Physical Resist +6 for a duration of 3 minutes", 0xFF000000 | stateData.pInfo->lColour);
+			else if (stateData.chStateLv == 9)
+				_pNotify->PushHint("Gives you HP +8100 and Physical Resist +6 for a duration of 3 minutes", 0xFF000000 | stateData.pInfo->lColour);
+			else if (stateData.chStateLv == 10)
+				_pNotify->PushHint("Gives you HP +10000 and Physical Resist +8 for a duration of 1 minutes", 0xFF000000 | stateData.pInfo->lColour);
+			else
+				_pNotify->PushHint(stateData.pInfo->szDesc, 0xFF000000 | stateData.pInfo->lColour);
+			break;
+		}
+		case -90: {
+			if (stateData.chStateLv == 1)
+			_pNotify->PushHint("Gives you HP +200 and Attack power +50 for a duration of 15 minutes", 0xFF000000 | stateData.pInfo->lColour);
+			else if (stateData.chStateLv == 2)
+				_pNotify->PushHint("Gives you HP +400 and Attack power +150 for a duration of 10 minutes", 0xFF000000 | stateData.pInfo->lColour);
+			else if (stateData.chStateLv == 3)
+				_pNotify->PushHint("Gives you HP +600 and Attack power +250 for a duration of 7 minutes", 0xFF000000 | stateData.pInfo->lColour);
+			else if (stateData.chStateLv == 4)
+				_pNotify->PushHint("Gives you HP +800 and Attack power +350 for a duration of 5 minutes", 0xFF000000 | stateData.pInfo->lColour);
+			else if (stateData.chStateLv == 5)
+				_pNotify->PushHint("Gives you HP +1000 and Attack power +450 for a duration of 2 minutes", 0xFF000000 | stateData.pInfo->lColour);
+			else
+				_pNotify->PushHint(stateData.pInfo->szDesc, 0xFF000000 | stateData.pInfo->lColour);
+			break;
+		}
+		case -89: {
+			if (stateData.chStateLv == 1)
+				_pNotify->PushHint("Gives you SP +100 and Spirit +5 for a duration of 15 minutes", 0xFF000000 | stateData.pInfo->lColour);
+			else if (stateData.chStateLv == 2)
+				_pNotify->PushHint("Gives you SP +200 and Spirit +10 for a duration of 10 minutes", 0xFF000000 | stateData.pInfo->lColour);
+			else if (stateData.chStateLv == 3)
+				_pNotify->PushHint("Gives you SP +400 and Spirit +20 for a duration of 5 minutes", 0xFF000000 | stateData.pInfo->lColour);
+			else if (stateData.chStateLv == 4)
+				_pNotify->PushHint("Gives you SP +300 and Spirit +15 for a duration of 7 minutes", 0xFF000000 | stateData.pInfo->lColour);
+			else if (stateData.chStateLv == 5)
+				_pNotify->PushHint("Gives you SP +500 and Spirit +25 for a duration of 3 minutes", 0xFF000000 | stateData.pInfo->lColour);
+			else if (stateData.chStateLv == 6)
+				_pNotify->PushHint("Gives you SP +600 and Spirit +30 for a duration of 2 minutes", 0xFF000000 | stateData.pInfo->lColour);
+			else
+				_pNotify->PushHint(stateData.pInfo->szDesc, 0xFF000000 | stateData.pInfo->lColour);
+			break;
+		}
+		default:
+			_pNotify->PushHint(stateData.pInfo->szDesc, 0xFF000000 | stateData.pInfo->lColour);
+			break;
+		}
+		//end
+	}
+	if(stateData.lTimeRemaining > 0){
+		int minutes = stateData.lTimeRemaining/60;
+		int seconds = stateData.lTimeRemaining % 60;
+		char szTime[32];
+		sprintf(szTime,"Time Remaining: %d:%2ds",minutes,seconds);
+		_pNotify->PushHint( szTime, COLOR_WHITE );
+	}
+	_pNotify->ReadyForHint( x, y );
+}
+
+
+
+void CGameApp::RenderStateHint( int x, int y, CChaStateMgr::stChaState stateData){
+	if(stateData.lTimeRemaining > 0){
+
+			//background icon
+			CGuiPic timericon;	
+			timericon.LoadImage( "texture/ui/colourpreview.png", 20, 16, 0, 0, 0, 1, 1 );	
+			timericon.Render(x+2,y+26);
+			//background end
+
+		char szTime[32];		
+		int minutes = stateData.lTimeRemaining/60;
+		int seconds = stateData.lTimeRemaining % 60;
+		if (minutes >= 1)
+		{
+			if (minutes >= 60) {
+				int hours = minutes / 60;
+				if (hours > 100) 
+					 sprintf(szTime,"");
+				else
+					sprintf(szTime,"%dh",hours);	
+			}else
+			sprintf(szTime,"%dm",minutes);	
+		//	CGuiFont::s_Font.BRender(1, szTime, x+2, y+30, COLOR_BLACK, COLOR_WHITE);
+		}else
+		{
+			sprintf(szTime,"%2ds",seconds);
+			
+		}
+
+			CGuiFont::s_Font.BRender(1, szTime, x + 2, y + 30, COLOR_BLACK, COLOR_WHITE);
+
+	}
+
 }

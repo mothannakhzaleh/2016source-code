@@ -8,7 +8,7 @@
 #include "RenderStateMgr.h"
 #include "steadyframe.h"
 #include "CameraCtrl.h"
-
+#include "chastate.h"
 #ifdef __SOUND__
 #ifdef USE_DSOUND
 #include "DSoundManager.h"
@@ -152,7 +152,9 @@ class CGameApp : public LEGameApp
   void ShowNotify(const char* szStr, DWORD dwColor);
   void ShowNotify1(const char* szStr, int setnum, DWORD dwColor); //Add by sunny.sun20080804
   void ShowHint(int x, int y, const char* szStr, DWORD dwColor);
-
+  void				ShowStateHint( int x, int y, CChaStateMgr::stChaState stateData);
+  static void				RenderStateHint( int x, int y, CChaStateMgr::stChaState stateData);
+	
   static void  SetMusicSize(float fVol); // 0~1,0æ≤“Ùæ∞,1◊Ó¥Û“Ù¡ø
   static float GetMusicSize() { return (float)_nMusicSize / 100.0f; }
 

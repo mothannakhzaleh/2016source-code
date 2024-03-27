@@ -9,7 +9,7 @@
 #include "chastate.h"
 #include "uiboatform.h"
 #include "uiMiniMapForm.h"
-
+#include "uiequipform.h"
 using namespace GUI;
 
 bool g_IsShowShop = true;
@@ -81,6 +81,72 @@ bool CHeadSay::Init()
   return true;
 }
 
+void CHeadSay::RenderStateIcons(CCharacter* cha,int x,int y,float scale,float spacing,int rowSize,bool Rendertimer){
+	if (!cha->IsMainCha()) Rendertimer = false;
+	CGuiPic stateIcon;
+	int stateCount = 0;
+	int nTotalState = CSkillStateRecordSet::I()->GetLastID() + 1;
+	bool IsStatesPerLevel = false;
+	bool RenderIcon = false;
+	CSkillStateRecord* pState;
+	for( int i=0; i<nTotalState; i++ ){
+		if(cha->GetStateMgr()->HasSkillState( i )){
+			pState = GetCSkillStateRecordInfo( i );
+			if( pState){
+				if (0 != stricmp(pState->szIcon[0], "0"))
+				{
+					if (0 != stricmp(pState->szIcon[cha->GetStateMgr()->GetStateLv(i) - 1], "0"))
+					{
+						 IsStatesPerLevel = true;
+					}
+					RenderIcon = true;
+				}
+				if (RenderIcon)
+				{
+
+			
+					char buf[64];
+
+					sprintf(buf, "texture/icon/%s.tga", (IsStatesPerLevel? pState->szIcon[cha->GetStateMgr()->GetStateLv(i) - 1]: pState->szIcon[0]));
+					stateIcon.LoadImage( buf, 32, 32, 0, 0, 0, scale, scale );
+					
+					int yspace = 0;
+					if (Rendertimer) yspace = 22;
+					
+					int xi = x +((stateCount%rowSize)*spacing);
+					int yi = y +((stateCount/rowSize)*(spacing+yspace));
+					if(Rendertimer) g_pGameApp->RenderStateHint(xi,yi,cha->GetStateMgr()->GetStateData(i));
+					stateIcon.Render(xi,yi);
+					stateCount++;
+					int xm = g_pGameApp->GetMouseX();
+					int ym = g_pGameApp->GetMouseY();
+					//check if we need to render hint.
+					if(xm>=xi && xm<=xi+(32*scale)){
+						if(ym>=yi && ym<=yi+(32*scale)){
+							char desc[300]{};
+							CChaStateMgr::stChaState stateData = cha->GetStateMgr()->GetStateData(i);
+							g_pGameApp->ShowStateHint( xm, ym, stateData);
+						}
+					}
+				}
+			}
+		}
+	}
+	//hide states form if has 0 active states 
+	if(stateCount > 0 )
+	{
+		int w = 32* stateCount;
+		int h = stateCount <= 9 ? 45: stateCount >=18 ? 120:94;
+		if (w > 250) w = 250;
+		g_stUIEquip.stateDrags->SetSize(w,h);
+		g_stUIEquip.stateDrags->Refresh();
+		g_stUIEquip.stateDrags->SetIsShow(true)	;
+	}else{
+		g_stUIEquip.stateDrags->SetIsShow(false)	;
+	}
+	//		
+}
+
 bool CHeadSay::Clear()
 {
   if(_pImgLife)
@@ -134,21 +200,40 @@ void CHeadSay::SetName(const char* name)
 void CHeadSay::Render(D3DXVECTOR3& pos)
 {
   static int x = 0, y = 0;
-  static int nSayTotalWidth = 32 * CGuiFont::s_Font.GetWidth("a"); //32个字符的长度
+  static int nSayTotalWidth = 32 * CGuiFont::s_Font.GetWidth("a"); 
   float		 fHeight		= _pOwn->GetDefaultChaInfo()->fHeight;
   g_Render.WorldToScreen(pos.x, pos.y, pos.z + fHeight, &x, &y);
+  int nOffset = (int)((x - g_Render.GetScrWidth() / 2) * 0.02f);
+  	static int x1 = 0, y1 = 0;
+	g_Render.WorldToScreen(pos.x, pos.y, pos.z, &x1, &y1);
 
   if(_IsShowLife) //血条
   {
-	static int x1 = 0, y1 = 0;
-	g_Render.WorldToScreen(pos.x, pos.y, pos.z, &x1, &y1);
-
 	int nLifeWidth = _pImgLife->GetWidth();
 	_pImgLife->SetScaleW(1, _fLifeW);
-	int nOffset = (int)((x - g_Render.GetScrWidth() / 2) * 0.02f);
 	_pImgLife->RenderAll(x - nLifeWidth / 2 - nOffset, y1 + 20, (DWORD)0xa0ffffff);
   }
+  //render states
+  	float scale = 0.85;	
+	float spacing = scale * 32 + 2;
+	int picX = 0;
+	int picY = 0;
+	int iconqty = 9;
+	if (_pOwn == CGameScene::GetMainCha() )
+	{
+		picX = g_stUIEquip.stateDrags->GetLeft();
+		picY = 	g_stUIEquip.stateDrags->GetTop();
+	}else
+	{
+		scale = 0.45;
+		spacing = scale * 32 + 2;
+		picX = x-(_pImgLife->GetWidth()/2)-nOffset-1;
+		picY = y1+28;
+		iconqty = 4;				
+	}
+	RenderStateIcons(_pOwn,picX,picY, scale, spacing,iconqty,true);
 
+  //
   if(g_stUIMap.IsPKSilver())
   {
 	// 在乱斗白银城里玩家头上不显示任何内容，仅显示玩家或怪的血条

@@ -10,7 +10,9 @@ if exist "log" (echo  [ Old log files were found...                        ] & g
 :afterUpdater
 echo  [ Analyzis progress done... Starting up the GameServer.. ]
 CD Server
-start  GameServer_x64_Debug.exe GameServer.cfg
+::start  GameServer_x64_Debug.exe GameServer.cfg
+::start  GameServer_x64_Release.exe GameServer.cfg
+start  GameServer_x86_Release.exe GameServer.cfg
 echo  ------------------------------------------------------
 timeout /t 5
 exit

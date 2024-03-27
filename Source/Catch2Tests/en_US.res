@@ -1,0 +1,1 @@
+D:/2016source code/Translation/client/en_US.res

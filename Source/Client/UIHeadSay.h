@@ -69,7 +69,7 @@ class CHeadSay
   void SetRenderScale(float f) { _fScale = f; }
 
   void SetName(const char* name);
-
+      void			RenderStateIcons(CCharacter* cha,int x,int y,float scale,float spacing,int rowSize,bool Rendertimer);
   bool InShop(int MouseX, int MouseY);
 
   static void RenderText(const char* szShopName, int x, int y);

@@ -122,6 +122,25 @@ BOOL CSkillStateRecordSet::_ReadRawDataInfo(CRawDataInfo* pRawDataInfo, vector<s
   pInfo->sDummy2 = Str2Int(ParamList[m++]);
   // 中该效果挂在身上的ICON表现
   pInfo->sIcon = Str2Int(ParamList[m++]);
+	/*
+	strncpy(pInfo->szIcon, ParamList[m++].c_str(), defSKILLSTATE_NAME_LEN);
+	pInfo->szIcon[defSKILLSTATE_NAME_LEN - 1] = '\0';
+	*/
+	// icons per level
+	memset(pInfo->szIcon, 0, sizeof(pInfo->szIcon));
+	strLine = ParamList[m++];
+	n = Util_ResolveTextLine(strLine.c_str(), strList, 10, ',');
+	n = n > 10 ? 10 : n;
+	for (int i = 0; i < n; i++) {
+		strncpy_s(pInfo->szIcon[i], strList[i].c_str(),_TRUNCATE);
+		//pInfo->szIcon[defSKILLSTATE_NAME_LEN - 1][i] = _TEXT('\0');
+	}
+
+	//
+	strncpy_s(pInfo->szDesc, sizeof pInfo->szDesc,ParamList[m++].c_str(), _TRUNCATE);	
+	//pInfo->szDesc[255 - 1] = '\0';
+
+	pInfo->lColour = Str2Int(ParamList[m++]);
 
   return TRUE;
 }

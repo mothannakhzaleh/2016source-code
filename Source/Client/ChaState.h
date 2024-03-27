@@ -26,22 +26,24 @@ class CChaStateMgr
   int				 GetSkillStateNum() { return (int)_states.size(); }
   CSkillStateRecord* GetSkillState(unsigned int nID) { return _states[nID]->pInfo; }
 
-  bool HasSkillState(unsigned int nID);
-
+  bool HasSkillState(unsigned int nID) ;
+  	int	GetStateLv( unsigned int nID );
   static CSkillStateRecord* GetLastActInfo() { return _pLastActInfo; }
   static int				GetLastShopLevel() { return _nShopLevel; }
-
-  private:
-  CCharacter* _pCha;
-
-  struct stChaState
+   struct stChaState
   {
 	bool IsDel;
 
 	unsigned char	   chStateLv;
 	CSkillStateRecord* pInfo;
 	CEffectObj*		   pEffect;
+			unsigned long lTimeRemaining;
   };
+   stChaState GetStateData( unsigned int nID );
+  private:
+  CCharacter* _pCha;
+
+ 
 
   stChaState					   _sChaState[SKILL_STATE_MAXID];
   typedef std::vector<stChaState*> states;
@@ -54,7 +56,18 @@ class CChaStateMgr
   static int				_nShopLevel;   // 用于时返回摆摊状态等级
 };
 
-inline bool CChaStateMgr::HasSkillState(unsigned int nID)
+inline bool CChaStateMgr::HasSkillState( unsigned int nID ) 		
 {
-  return nID < SKILL_STATE_MAXID && _sChaState[nID].chStateLv;
+	return nID<SKILL_STATE_MAXID && _sChaState[nID].chStateLv;
 }
+
+inline int CChaStateMgr::GetStateLv( unsigned int nID )		
+{
+	return HasSkillState( nID )	?_sChaState[nID].chStateLv:0;
+}
+
+inline CChaStateMgr::stChaState CChaStateMgr::GetStateData( unsigned int nID )		
+{
+	return _sChaState[nID];
+}
+

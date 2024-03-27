@@ -12,6 +12,44 @@
 #include "CaLua_guts.h"
 
 
+static char kconvDoubleToChar(double d)
+{
+	if (d <= CHAR_MAX)
+	{
+		return (char)d;
+	}
+	else
+	{
+		return (char)(d - 256.0);
+	}
+}
+
+static short kconvDoubleToShort(double d)
+{
+	if (d <= SHRT_MAX)
+	{
+		return (short)d;
+	}
+	else
+	{
+		return (short)(d - 65536.0);
+	}
+}
+
+static int kconvDoubleToInt(double d)
+{
+	if (d <= INT_MAX)
+	{
+		return (int)d;
+	}
+	else
+	{
+		return (int)(d - 4294967296.0);
+	}
+}
+
+
+
 //\\ Pops values off the Lua stack, from a table, and returns a void pointer
 //\\ to a structure that looks like the data structure of the registered function
 void* PopRegTable(int regStruct)
@@ -45,17 +83,17 @@ void* PopRegTable(int regStruct)
 		case CLU_CHAR :
 			{
 				dPointers[i] = CLU_Calloc(sizeof(char));
-				*(char*)dPointers[i] = (char)lua_tonumber(virtualMachine, -1);
+				*(char*)dPointers[i] = kconvDoubleToChar(lua_tonumber(virtualMachine, -1));
 			}break;
 		case CLU_SHORT :
 			{
 				dPointers[i] = CLU_Calloc(sizeof(short));
-				*(short*)dPointers[i] = (short)lua_tonumber(virtualMachine, -1);
+				*(short*)dPointers[i] = kconvDoubleToShort(lua_tonumber(virtualMachine, -1));
 			}break;
 		case CLU_INT :
 			{
 				dPointers[i] = CLU_Calloc(sizeof(int));
-				*(int*)dPointers[i] = (int)lua_tonumber(virtualMachine, -1);
+				*(int*)dPointers[i] = kconvDoubleToInt(lua_tonumber(virtualMachine, -1));
 			}break;
 		case CLU_FLOAT :
 			{
@@ -323,7 +361,6 @@ int PushStructure(int regStruct, void* data)
 return(0);
 }
 
-
 //\\ A real mess that I wanted to rip out of PrepareStack...
 //\\ Basically a chunk of code that looks at every possible case
 //\\ that could come up when converting Lua data types to C data types
@@ -343,7 +380,7 @@ void* ConvertLuaStackData(int pos, int cType, int* size)
 			{
 				case LUA_TNUMBER :						//Most likely a number between 0 and 256
 				{
-					*(char*)ret = (char)lua_tonumber(virtualMachine, pos);
+					*(char*)ret = kconvDoubleToChar(lua_tonumber(virtualMachine, pos));
 				}
 				break;
 				case LUA_TBOOLEAN :						//Just a 1 or a zero
@@ -377,7 +414,7 @@ void* ConvertLuaStackData(int pos, int cType, int* size)
 			{
 				case LUA_TNUMBER :						//Makes perfect sense
 				{
-					*(short*)ret = (short)lua_tonumber(virtualMachine, pos);
+					*(short*)ret = kconvDoubleToShort(lua_tonumber(virtualMachine, pos));
 				}
 				break;
 				case LUA_TBOOLEAN :						//Just a 1 or a zero
@@ -407,7 +444,7 @@ void* ConvertLuaStackData(int pos, int cType, int* size)
 			{
 				case LUA_TNUMBER :						//Makes perfect sense
 				{
-					*(int*)ret = (int)lua_tonumber(virtualMachine, pos);
+					*(int*)ret = kconvDoubleToInt(lua_tonumber(virtualMachine, pos));
 				}
 				break;
 				case LUA_TBOOLEAN :						//Just a 1 or a zero

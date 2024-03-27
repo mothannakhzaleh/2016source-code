@@ -86,7 +86,7 @@ CBoolSet& CChaStateMgr::Synchro(stSkillState* pState, int nCount)
 	{
 	  pChaState->IsDel	   = false;
 	  pChaState->chStateLv = pState[i].chLv;
-
+	  pChaState->lTimeRemaining = pState[i].lTimeRemaining;
 	  if(!IsExist[nID])
 	  {
 		IsExist[nID] = true;

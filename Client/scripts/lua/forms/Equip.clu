@@ -965,3 +965,10 @@ edtID = UI_CreateCompent( frmRumGet, EDIT_TYPE, "edtID", 158, 12, 24, 40 )
 UI_SetTextColor( edtID, COLOR_BLACK )
 UI_SetEditMaxNum( edtID, 18 )-- 设置输入框最大输入字数,单位:byte
 UI_SetEditMaxNumVisible( edtID, 9 )-- 设置输入框最大输入字数,单位:byte
+
+
+stateDrags = UI_CreateForm( "stateDrags", FALSE, 250, 120, 0, 160, TRUE, FALSE )	--198, 394
+UI_ShowForm( stateDrags, FALSE )
+UI_AddFormToTemplete( stateDrags, 1 )
+UI_SetIsDrag( stateDrags, TRUE )
+UI_FormSetIsEscClose( stateDrags, FALSE )

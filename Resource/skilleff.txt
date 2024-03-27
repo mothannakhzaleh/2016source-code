@@ -1,280 +1,235 @@
-//ID	Name	Activation Interval	Transfer Persists Duration	Use Effect Script	Remove Effect Script	Can it be Manually Cancelled?	Can Move?	Can use Skill?	Can use Normal Attack?	Can Trade?	Can use Items?	Can Attack?	Can be Attacked?	Can be Item Target?	Can be Skill Target?	Can be Invisible?	Can be Seen as Yourself?	Can use Inventory?	Can Talk to NPC?	Remove Effect ID	Screen Effect	Client Performance	Client Display ID	Ground Status Effect	Center Display	Knock out Display	Special Effect of Recipe	Dummy 1	Display Effect When Attacked With?	Dummy 2
-1	#T_SKILLEFF_TXT_1#	1	State_Rs_Tran	State_Rs_Add	State_Rs_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	112	0	0	115	2	0	0
-2	#T_SKILLEFF_TXT_2#	3	State_Hfwq_Tran	State_Hfwq_Add	State_Hfwq_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	268	1	0	166	-1	0	0
-3	#T_SKILLEFF_TXT_3#	-1	State_Zzzh_Tran	State_Zzzh_Add	State_Zzzh_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	158	-1	0	0
-4	#T_SKILLEFF_TXT_4#	1	State_Zd_Tran	State_Zd_Add	State_Zd_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	250	2	0	0
-5	#T_SKILLEFF_TXT_5#	-1	State_Sdbz_Tran	State_Sdbz_Add	State_Sdbz_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	173	0	0	174	-1	0	0
-6	#T_SKILLEFF_TXT_6#	-1	State_Syzy_Tran	0	0	1	0	1	1	1	1	1	1	1	1	1	0	1	1	0	0	0	-1	176	1	0	0	-1	0	0
-7	#T_SKILLEFF_TXT_7#	-1	State_Synz_Tran	State_Synz_Add	State_Synz_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	240	-1	0	0
-8	#T_SKILLEFF_TXT_8#	-1	0	State_Abhl_Add	State_Abhl_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	306	1	0	0
-9	#T_SKILLEFF_TXT_9#	2	State_Larea_Tran	State_Larea_Add	State_Larea_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	7	292	0	0	0	0	0	0
-10	#T_SKILLEFF_TXT_10#	2	State_Warea_Tran	State_Warea_Add	State_Warea_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	8	293	0	0	0	0	0	0
-11	#T_SKILLEFF_TXT_11#	2	State_Farea_Tran	State_Farea_Add	State_Farea_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	5	291	0	0	0	0	0	0
-12	#T_SKILLEFF_TXT_12#	-1	State_Xw_Tran	State_Xw_Add	State_Xw_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	280	1	0	0	0	0	0
-13	#T_SKILLEFF_TXT_13#	-1	State_Mw_Tran	State_Mw_Add	State_Mw_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	283	1	0	0	0	0	0
-14	#T_SKILLEFF_TXT_14#	2	State_Lm_Tran	State_Lm_Add	State_Lm_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	290	1	0	0	0	0	0
-15	#T_SKILLEFF_TXT_15#	-1	0	State_Chf_Add	State_Chf_Rem	4	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-16	#T_SKILLEFF_TXT_16#	1	0	State_Slzb_Add	State_Slzb_Rem	1	0	0	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	302	-1	0	0
-17	#T_SKILLEFF_TXT_17#	-1	0	State_PKMNYS_Add	State_PKMNYS_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-18	#T_SKILLEFF_TXT_18#	-1	0	0	0	1	0	0	0	0	0	0	1	1	1	1	1	0	0	0	0	0	-1	0	0	0	0	0	0	0
-19	#T_SKILLEFF_TXT_19#	-1	0	State_PKZDYS_Add	State_PKZDYS_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-20	#T_SKILLEFF_TXT_20#	-1	0	State_PKKBYS_Add	State_PKKBYS_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-21	#T_SKILLEFF_TXT_21#	-1	0	State_Dpsl_Add	State_Dpsl_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	0	0	0
-22	#T_SKILLEFF_TXT_22#	-1	0	State_Hx_Add	State_Hx_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	295	-1	0	0
-23	#T_SKILLEFF_TXT_23#	-1	0	State_Jjsl_Add	State_Jjsl_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	0	0	0
-24	#T_SKILLEFF_TXT_24#	-1	0	State_Kb_Add	State_Kb_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	118	1	0	0
-25	#T_SKILLEFF_TXT_25#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	8	0	0	0	198	2	0	0
-26	#T_SKILLEFF_TXT_26#	2	0	State_XX_Add	0	1	0	1	0	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	178	1	0	0
-27	#T_SKILLEFF_TXT_27#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	178	-1	0	0
-28	#T_SKILLEFF_TXT_28#	-1	0	State_Clxz_Add	State_Clxz_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-29	#T_SKILLEFF_TXT_29#	-1	0	State_Fzlz_Add	State_Fzlz_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	207	1	0	0
-30	#T_SKILLEFF_TXT_30#	-1	0	State_Gjsl_Add	State_Gjsl_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-31	#T_SKILLEFF_TXT_31#	-1	0	State_Hys_Add	State_Hys_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-32	#T_SKILLEFF_TXT_32#	-1	0	State_Lbhl_Add	State_Lbhl_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	0	0	0
-33	#T_SKILLEFF_TXT_33#	-1	0	State_Jsfb_Add	State_Jsfb_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	208	1	0	0
-34	#T_SKILLEFF_TXT_34#	-1	0	State_Jfz_Add	State_Jfz_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-35	#T_SKILLEFF_TXT_35#	-1	0	State_Qxyj_Add	State_Qxyj_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-36	#T_SKILLEFF_TXT_36#	-1	0	State_Shtz_Add	State_Shtz_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-37	#T_SKILLEFF_TXT_37#	-1	0	State_Tshd_Add	State_Tshd_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	161	1	0	0
-38	#T_SKILLEFF_TXT_38#	-1	0	State_Tsqy_Add	State_Tsqy_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	166	-1	0	0
-39	#T_SKILLEFF_TXT_39#	-1	0	State_Tj_Add	State_Tj_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	143	1	0	0
-40	#T_SKILLEFF_TXT_40#	-1	0	State_Xlzh_Add	State_Xlzh_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	206	1	0	0
-41	#T_SKILLEFF_TXT_41#	-1	0	State_PKJSYS_Add	State_PKJSYS_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-42	#T_SKILLEFF_TXT_42#	-1	0	State_PKSFYS_Add	State_PKSFYS_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-43	#T_SKILLEFF_TXT_43#	5	0	State_Ys_Add	0	1	1	1	1	1	1	1	1	1	1	0	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-44	#T_SKILLEFF_TXT_44#	-1	0	State_PKJZYS_Add	State_PKJZYS_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-45	#T_SKILLEFF_TXT_45#	-1	0	State_Xy_Add	State_Xy_Rem	2	0	0	0	0	0	0	1	1	1	1	1	1	0	0	0	0	-1	0	0	1	253	1	0	0
-46	#T_SKILLEFF_TXT_46#	-1	0	State_Mb_Add	State_Mb_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	271	2	0	0
-47	#T_SKILLEFF_TXT_47#	-1	0	State_PKWd_Add	State_PKWd_Rem	1	0	1	1	1	1	1	0	0	0	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-48	#T_SKILLEFF_TXT_48#	-1	0	0	State_SBJYGZ_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-49	#T_SKILLEFF_TXT_49#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-50	#T_SKILLEFF_TXT_50#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	343	-1	0	0
-51	#T_SKILLEFF_TXT_51#	-1	0	State_Bshd_Add	State_Bshd_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	135	-1	0	0
-52	#T_SKILLEFF_TXT_52#	1	0	State_BHLHP_Add	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-53	#T_SKILLEFF_TXT_53#	-1	0	State_Hqsl_Add	State_Hqsl_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-54	#T_SKILLEFF_TXT_54#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-55	#T_SKILLEFF_TXT_55#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	178	1	0	0
-56	#T_SKILLEFF_TXT_56#	-1	0	State_Sy_Add	State_Sy_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-57	#T_SKILLEFF_TXT_57#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	178	1	0	0
-58	#T_SKILLEFF_TXT_58#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	178	1	0	0
-59	#T_SKILLEFF_TXT_59#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	152	9	0	0
-60	#T_SKILLEFF_TXT_60#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	154	-1	0	0
-61	#T_SKILLEFF_TXT_61#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	163	-1	0	0
-62	#T_SKILLEFF_TXT_62#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	169	-1	0	0
-63	#T_SKILLEFF_TXT_63#	-1	0	State_PKDYK_Add	State_PKDYK_Rem	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-64	#T_SKILLEFF_TXT_64#	-1	0	State_PKLC_Add	State_PKLC_Rem	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-65	#T_SKILLEFF_TXT_65#	2	0	State_TK_Add	0	1	0	1	1	0	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	180	1	0	0
-66	#T_SKILLEFF_TXT_66#	-1	0	State_Clcy_Add	State_Clcy_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	0	0	0
-67	#T_SKILLEFF_TXT_67#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	178	1	0	0
-68	#T_SKILLEFF_TXT_68#	-1	0	State_Sj_Add	State_Sj_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	259	1	0	0
-69	#T_SKILLEFF_TXT_69#	-1	0	State_Jssl_Add	State_Jssl_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	0	0	0
-70	#T_SKILLEFF_TXT_70#	-1	0	State_Gtyz_Add	State_Gtyz_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	301	1	0	0
-71	#T_SKILLEFF_TXT_71#	-1	0	State_Qhtz_Add	State_Qhtz_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	0	0	0
-72	#T_SKILLEFF_TXT_72#	-1	0	State_Lqhb_Add	State_Lqhb_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	0	0	0
-73	#T_SKILLEFF_TXT_73#	-1	0	State_Jdzz_Add	State_Jdzz_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	0	0	0
-74	#T_SKILLEFF_TXT_74#	-1	0	State_Mnrx_Add	State_Mnrx_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	0	0	0
-75	#T_SKILLEFF_TXT_75#	-1	0	State_Hys_Add	State_Hys_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	0	0	0
-76	#T_SKILLEFF_TXT_76#	-1	0	State_Pxkg_Add	State_Pxkg_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	0	0	0
-77	#T_SKILLEFF_TXT_77#	-1	0	State_Tzhf_Add	State_Tzhf_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	0	0	0
-78	#T_SKILLEFF_TXT_78#	-1	0	State_Jfb_Add	State_Jfb_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	0	0	0
-79	#T_SKILLEFF_TXT_79#	-1	0	State_Yy_Add	State_Yy_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	214	-1	0	0
-80	#T_SKILLEFF_TXT_80#	-1	0	State_Jsjc_Add	State_Jsjc_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	0	0	0
-81	#T_SKILLEFF_TXT_81#	-1	0	State_Bdj_Add	State_Bdj_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	297	-1	0	0
-82	#T_SKILLEFF_TXT_82#	-1	0	State_Lrwz_Add	State_Lrwz_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	0	0	0
-83	#T_SKILLEFF_TXT_83#	-1	0	0	0	1	1	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	211	-1	0	0
-84	#T_SKILLEFF_TXT_84#	-1	0	State_Fsz_Add	State_Fsz_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	0	0	0
-85	#T_SKILLEFF_TXT_85#	-1	0	0	0	4	0	0	0	0	1	0	1	1	1	1	1	1	0	0	0	0	-1	0	0	0	0	0	0	0
-86	#T_SKILLEFF_TXT_86#	-1	0	0	0	2	0	0	0	0	0	0	0	0	0	1	1	1	1	0	0	11	-1	0	0	1	274	-1	0	0
-87	#T_SKILLEFF_TXT_87#	3	0	State_Hzcr_Add	State_Hzcr_Rem	2	0	0	0	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	277	0	0	0	0	0	0
-88	#T_SKILLEFF_TXT_88#	-1	0	State_Sf_Add	State_Sf_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	287	-1	0	0
-89	#T_SKILLEFF_TXT_89#	-1	0	State_Pj_Add	State_Pj_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	306	1	0	0
-90	#T_SKILLEFF_TXT_90#	-1	0	State_Fnq_Add	State_Fnq_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	302	-1	0	0
-91	#T_SKILLEFF_TXT_91#	2	State_Dj_Tran	State_Dj_Add	State_Dj_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	250	1	0	0
-92	#T_SKILLEFF_TXT_92#	-1	0	State_Shpf_Add	State_Shpf_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	301	1	0	0
-93	#T_SKILLEFF_TXT_93#	1	0	State_Xn_Add	State_Xn_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	321	-1	0	0
-94	#T_SKILLEFF_TXT_94#	-1	0	State_Nt_Add	State_Nt_Rem	1	0	1	0	0	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	324	-1	0	0
-95	#T_SKILLEFF_TXT_95#	-1	State_DiZ_Tran	State_DiZ_Add	State_DiZ_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	253	1	0	0
-96	#T_SKILLEFF_TXT_96#	-1	0	State_Biw_Add	State_Biw_Rem	2	0	0	0	0	0	0	0	0	0	1	1	1	1	0	0	0	-1	0	0	0	329	2	0	0
-97	#T_SKILLEFF_TXT_97#	3	0	State_MCK_Add	State_MCK_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-98	#T_SKILLEFF_TXT_98#	-1	0	State_Swcx_Add	State_Swcx_Rem	2	0	0	0	0	0	0	1	1	1	1	1	1	1	0	0	0	-1	0	0	1	319	-1	0	0
-99	#T_SKILLEFF_TXT_99#	-1	0	0	0	4	1	0	0	0	0	0	1	0	1	1	1	1	0	0	0	0	-1	0	0	0	0	-1	0	0
-100	#T_SKILLEFF_TXT_100#	-1	0	0	0	4	1	0	0	0	0	0	1	0	1	1	1	1	0	0	0	0	-1	0	0	0	0	-1	0	0
-101	#T_SKILLEFF_TXT_101#	-1	0	0	0	4	1	0	0	0	0	0	1	0	1	1	1	1	0	0	0	0	-1	0	0	0	0	-1	0	0
-102	#T_SKILLEFF_TXT_102#	-1	0	State_YSLLQH_Add	State_YSLLQH_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-103	#T_SKILLEFF_TXT_103#	-1	0	State_YSMJQH_Add	State_YSMJQH_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-104	#T_SKILLEFF_TXT_104#	-1	0	State_YSLQQH_Add	State_YSLQQH_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-105	#T_SKILLEFF_TXT_105#	-1	0	State_YSTZQH_Add	State_YSTZQH_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-106	#T_SKILLEFF_TXT_106#	-1	0	State_YSJSQH_Add	State_YSJSQH_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-107	#T_SKILLEFF_TXT_107#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-108	#T_SKILLEFF_TXT_108#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-109	#T_SKILLEFF_TXT_109#	-1	0	State_DengLong_Add	State_DengLong_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	360	1	0	0
-110	#T_SKILLEFF_TXT_110#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	504	25	0	0
-111	#T_SKILLEFF_TXT_111#	3	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-112	#T_SKILLEFF_TXT_112#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-113	#T_SKILLEFF_TXT_113#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-114	#T_SKILLEFF_TXT_114#	3	0	State_JSDD_Add	State_JSDD_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	250	1	0	0
-115	#T_SKILLEFF_TXT_115#	-1	0	State_HYMH_Add	State_HYMH_Rem	3	0	0	0	0	0	0	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	807	1	0	0
-116	#T_SKILLEFF_TXT_116#	-1	0	State_HLKJ_Add	State_HLKJ_Rem	1	0	0	0	0	0	0	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	319	-1	0	0
-117	#T_SKILLEFF_TXT_117#	-1	0	State_HLLM_Add	State_HLLM_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	158	-1	0	0
-118	#T_SKILLEFF_TXT_118#	-1	0	State_CRXSF_Add	State_CRXSF_Rem	3	0	0	0	0	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	378	-1	0	0
-119	#T_SKILLEFF_TXT_119#	-1	0	State_MarchElf_Add	State_MarchElf_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	505	-1	0	0
-120	#T_SKILLEFF_TXT_120#	-1	0	State_YSMspd_Add	State_YSMspd_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-121	#T_SKILLEFF_TXT_121#	-1	0	State_YSBoatMspd_Add	State_YSBoatMspd_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-122	#T_SKILLEFF_TXT_122#	-1	0	State_YSBoatDEF_Add	State_YSBoatDEF_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-123	#T_SKILLEFF_TXT_123#	-1	0	0	0	4	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-124	#T_SKILLEFF_TXT_124#	-1	0	State_PKSBYS_Add	State_PKSBYS_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-125	#T_SKILLEFF_TXT_125#	-1	0	State_BlackHx_Add	State_BlackHx_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	894	-1	0	0
-126	#T_SKILLEFF_TXT_126#	-1	0	State_BlackLj_Add	State_BlackLj_Rem	1	0	0	0	0	0	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	887	-1	0	0
-127	#T_SKILLEFF_TXT_127#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-128	#T_SKILLEFF_TXT_128#	-1	0	State_KUANGZ_Add	State_KUANGZ_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-129	#T_SKILLEFF_TXT_129#	-1	0	State_QUANS_Add	State_QUANS_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-130	#T_SKILLEFF_TXT_130#	-1	0	State_QINGZ_Add	State_QINGZ_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-131	#T_SKILLEFF_TXT_131#	1	0	State_JLDS_Add	State_JLDS_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	250	1	0	0
-132	#T_SKILLEFF_TXT_132#	-1	0	State_JLFT_Add	State_JLFT_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	527	-1	0	0
-133	#T_SKILLEFF_TXT_133#	-1	0	State_CJBBT_Add	State_CJBBT_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-134	#T_SKILLEFF_TXT_134#	-1	0	State_JRQKL_Add	State_JRQKL_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-135	#T_SKILLEFF_TXT_135#	1	0	State_wlrsd_Add	State_wlrsd_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-136	#T_SKILLEFF_TXT_136#	-1	0	State_wljs_Add	State_wljs_Rem	1	0	1	1	1	0	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	922	-1	0	0
-137	#T_SKILLEFF_TXT_137#	-1	State_wlxw_Tran	State_wlxw_Add	State_wlxw_Rem	1	0	1	1	1	0	1	1	1	1	1	1	1	1	0	0	0	-1	280	1	0	0	0	0	0
-138	#T_SKILLEFF_TXT_138#	3	0	State_klcs_Add	State_klcs_Rem	1	0	0	1	1	0	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	921	-1	0	0
-139	#T_SKILLEFF_TXT_139#	-1	0	State_klhd_Add	State_klhd_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	912	-1	0	0
-140	#T_SKILLEFF_TXT_140#	-1	0	State_wlcx_Add	State_wlcx_Rem	1	0	1	1	1	0	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	926	-1	0	0
-141	#T_SKILLEFF_TXT_141#	1	0	State_wlcx_Add	State_wlcx_Rem	1	0	1	1	1	0	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	920	1	0	0
-142	#T_SKILLEFF_TXT_142#	1	0	State_wldb_Add	State_wldb_Rem	1	0	1	1	1	0	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	920	1	0	0
-143	#T_SKILLEFF_TXT_143#	-1	0	State_wljy_Add	State_wljy_Rem	1	0	0	0	0	0	0	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	253	1	0	0
-144	#T_SKILLEFF_TXT_144#	-1	State_Xw_Tran	State_Xw_Add	State_Xw_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	280	1	0	0	0	0	0
-145	#T_SKILLEFF_TXT_145#	1	State_ywgj_Tran	State_ywgj_Add	State_ywgj_Rem	1	0	1	1	1	0	1	1	1	1	1	1	1	1	0	0	0	-1	293	0	0	0	-1	0	0
-146	#T_SKILLEFF_TXT_146#	-1	0	State_wlnh_Add	State_wlnh_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-147	#T_SKILLEFF_TXT_147#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-148	#T_SKILLEFF_TXT_148#	-1	0	State_jltx1_Add	State_jltx1_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	830	1	0	0
-149	#T_SKILLEFF_TXT_149#	-1	0	State_jltx2_Add	State_jltx2_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	831	1	0	0
-150	#T_SKILLEFF_TXT_150#	-1	0	State_jltx3_Add	State_jltx3_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	832	1	0	0
-151	#T_SKILLEFF_TXT_151#	-1	0	State_jltx4_Add	State_jltx4_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	833	1	0	0
-152	#T_SKILLEFF_TXT_152#	-1	0	State_jltx5_Add	State_jltx5_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	834	1	0	0
-153	#T_SKILLEFF_TXT_153#	-1	0	State_jltx6_Add	State_jltx6_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	835	1	0	0
-154	#T_SKILLEFF_TXT_154#	-1	0	State_jltx7_Add	State_jltx7_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	836	1	0	0
-155	#T_SKILLEFF_TXT_155#	-1	0	State_jltx8_Add	State_jltx8_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	837	1	0	0
-156	#T_SKILLEFF_TXT_156#	-1	0	State_CZZX_Add	State_CZZX_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-157	#T_SKILLEFF_TXT_157#	-1	0	State_KALA_Add	State_KALA_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-158	#T_SKILLEFF_TXT_158#	2	0	State_5MBS_Add	State_5MBS_Rem	1	0	1	1	1	0	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-159	#T_SKILLEFF_TXT_159#	-1	0	State_ShanGD_Add	State_ShanGD_Rem	1	0	0	0	0	0	0	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	253	1	0	0
-160	#T_SKILLEFF_TXT_160#	1	State_FuShe_Tran	State_FuShe_Add	State_FuShe_Rem	1	0	1	1	1	0	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	920	1	0	0
-161	#T_SKILLEFF_TXT_161#	-1	0	State_PengSheQi_Add	State_PengSheQi_Rem	1	0	1	1	1	0	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	222	-1	0	0
-162	#T_SKILLEFF_TXT_162#	-1	0	State_PoRenDan_Add	State_PoRenDan_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	306	-1	0	0
-163	#T_SKILLEFF_TXT_163#	1	0	State_RanShaoDan_Add	State_RanShaoDan_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-164	#T_SKILLEFF_TXT_164#	-1	0	State_czjs_Add	State_czjs_Rem	1	0	1	1	1	0	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	922	-1	0	0
-165	#T_SKILLEFF_TXT_165#	-1	0	State_XUEYU_Add	State_XUEYU_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-166	#T_SKILLEFF_TXT_166#	-1	0	State_MANTOU_Add	State_MANTOU_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-167	#T_SKILLEFF_TXT_167#	-1	0	State_NVER_Add	State_NVER_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-168	#T_SKILLEFF_TXT_168#	-1	0	State_JLFT_Add	State_JLFT_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	528	-1	0	0
-169	#T_SKILLEFF_TXT_169#	-1	0	State_JLFT_Add	State_JLFT_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	529	-1	0	0
-170	#T_SKILLEFF_TXT_170#	-1	0	State_JLFT_Add	State_JLFT_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	530	-1	0	0
-171	#T_SKILLEFF_TXT_171#	-1	0	State_JLFT_Add	State_JLFT_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	531	-1	0	0
-172	#T_SKILLEFF_TXT_172#	-1	0	State_JLFT_Add	State_JLFT_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	532	-1	0	0
-173	#T_SKILLEFF_TXT_173#	-1	0	State_JLFT_Add	State_JLFT_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	533	-1	0	0
-174	#T_SKILLEFF_TXT_174#	-1	0	State_JLFT_Add	State_JLFT_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	534	-1	0	0
-175	#T_SKILLEFF_TXT_175#	1	0	State_BHLZD_Add	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	8	0	0	0	198	2	0	0
-176	#T_SKILLEFF_TXT_176#	-1	0	State_FuShiZhiQiu_Add	State_FuShiZhiQiu_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	306	1	0	0
-177	#T_SKILLEFF_TXT_177#	1	State_ZaoYinZhiZao_Tran	State_ZaoYinZhiZao_Add	State_ZaoYinZhiZao_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	1	0	920	1	0	0
-178	#T_SKILLEFF_TXT_178#	-1	State_DiZhenFaSheng_Tran	State_DiZhenFaSheng_Add	State_DiZhenFaSheng_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	326	1	0	253	1	0	0
-179	#T_SKILLEFF_TXT_179#	-1	0	State_LianDan_Add	State_LianDan_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	271	-1	0	0
-180	#T_SKILLEFF_TXT_180#	-1	0	State_HuanYinFaSheng_Add	State_HuanYinFaSheng_Rem	1	0	1	1	1	1	1	0	0	0	1	1	1	1	0	0	0	-1	0	0	0	912	-1	0	0
-181	#T_SKILLEFF_TXT_181#	-1	0	State_ChuanZhiQianXing_Add	State_ChuanZhiQianXing_Rem	1	0	1	1	1	0	1	1	1	1	0	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-182	#T_SKILLEFF_TXT_182#	-1	State_LeiDa_Tran	State_LeiDa_Add	State_LeiDa_Rem	1	0	1	1	1	1	1	1	1	1	1	0	1	1	0	0	0	-1	176	1	0	0	-1	0	0
-183	#T_SKILLEFF_TXT_183#	1	0	State_FuShiDan_Add	State_FuShiDan_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	250	-1	0	0
-184	#T_SKILLEFF_TXT_184#	1	State_Slrs_Tran	State_Slrs_Add	State_Slrs_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	115	2	0	0
-185	#T_SKILLEFF_TXT_185#	1	State_Myrs_Tran	State_Myrs_Add	State_Myrs_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	115	2	0	0
-186	#T_SKILLEFF_TXT_186#	-1	0	State_JST_Add	State_JST_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	297	-1	0	0
-187	#T_SKILLEFF_TXT_187#	1	0	State_HFZQ_Add	State_HFZQ_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	166	-1	0	0
-188	#T_SKILLEFF_TXT_188#	1	0	State_EmoYuYan_Add	State_EmoYuYan_Rem	1	0	1	1	1	0	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	936	-1	0	0
-189	#T_SKILLEFF_TXT_189#	3	State_XYSYF_Tran	State_XYSYF_Add	State_XYSYF_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	937	1	0	131	-1	0	0
-190	#T_SKILLEFF_TXT_190#	-1	0	State_JHKML_Add	State_JHKML_Rem	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-191	#T_SKILLEFF_TXT_191#	-1	0	State_BDH_Add	State_BDH_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	943	-1	0	0
-192	#T_SKILLEFF_TXT_192#	-1	0	State_Gbhl_Add	State_Gbhl_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	161	0	0	0
-193	#T_SKILLEFF_TXT_193#	-1	0	State_BHLXY_Add	0	2	0	0	0	0	0	0	1	1	1	1	1	1	0	0	0	0	-1	0	0	1	253	1	0	0
-194	#T_SKILLEFF_TXT_194#	-1	0	State_DHZ_Add	State_DHZ_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	1	0	0
-195	#T_SKILLEFF_TXT_195#	-1	0	State_DSZ_Add	State_DSZ_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-196	#T_SKILLEFF_TXT_196#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-197	#T_SKILLEFF_TXT_197#	-1	0	State_Ilovedad_Add	State_Ilovedad_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	552	-1	0	0
-198	#T_SKILLEFF_TXT_198#	1	0	STATE_HPHMHF_Add	STATE_HPHMHF_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-199	#T_SKILLEFF_TXT_199#	1	0	STATE_SPHMHF_Add	STATE_SPHMHF_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-200	#T_SKILLEFF_TXT_200#	-1	0	State_BBRING1_Add	State_BBRING1_Rem	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	574	2	0	0
-201	#T_SKILLEFF_TXT_201#	-1	0	State_BBRING2_Add	State_BBRING2_Rem	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	576	2	0	0
-202	#T_SKILLEFF_TXT_202#	-1	0	State_BBRING3_Add	State_BBRING3_Rem	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	575	2	0	0
-203	#T_SKILLEFF_TXT_203#	-1	0	State_BBRING4_Add	State_BBRING4_Rem	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	573	2	0	0
-204	#T_SKILLEFF_TXT_204#	-1	0	State_BBRING5_Add	State_BBRING5_Rem	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	572	2	0	0
-205	#T_SKILLEFF_TXT_205#	-1	0	State_BBRING6_Add	State_BBRING6_Rem	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	577	2	0	0
-206	#T_SKILLEFF_TXT_206#	-1	0	State_lantern_Add	State_lantern_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	360	1	0	0
-207	#T_SKILLEFF_TXT_207#	-1	0	State_rapiddrug_Add	State_rapiddrug_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-208	#T_SKILLEFF_TXT_208#	-1	0	State_warsit_Add	State_warsit_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-209	#T_SKILLEFF_TXT_209#	-1	0	State_darkdress_Add	State_darkdress_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-210	#T_SKILLEFF_TXT_210#	-1	0	State_DEMON_Add	State_DEMON_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-211	#T_SKILLEFF_TXT_211#	-1	0	State_GREATSH_Add	State_GREATSH_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-212	#T_SKILLEFF_TXT_212#	-1	0	State_MIRAGE_Add	State_MIRAGE_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-213	#T_SKILLEFF_TXT_213#	-1	0	State_DEVOTE_Add	State_DEVOTE_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-214	#T_SKILLEFF_TXT_214#	-1	0	State_VIGOUR_Add	State_VIGOUR_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-215	#T_SKILLEFF_TXT_215#	-1	0	State_SHIPDRIVE_Add	State_SHIPDRIVE_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-216	#T_SKILLEFF_TXT_216#	-1	0	State_SHIPRECOVER_Add	State_SHIPRECOVER_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-217	#T_SKILLEFF_TXT_217#	-1	0	0	0	3	1	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-218	#T_SKILLEFF_TXT_218#	-1	0	STATE_XZDLL_Add	STATE_XZDLL_Rem	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	578	2	0	0
-219	#T_SKILLEFF_TXT_219#	-1	0	State_XTMFS_Add	State_XTMFS_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-220	#T_SKILLEFF_TXT_220#	-1	0	State_MWMXJ_Add	State_MWMXJ_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-221	#T_SKILLEFF_TXT_221#	-1	0	State_FFJGD_Add	State_FFJGD_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-222	#T_SKILLEFF_TXT_222#	-1	0	State_YSYS_Add	State_YSYS_Rem	1	0	1	1	1	1	1	1	1	1	0	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-223	#T_SKILLEFF_TXT_223#	-1	0	State_CD_Add	State_CD_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-224	#T_SKILLEFF_TXT_224#	-1	0	State_XLTX_Add	State_XLTX_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	319	-1	0	0
-225	#T_SKILLEFF_TXT_225#	3	0	State_XLZD_Add	0	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	0	0	0
-227	#T_SKILLEFF_TXT_227#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-228	#T_SKILLEFF_TXT_228#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-229	#T_SKILLEFF_TXT_229#	-1	0	0	0	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	583	-1	0	0
-230	#T_SKILLEFF_TXT_230#	-1	0	State_LEIPI_Add	0	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	270	-1	0	0
-231	#T_SKILLEFF_TXT_231#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	1	0	103	-1	0	0
-232	#T_SKILLEFF_TXT_232#	-1	0	0	State_CUSI_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	8	0	0	0	198	2	0	0
-233	#T_SKILLEFF_TXT_233#	1	State_ShaoKao_Tran	State_GANMAO_Add	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	112	0	0	115	2	0	0
-234	#T_SKILLEFF_TXT_234#	-1	0	STATE_ZBMAXHP_Add	STATE_ZBMAXHP_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-235	#T_SKILLEFF_TXT_235#	-1	0	STATE_ZBHP_Add	STATE_ZBHP_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-236	#T_SKILLEFF_TXT_236#	-1	0	STATE_ZBSP_Add	STATE_ZBSP_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-237	#T_SKILLEFF_TXT_237#	-1	0	STATE_ZBMOVE_Add	STATE_ZBMOVE_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-238	#T_SKILLEFF_TXT_238#	-1	0	State_JST_Add	State_JST_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-239	#T_SKILLEFF_TXT_239#	-1	0	STATE_QB_Add	STATE_QB_Rem	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	592	2	0	0
-240	#T_SKILLEFF_TXT_240#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	603	1	0	0
-241	#T_SKILLEFF_TXT_241#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	604	1	0	0
-242	#T_SKILLEFF_TXT_242#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	593	1	0	0
-243	#T_SKILLEFF_TXT_243#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	594	1	0	0
-244	#T_SKILLEFF_TXT_244#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	595	1	0	0
-245	#T_SKILLEFF_TXT_245#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	596	1	0	0
-246	#T_SKILLEFF_TXT_246#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	597	1	0	0
-247	#T_SKILLEFF_TXT_247#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	598	1	0	0
-248	#T_SKILLEFF_TXT_248#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	599	1	0	0
-249	#T_SKILLEFF_TXT_249#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	600	1	0	0
-250	#T_SKILLEFF_TXT_250#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	601	1	0	0
-251	#T_SKILLEFF_TXT_251#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	602	1	0	0
-252	#T_SKILLEFF_TXT_252#	-1	0	0	0	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	605	-1	0	0
-253	#T_SKILLEFF_TXT_253#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	607	1	0	0
-254	#T_SKILLEFF_TXT_254#	-1	0	State_EMZL_Add	State_EMZL_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-255	#T_SKILLEFF_TXT_255#	-1	0	State_KZS_Add	State_KZS_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	297	-1	0	0
-256	#T_SKILLEFF_TXT_256#	-1	0	State_YFZZT_Add	State_YFZZT_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	297	-1	0	0
-257	#T_SKILLEFF_TXT_257#	-1	0	State_Jnmy_Add	State_Jnmy_Rem	1	0	1	1	1	1	1	0	0	0	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-258	#T_SKILLEFF_TXT_258#	-1	0	State_DYMX_Add	State_DYMX_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	118	1	0	0
-259	#T_SKILLEFF_TXT_259#	2	0	State_TKZY_Add	State_TKZY_Rem	1	0	1	1	1	1	0	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	936	-1	0	0
-260	#T_SKILLEFF_TXT_260#	-1	State_ZZZY_Tran	State_ZZZY_Add	State_ZZZY_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	112	0	0	210	2	0	0
-261	#T_SKILLEFF_TXT_261#	-1	State_XRZY_Tran	State_XRZY_Add	State_XRZY_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	241	-1	0	0
-262	#T_SKILLEFF_TXT_262#	-1	0	State_BSG_Add	State_BSG_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	0	0	0
-263	#T_SKILLEFF_TXT_263#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	573	2	0	0
-264	#T_SKILLEFF_TXT_264#	-1	0	State_GHZT1_Add	State_GHZT1_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	528	-1	0	0
-265	#T_SKILLEFF_TXT_265#	-1	0	State_GHZT2_Add	State_GHZT2_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	529	-1	0	0
-266	#T_SKILLEFF_TXT_266#	-1	0	State_GHZT3_Add	State_GHZT3_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	530	-1	0	0
-267	#T_SKILLEFF_TXT_267#	-1	0	State_GHZT4_Add	State_GHZT4_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	531	-1	0	0
-268	#T_SKILLEFF_TXT_268#	-1	0	State_GHZT5_Add	State_GHZT5_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	532	-1	0	0
-269	#T_SKILLEFF_TXT_269#	-1	0	State_GHZT6_Add	State_GHZT6_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	533	-1	0	0
-270	#T_SKILLEFF_TXT_270#	-1	0	State_GHZT7_Add	State_GHZT7_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	534	-1	0	0
-271	#T_SKILLEFF_TXT_271#	-1	0	State_GHZT8_Add	State_GHZT8_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-272	#T_SKILLEFF_TXT_272#	-1	0	State_GHZT9_Add	State_GHZT9_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-273	#T_SKILLEFF_TXT_273#	-1	0	State_GHZT10_Add	State_GHZT10_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0
-275	#T_SKILLEFF_TXT_275#	-1	0	State_VIPNecklace_Add	State_VIPNecklace_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	4022	1	0	0
-276	#T_SKILLEFF_TXT_276#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	4023	1	0	0
-277	#T_SKILLEFF_TXT_277#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	4024	1	0	0
-278	#T_SKILLEFF_TXT_278#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	4025	1	0	0
-279	#T_SKILLEFF_TXT_279#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	4026	1	0	0
-280	#T_SKILLEFF_TXT_280#	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	4027	1	0	0
-281	#T_SKILLEFF_TXT_281#	1	State_TH_Tran	State_TH_Add	State_TH_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	112	0	0	115	2	0	0
+//ID	Name	Activation Interval	Transfer Persists Duration	Use Effect Script	Remove Effect Script	Can it be Manually Cancelled?	Can Move?	Can use Skill?	Can use Normal Attack?	Can Trade?	Can use Items?	Can Attack?	Can be Attacked?	Can be Item Target?	Can be Skill Target?	Can be Invisible?	Can be Seen as Yourself?	Can use Inventory?	Can Talk to NPC?	Remove Effect ID	Screen Effect	Client Performance	Client Display ID	Ground Status Effect	Center Display	Knock out Display	Special Effect of Recipe	Dummy 1	Display Effect When Attacked With?	Dummy 2	ICON	szIcon	szdesc	lcolour
+1	Burn	1	State_Rs_Tran	State_Rs_Add	State_Rs_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	112	0	0	115	2	0	0	0	e0013,0,0,0,0,0,0,0,0,0	Inflicts Burn Damage	15218966
+2	Healing Spring	3	State_Hfwq_Tran	State_Hfwq_Add	State_Hfwq_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	268	1	0	166	-1	0	0	0	s0122,0,0,0,0,0,0,0,0,0	Heals Target Continuously	1566795
+3	Cursed Fire	-1	State_Zzzh_Tran	State_Zzzh_Add	State_Zzzh_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	158	-1	0	0	0	s0119,0,0,0,0,0,0,0,0,0	Decreases Defense	15218966
+4	Poisoned	1	State_Zd_Tran	State_Zd_Add	State_Zd_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	250	2	0	0	0	e0012,0,0,0,0,0,0,0,0,0	Inflicts Poison Damage	15218966
+5	Counterguard	-1	State_Sdbz_Tran	State_Sdbz_Add	State_Sdbz_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	173	0	0	174	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+6	True Sight	-1	State_Syzy_Tran	0	0	1	0	1	1	1	1	1	1	1	1	1	0	1	1	0	0	0	-1	176	1	0	0	-1	0	0	0	s0116,0,0,0,0,0,0,0,0,0	Reveals Stealth	15218966
+7	Abyss Mire	-1	State_Synz_Tran	State_Synz_Add	State_Synz_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	240	-1	0	0	0	s0121,0,0,0,0,0,0,0,0,0	Decreases Movement Speed	15218966
+9	Thunderstorm	2	State_Larea_Tran	State_Larea_Add	State_Larea_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	7	292	0	0	0	0	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+10	Fog	2	State_Warea_Tran	State_Warea_Add	State_Warea_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	8	293	0	0	0	0	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+11	Tornado	2	State_Farea_Tran	State_Farea_Add	State_Farea_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	5	291	0	0	0	0	0	0	0	s0213,0,0,0,0,0,0,0,0,0	Traps Target in the Air	15218966
+12	Whirlpool	-1	State_Xw_Tran	State_Xw_Add	State_Xw_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	280	1	0	0	0	0	0	0	s0218,0,0,0,0,0,0,0,0,0	Decreases Movement Speed of Ship	15218966
+13	Fog	-1	State_Mw_Tran	State_Mw_Add	State_Mw_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	283	1	0	0	0	0	0	0	s0219,0,0,0,0,0,0,0,0,0	Decreases Attack of Ship	15218966
+14	Lightning Curtain	2	State_Lm_Tran	State_Lm_Add	State_Lm_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	290	1	0	0	0	0	0	0	s0220,0,0,0,0,0,0,0,0,0	Inflicts Lightning Damage	15218966
+15	Taunt	-1	0	State_Chf_Add	State_Chf_Rem	4	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	s0128,0,0,0,0,0,0,0,0,0	Does Nothing	15218966
+16	Water Mine Self Destruct	1	0	State_Slzb_Add	State_Slzb_Rem	1	0	0	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	302	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+17	Bull Potion	-1	0	State_PKMNYS_Add	State_PKMNYS_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	n0290,0,0,0,0,0,0,0,0,0	Increases Max HP	1566795
+18	Hairstyling	-1	0	0	0	1	0	0	0	0	0	0	1	1	1	1	1	0	0	0	0	0	-1	0	0	0	0	0	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+19	Battle Potion	-1	0	State_PKZDYS_Add	State_PKZDYS_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	n0426,0,0,0,0,0,0,0,0,0	Increases Attack Power	1566795
+20	Berserk Potion	-1	0	State_PKKBYS_Add	State_PKKBYS_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	n0351,0,0,0,0,0,0,0,0,0	Increases Attack Speed	1566795
+21	Shield Mastery	-1	0	State_Dpsl_Add	State_Dpsl_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	0	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+22	Tiger Roar	-1	0	State_Hx_Add	State_Hx_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	295	-1	0	0	0	s0127,0,0,0,0,0,0,0,0,0	Decreases Attack and Movement Speed	15218966
+23	Spirit Power	-1	0	STATE_XZDLL_Add	STATE_XZDLL_Rem	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	578	2	0	0	0	0,0,0,0,0,0,0,0,0,0	0	15218966
+24	Berserk	-1	0	State_Kb_Add	State_Kb_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	118	1	0	0	0	s0084,0,0,0,0,0,0,0,0,0	Increases Attack Speed	1566795
+26	Skill Forbidden	-1	0	0	0	1	0	1	0	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	178	1	0	0	0	s0104,0,0,0,0,0,0,0,0,0	0 Prevent target from using skill	1566795
+27	Fatal Strike	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	178	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+28	Ranger	-1	0	State_Clxz_Add	State_Clxz_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+29	Tempest Boost	-1	0	State_Fzlz_Add	State_Fzlz_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	207	1	0	0	0	s0101,0,0,0,0,0,0,0,0,0	Increases Attack Speed and Movement Speed	1566795
+30	Archery Mastery	-1	0	State_Gjsl_Add	State_Gjsl_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+31	Evasion	-1	0	State_Hys_Add	State_Hys_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+33	Tornado Swirl	-1	0	State_Jsfb_Add	State_Jsfb_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	208	1	0	0	0	s0102,0,0,0,0,0,0,0,0,0	Increases Critical Hit Chance	1566795
+34	Tempest Slash	-1	0	State_Jfz_Add	State_Jfz_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+35	Gun Research	-1	0	State_Qxyj_Add	State_Qxyj_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+36	Beast Strength	-1	0	State_Shtz_Add	State_Shtz_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+37	Angelic Shield	-1	0	State_Tshd_Add	State_Tshd_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	161	1	0	0	0	s0103,0,0,0,0,0,0,0,0,0	Greatly Increases Defense	1566795
+38	Angel Blessing	-1	0	State_Tsqy_Add	State_Tsqy_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	166	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+39	Cripple	-1	0	State_Tj_Add	State_Tj_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	143	1	0	0	0	s0094,0,0,0,0,0,0,0,0,0	Decreases Movement Speed and Dodge	15218966
+40	Spiritual Fire	-1	0	State_Xlzh_Add	State_Xlzh_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	206	1	0	0	0	s0100,0,0,0,0,0,0,0,0,0	Increases Attack	1566795
+41	Energy Potion	-1	0	State_PKJSYS_Add	State_PKJSYS_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	q0027,0,0,0,0,0,0,0,0,0	Increases Spirit	1566795
+42	Harden Potion	-1	0	State_PKSFYS_Add	State_PKSFYS_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	n0133,0,0,0,0,0,0,0,0,0	Increases Defense	1566795
+43	Stealth	5	0	State_Ys_Add	0	1	1	1	1	1	1	1	1	1	1	0	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	s0123,0,0,0,0,0,0,0,0,0	Hides from Enemies	1566795
+44	Accurate Potion	-1	0	State_PKJZYS_Add	State_PKJZYS_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	n0293,0,0,0,0,0,0,0,0,0	Increases Hit Rate	1566795
+45	Shadow Slash	-1	0	State_Xy_Add	State_Xy_Rem	2	0	0	0	0	0	0	1	1	1	1	1	1	0	0	0	0	-1	0	0	1	253	1	0	0	0	s0086,0,0,0,0,0,0,0,0,0	Stuns Target	15218966
+46	Numb	-1	0	State_Mb_Add	State_Mb_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	271	2	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+47	Blessed Potion	-1	0	State_PKWd_Add	State_PKWd_Rem	1	0	1	1	1	1	1	0	0	0	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	q0033,0,0,0,0,0,0,0,0,0	Grants Invincibility	1566795
+48	EXP Bonus	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	n1396,n1396,n1396,n1397,0,0,0,0,0,0	Increases EXP Rate	1566795
+49	Drop Bonus	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	n1398,n1398,n1398,n1355,0,0,0,0,0,0	Increases Drop Rate	1566795
+50	Intense Magic	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	343	-1	0	0	0	s0225,0,0,0,0,0,0,0,0,0	Increases Magic Power	1566795
+51	Frost Shield	-1	0	State_Bshd_Add	State_Bshd_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	135	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+53	Firegun Mastery	-1	0	State_Hqsl_Add	State_Hqsl_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+54	Refined Gunpowder	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+55	Attack Weakness	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	178	1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+56	Divine Grace	-1	0	State_Sy_Add	State_Sy_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+57	Angel Blessing	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	178	1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+58	Benediction	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	178	1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+59	Inferno Wings	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	152	9	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+60	Holy Beam	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	154	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+61	Holy Heraldry	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	163	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+62	Ray of Luck	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	169	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+63	Ammunition Warehouse is empty	-1	0	State_PKDYK_Add	State_PKDYK_Rem	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+64	Granary empty	-1	0	State_PKLC_Add	State_PKLC_Rem	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+65	Attack forbidden	-1	0	0	0	1	0	1	1	0	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	180	1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+66	Traversing	-1	0	State_Clcy_Add	State_Clcy_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	0	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+67	Hit Rate Decrease	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	178	1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+68	Enfeeble	-1	0	State_Sj_Add	State_Sj_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	259	1	0	0	0	s0095,0,0,0,0,0,0,0,0,0	Decreases Attack and Stops Skills	15218966
+69	Sword Mastery	-1	0	State_Jssl_Add	State_Jssl_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	0	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+70	Will of Steel	-1	0	State_Gtyz_Add	State_Gtyz_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	301	1	0	0	0	s0063,0,0,0,0,0,0,0,0,0	Increases Defense	1566795
+71	Strengthen	-1	0	State_Qhtz_Add	State_Qhtz_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	0	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+72	Deftness	-1	0	State_Lqhb_Add	State_Lqhb_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	0	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+73	Shield Concentration	-1	0	State_Jdzz_Add	State_Jdzz_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	0	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+74	Blood Bull	-1	0	State_Mnrx_Add	State_Mnrx_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	0	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+75	Evasion	-1	0	State_Hys_Add	State_Hys_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	0	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+76	Blood Frenzy	-1	0	State_Pxkg_Add	State_Pxkg_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	0	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+77	Recuperate	-1	0	State_Tzhf_Add	State_Tzhf_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	0	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+78	Windwalk	-1	0	State_Jfb_Add	State_Jfb_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	0	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+79	Eagle's Eye	-1	0	State_Yy_Add	State_Yy_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	214	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+80	Vigor	-1	0	State_Jsjc_Add	State_Jsjc_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	0	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+81	Frozen Arrow	-1	0	State_Bdj_Add	State_Bdj_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	297	-1	0	0	0	s0093,0,0,0,0,0,0,0,0,0	Decreases Movement Speed	15218966
+82	Hunter Disguise	-1	0	State_Lrwz_Add	State_Lrwz_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	0	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+83	Energy Shield	-1	0	0	0	1	1	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	211	-1	0	0	0	s0106,0,0,0,0,0,0,0,0,0	Damage is inflicted to SP rather than HP	4379124
+84	Dual Hand Weapon Bonus	-1	0	State_Fsz_Add	State_Fsz_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	0	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+85	Trade Status	-1	0	0	0	4	0	0	0	0	1	0	1	1	1	1	1	1	0	0	0	0	-1	0	0	0	0	0	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+86	Tornado	-1	0	0	0	2	0	0	0	0	0	0	0	0	0	1	1	1	1	0	0	11	-1	0	0	1	274	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+87	Algae Entanglement	3	0	State_Hzcr_Add	State_Hzcr_Rem	2	0	0	0	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	277	0	0	0	0	0	0	0	s0215,0,0,0,0,0,0,0,0,0	Binds Target	15218966
+88	Tail Wind	-1	0	State_Sf_Add	State_Sf_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	287	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+89	Break Armor	-1	0	State_Pj_Add	State_Pj_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	306	1	0	0	0	s0222,0,0,0,0,0,0,0,0,0	Lowers Defense	15218966
+90	Rousing	-1	0	State_Fnq_Add	State_Fnq_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	302	-1	0	0	0	s0223,0,0,0,0,0,0,0,0,0	Increases Attack Speed	1566795
+91	Venom Arrow	2	State_Dj_Tran	State_Dj_Add	State_Dj_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	250	1	0	0	0	s0224,0,0,0,0,0,0,0,0,0	Inflicts Poison Damage	15218966
+92	Harden	-1	0	State_Shpf_Add	State_Shpf_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	301	1	0	0	0	s0225,0,0,0,0,0,0,0,0,0	Increases Defense	1566795
+93	Blood Fury	1	0	State_Xn_Add	State_Xn_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	321	-1	0	0	0	kissofthefrost,0,0,0,0,0,0,0,0,0	0	1566795
+94	Lair	-1	0	State_Nt_Add	State_Nt_Rem	1	0	1	0	0	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	324	-1	0	0	0	s0026,0,0,0,0,0,0,0,0,0	0	1566795
+95	Earthquake	-1	State_DiZ_Tran	State_DiZ_Add	State_DiZ_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	253	1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+96	Kiss of Frost	-1	0	State_Biw_Add	State_Biw_Rem	2	0	0	0	0	0	0	0	0	0	1	1	1	1	0	0	0	-1	0	0	0	329	2	0	0	0	kissofthefrost,0,0,0,0,0,0,0,0,0	Ice kiss	1566795
+97	Wood Bundle	3	0	State_MCK_Add	State_MCK_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+98	Death Shriek	-1	0	State_Swcx_Add	State_Swcx_Rem	2	0	0	0	0	0	0	1	1	1	1	1	1	1	0	0	0	-1	0	0	1	319	-1	0	0	0	s0056,0,0,0,0,0,0,0,0,0	0	1566795
+99	Set Stall	-1	0	0	0	4	1	0	0	0	0	0	1	0	1	1	1	1	0	0	0	0	-1	0	0	0	0	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+100	Repair	-1	0	0	0	4	1	0	0	0	0	0	1	0	1	1	1	1	0	0	0	0	-1	0	0	0	0	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+101	Forging	-1	0	0	0	4	1	0	0	0	0	0	1	0	1	1	1	1	0	0	0	0	-1	0	0	0	0	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+102	Strength Potion	-1	0	State_YSLLQH_Add	State_YSLLQH_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	n1196,0,0,0,0,0,0,0,0,0	0	1566795
+103	Agility Potion	-1	0	State_YSMJQH_Add	State_YSMJQH_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	n1192,0,0,0,0,0,0,0,0,0	0	1566795
+104	Accuracy Potion	-1	0	State_YSLQQH_Add	State_YSLQQH_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	n1193,0,0,0,0,0,0,0,0,0	0	1566795
+105	Constitution Potion	-1	0	State_YSTZQH_Add	State_YSTZQH_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	n1194,0,0,0,0,0,0,0,0,0	0	1566795
+106	Spirit Potion	-1	0	State_YSJSQH_Add	State_YSJSQH_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	n1195,0,0,0,0,0,0,0,0,0	0	1566795
+107	Forge Bonus	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	n1198,0,0,0,0,0,0,0,0,0	Increases Forging Success Rate	1566795
+108	Combine Bonus	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	n1199,0,0,0,0,0,0,0,0,0	Increases Combining Success Rate	1566795
+109	Lantern	-1	0	State_DengLong_Add	State_DengLong_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	360	1	0	0	0	n0848,0,0,0,0,0,0,0,0,0	Increases Defense	1566795
+110	Rose	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	504	25	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+111	Potions to recover HP	3	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+112	Wine 1	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+113	Wine 2	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+114	Corpse Poison	3	0	State_JSDD_Add	State_JSDD_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	250	1	0	0	0	s0018,0,0,0,0,0,0,0,0,0	Poison	1566795
+115	Fascinate	-1	0	State_HYMH_Add	State_HYMH_Rem	3	0	0	0	0	0	0	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	807	1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+116	Black Dragon Terror	-1	0	State_HLKJ_Add	State_HLKJ_Rem	1	0	0	0	0	0	0	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	319	-1	0	0	0	bdterror,0,0,0,0,0,0,0,0,0	0	15218966
+117	Black Dragon Roar	-1	0	State_HLLM_Add	State_HLLM_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	158	-1	0	0	0	bdroar,0,0,0,0,0,0,0,0,0	0	15218966
+118	Crab Binding	-1	0	State_CRXSF_Add	State_CRXSF_Rem	3	0	0	0	0	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	378	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+119	Fairy March	-1	0	State_MarchElf_Add	State_MarchElf_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	505	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+120	Skating Potion	-1	0	State_YSMspd_Add	State_YSMspd_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	n1390,0,0,0,0,0,0,0,0,0	Greatly Increases Movement Speed	1566795
+121	Potion ship speed modify	-1	0	State_YSBoatMspd_Add	State_YSBoatMspd_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+122	Potion ship defense modify	-1	0	State_YSBoatDEF_Add	State_YSBoatDEF_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+123	Spring Town Status	-1	0	0	0	4	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+124	Ether Clover	-1	0	State_PKSBYS_Add	State_PKSBYS_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+125	Black Dragon Roar	-1	0	State_BlackHx_Add	State_BlackHx_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	894	-1	0	0	0	bdroar,0,0,0,0,0,0,0,0,0	0	15218966
+126	Black Dragon Lightning Bolt	-1	0	State_BlackLj_Add	State_BlackLj_Rem	1	0	0	0	0	0	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	887	-1	0	0	0	bf0001,0,0,0,0,0,0,0,0,0	0	15218966
+127	Party EXP Bonus	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	n1405,0,0,0,0,0,0,0,0,0	Increases Party EXP Rate	1566795
+128	Battle Array	-1	0	State_KUANGZ_Add	State_KUANGZ_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	n1407,0,0,0,0,0,0,0,0,0	Greatly Increases Attack but Slightly Reduces Defense	1566795
+129	Full Body Armor	-1	0	State_QUANS_Add	State_QUANS_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	n1408,0,0,0,0,0,0,0,0,0	Greatly Increases Defense but Slightly Reduces Attack	1566795
+130	Weightless Potion	-1	0	State_QINGZ_Add	State_QINGZ_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	n1406,0,0,0,0,0,0,0,0,0	Greatly Increases Movement Speed but Slightly Reduces Defense	1566795
+131	Pet Poison Bite	1	0	State_JLDS_Add	State_JLDS_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	250	1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+132	Fairy Possession A	-1	0	State_JLFT_Add	State_JLFT_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	527	-1	0	0	0	s0234,0,0,0,0,0,0,0,0,0	Grants the Power of the Fairy	1566795
+133	Super Lollipop	-1	0	State_CJBBT_Add	State_CJBBT_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	n1475,0,0,0,0,0,0,0,0,0	Greatly Increases Strength	1566795
+134	Huge Chocolate	-1	0	State_JRQKL_Add	State_JRQKL_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	n1476,0,0,0,0,0,0,0,0,0	Greatly Increases Constitution	1566795
+135	Deathsoul Magma Bullet	1	0	State_wlrsd_Add	State_wlrsd_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+136	Deathsoul Acceleration	-1	0	State_wljs_Add	State_wljs_Rem	1	0	1	1	1	0	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	922	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+137	Deathsoul Whirlpool	-1	State_wlxw_Tran	State_wlxw_Add	State_wlxw_Rem	1	0	1	1	1	0	1	1	1	1	1	1	1	1	0	0	0	-1	280	1	0	0	0	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+138	Encumbered Skeleton	3	0	State_klcs_Add	State_klcs_Rem	1	0	0	1	1	0	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	921	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+139	Skeletar Shielding	-1	0	State_klhd_Add	State_klhd_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	912	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+140	Deathsoul Taunt	-1	0	State_wlcx_Add	State_wlcx_Rem	1	0	1	1	1	0	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	926	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+141	Cursed Blood	1	0	State_wlcx_Add	State_wlcx_Rem	1	0	1	1	1	0	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	920	1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+142	Deathsoul Poison Dart	1	0	State_wldb_Add	State_wldb_Rem	1	0	1	1	1	0	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	920	1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+143	Deathsoul Roquet	-1	0	State_wljy_Add	State_wljy_Rem	1	0	0	0	0	0	0	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	253	1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+144	Whirlpool	-1	State_Xw_Tran	State_Xw_Add	State_Xw_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	280	1	0	0	0	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+145	Cloud Attack	1	State_ywgj_Tran	State_ywgj_Add	State_ywgj_Rem	1	0	1	1	1	0	1	1	1	1	1	1	1	1	0	0	0	-1	293	0	0	0	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+146	Roar of Deathsoul	-1	0	State_wlnh_Add	State_wlnh_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+//147	Fairy EXP Bonus	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+147	Fairy EXP Bonus	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	n1483,0,0,0,0,0,0,0,0,0	Doubles Growth Rate of Fairy	1566795
+148	Skill - Defecate	-1	0	State_jltx1_Add	State_jltx1_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	830	1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+149	Skill - Undergarment	-1	0	State_jltx2_Add	State_jltx2_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	831	1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+150	Skill - Garment	-1	0	State_jltx3_Add	State_jltx3_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	832	1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+151	Skill - Coin Shower	-1	0	State_jltx4_Add	State_jltx4_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	833	1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+152	Skill - Fool	-1	0	State_jltx5_Add	State_jltx5_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	834	1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+153	Skill - Snooty	-1	0	State_jltx6_Add	State_jltx6_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	835	1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+154	Skill - Dumb	-1	0	State_jltx7_Add	State_jltx7_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	836	1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+155	Skill - Dumb	-1	0	State_jltx8_Add	State_jltx8_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	837	1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+156	Heart of Innocence	-1	0	State_CZZX_Add	State_CZZX_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+157	Kara's Victory	-1	0	State_KALA_Add	State_KALA_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+158	Sure-death	2	0	State_5MBS_Add	State_5MBS_Rem	1	0	1	1	1	0	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+159	Flash Bomb	-1	0	State_ShanGD_Add	State_ShanGD_Rem	1	0	0	0	0	0	0	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	253	1	0	0	0	n1695,0,0,0,0,0,0,0,0,0	Stuns Target	15218966
+160	Radiation	1	State_FuShe_Tran	State_FuShe_Add	State_FuShe_Rem	1	0	1	1	1	0	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	920	1	0	0	0	n1696,0,0,0,0,0,0,0,0,0	Inflicts Poison Damage	1566795
+161	Ship Atomizer	-1	0	State_PengSheQi_Add	State_PengSheQi_Rem	1	0	1	1	1	0	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	222	-1	0	0	0	n1707,0,0,0,0,0,0,0,0,0	Greatly Increases Ship Movement Speed	1566795
+162	Impaler	-1	0	State_PoRenDan_Add	State_PoRenDan_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	306	-1	0	0	0	n1709,0,0,0,0,0,0,0,0,0	Decreases Damage of Ship	15218966
+163	Ship Flamer	1	0	State_RanShaoDan_Add	State_RanShaoDan_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	n1710,0,0,0,0,0,0,0,0,0	Inflicts Burn Damage	15218966
+164	Ship Accelerator	-1	0	State_czjs_Add	State_czjs_Rem	1	0	1	1	1	0	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	922	-1	0	0	0	n1706,0,0,0,0,0,0,0,0,0	Increases Ship Movement Speed	1566795
+165	Cooking Potion HP	-1	0	State_XUEYU_Add	State_XUEYU_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	n1669,n1670,n1671,n1672,n1677,n1682,n1686,n1687,n1688,n1689	a	1566795
+166	Cooking Potion ATK	-1	0	State_MANTOU_Add	State_MANTOU_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	n1673,n1674,n1678,n1679,n1683,0,0,0,0,0	a	1566795
+167	Cooking Potion SPR	-1	0	State_NVER_Add	State_NVER_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	n1675,n1676,n1681,n1680,n1684,n1685,0,0,0,0	a	1566795
+168	Fairy Possession B	-1	0	State_JLFT_Add	State_JLFT_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	528	-1	0	0	0	s0234,0,0,0,0,0,0,0,0,0	Grants the Power of the Fairy	1566795
+169	Fairy Possession C	-1	0	State_JLFT_Add	State_JLFT_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	529	-1	0	0	0	s0234,0,0,0,0,0,0,0,0,0	Grants the Power of the Fairy	1566795
+170	Fairy Possession D	-1	0	State_JLFT_Add	State_JLFT_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	530	-1	0	0	0	s0234,0,0,0,0,0,0,0,0,0	Grants the Power of the Fairy	1566795
+171	Fairy Possession E	-1	0	State_JLFT_Add	State_JLFT_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	531	-1	0	0	0	s0234,0,0,0,0,0,0,0,0,0	Grants the Power of the Fairy	1566795
+172	Fairy Possession F	-1	0	State_JLFT_Add	State_JLFT_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	532	-1	0	0	0	s0234,0,0,0,0,0,0,0,0,0	Grants the Power of the Fairy	1566795
+173	Fairy Possession G	-1	0	State_JLFT_Add	State_JLFT_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	533	-1	0	0	0	s0234,0,0,0,0,0,0,0,0,0	Grants the Power of the Fairy	1566795
+174	Fairy Possession H	-1	0	State_JLFT_Add	State_JLFT_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	534	-1	0	0	0	s0234,0,0,0,0,0,0,0,0,0	Grants the Power of the Fairy	1566795
+176	Carrion Ball	-1	0	State_FuShiZhiQiu_Add	State_FuShiZhiQiu_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	306	1	0	0	0	n1700,0,0,0,0,0,0,0,0,0	Decreases Defense and Physical Resist	15218966
+177	Noise Polluter	1	State_ZaoYinZhiZao_Tran	State_ZaoYinZhiZao_Add	State_ZaoYinZhiZao_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	1	0	920	1	0	0	0	n1701,0,0,0,0,0,0,0,0,0	Decreases Spirit	15218966
+178	Earthquake Generator	-1	State_DiZhenFaSheng_Tran	State_DiZhenFaSheng_Add	State_DiZhenFaSheng_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	326	1	0	253	1	0	0	0	n1702,0,0,0,0,0,0,0,0,0	Decreases Movement Speed	15218966
+179	Chain Bullet	-1	0	State_LianDan_Add	State_LianDan_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	271	-1	0	0	0	n1716,0,0,0,0,0,0,0,0,0	Decreases Movement Speed of Ship	15218966
+180	Mirage Generator	-1	0	State_HuanYinFaSheng_Add	State_HuanYinFaSheng_Rem	1	0	1	1	1	1	1	0	0	0	1	1	1	1	0	0	0	-1	0	0	0	912	-1	0	0	0	n1712,0,0,0,0,0,0,0,0,0	Grants Invincibility to Ship	1566795
+181	Stealth Ship	-1	0	State_ChuanZhiQianXing_Add	State_ChuanZhiQianXing_Rem	1	0	1	1	1	0	1	1	1	1	0	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	n1714,0,0,0,0,0,0,0,0,0	0	1566795
+182	Radar	-1	State_LeiDa_Tran	State_LeiDa_Add	State_LeiDa_Rem	1	0	1	1	1	1	1	1	1	1	1	0	1	1	0	0	0	-1	176	1	0	0	-1	0	0	0	n1715,0,0,0,0,0,0,0,0,0	Reveals Stealth of Ship	15218966
+183	Carrion Bullet	1	0	State_FuShiDan_Add	State_FuShiDan_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	250	-1	0	0	0	n1711,0,0,0,0,0,0,0,0,0	Decreases Fuel of Ship	15218966
+184	Water Mine burning	1	State_Slrs_Tran	State_Slrs_Add	State_Slrs_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	115	2	0	0	0	n1717,0,0,0,0,0,0,0,0,0	0	1566795
+185	Burning Lamb	1	State_Myrs_Tran	State_Myrs_Add	State_Myrs_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	115	2	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+186	Drag Tower	-1	0	State_JST_Add	State_JST_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	297	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+187	Healing Spring	1	0	State_HFZQ_Add	State_HFZQ_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	166	-1	0	0	0	s0122,0,0,0,0,0,0,0,0,0	Heals Target Continuously	1566795
+188	Devil Curse	1	0	State_EmoYuYan_Add	State_EmoYuYan_Rem	1	0	1	1	1	0	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	936	-1	0	0	0	s0457,0,0,0,0,0,0,0,0,0	Deals Damage Continuously and Decreases Stats	15218966
+189	Super consciousness	3	State_XYSYF_Tran	State_XYSYF_Add	State_XYSYF_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	937	1	0	131	-1	0	0	0	s0454,0,0,0,0,0,0,0,0,0	Deals Damage Continuously	15218966
+190	Ammo Warehouse is gone	-1	0	State_JHKML_Add	State_JHKML_Rem	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+191	Energy	-1	0	State_BDH_Add	State_BDH_Rem	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	490	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+//192	Spirit of Light	-1	0	STATE_TELF_Add	STATE_TELF_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	943	-1	0	0	0	n2321	0	0	0	0
+192	Lv85 BB Sealing Ring	-1	0	State_BBRING5_Add	State_BBRING5_Rem	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	572	2	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+193	VIP Status	-1	0	State_VIP_Add	State_VIP_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	4022	1	0	0	0	0,0,0,0,0,0,0,0,0,0	Vip Status	1566795
+194	Egg Yolk Dumpling	-1	0	State_DHZ_Add	State_DHZ_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	1	0	0	0	n1866,0,0,0,0,0,0,0,0,0	0	1566795
+195	Bean Paste Dumpling	-1	0	State_DSZ_Add	State_DSZ_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	n1867,0,0,0,0,0,0,0,0,0	0	1566795
+196	Qka Osht	-1	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+197	Spo di	-1	0	State_Ilovedad_Add	State_Ilovedad_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	552	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+198	Recover HP slowly	-1	0	STATE_HPHMHF_Add	STATE_HPHMHF_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+199	Flag Holder	-1	0	State_None_Add	State_None_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	912	-1	0	0	0	s0009,0,0,0,0,0,0,0,0,0	Flag	15218966
+202	Lv85 BB Cow Ring	-1	0	State_BBRING1_Add	State_BBRING1_Rem	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	574	2	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+203	Lv85 BB Twined Ring	-1	0	State_BBRING2_Add	State_BBRING2_Rem	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	576	2	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+204	Lv85 BB Hunting Ring	-1	0	State_BBRING3_Add	State_BBRING3_Rem	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	575	2	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+205	Lv85 BB Navigating Ring	-1	0	State_BBRING4_Add	State_BBRING4_Rem	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	573	2	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+207	Lv85 BB Holy Ring	-1	0	State_BBRING6_Add	State_BBRING6_Rem	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	577	2	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+212	App Set	-1	0	0	0	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	583	-1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+213	Force of the Devil	-1	0	State_EMZL_Add	State_EMZL_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	b7383,0,0,0,0,0,0,0,0,0	0	1566795
+
+214	Riven Soul Rune	-1	0	STATE_Riven_Add	STATE_Riven_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	319	3	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+215	Piercing Rune	-1	0	STATE_Pierc_Add	STATE_Pierc_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	319	3	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+216	Illusory Rune	-1	0	STATE_Illus_Add	STATE_Illus_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	319	3	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+217	Curse Rune	-1	0	STATE_Curs_Add	STATE_Curs_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	319	3	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+218	Super Magma Bullet	1	State_RsS_Tran	State_RsS_Add	State_RsS_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	112	0	0	115	2	0	0	0	e0013,0,0,0,0,0,0,0,0,0	Inflicts Super Burn Damage	15218966
+
+224	Common Cloak	-1	0	0	0	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	4100	1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+225	Refined Cloak	-1	0	0	0	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	4101	1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+226	Legendary Cloak	-1	0	0	0	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	4102	1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+227	Common Cloak	-1	0	0	0	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	4103	1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+228	Refined Cloak	-1	0	0	0	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	4104	1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+229	Legendary Cloak	-1	0	0	0	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	4105	1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+230	Common Cloak	-1	0	0	0	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	4106	1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+231	Refined Cloak	-1	0	0	0	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	4107	1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+232	Legendary Cloak	-1	0	0	0	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	4108	1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+233	Common Cloak	-1	0	0	0	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	4109	1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+234	Refined Cloak	-1	0	0	0	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	4110	1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+235	Legendary Cloak	-1	0	0	0	3	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	4111	1	0	0	0	0,0,0,0,0,0,0,0,0,0	0	1566795
+
+
+236	The Warrior's Rage	-1	0	State_KZS_Add	State_KZS_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	954	3	0	0	0	s530,0,0,0,0,0,0,0,0,0	Increases stats temporarily, with some side effects.	15218966																																																																																
+237	The Windrider's Grace	-1	0	State_YFZZT_Add	State_YFZZT_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	953	3	0	0	0	s531,0,0,0,0,0,0,0,0,0	Increases stats temporarily, with some side effects.	15218966
+238	Eye of Precision	-1	0	State_DYMX_Add	State_DYMX_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	118	1	0	0	0	s525,0,0,0,0,0,0,0,0,0	Deals double damage. May not be used with other skills.	15218966
+239	Excrucio		2	0	State_TKZY_Add	State_TKZY_Rem	1	0	1	1	1	1	0	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	936	-1	0	0	0	s529,0,0,0,0,0,0,0,0,0	Deals damage to target within range.	15218966
+240	Curse of Weakening	-1	State_ZZZY_Tran	State_ZZZY_Add	State_ZZZY_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	112	0	0	210	2	0	0	0	s528,0,0,0,0,0,0,0,0,0	Decreases target's physical defense within range.	15218966
+241	Omnis Immunity	-1	0	State_Jnmy_Add	State_Jnmy_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	0	-1	0	0	0	s522,0,0,0,0,0,0,0,0,0	Gives immunity to all physical attacks and skill attacks.	15218966
+242	Bane of Waning	-1	State_XRZY_Tran	State_XRZY_Add	State_XRZY_Rem	1	0	1	1	1	1	1	1	1	1	1	1	1	1	0	0	0	-1	0	0	0	241	-1	0	0	0	s527,0,0,0,0,0,0,0,0,0	Decreases target's attack within range.	15218966
+
+
+

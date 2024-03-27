@@ -57,7 +57,9 @@ class CSkillStateRecord : public CRawDataInfo
   short sBitEffect;						   // 该状态下受击特效表现
   short sDummy2;						   // 特效播放dummy点
   short sIcon;							   // 中该效果挂在身上的ICON表现
-
+  char	szIcon[defSKILLSTATE_NAME_LEN][10];// icons for pots per level 
+  char	szDesc[255];
+  int	lColour;
   public:
   void RefreshPrivateData();
 

@@ -16,7 +16,7 @@ class CEquipMgr : public CUIInterface
 {
   public:
   void SynSkillBag(DWORD dwCharID, stNetSkillBag* pSSkillBag);
-
+  	CForm* stateDrags;
   void UpdataEquip(const stNetChangeChaPart& SPart, CCharacter* pCha);
   void UpdataEquipData(const stNetChangeChaPart& SPart, CCharacter* pCha);
 
@@ -77,7 +77,7 @@ class CEquipMgr : public CUIInterface
   static void _evtFastChange(CGuiData* pSender, CCommandObj* pItem, bool& isAccept);	 // 快捷栏发生变化
   static void _evtEquipEvent(CGuiData* pSender, CCommandObj* pItem, bool& isAccept);	 // 从道具栏中装备到装备栏
   static void _evtThrowEquipEvent(CGuiData* pSender, CCommandObj* pItem, bool& isThrow); // 从装备栏扔出装备
-
+  	static void		_OnDragStates(CGuiData* pSender, int x, int y, DWORD key);
   static void _evtButtonClickEvent(CGuiData* pSender, int x, int y, DWORD key);
   static void _evtRMouseGridEvent(CGuiData* pSender, CCommandObj* pItem, int nGridID);
 

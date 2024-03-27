@@ -79,7 +79,7 @@ struct stSkillState
 {
   BYTE chID;
   BYTE chLv; // 为零删除这个状态,大于零填加这个状态
-
+  unsigned long		lTimeRemaining{0};
   stSkillState() :
 	  chID(0), chLv(0){};
 };

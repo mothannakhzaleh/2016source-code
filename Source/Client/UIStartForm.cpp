@@ -1550,14 +1550,14 @@ void CStartMgr::FrameMove(DWORD dwTime)
 
 	  static bool IsFlash;
 	  IsFlash = !IsFlash;
-	  /*if( IsFlash && Data.sEnergy[1]==Data.sEnergy[0] )
+	  if( IsFlash && Data.sEnergy[1]==Data.sEnergy[0] )
 			{
 				proPetSP->GetImage()->SetColor( 0xff00ff00 );
 			}
 			else
 			{
 				proPetSP->GetImage()->SetColor( 0xFFFFFFFF );
-			}*/
+			}
 
 	  if(!frmMainPet->GetIsShow())
 		frmMainPet->Show();
@@ -1727,20 +1727,20 @@ void CStartMgr::RefreshPet(CItemCommand* pItem)
   s_item.Convert(pItem->GetData(), pInfo);
 
   // 更新宠物等级,头像
-  ///*int nLevel = s_item.sInstAttr[ITEMATTR_VAL_STR]
-  //			+ s_item.sInstAttr[ITEMATTR_VAL_AGI]
-  //			+ s_item.sInstAttr[ITEMATTR_VAL_DEX]
-  //			+ s_item.sInstAttr[ITEMATTR_VAL_CON]
-  //			+ s_item.sInstAttr[ITEMATTR_VAL_STA];
+  int nLevel = s_item.sInstAttr[ITEMATTR_VAL_STR]
+  			+ s_item.sInstAttr[ITEMATTR_VAL_AGI]
+  			+ s_item.sInstAttr[ITEMATTR_VAL_DEX]
+  			+ s_item.sInstAttr[ITEMATTR_VAL_CON]
+  			+ s_item.sInstAttr[ITEMATTR_VAL_STA];
 
-  //_snprintf_s( szBuf, _countof( szBuf ), _TRUNCATE , "%d", nLevel );
-  //labPetLv->SetCaption( szBuf );
+  _snprintf_s( szBuf, _countof( szBuf ), _TRUNCATE , "%d", nLevel );
+  labPetLv->SetCaption( szBuf );
 
-  //static CGuiPic* Pic = imgPetHead->GetImage();
-  //Pic->LoadImage( pInfo->GetIconFile(),
-  //	imgPetHead->GetWidth(), imgPetHead->GetHeight(),
-  //	0,
-  //	4, 4 );*/
+  static CGuiPic* Pic = imgPetHead->GetImage();
+  Pic->LoadImage( pInfo->GetIconFile(),
+  	imgPetHead->GetWidth(), imgPetHead->GetHeight(),
+  	0,
+  	4, 4 );
 }
 
 void CStartMgr::ShowHelpSystem(bool bShow, int nIndex)

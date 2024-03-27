@@ -193,9 +193,40 @@ bool CEquipMgr::Init()
 	  }
 	}
   }
+  	// Draggable states 
+	stateDrags = _FindForm("stateDrags");
+	if( !stateDrags ) 		return false; 
+	stateDrags->evtMouseDragEnd = _OnDragStates;
+
   return true;
 }
 
+void CEquipMgr::_OnDragStates(CGuiData* pSender, int x, int y, DWORD key)
+{
+	if (g_stUIEquip.stateDrags->GetTop() <= 0)
+	{
+		g_stUIEquip.stateDrags->SetPos(g_stUIEquip.stateDrags->GetLeft(), 0);
+		g_stUIEquip.stateDrags->Refresh();
+	}
+
+	if (g_stUIEquip.stateDrags->GetLeft() <= 0)
+	{
+		g_stUIEquip.stateDrags->SetPos(0, g_stUIEquip.stateDrags->GetTop());
+		g_stUIEquip.stateDrags->Refresh();
+	}
+
+	if (g_stUIEquip.stateDrags->GetBottom() >= GetRender().GetScreenHeight())
+	{
+		g_stUIEquip.stateDrags->SetPos(g_stUIEquip.stateDrags->GetLeft(), GetRender().GetScreenHeight() - g_stUIEquip.stateDrags->GetHeight());
+		g_stUIEquip.stateDrags->Refresh();
+	}
+
+	if (g_stUIEquip.stateDrags->GetRight() >= GetRender().GetScreenWidth())
+	{
+		g_stUIEquip.stateDrags->SetPos(GetRender().GetScreenWidth() - g_stUIEquip.stateDrags->GetWidth()+20, g_stUIEquip.stateDrags->GetTop());
+		g_stUIEquip.stateDrags->Refresh();
+	}
+}
 void CEquipMgr::End()
 {
   //RefreshServerShortCut(); Human已经无效
