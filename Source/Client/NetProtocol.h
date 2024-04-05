@@ -433,7 +433,7 @@ struct stNetDefaultSkill
 
 struct stNetSkillState // 更新技能状态
 {
-  char					   chType; // 更新类型（未定义）
+  char					   chType{}; // 更新类型（未定义）
   CSizeArray<stSkillState> SState;
 };
 

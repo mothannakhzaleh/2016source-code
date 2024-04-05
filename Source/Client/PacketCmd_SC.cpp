@@ -930,6 +930,8 @@ BOOL SC_CharacterAction(LPRPACKET pk)
 	  // 同步技能状态
 	  if(pk.ReadChar() == 1)
 	  {
+		  //skill timer 
+		  pk.ReadLong();
 		chSStateNum = pk.ReadChar();
 		if(chSStateNum > 0)
 		{
@@ -938,6 +940,9 @@ BOOL SC_CharacterAction(LPRPACKET pk)
 		  {
 			SSkillInfo.SState[chNum].chID = pk.ReadChar();
 			SSkillInfo.SState[chNum].chLv = pk.ReadChar();
+			//skip two packe tof skill start and duration @mothannakh 
+			pk.ReadLong();
+			pk.ReadLong();
 		  }
 		}
 	  }
