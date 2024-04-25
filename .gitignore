@@ -202,3 +202,4 @@ Client/system/Chat/YATOPS/
 Server/dumps/
 .vs/TOP/
 .vs/
+*.exp

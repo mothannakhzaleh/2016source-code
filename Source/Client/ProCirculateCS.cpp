@@ -422,7 +422,7 @@ void CProCirculate::DelCha(const char* cha, const char szPassword2[])
   WPacket pk = pCNetIf->GetWPacket();
   pk.WriteCmd(CMD_CM_DELCHA);
   pk.WriteString(cha);
-  WritePacketSequenceEncrypted(pk, pCNetIf->m_AESKey, (uint8_t*)szPassword2, strlen(szMD5) + 1);
+  WritePacketSequenceEncrypted(pk, g_NetIF->m_AESKey, (uint8_t*)szMD5, strlen(szMD5) + 1);
   pCNetIf->SendPacketMessage(pk);
 }
 
