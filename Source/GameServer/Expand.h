@@ -3057,7 +3057,7 @@ T_E}
 //Add by sunny.sun 20080821
 inline int lua_GMNotice( lua_State *pLS )
 {T_B
-	const char *gmNotice =	lua_tostring(pLS, 1);
+	const auto gmNotice = lua_tostring(pLS, 1);
 	if(gmNotice == NULL)
 		return 0;
 

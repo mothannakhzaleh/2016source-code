@@ -249,7 +249,8 @@ void GroupServerApp::OnProcessData(DataSocket *datasock,RPacket &recvbuf)
 			CP_GM1SAY1(NULL,datasock,recvbuf);
 			return;
 		case CMD_MP_GM1SAY:
-			CP_GM1SAY( NULL, datasock, recvbuf);
+			const auto msg = recvbuf.ReadString();
+			CP_GMNotice(msg);
 			return;
 		}
 		Player	*	l_ply	=reinterpret_cast<Player *>(MakePointer(recvbuf.ReverseReadLongLong()));

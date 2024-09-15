@@ -1671,6 +1671,7 @@ void CGameApp::GMNotice( const char * szString )
 	WPACKET WtPk  = GETWPACKET();
 	WRITE_CMD(WtPk, CMD_MP_GM1SAY);
 	WRITE_STRING(WtPk, szString);
+	WRITE_STRING(WtPk, szString);
 	SENDTOGROUP(WtPk);
 }
 

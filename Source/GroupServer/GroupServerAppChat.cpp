@@ -91,48 +91,65 @@ void	GroupServerApp::CP_GMSAY(Player *ply,DataSocket *datasock,RPacket &pk)
 }
 #endif
 
+void	GroupServerApp::CP_GMNotice(const char* content)
+{
+	//std::cout << "gm says :"<<content <<std::endl;
+	WPacket l_wpk = GetWPacket();
+	l_wpk.WriteCmd(CMD_PC_GM1SAY);
+	l_wpk.WriteString("");
+	l_wpk.WriteString(content); // 
+	Player* l_plylst[10240]{};
+	short l_plynum = 0;
+
+	Player* l_ply1;
+	const RunChainGetArmor<Player> l(m_plylst);
+	while (l_ply1 = m_plylst.GetNextItem()) {
+		if (l_ply1->m_currcha >= 0) {
+			l_plylst[l_plynum] = l_ply1;
+			l_plynum++;
+		}
+	}
+	l.unlock();
+	SendToClient(l_plylst, l_plynum, l_wpk);
+}
+
+
 void	GroupServerApp::CP_GM1SAY(Player *ply,DataSocket *datasock,RPacket &pk)
 {
-	uShort		l_len;
-	cChar	*	l_content	=pk.ReadString(&l_len);
-	cChar * Nsrc = "";
-	if(!l_content ||l_len >500)return;
-	//Modify by sunny.sun 20080821
-	if( ply != NULL )
-	{
-		if(!ply->m_gm)
-		{
-			//ply->SendSysInfo("你没有该权限.");
+	uShort l_len;
+	cChar* l_content = pk.ReadString(&l_len);
+	auto Nsrc = "";
+	if (!l_content || l_len > 500)
+		return;
+	// Modify by sunny.sun 20080821
+	if (ply != nullptr) {
+		if (!ply->m_gm) {
 			ply->SendSysInfo(RES_STRING(GP_GROUPSERVERAPPCHAT_CPP_00001));
 			return;
 		}
 	}
-	WPacket	l_wpk	=GetWPacket();
+	WPacket l_wpk = GetWPacket();
 	l_wpk.WriteCmd(CMD_PC_GM1SAY);
-	if( ply != NULL)
-		l_wpk.WriteString(ply->m_chaname[ply->m_currcha].c_str());	//说话人的名字
-	else
-		{
-			l_wpk.WriteString( Nsrc );
-		}
-	l_wpk.WriteString(l_content);								//说话的内容
+	if (ply != nullptr)
+		l_wpk.WriteString(ply->m_chaname[ply->m_currcha].c_str()); // 
+	else {
+		l_wpk.WriteString(Nsrc);
+	}
+	l_wpk.WriteString(l_content); // 
+	Player* l_plylst[10240]{};
+	short l_plynum = 0;
 
-	Player *l_plylst[10240];
-	short	l_plynum	=0;
-
-	Player	*	l_ply1	=0;char	l_currcha	=0;
-	RunChainGetArmor<Player> l(m_plylst);
-	while(l_ply1	=m_plylst.GetNextItem())
-	{
-		if((l_currcha =l_ply1->m_currcha) >=0)
-		{
-			l_plylst[l_plynum]	=l_ply1;
-			l_plynum ++;
+	Player* l_ply1;
+	const RunChainGetArmor<Player> l(m_plylst);
+	while (l_ply1 = m_plylst.GetNextItem()) {
+		if (l_ply1->m_currcha >= 0) {
+			l_plylst[l_plynum] = l_ply1;
+			l_plynum++;
 		}
 	}
-	Nsrc = NULL;
+	Nsrc = nullptr;
 	l.unlock();
-	SendToClient(l_plylst,l_plynum,l_wpk);
+	SendToClient(l_plylst, l_plynum, l_wpk);
 }
 
 //Add by sunny.sun20080804

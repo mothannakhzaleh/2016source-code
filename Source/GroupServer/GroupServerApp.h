@@ -197,6 +197,7 @@ private:
 #ifdef MANAGE_VER	
 	void	CP_GMSAY(Player *ply,DataSocket *datasock,RPacket &pk);
 #endif
+	void	CP_GMNotice(const char* content);
 	void	CP_GM1SAY(Player *ply,DataSocket *datasock,RPacket &pk);
 	void	CP_GM1SAY1(Player *ply,DataSocket *datasock,RPacket &pk);//Add by sunny.sun20080804
 		
