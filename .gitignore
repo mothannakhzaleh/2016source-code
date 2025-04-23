@@ -24,7 +24,7 @@
 *.lai
 *.la
 *.a
-*.lib
+#*.lib
 
 # Executables
 #*.exe
@@ -186,14 +186,14 @@ tmp/
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
-x64/
-x86/
+
 bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
 
-
+#x64/
+#x86/
 
 *.vsidx
 *.db-shm
@@ -203,3 +203,9 @@ Server/dumps/
 .vs/TOP/
 .vs/
 *.exp
+*.exp
+Client/system/Engine_x86_Release.exp
+Source/CaLua/lib/CaLua.exp
+Server/AccountServer_x64_Release.exe
+Client/system/Engine_x86_Release.exp
+.vs/TOP/v17/fileList.bin

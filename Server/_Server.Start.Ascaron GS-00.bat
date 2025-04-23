@@ -11,6 +11,12 @@ if exist "log" (echo  [ Old log files were found...                        ] & g
 echo  [ Analyzis progress done... Starting up the GameServer.. ]
 CD Server
 ::start  GameServer_x64_Debug.exe GameServer.cfg
+start  AccountServer_x64_Release.exe AccountServer.cfg
+timeout /t 2
+start  GateServer_x64_Release.exe GateServer.cfg
+timeout /t 2
+start  GroupServer_x64_Release.exe GroupServer.cfg
+timeout /t 2
 start  GameServer_x64_Release.exe GameServer.cfg
 ::start  GameServer_x86_Release.exe GameServer.cfg
 echo  ------------------------------------------------------

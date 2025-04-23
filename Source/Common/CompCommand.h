@@ -348,7 +348,7 @@ enum EFightType // 挑战类型，此类型也用于脚本中，请勿改动
 
 #pragma pack(push)
 #pragma pack(1)
-typedef struct stNetChangeChaPart // 改变角色外观,注:客户端-服务器端默认皮肤的约定:客户端接收到0的皮肤时,自动载入CharacterRecord中的皮肤
+typedef struct stNetChangeChaPart //  
 {
   stNetChangeChaPart()
   {
@@ -363,18 +363,18 @@ typedef struct stNetChangeChaPart // 改变角色外观,注:客户端-服务器端默认皮肤的约
 	struct
 	{
 	  SItemGrid SLink[enumEQUIP_NUM];
-	  short		sHairID; // 默认的头发和脸型
+	  short		sHairID; //  
 	};
 
 	struct
 	{
-	  USHORT sPosID;	 // 船动作ID
-	  USHORT sBoatID;	 // 船信息表ID
-	  USHORT sHeader;	 // 船头
-	  USHORT sBody;		 // 船身
-	  USHORT sEngine;	 // 船只马达
-	  USHORT sCannon;	 // 船只火炮
-	  USHORT sEquipment; // 船只装备
+	  USHORT sPosID;	 //  
+	  USHORT sBoatID;	 //  
+	  USHORT sHeader;	 //  
+	  USHORT sBody;		 //  
+	  USHORT sEngine;	 //  
+	  USHORT sCannon;	 //  
+	  USHORT sEquipment; //  
 	};
   };
 } LOOK;

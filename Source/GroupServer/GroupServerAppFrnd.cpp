@@ -496,7 +496,9 @@ void GroupServerApp::PC_FRND_INIT(Player *ply)
 		if(l_farray[i].cha_id ==-1)
 			continue;
 		// End
-
+		l_ply1 = (Player*)MakePointer(l_farray[i].memaddr);
+		if (!l_ply1)
+			continue;
 		if(l_farray[i].cha_id ==0)
 		{
 			if(l_farray[i].icon_id ==0)

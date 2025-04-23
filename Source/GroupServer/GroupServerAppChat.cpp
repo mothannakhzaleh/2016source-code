@@ -666,7 +666,12 @@ void	GroupServerApp::CP_SESS_CREATE(Player *ply,DataSocket *datasock,RPacket &pk
 		for(uLong i=0;i<ply->m_chatarranum;i++)
 		{
 			Chat_Session	*l_sess1	=ply->m_chat[i]->GetSession();
+			if (!l_sess || !l_sess1)
+			{
+				continue;
+			}
 			if(l_sess1 ==l_sess)continue;
+
 			if(l_sess1->GetTotal() !=l_sess->GetTotal())continue;
 			Player	*l_ply1	=0,*l_ply2	=0;
 			RunChainGetArmor<Chat_Player> l(*l_sess1);
