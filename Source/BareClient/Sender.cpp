@@ -46,7 +46,6 @@ void CSender::LoginGameService()
 
 void CSender::CreateCharacter()
 {
-	CString city;
 	static volatile int i=0;
 	dbc::WPacket pk	=g_pNet->GetWPacket();
 	CString strName="FakeClient"+m_pPlayer->GetLoginData()->GetAccountName().Right(4);
@@ -56,25 +55,25 @@ void CSender::CreateCharacter()
 	pk.WriteCmd(CMD_CM_NEWCHA);
 	pk.WriteString(strName);
 	
-	if constexpr (false)
-	{
-	  i = (i + 1) % 3;
-	  if(i == 0)
-	  {
-		city = RES_STRING(CL_LANGUAGE_MATCH_39);
-	  } else if(i == 1)
-	  {
-		city = RES_STRING(CL_LANGUAGE_MATCH_40);
-	  } else
-	  {
-		city = RES_STRING(CL_LANGUAGE_MATCH_41);
-	  }
-	}
-	else
-	{ // ARGENT CITY
-	  city = RES_STRING(CL_LANGUAGE_MATCH_39);
-	}
-
+	//if (false)
+	//{
+	//  i = (i + 1) % 3;
+	//  if(i == 0)
+	//  {
+	//	city = RES_STRING(CL_LANGUAGE_MATCH_39);
+	//  } else if(i == 1)
+	//  {
+	//	city = RES_STRING(CL_LANGUAGE_MATCH_40);
+	//  } else
+	//  {
+	//	city = RES_STRING(CL_LANGUAGE_MATCH_41);
+	//  }
+	//}
+	//else
+	//{ // ARGENT CITY
+	//  city = RES_STRING(CL_LANGUAGE_MATCH_39);
+	//}
+	CString city = RES_STRING(CL_LANGUAGE_MATCH_39);
 
 	//CSystemInfo::Add(m_pPlayer->GetIndex(),"自动创建游戏角色...名字:%s",strName);
 	m_pPlayer->GetPlayerMessages().AddSystemMsg("Automatically create a game character... Name: %s Birthplace: %s",strName,city);

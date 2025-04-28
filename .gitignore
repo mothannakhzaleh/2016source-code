@@ -209,3 +209,26 @@ Source/CaLua/lib/CaLua.exp
 Server/AccountServer_x64_Release.exe
 Client/system/Engine_x86_Release.exp
 .vs/TOP/v17/fileList.bin
+
+
+# Unignore specific path inside Botan
+!Source/Botan/
+!Source/Botan/x86/
+!Source/Botan/x86/Release/
+!Source/Botan/x86/Release/lib/
+
+!Source/Botan/x86/
+!Source/Botan/x86/Debug/
+!Source/Botan/x86/Debug/lib/
+#x64 bit
+!Source/Botan/x64/
+!Source/Botan/x64/Release/
+!Source/Botan/x64/Release/lib/
+
+!Source/Botan/x64/
+!Source/Botan/x64/Debug/
+!Source/Botan/x64/Debug/lib/
+
+
+Source/CaLua/lib/CaLua.exp
+Client/system/Engine_x86_Release.exp
